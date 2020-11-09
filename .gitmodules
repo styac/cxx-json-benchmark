@@ -124,3 +124,6 @@
 [submodule "thirdparty/simdjson"]
 	path = thirdparty/simdjson
 	url = https://github.com/simdjson/simdjson
+[submodule "thirdparty/yyjson"]
+	path = thirdparty/yyjson
+	url = https://github.com/ibireme/yyjson
