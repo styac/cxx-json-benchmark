@@ -1,11 +1,5 @@
 #pragma once
 
-#include "machine.h"
-
-#ifndef MACHINE
-#define MACHINE "unknown"
-#endif
-
 #if defined(_WIN64)
 #	define OS "win64"
 #elif defined(_WIN32)
@@ -74,4 +68,4 @@
 #	define COMPILER "unknown"
 #endif
 
-#define RESULT_FILENAME MACHINE "_" OS "_" COMPILER ".csv"
+#define RESULT_FILENAME OS "_" COMPILER ".csv"

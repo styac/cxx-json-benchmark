@@ -1,7 +1,7 @@
 <html>
 <head>
-<link rel="stylesheet" href="../resource/combine/combine.css">
-<script src="../resource/combine/combine.js"></script>
+<link rel="stylesheet" href="./resource/combine/combine.css">
+<script src="./resource/combine/combine.js"></script>
 <!--
 <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
 <script src="http://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['controls', 'charteditor']}]}"></script>
@@ -78,7 +78,7 @@ $(function() {
     if (type.search("Code size") != -1) {
       var sizedt = google.visualization.data.group(
         view,
-        [1], 
+        [1],
         [{"column": 7, "aggregation": google.visualization.data.sum, 'type': 'number' }]
       );
       AddToOverall(sizedt);
@@ -93,7 +93,7 @@ $(function() {
 
       var timedt = google.visualization.data.group(
         view,
-        [1], 
+        [1],
         [{"column": 3, "aggregation": google.visualization.data.sum, 'type': 'number' }]
       );
 
@@ -119,7 +119,7 @@ $(function() {
         for (var column = 4; column <= 6; column++) {
           var memorydt = google.visualization.data.group(
             view,
-            [1], 
+            [1],
             [{"column": column, "aggregation": google.visualization.data.sum, 'type': 'number' }]
           );
           AddToOverall(memorydt);
@@ -150,14 +150,14 @@ $(function() {
               $('#imageGetFormSVG').val(svg);
               $('#imageGetForm').submit();
           });
-      });   
+      });
     $(this).after(d);
   });
 
   // Add configurations
   var thisConfig = <?="\"".basename($argv[1], '.'.pathinfo($argv[1], PATHINFO_EXTENSION))."\""?>;
   var configurations = [<?=
-    implode(",", 
+    implode(",",
       array_map(
         function ($filename) {
           return "\"" . basename($filename, ".csv") . "\"";
@@ -172,17 +172,17 @@ $(function() {
 
 function pivotTable(src) {
   var dst = new google.visualization.DataTable();
-  
+
   // Add columns
   var key = src.getDistinctValues(1);
   var keyColumnMap = {};
-  dst.addColumn(src.getColumnType(0), src.getColumnLabel(0));  
+  dst.addColumn(src.getColumnType(0), src.getColumnLabel(0));
   for (var k in key)
     keyColumnMap[key[k]] = dst.addColumn(src.getColumnType(2), key[k]);
 
   // Add rows
   var pivot = src.getDistinctValues(0);
-  var pivotRowMap = {};  
+  var pivotRowMap = {};
   for (var p in pivot)
     dst.setValue(pivotRowMap[[pivot[p]]] = dst.addRow(), 0, pivot[p]);
 
@@ -256,7 +256,7 @@ function drawBarChart(type, data, chart, sortOptions) {
   // Using same colors as in series
   var colors = ["#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#66aa00","#b82e2e","#316395","#994499","#22aa99","#aaaa11","#6633cc","#e67300","#8b0707","#651067","#329262","#5574a6","#3b3eac","#b77322","#16d620","#b91383","#f4359e","#9c5935","#a9c413","#2a778d","#668d1c","#bea413","#0c5922","#743411","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#66aa00","#b82e2e","#316395","#994499","#22aa99","#aaaa11","#6633cc","#e67300","#8b0707","#651067","#329262","#5574a6","#3b3eac","#b77322","#16d620","#b91383","#f4359e","#9c5935","#a9c413","#2a778d","#668d1c","#bea413","#0c5922","#743411"];
   var h = data.getNumberOfRows() * 12;
-  var options = { 
+  var options = {
     title: type,
     chartArea: {left: '20%', width: '70%', height: h },
     width: 800,
@@ -295,7 +295,7 @@ function drawBarChart(type, data, chart, sortOptions) {
 
 function drawPivotBarChart(type, data, title) {
   var h = (data.getNumberOfColumns() + 1) * data.getNumberOfRows() * 5;
-  var options = { 
+  var options = {
     title: type,
     chartArea: {left: '10%', width: '70%', 'height': h},
     width: 800,

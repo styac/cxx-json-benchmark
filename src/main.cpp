@@ -782,18 +782,7 @@ static void BenchPerformance(const TestBase& test, const TestJsonList& testJsons
 }
 
 static void BenchAllPerformance(const TestJsonList& testJsons) {
-    // Try to write to /result path, where template.php exists
-    FILE *fp;
-    if ((fp = fopen("../../result/performance.php", "r")) != NULL) {
-        fclose(fp);
-        fp = fopen("../../result/performance_" RESULT_FILENAME, "w");
-    }
-    else if ((fp = fopen("../result/performance.php", "r")) != NULL) {
-        fclose(fp);
-        fp = fopen("../result/performance_" RESULT_FILENAME, "w");
-    }
-    else
-        fp = fopen("performance_" RESULT_FILENAME, "w");
+    FILE *fp = fopen(RESULT_FOLDER "/performance_" RESULT_FILENAME, "w");
 
     fputs("Type,Library,Filename,Time (ms)", fp);
 #if USE_MEMORYSTAT
@@ -820,9 +809,9 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
     makeValidFilename(testname);
 
     char mdFilename[FILENAME_MAX];
-    sprintf(mdFilename, "../../result/conformance_%s.md", testname);
+    sprintf(mdFilename, RESULT_FOLDER "/conformance_%s.md", testname);
     if (!(md = fopen(mdFilename, "w"))) {
-        sprintf(mdFilename, "../result/conformance_%s.md", testname);
+        sprintf(mdFilename, RESULT_FOLDER "/conformance_%s.md", testname);
         md = fopen(mdFilename, "w");
     }
 
@@ -841,7 +830,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
         MEMORYSTAT_SCOPE();
 
         char path[FILENAME_MAX];
-        sprintf(path, "../data/jsonchecker/pass%02d.json", i);
+        sprintf(path, TEST_DATA_FOLDER "/jsonchecker/pass%02d.json", i);
         size_t length;
         char* json = ReadJSON(path, &length);
         if (!json)
@@ -873,7 +862,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
         MEMORYSTAT_SCOPE();
 
         char path[FILENAME_MAX];
-        sprintf(path, "../data/jsonchecker/fail%02d.json", i);
+        sprintf(path, TEST_DATA_FOLDER "/jsonchecker/fail%02d.json", i);
         size_t length;
         char* json = ReadJSON(path, &length);
         if (!json)
@@ -904,7 +893,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
     // from https://github.com/nst/JSONTestSuite/tree/master/test_transform
     // running in build/bin
     {
-        std::filesystem::path p("../../data/transform_extra/");
+        std::filesystem::path p(TEST_DATA_FOLDER "/transform_extra/");
         std::filesystem::directory_iterator end_it;
         for (std::filesystem::directory_iterator it(p); it != end_it; ++it) {
             if( ! is_regular_file(it->path())) {
@@ -1153,7 +1142,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
         MEMORYSTAT_SCOPE();
         
         char path[FILENAME_MAX];
-        sprintf(path, "../data/roundtrip/roundtrip%02d.json", i);
+        sprintf(path, TEST_DATA_FOLDER "/roundtrip/roundtrip%02d.json", i);
         size_t length;
         char* json = ReadJSON(path, &length);
         if (!json)
@@ -1218,18 +1207,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
 }
 
 static void BenchAllConformance() {
-    FILE *fp;
-    if ((fp = fopen("../../result/conformance.php", "r")) != NULL) {
-        fclose(fp);
-        fp = fopen("../../result/conformance.csv", "w");
-    }
-    else if ((fp = fopen("../result/conformance.php", "r")) != NULL) {
-        fclose(fp);
-        fp = fopen("../result/conformance.csv", "w");
-    }
-    else
-        fp = fopen("conformance.csv", "w");
-
+    FILE *fp = fopen(RESULT_FOLDER "/conformance.csv", "w");
     fputs("Type,Library,Test,Result\n", fp);
 
     TestList& tests = TestManager::Instance().GetTests();
@@ -1281,8 +1259,7 @@ int main(int argc, char* argv[]) {
     {
         // Read files
         TestJsonList testJsons;
-        if (!ReadFiles("../data/%s", testJsons))
-            ReadFiles("../../data/%s", testJsons);
+        ReadFiles(TEST_DATA_FOLDER "/%s", testJsons);
 
         // sort tests
         TestList& tests = TestManager::Instance().GetTests();
