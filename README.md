@@ -31,9 +31,9 @@ platform:
 hardware:
 - AMD Bulldozer 8 core not too fast settings in BIOS
 
-[Conformance](./results/conformance.html)
+[a relative link](results/conformance.html)
 
-[Performance](./results/performance_linux64_gcc9.3.html)
+[a relative link](results/performance_linux64_gcc9.3.html)
 
 ------------------------------------------------------------------------
 
