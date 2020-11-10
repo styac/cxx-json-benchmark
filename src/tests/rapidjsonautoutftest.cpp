@@ -217,7 +217,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
         MemoryStream ms(json, strlen(json));
         AutoUTFInputStream<unsigned, MemoryStream> is(ms);
         Document doc;

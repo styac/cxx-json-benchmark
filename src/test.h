@@ -153,7 +153,7 @@ public:
     // E.g. json = "[1.0]" -> d = 1.0
 
     // const char* json should be std::string
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const {
         (void)json;
         (void)d;
         return false;

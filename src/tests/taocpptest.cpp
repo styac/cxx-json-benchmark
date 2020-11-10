@@ -120,7 +120,7 @@ public:
 //#endif
 
 #if TEST_CONFORMANCE
-   virtual bool ParseDouble(const char* json, double* d) const override override {
+   virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override override {
       try {
          auto root = tao::json::from_string(json);
          *d = root[0].get_double();

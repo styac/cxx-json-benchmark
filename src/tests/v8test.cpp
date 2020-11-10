@@ -246,7 +246,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const override override {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override override {
         HandleScope handle_scope(isolate);
         Local<Context> context = Local<Context>::New(isolate, context_);
         Context::Scope context_scope(context);

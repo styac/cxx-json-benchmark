@@ -112,7 +112,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const override override {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override override {
         std::istrstream is(json);
         try {
             value root = value::parse(is);

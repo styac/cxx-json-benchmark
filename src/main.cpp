@@ -953,7 +953,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
             bool result = false;\
             double actual = 0.0;\
             test.SetUp();\
-            if (test.ParseDouble(json, &actual)) \
+            if (test.ParseDouble(json, sizeof(json), &actual)) \
                 result = Double(expect).Uint64Value() == Double(actual).Uint64Value();\
             if (!result) {\
                 if (md)\
