@@ -141,7 +141,7 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
         JusonParseResult pr;
         juson_value_t* root = juson_parse(&pr.doc, json);
         if (root && root->t == JUSON_ARRAY && root->size && root->adata[0]->t == JUSON_STRING) {

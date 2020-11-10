@@ -1100,7 +1100,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
             size_t expectLength = sizeof(expect) - 1;\
             std::string actual;\
             test.SetUp();\
-            if (test.ParseString(json, actual)) \
+            if (test.ParseString(json, sizeof(json), actual)) \
                 result = (expectLength == actual.size()) && (memcmp(expect, actual.c_str(), expectLength) == 0);\
             if (!result) {\
                 if (md) {\

@@ -179,7 +179,7 @@ public:
         return true;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
         QJsonDocument v = QJsonDocument::fromJson(QByteArray(json));
         s = v.array()[0].toString().toStdString();
         return true;

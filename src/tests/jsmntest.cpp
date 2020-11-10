@@ -119,7 +119,7 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
         jsmn_parser parser;
         jsmn_init(&parser);
         jsmntok_t tokens[2];

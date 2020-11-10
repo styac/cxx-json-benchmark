@@ -107,7 +107,7 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
         CjsonParseResult pr;
         pr.root = cJSON_Parse(json);
         if ((pr.root != nullptr) && cJSON_IsArray(pr.root) && cJSON_IsString(pr.root->child)) {

@@ -145,7 +145,7 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
         UdpjsonParseResult pr;
         json_settings settings = json_settings();
         settings.value_extra = json_builder_extra;  /* space for json-builder state */

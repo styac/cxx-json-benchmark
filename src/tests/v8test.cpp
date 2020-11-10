@@ -267,7 +267,7 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
         HandleScope handle_scope(isolate);
         Local<Context> context = Local<Context>::New(isolate, context_);
         Context::Scope context_scope(context);

@@ -111,7 +111,7 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
         document doc = parse(dynamic_allocation(), literal(json));
         if (doc.is_valid() &&
             doc.get_root().get_type() == TYPE_ARRAY &&

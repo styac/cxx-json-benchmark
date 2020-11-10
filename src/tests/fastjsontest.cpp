@@ -167,7 +167,7 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
         FastjsonParseResult pr;
         std::string error_message;
         if (dom::parse_string(json, &pr.token, &pr.chunk, 0, 0, &error_message) &&

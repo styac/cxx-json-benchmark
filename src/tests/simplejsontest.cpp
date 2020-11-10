@@ -142,7 +142,7 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
         SimplejsonParseResult pr;
 
         char* backupLocale = std::setlocale(LC_ALL, 0);

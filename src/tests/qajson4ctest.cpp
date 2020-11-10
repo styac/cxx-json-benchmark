@@ -134,7 +134,7 @@ public:
 		}
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
         Qajson4cParseResult pr(json);
         if (QAJ4C_is_array(pr.root) &&
 			QAJ4C_array_size(pr.root) == 1 &&

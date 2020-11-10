@@ -277,7 +277,7 @@ public:
         }
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
         try {
             Parser parser;
             Var root = parser.parse(json);

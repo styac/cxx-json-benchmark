@@ -140,7 +140,7 @@ public:
     }
 
     // const char* json should be std::string
-    virtual bool ParseString(const char* json, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
         YYjsonParseResult pr;
         yyjson_read_flag flg=YYJSON_READ_NOFLAG;
         // extra time added
