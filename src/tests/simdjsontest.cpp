@@ -114,18 +114,18 @@ class SimdTest : public TestBase {
   bool virtual ParseDouble(const char *j, size_t jsize, double *d) const override {
     simdjson::error_code error;
     simdjson::dom::parser parser;
-    parser.parse(j, std::strlen(j)).at(0).get<double>().tie(*d, error);
+    parser.parse(j, jsize).at(0).get<double>().tie(*d, error);
     if (error) {
       return false;
     }
     return true;
   }
 
-  bool virtual ParseString(const char *j, size_t json, std::string &s) const override {
+  bool virtual ParseString(const char *j, size_t jsize, std::string &s) const override {
     simdjson::error_code error;
     std::string_view answer;
     dom::parser parser;
-    parser.parse(j,strlen(j))
+    parser.parse(j,jsize)
         .at(0)
         .get<std::string_view>()
         .tie(answer, error);

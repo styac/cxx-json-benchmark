@@ -127,7 +127,8 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    {
         YYjsonParseResult pr;
         yyjson_read_flag flg=YYJSON_READ_STOP_WHEN_DONE;
         pr.doc = yyjson_read(json,jsize,flg);

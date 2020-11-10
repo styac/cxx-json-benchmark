@@ -1,5 +1,7 @@
 #include "../test.h"
-#include "../cjsonlibs/centijson_renaming.h"
+//#include "../cjsonlibs/centijson_renaming.h"
+#define json_parse centijson_json_parse
+
 #include "centijson/src/json.h"
 #include "centijson/src/json-dom.h"
 #include "centijson/src/value.h"
@@ -111,12 +113,13 @@ public:
     CentijsonTest() {
     }
 #if TEST_INFO
-    virtual const char* GetName() const { return "Centijson (C)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "Centijson (C)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
         CentijsonParseResult* pr = new CentijsonParseResult;
         int err = json_dom_parse(json, length, &cfg, 0, &pr->root, NULL);
         if (err != 0) {
@@ -128,7 +131,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const CentijsonParseResult* pr = static_cast<const CentijsonParseResult*>(parseResult);
         CentijsonStringResult* sr = new CentijsonStringResult;
         json_dom_dump(&pr->root, write_callback, sr, 0, JSON_DOM_DUMP_MINIMIZE);
@@ -138,7 +142,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const CentijsonParseResult* pr = static_cast<const CentijsonParseResult*>(parseResult);
         CentijsonStringResult* sr = new CentijsonStringResult;
         json_dom_dump(&pr->root, write_callback, sr, 0, 0);
@@ -148,7 +153,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const CentijsonParseResult* pr = static_cast<const CentijsonParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(stat, (VALUE*) &pr->root);
@@ -218,7 +224,8 @@ public:
         return 0;
     }
 
-    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const {
+    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const override
+    {
         static const JSON_CALLBACKS sax_callbacks = {
             sax_process_callback
         };
@@ -298,7 +305,8 @@ public:
         return 0;
     }
 
-    virtual bool SaxStatistics(const char* json, size_t length, Stat* stat) const {
+    virtual bool SaxStatistics(const char* json, size_t length, Stat* stat) const override
+    {
         static const JSON_CALLBACKS sax_callbacks = {
             saxstat_process_callback
         };
@@ -313,9 +321,11 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    {
         CentijsonParseResult pr;
-        int err = json_dom_parse(json, strlen(json), &cfg, 0, &pr.root, NULL);
+        jsize = strlen(json);
+        int err = json_dom_parse(json, jsize, &cfg, 0, &pr.root, NULL);
         if (err == 0 &&
             value_type(&pr.root) == VALUE_ARRAY &&
             value_array_size(&pr.root) == 1 &&
@@ -328,9 +338,11 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    {
         CentijsonParseResult pr;
-        int err = json_dom_parse(json, strlen(json), &cfg, 0, &pr.root, NULL);
+        jsize = strlen(json);
+        int err = json_dom_parse(json, jsize, &cfg, 0, &pr.root, NULL);
         if (err == 0 &&
             value_type(&pr.root) == VALUE_ARRAY &&
             value_array_size(&pr.root) == 1 &&

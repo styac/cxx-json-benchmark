@@ -69,6 +69,7 @@ include_directories (
     "thirdparty/simdjson/singleheader",
     "thirdparty/yajl/src"
     "thirdparty/ujson4c/3rdparty/"
+    "thirdparty/centijson/src"
 )
 
 file( GLOB HEADERS ${PROJECT_SOURCE_DIR}
@@ -94,6 +95,7 @@ set( SOURCES_TESTS_C ${PROJECT_SOURCE_DIR}
 #    src/cjsonlibs/sheredom_jsonh_all.c
 #    src/cjsonlibs/sheredom_jsonh_renaming.h
 #    src/cjsonlibs/yajl_all.c
+    src/cjsonlibs/centijson_all.c
     src/cjsonlibs/yyjson_all.c
     src/cjsonlibs/ccan_all.c
     src/cjsonlibs/juson_all.c
@@ -123,7 +125,7 @@ set( SOURCES_TESTS
 #    src/tests/v8test.cpp
 #    src/tests/voorheestest.cpp
 #    src/tests/yajltest.cpp
-
+    src/tests/centijsontest.cpp
     src/tests/yyjsontest.cpp
     src/tests/sheredomjsonhtest.cpp
     src/tests/ujson4ctest.cpp

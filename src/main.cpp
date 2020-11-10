@@ -949,7 +949,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
             bool result = false;\
             double actual = 0.0;\
             test.SetUp();\
-            if (test.ParseDouble(json, sizeof(json), &actual)) \
+            if (test.ParseDouble(json, sizeof(json)-1, &actual)) \
                 result = Double(expect).Uint64Value() == Double(actual).Uint64Value();\
             if (!result) {\
                 if (md)\
@@ -1096,7 +1096,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
             size_t expectLength = sizeof(expect) - 1;\
             std::string actual;\
             test.SetUp();\
-            if (test.ParseString(json, sizeof(json), actual)) \
+            if (test.ParseString(json, sizeof(json)-1, actual)) \
                 result = (expectLength == actual.size()) && (memcmp(expect, actual.c_str(), expectLength) == 0);\
             if (!result) {\
                 if (md) {\

@@ -22,8 +22,8 @@ public:
 class StrdupTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "strdup (C)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override{ return "strdup (C)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 	
 #if TEST_PARSE
@@ -37,7 +37,7 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override {
         const StrdupParseResult* pr = static_cast<const StrdupParseResult*>(parseResult);
         StrdupStringResult* sr = new StrdupStringResult;
     	sr->s = (char*)malloc(pr->length + 1);
