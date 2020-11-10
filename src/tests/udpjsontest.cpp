@@ -128,7 +128,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override override {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
         UdpjsonParseResult pr;
         json_settings settings = json_settings();
         settings.value_extra = json_builder_extra;  /* space for json-builder state */

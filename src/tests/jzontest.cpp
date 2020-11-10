@@ -108,7 +108,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override override {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
         Parser parser;
         Node root = parser.parseString(json);
         if (parser.getError().empty() && root.isArray() && root.getCount() == 1 && root.get(0).isNumber()) {

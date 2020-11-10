@@ -816,11 +816,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
 
     char mdFilename[FILENAME_MAX];
     sprintf(mdFilename, RESULT_FOLDER "/conformance_%s.md", testname);
-    if (!(md = fopen(mdFilename, "w"))) {
-        sprintf(mdFilename, RESULT_FOLDER "/conformance_%s.md", testname);
-        md = fopen(mdFilename, "w");
-    }
-
+    md = fopen(mdFilename, "w");
     if (md)
         fprintf(md, "# Conformance of %s\n\n", test.GetName());
 

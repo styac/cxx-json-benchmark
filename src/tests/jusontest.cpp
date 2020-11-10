@@ -126,7 +126,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override override {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
         JusonParseResult pr;
         juson_value_t* root = juson_parse(&pr.doc, json);
         if (root && root->t == JUSON_ARRAY && root->size &&

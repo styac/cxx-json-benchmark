@@ -111,7 +111,7 @@ class SimdTest : public TestBase {
 #endif
 
 #if TEST_CONFORMANCE
-  bool ParseDouble(const char *j, size_t jsize, double *d) const override {
+  bool virtual ParseDouble(const char *j, size_t jsize, double *d) const override {
     simdjson::error_code error;
     simdjson::dom::parser parser;
     parser.parse(j, std::strlen(j)).at(0).get<double>().tie(*d, error);
@@ -121,7 +121,7 @@ class SimdTest : public TestBase {
     return true;
   }
 
-  bool ParseString(const char *j, size_t json, std::string &s) const override {
+  bool virtual ParseString(const char *j, size_t json, std::string &s) const override {
     simdjson::error_code error;
     std::string_view answer;
     dom::parser parser;

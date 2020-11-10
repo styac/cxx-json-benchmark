@@ -124,41 +124,41 @@ set( SOURCES_TESTS
 #    src/tests/voorheestest.cpp
 #    src/tests/yajltest.cpp
 
-#    src/tests/yyjsontest.cpp
-#    src/tests/sheredomjsonhtest.cpp
-#    src/tests/ujson4ctest.cpp
-#    src/tests/vincenthzlibjsontest.cpp # conformance memory leak
-#    src/tests/strduptest.cpp
-#    src/tests/ccantest.cpp
-#    src/tests/arduinojsontest.cpp
-#    src/tests/nbsdxsimplejsontest.cpp
-#    src/tests/qttest.cpp
-#    src/tests/configurutest.cpp
-#    src/tests/cpprestsdktest.cpp
-#    src/tests/dropboxjson11test.cpp
-#    src/tests/fastjsontest.cpp
-#    src/tests/gasontest.cpp
-#    src/tests/jeayesontest.cpp
-#    src/tests/jsmntest.cpp
-#    src/tests/jsonboxtest.cpp
+    src/tests/yyjsontest.cpp
+    src/tests/sheredomjsonhtest.cpp
+    src/tests/ujson4ctest.cpp
+    src/tests/vincenthzlibjsontest.cpp # conformance memory leak
+    src/tests/strduptest.cpp
+    src/tests/ccantest.cpp
+    src/tests/arduinojsontest.cpp
+    src/tests/nbsdxsimplejsontest.cpp
+    src/tests/qttest.cpp
+    src/tests/configurutest.cpp
+    src/tests/cpprestsdktest.cpp
+    src/tests/dropboxjson11test.cpp
+    src/tests/fastjsontest.cpp
+    src/tests/gasontest.cpp
+    src/tests/jeayesontest.cpp
+    src/tests/jsmntest.cpp
+    src/tests/jsonboxtest.cpp
     src/tests/jsonconstest.cpp
-#    src/tests/jsoncpptest.cpp
+    src/tests/jsoncpptest.cpp
 #    src/tests/jsonspirittest.cpp
-#    src/tests/jsonxxtest.cpp
-#    src/tests/jusontest.cpp
+    src/tests/jsonxxtest.cpp
+    src/tests/jusontest.cpp
     src/tests/nlohmanntest.cpp
-#    src/tests/picojsontest.cpp
-#    src/tests/pocotest.cpp
+    src/tests/picojsontest.cpp
+    src/tests/pocotest.cpp
     src/tests/rapidjsonautoutftest.cpp
     src/tests/rapidjsonfullprectest.cpp
     src/tests/rapidjsoninsitutest.cpp
     src/tests/rapidjsoniterativetest.cpp
     src/tests/rapidjsontest.cpp
     src/tests/simdjsontest.cpp
-#    src/tests/simplejsontest.cpp
-#    src/tests/taocpptest.cpp
-#    src/tests/udpjsontest.cpp
-#    src/tests/cajuntest.cpp
+    src/tests/simplejsontest.cpp
+    src/tests/taocpptest.cpp
+    src/tests/udpjsontest.cpp
+    src/tests/cajuntest.cpp
 )
 
 file( GLOB_RECURSE SOURCES_3PRTY ${PROJECT_SOURCE_DIR}

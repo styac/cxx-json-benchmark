@@ -114,7 +114,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override override {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
         Value root;
         if (read_string(std::string(json), root)) {
             try {

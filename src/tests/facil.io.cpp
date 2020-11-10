@@ -121,7 +121,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-  virtual bool ParseDouble(const char *json, double *d) const {
+  virtual bool ParseDouble(const char *json, size_t jsize, double *d) const override {
     FIOBJ tmp = 0;
     if (!fiobj_json2obj(&tmp, json, 999) || tmp == 0)
       return false;
@@ -140,7 +140,7 @@ public:
     return false;
   }
 
-  virtual bool ParseString(const char *json, std::string &s) const {
+  virtual bool ParseString(const char *json, size_t jsize, std::string &s) const override {
     FIOBJ tmp = 0;
     fiobj_json2obj(&tmp, json, 999);
     if (tmp == 0)

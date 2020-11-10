@@ -64,8 +64,8 @@ public:
 class YYjsonTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "yyjson (C)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "yyjson (C)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 	
 #if TEST_PARSE
@@ -110,7 +110,7 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const  override {
         const YYjsonParseResult* pr = static_cast<const YYjsonParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(stat, pr->doc);
@@ -119,43 +119,46 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override override {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
         YYjsonParseResult pr;
         yyjson_read_flag flg=YYJSON_READ_NOFLAG;
-        pr.doc = yyjson_read(json,sizeof(double),flg);
+        pr.doc = yyjson_read(json,jsize,flg);
         if (pr.doc==nullptr) {
              return false;
         }
-//        juson_value_t* root = juson_parse(&pr.doc, json);
-//        if (root && root->t == JUSON_ARRAY && root->size &&
-//            (root->adata[0]->t == JUSON_FLOAT || root->adata[0]->t == JUSON_INTEGER)) {
-//            if (root->adata[0]->t == JUSON_FLOAT)
-//                *d = root->adata[0]->fval;
-//            else
-//                *d = root->adata[0]->ival;
-//            return true;
-//        }
-//        else
+        yyjson_val *root = yyjson_doc_get_root(pr.doc);
+        size_t arrn = yyjson_arr_size(root);
+        if( arrn == 0) {
             return false;
+        }
+        auto v = yyjson_arr_get_first(root);
+        if( !yyjson_is_real(v)) {
+            return false;
+        }
+
+        *d = yyjson_get_real(v);
+        return true;
     }
 
     // const char* json should be std::string
     virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
         YYjsonParseResult pr;
         yyjson_read_flag flg=YYJSON_READ_NOFLAG;
-        // extra time added
-        auto length = strlen(json);
-        pr.doc = yyjson_read(json,length,flg);
+        pr.doc = yyjson_read(json,jsize,flg);
         if (pr.doc==nullptr) {
              return false;
         }
-//        juson_value_t* root = juson_parse(&pr.doc, json);
-//        if (root && root->t == JUSON_ARRAY && root->size && root->adata[0]->t == JUSON_STRING) {
-//            s = std::string(root->adata[0]->sval, root->adata[0]->len);
-//            return true;
-//        }
-//        else
+        yyjson_val *root = yyjson_doc_get_root(pr.doc);
+        size_t arrn = yyjson_arr_size(root);
+        if( arrn == 0) {
             return false;
+        }
+        auto v = yyjson_arr_get_first(root);
+        if( v->tag != YYJSON_TYPE_STR ) {
+            return false;
+        }
+        s = std::move(std::string(yyjson_get_str(v)));
+        return true;
     }
 #endif
 };
