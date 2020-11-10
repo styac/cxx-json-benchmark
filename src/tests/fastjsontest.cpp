@@ -152,7 +152,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const override {
+    virtual bool ParseDouble(const char* json, double* d) const override override {
         FastjsonParseResult pr;
         std::string error_message;
         if (dom::parse_string(json, &pr.token, &pr.chunk, 0, 0, &error_message) &&
@@ -167,7 +167,7 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const {
+    virtual bool ParseString(const char* json, std::string& s) const override {
         FastjsonParseResult pr;
         std::string error_message;
         if (dom::parse_string(json, &pr.token, &pr.chunk, 0, 0, &error_message) &&

@@ -108,7 +108,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const override {
+    virtual bool ParseDouble(const char* json, double* d) const override override {
         Parser parser;
         Node root = parser.parseString(json);
         if (parser.getError().empty() && root.isArray() && root.getCount() == 1 && root.get(0).isNumber()) {
@@ -119,7 +119,7 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const {
+    virtual bool ParseString(const char* json, std::string& s) const override {
         Parser parser;
         Node root = parser.parseString(json);
         if (parser.getError().empty() && root.isArray() && root.getCount() == 1 && root.get(0).isString()) {

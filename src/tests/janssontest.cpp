@@ -130,7 +130,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const override {
+    virtual bool ParseDouble(const char* json, double* d) const override override {
         JanssonParseResult pr;
         json_error_t error;
         pr.root = json_loads(json, 0, &error);
@@ -146,7 +146,7 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const {
+    virtual bool ParseString(const char* json, std::string& s) const override {
         JanssonParseResult pr;
         json_error_t error;
         pr.root = json_loads(json, JSON_ALLOW_NUL, &error);

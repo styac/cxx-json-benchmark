@@ -96,7 +96,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const override {
+    virtual bool ParseDouble(const char* json, double* d) const override override {
         CjsonParseResult pr;
         pr.root = cJSON_Parse(json);
         if ((pr.root != nullptr) && cJSON_IsArray(pr.root) && cJSON_IsNumber(pr.root->child)) {
@@ -107,7 +107,7 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const {
+    virtual bool ParseString(const char* json, std::string& s) const override {
         CjsonParseResult pr;
         pr.root = cJSON_Parse(json);
         if ((pr.root != nullptr) && cJSON_IsArray(pr.root) && cJSON_IsString(pr.root->child)) {

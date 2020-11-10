@@ -135,7 +135,7 @@ public:
 
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const override
+    virtual bool ParseDouble(const char* json, double* d) const override override
     {
         Variant v;
         if (v.parseJson(json) &&
@@ -152,7 +152,7 @@ public:
 
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const
+    virtual bool ParseString(const char* json, std::string& s) const override
     {
         Variant v;
         if (v.parseJson(json) &&

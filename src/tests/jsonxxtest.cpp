@@ -111,7 +111,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const override {
+    virtual bool ParseDouble(const char* json, double* d) const override override {
         Value v;
         if (v.parse(json) && v.is<Array>() && v.get<Array>().size() == 1) {
             *d = (double)v.get<Array>().get<Number>(0);
@@ -121,7 +121,7 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const {
+    virtual bool ParseString(const char* json, std::string& s) const override {
         Value v;
         if (v.parse(json) && v.is<Array>() && v.get<Array>().size() == 1) {
             s = v.get<Array>().get<String>(0);

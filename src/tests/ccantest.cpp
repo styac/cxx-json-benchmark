@@ -119,7 +119,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const override {
+    virtual bool ParseDouble(const char* json, double* d) const override override {
         CcanParseResult pr;
         pr.root = json_decode(json);
         if (pr.root && pr.root->tag == JSON_ARRAY && pr.root->children.head->tag == JSON_NUMBER) {
@@ -130,7 +130,7 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const {
+    virtual bool ParseString(const char* json, std::string& s) const override {
         CcanParseResult pr;
         pr.root = json_decode(json);
         if (pr.root && pr.root->tag == JSON_ARRAY && pr.root->children.head->tag == JSON_STRING) {

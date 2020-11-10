@@ -257,7 +257,7 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const {
+    virtual bool ParseString(const char* json, std::string& s) const override {
         Document doc;
 #ifdef TEST_INSITU
         RapidjsonParseResult pr(json, strlen(json));

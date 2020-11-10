@@ -143,7 +143,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const override {
+    virtual bool ParseDouble(const char* json, double* d) const override override {
         ArduinojsonParseResult pr;
 //        pr.buffer = strdup(json);
 //        DeserializationError error = deserializeJson(pr.jsonBuffer,pr.buffer);
@@ -161,7 +161,7 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const {
+    virtual bool ParseString(const char* json, std::string& s) const override {
         ArduinojsonParseResult pr;
 //        pr.buffer = strdup(json);
 //        DeserializationError error = deserializeJson(pr.jsonBuffer,pr.buffer);

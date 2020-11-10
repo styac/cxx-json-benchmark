@@ -114,7 +114,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const override {
+    virtual bool ParseDouble(const char* json, double* d) const override override {
         Value root;
         if (read_string(std::string(json), root)) {
             try {
@@ -127,7 +127,7 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const {
+    virtual bool ParseString(const char* json, std::string& s) const override {
         Value root;
         if (read_string(std::string(json), root)) {
             try {

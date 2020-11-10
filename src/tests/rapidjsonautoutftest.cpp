@@ -227,7 +227,7 @@ public:
         return true;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const {
+    virtual bool ParseString(const char* json, std::string& s) const override {
         MemoryStream ms(json, strlen(json));
         AutoUTFInputStream<unsigned, MemoryStream> is(ms);
         Document doc;

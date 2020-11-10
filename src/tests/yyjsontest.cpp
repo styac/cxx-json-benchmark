@@ -119,7 +119,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const override {
+    virtual bool ParseDouble(const char* json, double* d) const override override {
         YYjsonParseResult pr;
         yyjson_read_flag flg=YYJSON_READ_NOFLAG;
         pr.doc = yyjson_read(json,sizeof(double),flg);
@@ -140,7 +140,7 @@ public:
     }
 
     // const char* json should be std::string
-    virtual bool ParseString(const char* json, std::string& s) const {
+    virtual bool ParseString(const char* json, std::string& s) const override {
         YYjsonParseResult pr;
         yyjson_read_flag flg=YYJSON_READ_NOFLAG;
         // extra time added

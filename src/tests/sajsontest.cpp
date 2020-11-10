@@ -97,7 +97,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const override {
+    virtual bool ParseDouble(const char* json, double* d) const override override {
         document doc = parse(dynamic_allocation(), literal(json));
         if (doc.is_valid() &&
             doc.get_root().get_type() == TYPE_ARRAY &&
@@ -111,7 +111,7 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const {
+    virtual bool ParseString(const char* json, std::string& s) const override {
         document doc = parse(dynamic_allocation(), literal(json));
         if (doc.is_valid() &&
             doc.get_root().get_type() == TYPE_ARRAY &&

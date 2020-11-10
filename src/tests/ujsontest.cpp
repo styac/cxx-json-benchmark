@@ -112,7 +112,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const override {
+    virtual bool ParseDouble(const char* json, double* d) const override override {
         try {
             value root = parse(json);
             *d = double_cast(array_cast(root)[0]);
@@ -123,7 +123,7 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, std::string& s) const {
+    virtual bool ParseString(const char* json, std::string& s) const override {
         try {
             value root = parse(json);
             s = string_cast(array_cast(root)[0]);
