@@ -63,8 +63,8 @@ public:
 class JsmnTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "jsmn (C)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "jsmn (C)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 	
 #if TEST_PARSE
@@ -98,7 +98,7 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override {
         const JsmnParseResult* pr = static_cast<const JsmnParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(stat, pr->json, pr->tokens, pr->count);

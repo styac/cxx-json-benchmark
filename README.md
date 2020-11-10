@@ -1,4 +1,4 @@
-# Revitalize the tests. Update to the latest versions (PARTIAL test) - cmakefied build
+# C,C++ Json benchmarks, conformance check
 
 ## based on "Native JSON Benchmark" of Milo Yip (miloyip@gmail.com)
 

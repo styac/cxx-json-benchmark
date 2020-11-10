@@ -127,3 +127,9 @@
 [submodule "thirdparty/yyjson"]
 	path = thirdparty/yyjson
 	url = https://github.com/ibireme/yyjson
+[submodule "thirdparty/centijson"]
+	path = thirdparty/centijson
+	url = https://github.com/mity/centijson
+[submodule "thirdparty/glw_json"]
+	path = thirdparty/glw_json
+	url = https://github.com/yak32/glw_json

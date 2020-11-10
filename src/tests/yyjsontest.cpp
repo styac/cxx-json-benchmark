@@ -2,41 +2,51 @@
 #include "yyjson/src/yyjson.h"
 
 #include <cassert>
+#include <iostream>
 
-static void GenStat(Stat* s, const yyjson_doc* v) {
-    switch (v->val_read) {
-    case YYJSON_TYPE_OBJ:
-//        for (yyjson_val* child = v->head; child != 0; child = child->next) {
-//            GenStat(s, child);
-//            ++s->memberCount;
-//        }
-//        ++s->objectCount;
-        break;
+static void GenStat(Stat* s, const yyjson_val* obj) {
+    switch (yyjson_get_type(const_cast<yyjson_val*>(obj))) {
+    case YYJSON_TYPE_OBJ: {
+        size_t count = yyjson_obj_size(const_cast<yyjson_val*>(obj));
+        for (size_t i = 0; i < count; ++i) {
+            GenStat(s, yyjson_arr_get(const_cast<yyjson_val*>(obj),i));
+        }
+        size_t idx, max;
+        yyjson_val *key, *val;
+        yyjson_obj_foreach(const_cast<yyjson_val*>(obj), idx, max, key, val) {
+            GenStat(s, const_cast<yyjson_val*>(val));
+        }
+        ++s->objectCount;
+    }
+    break;
 
-    case YYJSON_TYPE_ARR:
-//        for (int i = 0; i < v->size; ++i)
-//            GenStat(s, v->adata[i]);
-//        s->elementCount += v->size;
-//        ++s->arrayCount;
-        break;
+    case YYJSON_TYPE_ARR: {
+        size_t count = yyjson_arr_size(const_cast<yyjson_val*>(obj));
+        for (size_t i = 0; i < count; ++i) {
+            GenStat(s, yyjson_arr_get(const_cast<yyjson_val*>(obj),i));
+        }
+        s->elementCount += count;
+        ++s->arrayCount;
+    }
+    break;
 
     case YYJSON_TYPE_STR:
         ++s->stringCount;
-        s->stringLength += v->dat_read;
-        break;
+        s->stringLength += yyjson_get_len(const_cast<yyjson_val*>(obj));
+    break;
 
     case YYJSON_TYPE_NUM:
         ++s->numberCount; 
-        break;
+    break;
 
     case YYJSON_TYPE_BOOL:
-        v->root ? ++s->trueCount: ++s->falseCount;
-        break;
+        yyjson_get_bool(const_cast<yyjson_val*>(obj)) ? ++s->trueCount: ++s->falseCount;
+    break;
 
     case YYJSON_TYPE_NULL:
     case YYJSON_TYPE_NONE:
         ++s->nullCount;
-        break;
+    break;
     
     default:
         assert(false);
@@ -53,8 +63,11 @@ public:
 
 class YYjsonStringResult : public StringResultBase {
 public:
-    YYjsonStringResult() : s() {}
-    ~YYjsonStringResult() { free(s); }
+    YYjsonStringResult()
+        : s(nullptr)
+    {}
+    ~YYjsonStringResult()
+    { free(s); }
 
     virtual const char* c_str() const { return s; }
 
@@ -80,31 +93,25 @@ public:
     }
 #endif
 
-
-#ifdef TEST_STRINGIFY
-#   undef TEST_STRINGIFY
-#endif
-
-#define TEST_STRINGIFY 0
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
-        const JusonParseResult* pr = static_cast<const JusonParseResult*>(parseResult);
-        JusonStringResult* sr = new JusonStringResult;
-        sr->s = cJSON_PrintUnformatted(pr->root);
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override {
+        const YYjsonParseResult* pr = static_cast<const YYjsonParseResult*>(parseResult);
+        YYjsonStringResult* sr = new YYjsonStringResult;
+        size_t len;
+        yyjson_write_flag flg = YYJSON_WRITE_NOFLAG;
+        sr->s = yyjson_write(pr->doc,flg, &len);
         return sr;
     }
 #endif
 
-#ifdef TEST_PRETTIFY
-#   undef TEST_PRETTIFY
-#endif
 
-#define TEST_PRETTIFY 0
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
-        const JusonParseResult* pr = static_cast<const JusonParseResult*>(parseResult);
-        JusonStringResult* sr = new JusonStringResult;
-        sr->s = cJSON_Print(pr->root);
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override {
+        const YYjsonParseResult* pr = static_cast<const YYjsonParseResult*>(parseResult);
+        YYjsonStringResult* sr = new YYjsonStringResult;
+        size_t len;
+        yyjson_write_flag flg = YYJSON_WRITE_PRETTY;
+        sr->s = yyjson_write(pr->doc,flg, &len);
         return sr;
     }
 #endif
@@ -113,7 +120,8 @@ public:
     virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const  override {
         const YYjsonParseResult* pr = static_cast<const YYjsonParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
-        GenStat(stat, pr->doc);
+        yyjson_val * root = yyjson_doc_get_root(pr->doc);
+        GenStat(stat, root);
         return true;
     }
 #endif
@@ -121,21 +129,16 @@ public:
 #if TEST_CONFORMANCE
     virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
         YYjsonParseResult pr;
-        yyjson_read_flag flg=YYJSON_READ_NOFLAG;
+        yyjson_read_flag flg=YYJSON_READ_STOP_WHEN_DONE;
         pr.doc = yyjson_read(json,jsize,flg);
         if (pr.doc==nullptr) {
-             return false;
-        }
-        yyjson_val *root = yyjson_doc_get_root(pr.doc);
-        size_t arrn = yyjson_arr_size(root);
-        if( arrn == 0) {
             return false;
         }
+        auto root = yyjson_doc_get_root(pr.doc);
         auto v = yyjson_arr_get_first(root);
         if( !yyjson_is_real(v)) {
             return false;
         }
-
         *d = yyjson_get_real(v);
         return true;
     }
@@ -143,21 +146,22 @@ public:
     // const char* json should be std::string
     virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
         YYjsonParseResult pr;
-        yyjson_read_flag flg=YYJSON_READ_NOFLAG;
-        pr.doc = yyjson_read(json,jsize,flg);
+        yyjson_read_flag flg=YYJSON_READ_STOP_WHEN_DONE;
+        yyjson_read_err err;
+        pr.doc = yyjson_read_opts(const_cast<char*>(json),jsize,flg,nullptr, &err);
         if (pr.doc==nullptr) {
-             return false;
+            return false;
         }
         yyjson_val *root = yyjson_doc_get_root(pr.doc);
         size_t arrn = yyjson_arr_size(root);
         if( arrn == 0) {
             return false;
         }
-        auto v = yyjson_arr_get_first(root);
-        if( v->tag != YYJSON_TYPE_STR ) {
+        auto v = yyjson_arr_get(root,0);
+        if( ! yyjson_is_str(v) ) {
             return false;
         }
-        s = std::move(std::string(yyjson_get_str(v)));
+        s = std::string(yyjson_get_str( v ));
         return true;
     }
 #endif

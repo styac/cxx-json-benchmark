@@ -63,8 +63,8 @@ public:
 class NbsdxsimplejsonTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "nbsdx SimpleJSON (C++11)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "nbsdx SimpleJSON (C++11)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE
@@ -72,7 +72,7 @@ public:
         (void)length;
         NbsdxsimplejsonParseResult* pr = new NbsdxsimplejsonParseResult;
         try {
-            pr->root = JSON::Load(json);
+            pr->root = JSON::Load(std::string(json, length));
         }
         catch (...) {
             delete pr;
@@ -83,7 +83,7 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override {
         const NbsdxsimplejsonParseResult* pr = static_cast<const NbsdxsimplejsonParseResult*>(parseResult);
         NbsdxsimplejsonStringResult* sr = new NbsdxsimplejsonStringResult;
         sr->s = pr->root.dump();
@@ -92,7 +92,7 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override {
         const NbsdxsimplejsonParseResult* pr = static_cast<const NbsdxsimplejsonParseResult*>(parseResult);
         NbsdxsimplejsonStringResult* sr = new NbsdxsimplejsonStringResult;
         sr->s = pr->root.dump(1, "    ");
@@ -101,7 +101,7 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override {
         const NbsdxsimplejsonParseResult* pr = static_cast<const NbsdxsimplejsonParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(*stat, pr->root);
@@ -112,7 +112,7 @@ public:
 #if TEST_CONFORMANCE
     virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
         try {
-            JSON root = JSON::Load(json);
+            JSON root = JSON::Load(std::string(json, jsize));
             *d = root[0].ToFloat();
             return true;
         }
@@ -123,7 +123,7 @@ public:
 
     virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
         try {
-            JSON root = JSON::Load(json);
+            JSON root = JSON::Load(std::string(json, jsize));
             s = root[0].ToString();
             return true;
         }

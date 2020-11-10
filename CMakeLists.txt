@@ -143,7 +143,7 @@ set( SOURCES_TESTS
     src/tests/jsonboxtest.cpp
     src/tests/jsonconstest.cpp
     src/tests/jsoncpptest.cpp
-#    src/tests/jsonspirittest.cpp
+    src/tests/jsonspirittest.cpp # ok but very long compile time
     src/tests/jsonxxtest.cpp
     src/tests/jusontest.cpp
     src/tests/nlohmanntest.cpp
