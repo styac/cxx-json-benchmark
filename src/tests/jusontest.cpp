@@ -76,7 +76,7 @@ public:
 #endif
 	
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         (void)length;
         JusonParseResult* pr = new JusonParseResult;
         if (!juson_parse(&pr->doc, json)) {
@@ -126,7 +126,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         JusonParseResult pr;
         juson_value_t* root = juson_parse(&pr.doc, json);
         if (root && root->t == JUSON_ARRAY && root->size &&

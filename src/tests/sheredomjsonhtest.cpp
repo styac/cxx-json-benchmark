@@ -138,7 +138,7 @@ public:
 #endif
 	
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         SheredomParseResult* pr = new SheredomParseResult;
         pr->root = sheredom_json_parse(json, length);
         if (!pr->root) {
@@ -183,7 +183,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         SheredomParseResult pr;
         pr.root = sheredom_json_parse(json, strlen(json));
         if (pr.root && pr.root->type == json_type_array) {

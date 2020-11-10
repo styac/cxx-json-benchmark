@@ -70,7 +70,7 @@ public:
 #endif
 	
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         (void)length;
         Dropboxjson11ParseResult* pr = new Dropboxjson11ParseResult;
         std::string err;
@@ -102,7 +102,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         Json root;
         std::string err;
         root = Json::parse(json, err);

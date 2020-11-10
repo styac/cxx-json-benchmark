@@ -3,8 +3,8 @@
 
 #include <cassert>
 
-static void GenStat(Stat* s, const yyjson_val* v) {
-    switch (v->tag) {
+static void GenStat(Stat* s, const yyjson_doc* v) {
+    switch (v->val_read) {
     case YYJSON_TYPE_OBJ:
 //        for (yyjson_val* child = v->head; child != 0; child = child->next) {
 //            GenStat(s, child);
@@ -22,7 +22,7 @@ static void GenStat(Stat* s, const yyjson_val* v) {
 
     case YYJSON_TYPE_STR:
         ++s->stringCount;
-//        s->stringLength += v->len;
+        s->stringLength += v->dat_read;
         break;
 
     case YYJSON_TYPE_NUM:
@@ -30,18 +30,13 @@ static void GenStat(Stat* s, const yyjson_val* v) {
         break;
 
     case YYJSON_TYPE_BOOL:
-//        v->bval ? ++s->trueCount: ++s->falseCount;
+        v->root ? ++s->trueCount: ++s->falseCount;
         break;
 
     case YYJSON_TYPE_NULL:
+    case YYJSON_TYPE_NONE:
         ++s->nullCount;
         break;
-    
-//    case JUSON_PAIR:
-//        GenStat(s, v->val);
-//        ++s->stringCount;
-//        s->stringLength += v->key->len;
-//        break;
     
     default:
         assert(false);
@@ -74,8 +69,7 @@ public:
 #endif
 	
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
-        (void)length;
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         YYjsonParseResult* pr = new YYjsonParseResult;
         yyjson_read_flag flg=YYJSON_READ_NOFLAG;
         pr->doc = yyjson_read(json,length,flg);
@@ -119,14 +113,19 @@ public:
     virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
         const YYjsonParseResult* pr = static_cast<const YYjsonParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
-//        GenStat(stat, pr->doc);
+        GenStat(stat, pr->doc);
         return true;
     }
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         YYjsonParseResult pr;
+        yyjson_read_flag flg=YYJSON_READ_NOFLAG;
+        pr.doc = yyjson_read(json,sizeof(double),flg);
+        if (pr.doc==nullptr) {
+             return false;
+        }
 //        juson_value_t* root = juson_parse(&pr.doc, json);
 //        if (root && root->t == JUSON_ARRAY && root->size &&
 //            (root->adata[0]->t == JUSON_FLOAT || root->adata[0]->t == JUSON_INTEGER)) {
@@ -140,8 +139,16 @@ public:
             return false;
     }
 
+    // const char* json should be std::string
     virtual bool ParseString(const char* json, std::string& s) const {
         YYjsonParseResult pr;
+        yyjson_read_flag flg=YYJSON_READ_NOFLAG;
+        // extra time added
+        auto length = strlen(json);
+        pr.doc = yyjson_read(json,length,flg);
+        if (pr.doc==nullptr) {
+             return false;
+        }
 //        juson_value_t* root = juson_parse(&pr.doc, json);
 //        if (root && root->t == JUSON_ARRAY && root->size && root->adata[0]->t == JUSON_STRING) {
 //            s = std::string(root->adata[0]->sval, root->adata[0]->len);

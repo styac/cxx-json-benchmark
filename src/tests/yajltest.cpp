@@ -302,7 +302,7 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         (void)length;
         YajlParseResult* pr = new YajlParseResult;
         pr->root = yajl_tree_parse(json, NULL, 0);
@@ -363,7 +363,7 @@ public:
 #endif
 
 #if TEST_SAXROUNDTRIP
-    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const {
+    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const override {
         // https://github.com/lloyd/yajl/blob/master/reformatter/json_reformat.c
         (void)length;
         YajlStringResult* sr = new YajlStringResult;
@@ -404,7 +404,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         YajlParseResult pr;
         pr.root = yajl_tree_parse(json, NULL, 0);
         if (YAJL_IS_ARRAY(pr.root) && 

@@ -8,47 +8,6 @@
 
 #include "memorystat.h"
 
-#ifdef __CYGWIN__
-#include <cstdio>
-#include <cstdarg>
-// Cygwin does not define std::snprintf, std::to_string(...), etc.
-namespace std {
-
-inline int snprintf(char * s, size_t n, const char * format, ... ) {
-    va_list args;
-    va_start (args, format);
-    int ret = vsnprintf (s, n, format, args);
-    va_end (args);
-    return ret;
-}
-
-inline std::string to_string(double value) {
-    char buf[256];
-    sprintf(buf, "%f", value);
-    return std::string(buf);
-}
-
-inline long stol(const std::string& str, std::size_t* pos = 0, int base = 10) {
-    const char* s = str.c_str();
-    char *ptr;
-    long ret = strtol(s, &ptr, base);
-    if (pos)
-        *pos = ptr - s;
-    return ret;
-}
-
-inline double stod(const std::string& str, std::size_t* pos = 0) {
-    const char* s = str.c_str();
-    char *ptr;
-    double ret = strtod(s, &ptr);
-    if (pos)
-        *pos = ptr - s;
-    return ret;
-}
-
-} // namespace std
-#endif
-
 class TestBase;
 typedef std::vector<const TestBase *> TestList;
 
@@ -116,9 +75,9 @@ public:
         TestManager::Instance().AddTest(this);
     }
 
-    bool operator<(const TestBase& rhs) const {
-        return strcmp(name_, rhs.name_) < 0;
-    }
+//    bool operator<(const TestBase& rhs) const {
+//        return strcmp(name_, rhs.name_) < 0;
+//    }
 
     // For each operation, call SetUp() before and TearDown() after.
     // It is mainly for libraries require huge initialize time (e.g. Creating Isolate in V8).
@@ -131,6 +90,8 @@ public:
 #endif
 
 #if TEST_PARSE
+
+    // const char* json should be std::string
     virtual ParseResultBase* Parse(const char* json, size_t length) const {
         (void)json;
         (void)length;
@@ -190,12 +151,15 @@ public:
     // Parse a JSON of an array containing one double
     // Return false if it is failed to parse.
     // E.g. json = "[1.0]" -> d = 1.0
+
+    // const char* json should be std::string
     virtual bool ParseDouble(const char* json, double* d) const {
         (void)json;
         (void)d;
         return false;
     }
 
+    // const char* json should be std::string
     virtual bool ParseString(const char* json, std::string& s) const {
         (void)json;
         (void)s;
@@ -204,7 +168,7 @@ public:
 #endif
 
 protected:
-    const char* name_;
+//    const char* name_;
 };
 
 #define REGISTER_TEST(cls) static cls gRegister##cls

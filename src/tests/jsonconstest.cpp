@@ -83,7 +83,7 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         (void)length;
         JsonconsParseResult* pr = new JsonconsParseResult;
         try {

@@ -75,7 +75,7 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         JsonspiritParseResult* pr = new JsonspiritParseResult;
         if (!read_string(std::string(json, length), pr->root))
         {
@@ -114,7 +114,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         Value root;
         if (read_string(std::string(json), root)) {
             try {

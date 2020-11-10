@@ -134,7 +134,7 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         (void)length;
         RapidjsonParseResult* pr = new RapidjsonParseResult(json, length);
 #ifdef TEST_INSITU
@@ -185,7 +185,7 @@ public:
 #endif
 
 #if TEST_SAXROUNDTRIP
-    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const {
+    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const override {
         (void)length;
         Reader reader;
         RapidjsonStringResult* sr = new RapidjsonStringResult;
@@ -242,7 +242,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         Document doc;
 #ifdef TEST_INSITU
         RapidjsonParseResult pr(json, strlen(json));

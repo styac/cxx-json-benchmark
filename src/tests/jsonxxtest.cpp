@@ -81,7 +81,7 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         (void)length;
         JsonxxParseResult* pr = new JsonxxParseResult;
         if (!pr->v.parse(json)) {
@@ -111,7 +111,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         Value v;
         if (v.parse(json) && v.is<Array>() && v.get<Array>().size() == 1) {
             *d = (double)v.get<Array>().get<Number>(0);

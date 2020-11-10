@@ -84,7 +84,7 @@ public:
 // pjson does not support parsing to DOM, so Parse() and Statistics() are disabled.
 
 // #if TEST_PARSE
-//     virtual ParseResultBase* Parse(const char* json, size_t length) const {
+//     virtual ParseResultBase* Parse(const char* json, size_t length) const override {
 // 	    std::unique_ptr<PJsonParseResult> pr(new PJsonParseResult);
 // 		if (SaxStatistics(json, length, &pr->stat))
 // 			return pr.release();

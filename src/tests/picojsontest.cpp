@@ -62,7 +62,7 @@ public:
 #endif
 	
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         PicojsonParseResult* pr = new PicojsonParseResult;
         std::string err;
         parse(pr->v, json, json + length, &err);
@@ -93,7 +93,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         value v;
         std::string err;
         parse(v, json, json + strlen(json), &err);

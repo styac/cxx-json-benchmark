@@ -129,7 +129,7 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         QtParseResult* pr = new QtParseResult;
         QJsonParseError error;
         pr->d = QJsonDocument::fromJson(QByteArray(json, length), &error);
@@ -173,7 +173,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         QJsonDocument v = QJsonDocument::fromJson(QByteArray(json));
         *d = v.array()[0].toDouble();
         return true;

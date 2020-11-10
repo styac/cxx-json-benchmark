@@ -59,7 +59,7 @@ public:
 #endif
 
 #if TEST_PARSE
-   virtual ParseResultBase* Parse(const char* json, size_t length) const {
+   virtual ParseResultBase* Parse(const char* json, size_t length) const override {
       TAOCPPJSONParseResult* pr = new TAOCPPJSONParseResult;
       try {
          pr->root = tao::json::from_string(json, length);
@@ -100,7 +100,7 @@ public:
 #endif
 
 //#if TEST_SAXROUNDTRIP
-//    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const {
+//    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const override {
 //        TAOCPPJSONStringResult* sr = new TAOCPPJSONStringResult;
 //        std::ostringstream oss;
 //        tao::json::sax::to_stream handler( oss );
@@ -120,7 +120,7 @@ public:
 //#endif
 
 #if TEST_CONFORMANCE
-   virtual bool ParseDouble(const char* json, double* d) const {
+   virtual bool ParseDouble(const char* json, double* d) const override {
       try {
          auto root = tao::json::from_string(json);
          *d = root[0].get_double();

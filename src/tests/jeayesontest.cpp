@@ -73,7 +73,7 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         (void)length;
         JeayesonParseResult* pr = new JeayesonParseResult;
         // Determine object or array
@@ -125,7 +125,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         try {
             *d = json_array{json_data{json}}[0].as<json_float>();
             return true;

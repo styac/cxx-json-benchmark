@@ -81,7 +81,7 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         (void)length;
         JanssonParseResult* pr = new JanssonParseResult;
         json_error_t error;
@@ -130,7 +130,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         JanssonParseResult pr;
         json_error_t error;
         pr.root = json_loads(json, 0, &error);

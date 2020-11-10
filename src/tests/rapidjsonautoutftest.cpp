@@ -121,7 +121,7 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         RapidjsonAutoUTFParseResult* pr = new RapidjsonAutoUTFParseResult;
         MemoryStream ms(json, length);
         AutoUTFInputStream<unsigned, MemoryStream> is(ms);
@@ -174,7 +174,7 @@ public:
 #endif
 
 #if TEST_SAXROUNDTRIP
-    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const {
+    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const override {
         (void)length;
         GenericReader<AutoUTF<unsigned>, UTF8<> > reader;
         RapidjsonAutoUTFStringResult* sr = new RapidjsonAutoUTFStringResult;
@@ -217,7 +217,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         MemoryStream ms(json, strlen(json));
         AutoUTFInputStream<unsigned, MemoryStream> is(ms);
         Document doc;

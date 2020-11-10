@@ -27,7 +27,7 @@ public:
 #endif
 	
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         StrdupParseResult* pr = new StrdupParseResult;
         pr->r = (char*)malloc(length + 1);
         pr->length = length;

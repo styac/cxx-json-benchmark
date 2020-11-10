@@ -71,7 +71,7 @@ public:
 #endif
 	
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         (void)length;
         CpprestsdkParseResult* pr = new CpprestsdkParseResult;
 		std::istrstream is (json);
@@ -112,7 +112,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         std::istrstream is(json);
         try {
             value root = value::parse(is);

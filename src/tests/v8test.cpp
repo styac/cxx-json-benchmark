@@ -124,7 +124,7 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         HandleScope handle_scope(isolate);
         Local<Context> context = Local<Context>::New(isolate, context_);
         Context::Scope context_scope(context);
@@ -246,7 +246,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         HandleScope handle_scope(isolate);
         Local<Context> context = Local<Context>::New(isolate, context_);
         Context::Scope context_scope(context);

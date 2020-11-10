@@ -88,7 +88,7 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         (void)length;
         Qajson4cParseResult* pr = new Qajson4cParseResult(json, length);
         if (QAJ4C_is_error(pr->root)) {
@@ -120,7 +120,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         Qajson4cParseResult pr(json);
         if (QAJ4C_is_array(pr.root) &&
         	QAJ4C_array_size(pr.root) == 1 &&

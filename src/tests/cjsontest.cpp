@@ -56,7 +56,7 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         (void)length;
         CjsonParseResult* pr = new CjsonParseResult;
         pr->root = cJSON_ParseWithOpts(json, nullptr, static_cast<cJSON_bool>(true));
@@ -96,7 +96,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         CjsonParseResult pr;
         pr.root = cJSON_Parse(json);
         if ((pr.root != nullptr) && cJSON_IsArray(pr.root) && cJSON_IsNumber(pr.root->child)) {

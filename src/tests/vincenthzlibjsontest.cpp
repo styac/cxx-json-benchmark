@@ -383,7 +383,7 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         VinenthzParseResult* pr = new VinenthzParseResult;
 
         json_config config;
@@ -446,7 +446,7 @@ public:
 #endif
 
 #if TEST_SAXROUNDTRIP
-    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const {
+    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const override {
         VinenthzStringResult* sr = new VinenthzStringResult();
         json_printer printer;
         json_print_init(&printer, string_buffer_append, &sr->sb);
@@ -501,7 +501,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         VinenthzParseResult* pr = static_cast<VinenthzParseResult*>(Parse(json, strlen(json)));
         bool ret = false;
         if (pr && 

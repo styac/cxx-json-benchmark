@@ -75,7 +75,7 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         (void)length;
         SajsonParseResult* pr = new SajsonParseResult(parse(dynamic_allocation(), literal(json)));
         if (!pr->d.is_valid()) {
@@ -97,7 +97,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         document doc = parse(dynamic_allocation(), literal(json));
         if (doc.is_valid() &&
             doc.get_root().get_type() == TYPE_ARRAY &&

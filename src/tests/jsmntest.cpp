@@ -68,7 +68,7 @@ public:
 #endif
 	
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         JsmnParseResult* pr = new JsmnParseResult;
         jsmn_parser parser;
         jsmn_init(&parser);
@@ -107,7 +107,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         jsmn_parser parser;
         jsmn_init(&parser);
         jsmntok_t tokens[2];

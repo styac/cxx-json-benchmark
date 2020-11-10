@@ -96,7 +96,7 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         VoorheesParseResult* pr = new VoorheesParseResult;
         try {
             pr->root = parse(string_view(json, length));
@@ -140,7 +140,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         try {
             value v = parse(json);
             *d = v[0].as_decimal();

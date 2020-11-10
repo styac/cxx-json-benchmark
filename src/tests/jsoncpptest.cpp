@@ -69,7 +69,7 @@ public:
 #endif
 	
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         (void)length;
         JsoncppParseResult* pr = new JsoncppParseResult;
         Json::CharReaderBuilder rbuilder;
@@ -109,7 +109,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         Reader reader;
         Value root;
         if (reader.parse(json, root) && 

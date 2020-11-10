@@ -74,7 +74,7 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         (void)length;
         FollyParseResult* pr = new FollyParseResult;
         try {
@@ -116,7 +116,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         try {
             dynamic v = parseJson(StringPiece(json));
             *d = v[0].getDouble();

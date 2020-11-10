@@ -135,7 +135,7 @@ public:
 
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const
+    virtual bool ParseDouble(const char* json, double* d) const override
     {
         Variant v;
         if (v.parseJson(json) &&

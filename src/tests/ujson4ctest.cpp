@@ -74,7 +74,7 @@ public:
 #endif
 
 #if TEST_PARSE	
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         (void)length;
         Ujson4cParseResult* pr = new Ujson4cParseResult;
 		pr->root = UJDecode(json, length, NULL, &pr->state);
@@ -96,7 +96,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         Ujson4cParseResult pr;
 		pr.root = UJDecode(json, strlen(json), NULL, &pr.state);
 		if (pr.root && UJIsArray(pr.root)) {

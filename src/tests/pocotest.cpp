@@ -94,7 +94,7 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
         (void)length;
         PocoParseResult* pr = new PocoParseResult;
         Parser parser;
@@ -146,7 +146,7 @@ public:
 #endif
 
 #if TEST_SAXROUNDTRIP
-    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const {
+    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const override {
         std::ostringstream os;
         PrintHandler::Ptr handler = new PrintHandler(os, 0);
         Parser parser(handler);
@@ -265,7 +265,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, double* d) const {
+    virtual bool ParseDouble(const char* json, double* d) const override {
         try {
             Parser parser;
             Var root = parser.parse(json);
