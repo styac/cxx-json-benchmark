@@ -113,12 +113,13 @@ public:
 class FastjsonTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "mikeando FastJson (C++)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "mikeando FastJson (C++)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
         FastjsonParseResult* pr = new FastjsonParseResult;
         std::string error_message;
         if (!dom::parse_string(json, &pr->token, &pr->chunk, 0, 0, &error_message)) {
@@ -132,7 +133,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const FastjsonParseResult* pr = static_cast<const FastjsonParseResult*>(parseResult);
         FastjsonStringResult* sr = new FastjsonStringResult;
         // Since FastJson does not write numbers, emulate here in order to compare with other parsers.
@@ -143,7 +145,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const FastjsonParseResult* pr = static_cast<const FastjsonParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(*stat, pr->token);
@@ -152,10 +155,11 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    {
         FastjsonParseResult pr;
         std::string error_message;
-        if (dom::parse_string(json, &pr.token, &pr.chunk, 0, 0, &error_message) &&
+        if (dom::parse_string({json,jsize}, &pr.token, &pr.chunk, 0, 0, &error_message) &&
             pr.token.type == Token::ArrayToken && pr.token.array.ptr &&
             pr.token.array.ptr->tok.type == Token::ValueToken &&
             pr.token.array.ptr->tok.value.type_hint == ValueType::NumberHint)
@@ -167,10 +171,11 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    {
         FastjsonParseResult pr;
         std::string error_message;
-        if (dom::parse_string(json, &pr.token, &pr.chunk, 0, 0, &error_message) &&
+        if (dom::parse_string({json,jsize}, &pr.token, &pr.chunk, 0, 0, &error_message) &&
             pr.token.type == Token::ArrayToken && pr.token.array.ptr &&
             pr.token.array.ptr->tok.type == Token::ValueToken &&
             pr.token.array.ptr->tok.value.type_hint == ValueType::StringHint)

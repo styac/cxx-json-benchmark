@@ -324,7 +324,6 @@ public:
     virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
     {
         CentijsonParseResult pr;
-        jsize = strlen(json);
         int err = json_dom_parse(json, jsize, &cfg, 0, &pr.root, NULL);
         if (err == 0 &&
             value_type(&pr.root) == VALUE_ARRAY &&
@@ -341,7 +340,6 @@ public:
     virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
     {
         CentijsonParseResult pr;
-        jsize = strlen(json);
         int err = json_dom_parse(json, jsize, &cfg, 0, &pr.root, NULL);
         if (err == 0 &&
             value_type(&pr.root) == VALUE_ARRAY &&

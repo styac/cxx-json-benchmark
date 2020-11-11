@@ -51,12 +51,13 @@ public:
 class CjsonTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "cJSON (C)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "cJSON (C)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
         (void)length;
         CjsonParseResult* pr = new CjsonParseResult;
         pr->root = cJSON_ParseWithOpts(json, nullptr, static_cast<cJSON_bool>(true));
@@ -69,7 +70,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const CjsonParseResult* pr = static_cast<const CjsonParseResult*>(parseResult);
         CjsonStringResult* sr = new CjsonStringResult;
         sr->s = cJSON_PrintBuffered(pr->root, 4096, static_cast<cJSON_bool>(false));
@@ -78,7 +80,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const CjsonParseResult* pr = static_cast<const CjsonParseResult*>(parseResult);
         CjsonStringResult* sr = new CjsonStringResult;
         sr->s = cJSON_PrintBuffered(pr->root, 4096, static_cast<cJSON_bool>(true));
@@ -87,7 +90,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const CjsonParseResult* pr = static_cast<const CjsonParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(stat, pr->root);
@@ -96,9 +100,10 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    {
         CjsonParseResult pr;
-        pr.root = cJSON_Parse(json);
+        pr.root = cJSON_ParseWithLength(json,jsize);
         if ((pr.root != nullptr) && cJSON_IsArray(pr.root) && cJSON_IsNumber(pr.root->child)) {
             *d = pr.root->child->valuedouble;
             return true;
@@ -107,9 +112,10 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    {
         CjsonParseResult pr;
-        pr.root = cJSON_Parse(json);
+        pr.root = cJSON_ParseWithLength(json,jsize);
         if ((pr.root != nullptr) && cJSON_IsArray(pr.root) && cJSON_IsString(pr.root->child)) {
             s = pr.root->child->valuestring;
             return true;

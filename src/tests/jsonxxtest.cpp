@@ -76,8 +76,8 @@ public:
 class JsonxxTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "hjiang JSON++ (C++)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "hjiang JSON++ (C++)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE
@@ -93,7 +93,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const JsonxxParseResult* pr = static_cast<const JsonxxParseResult*>(parseResult);
         JsonxxStringResult* sr = new JsonxxStringResult;
         sr->s = pr->v.is<Object>() ? pr->v.get<Object>().json() : pr->v.get<Array>().json();
@@ -102,7 +103,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const JsonxxParseResult* pr = static_cast<const JsonxxParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(*stat, pr->v);
@@ -111,9 +113,10 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    {
         Value v;
-        if (v.parse(json) && v.is<Array>() && v.get<Array>().size() == 1) {
+        if (v.parse({json,jsize}) && v.is<Array>() && v.get<Array>().size() == 1) {
             *d = (double)v.get<Array>().get<Number>(0);
             return true;
         }
@@ -121,9 +124,10 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    {
         Value v;
-        if (v.parse(json) && v.is<Array>() && v.get<Array>().size() == 1) {
+        if (v.parse({json,jsize}) && v.is<Array>() && v.get<Array>().size() == 1) {
             s = v.get<Array>().get<String>(0);
             return true;
         }

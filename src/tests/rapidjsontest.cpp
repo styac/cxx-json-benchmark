@@ -250,7 +250,7 @@ public:
     virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
         Document doc;
 #ifdef TEST_INSITU
-        RapidjsonParseResult pr(json, strlen(json));
+        RapidjsonParseResult pr(json, jsize);
         doc.ParseInsitu<TEST_PARSE_FLAG>(pr.buffer);
 #else
         doc.Parse<TEST_PARSE_FLAG>(json,jsize);
@@ -266,7 +266,7 @@ public:
     {
         Document doc;
 #ifdef TEST_INSITU
-        RapidjsonParseResult pr(json, strlen(json));
+        RapidjsonParseResult pr(json, jsize);
         doc.ParseInsitu<TEST_PARSE_FLAG>(pr.buffer);
 #else
         doc.Parse<TEST_PARSE_FLAG>(json,jsize);

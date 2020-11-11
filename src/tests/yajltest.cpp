@@ -1,12 +1,12 @@
 #include "../test.h"
 
 extern "C" {
-#include "yajl/yajl_common.h"
+#include "yajl/src/api/yajl_common.h"
 #undef YAJL_MAX_DEPTH 
 #define YAJL_MAX_DEPTH 1024
-#include "yajl/yajl_gen.h"
-#include "yajl/yajl_parse.h"
-#include "yajl/yajl_tree.h"
+#include "yajl/src/api/yajl_gen.h"
+#include "yajl/src/api/yajl_parse.h"
+#include "yajl/src/api/yajl_tree.h"
 
 yajl_gen_status GenVal(yajl_gen g, yajl_val v) {
     yajl_gen_status status;
@@ -418,7 +418,8 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    {
         YajlParseResult pr;
         pr.root = yajl_tree_parse(json, NULL, 0);
         if (YAJL_IS_ARRAY(pr.root) && 

@@ -8,26 +8,30 @@
 
 #include <cctype> // algorithm_compare.cpp(36): error C2039: 'tolower': is not a member of 'std'
 
-//#include "json-voorhees/src/jsonv/algorithm_compare.cpp"
-//#include "json-voorhees/src/jsonv/algorithm_map.cpp"
-//#include "json-voorhees/src/jsonv/algorithm_traverse.cpp"
-//#include "json-voorhees/src/jsonv/array.cpp"
-//#include "json-voorhees/src/jsonv/char_convert.cpp"
-//#include "json-voorhees/src/jsonv/coerce.cpp"
-//#include "json-voorhees/src/jsonv/demangle.cpp"
-//#include "json-voorhees/src/jsonv/detail.cpp"
-//#include "json-voorhees/src/jsonv/encode.cpp"
-//#include "json-voorhees/src/jsonv/functional.cpp"
-//#include "json-voorhees/src/jsonv/object.cpp"
-//#include "json-voorhees/src/jsonv/parse.cpp"
-//#include "json-voorhees/src/jsonv/path.cpp"
-//#include "json-voorhees/src/jsonv/serialization.cpp"
-//#include "json-voorhees/src/jsonv/serialization_builder.cpp"
-//#include "json-voorhees/src/jsonv/tokenizer.cpp"
-//#include "json-voorhees/src/jsonv/value.cpp"
-//#include "json-voorhees/src/jsonv/detail/token_patterns.cpp"
+#include "json-voorhees/src/jsonv/algorithm_compare.cpp"
+#include "json-voorhees/src/jsonv/algorithm_map.cpp"
+#include "json-voorhees/src/jsonv/algorithm_traverse.cpp"
+#include "json-voorhees/src/jsonv/array.cpp"
+#include "json-voorhees/src/jsonv/char_convert.cpp"
+#include "json-voorhees/src/jsonv/coerce.cpp"
+#include "json-voorhees/src/jsonv/demangle.cpp"
+#include "json-voorhees/src/jsonv/detail.cpp"
+#include "json-voorhees/src/jsonv/encode.cpp"
+#include "json-voorhees/src/jsonv/functional.cpp"
+#include "json-voorhees/src/jsonv/object.cpp"
+#include "json-voorhees/src/jsonv/parse.cpp"
+#include "json-voorhees/src/jsonv/path.cpp"
+#include "json-voorhees/src/jsonv/serialization.cpp"
+#include "json-voorhees/src/jsonv/serialization_builder.cpp"
+#include "json-voorhees/src/jsonv/tokenizer.cpp"
+#include "json-voorhees/src/jsonv/value.cpp"
+#include "json-voorhees/src/jsonv/detail/token_patterns.cpp"
+#include "json-voorhees/src/jsonv/algorithm_diff.cpp"
+#include "json-voorhees/src/jsonv/algorithm_merge.cpp"
+#include "json-voorhees/src/jsonv/algorithm_validate.cpp"
 
-#include "json-voorhees/include/json/all.cpp"
+
+#include "json-voorhees/include/jsonv/all.hpp"
 
 using namespace jsonv;
 
@@ -91,12 +95,13 @@ public:
 class VoorheesTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "JSON Voorhees (C++)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "JSON Voorhees (C++)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
         VoorheesParseResult* pr = new VoorheesParseResult;
         try {
             pr->root = parse(string_view(json, length));
@@ -110,7 +115,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const VoorheesParseResult* pr = static_cast<const VoorheesParseResult*>(parseResult);
         VoorheesStringResult* sr = new VoorheesStringResult;
         sr->s = to_string(pr->root);
@@ -119,7 +125,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const VoorheesParseResult* pr = static_cast<const VoorheesParseResult*>(parseResult);
         VoorheesStringResult* sr = new VoorheesStringResult;
         std::ostringstream os;
@@ -131,7 +138,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const VoorheesParseResult* pr = static_cast<const VoorheesParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(*stat, pr->root);
@@ -140,9 +148,10 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    {
         try {
-            value v = parse(json);
+            value v = parse({json,jsize});
             *d = v[0].as_decimal();
             return true;
         }
@@ -151,9 +160,10 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    {
         try {
-            value v = parse(json);
+            value v = parse({json,jsize});
             s = v[0].as_string();
             return true;
         }

@@ -502,7 +502,7 @@ public:
 
 #if TEST_CONFORMANCE
     virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
-        VinenthzParseResult* pr = static_cast<VinenthzParseResult*>(Parse(json, strlen(json)));
+        VinenthzParseResult* pr = static_cast<VinenthzParseResult*>(Parse(json, jsize));
         bool ret = false;
         if (pr && 
             pr->root->type == JSON_ARRAY_BEGIN &&
@@ -522,7 +522,7 @@ public:
     }
 
     virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
-        VinenthzParseResult* pr = static_cast<VinenthzParseResult*>(Parse(json, strlen(json)));
+        VinenthzParseResult* pr = static_cast<VinenthzParseResult*>(Parse(json, jsize));
         bool ret = false;
         if (pr && 
             pr->root->type == JSON_ARRAY_BEGIN &&

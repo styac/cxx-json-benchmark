@@ -66,6 +66,7 @@ include_directories (
     "thirdparty/ULib/include",
     "thirdparty/facil.io/lib/facil",
     "thirdparty/facil.io/lib/facil/fiobj/fiobj",
+    "thirdparty/facil.io/lib/facil/fiobj"
     "thirdparty/simdjson/singleheader",
     "thirdparty/yajl/src"
     "thirdparty/ujson4c/3rdparty/"
@@ -84,7 +85,7 @@ file( GLOB SOURCES_MAIN ${PROJECT_SOURCE_DIR}
 
 set( SOURCES_TESTS_C ${PROJECT_SOURCE_DIR}
 #    src/cjsonlibs/cjson_all.c
-#    src/cjsonlibs/facil.io_all.c
+#    src/cjsonlibs/facil.io_all.c #??
 #    src/cjsonlibs/jansson_all.c
 #    src/cjsonlibs/jansson_renaming.h
 #    src/cjsonlibs/jsmn_all.c
@@ -95,7 +96,7 @@ set( SOURCES_TESTS_C ${PROJECT_SOURCE_DIR}
 #    src/cjsonlibs/qajson4c_all.c
 #    src/cjsonlibs/sheredom_jsonh_all.c
 #    src/cjsonlibs/sheredom_jsonh_renaming.h
-#    src/cjsonlibs/yajl_all.c
+#    src/cjsonlibs/yajl_all.c # ?
     src/cjsonlibs/centijson_all.c
     src/cjsonlibs/yyjson_all.c
     src/cjsonlibs/ccan_all.c
@@ -110,7 +111,7 @@ set( SOURCES_TESTS_C ${PROJECT_SOURCE_DIR}
 set( SOURCES_TESTS
 #    src/tests/janssontest.cpp
 #    src/tests/cjsontest.cpp
-#    src/tests/facil.io.cpp
+#    src/tests/facil.io.cpp # master failing
 #    src/tests/follytest.cpp
 #    src/tests/jsonctest.cpp
 #    src/tests/jvartest.cpp
@@ -123,8 +124,8 @@ set( SOURCES_TESTS
 #    src/tests/ujsontest.cpp
 #    src/tests/ULibtest.cpp
 #    src/tests/v8test.cpp
-#    src/tests/voorheestest.cpp
 #    src/tests/yajltest.cpp
+    src/tests/voorheestest.cpp
     src/tests/sajsontest.cpp
     src/tests/centijsontest.cpp
     src/tests/yyjsontest.cpp

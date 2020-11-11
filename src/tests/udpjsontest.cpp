@@ -133,7 +133,7 @@ public:
         json_settings settings = json_settings();
         settings.value_extra = json_builder_extra;  /* space for json-builder state */
         char error[128];
-        pr.root = json_parse_ex(&settings, json, strlen(json), error);
+        pr.root = json_parse_ex(&settings, json, jsize, error);
         if (pr.root &&
             pr.root->type == json_array &&
             pr.root->u.array.length == 1 &&
@@ -150,7 +150,7 @@ public:
         json_settings settings = json_settings();
         settings.value_extra = json_builder_extra;  /* space for json-builder state */
         char error[128];
-        pr.root = json_parse_ex(&settings, json, strlen(json), error);
+        pr.root = json_parse_ex(&settings, json, jsize, error);
         if (pr.root &&
             pr.root->type == json_array &&
             pr.root->u.array.length == 1 &&

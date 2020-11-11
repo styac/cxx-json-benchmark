@@ -65,12 +65,13 @@ public:
 class Dropboxjson11Test : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "dropbox json11 (C++11)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "dropbox json11 (C++11)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 	
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
         (void)length;
         Dropboxjson11ParseResult* pr = new Dropboxjson11ParseResult;
         std::string err;
@@ -84,7 +85,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const Dropboxjson11ParseResult* pr = static_cast<const Dropboxjson11ParseResult*>(parseResult);
         Dropboxjson11StringResult* sr = new Dropboxjson11StringResult;
         pr->root.dump(sr->s);
@@ -93,7 +95,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const Dropboxjson11ParseResult* pr = static_cast<const Dropboxjson11ParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(*stat, pr->root);
@@ -102,10 +105,11 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    {
         Json root;
         std::string err;
-        root = Json::parse(json, err);
+        root = Json::parse({json,jsize}, err);
         if (err.empty() && root.is_array() && root.array_items().size() == 1 && root.array_items()[0].is_number()) {
             *d = root.array_items()[0].number_value();
             return true;
@@ -114,10 +118,11 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    {
         Json root;
         std::string err;
-        root = Json::parse(json, err);
+        root = Json::parse({json,jsize}, err);
         if (err.empty() && root.is_array() && root.array_items().size() == 1 && root.array_items()[0].is_string()) {
             s = root.array_items()[0].string_value();
             return true;

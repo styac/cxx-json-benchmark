@@ -1,4 +1,162 @@
 Type,Library,Test,Result
+1. Parse Validation,JSON Voorhees (C++),pass01,true
+1. Parse Validation,JSON Voorhees (C++),pass02,true
+1. Parse Validation,JSON Voorhees (C++),pass03,true
+1. Parse Validation,JSON Voorhees (C++),fail02,true
+1. Parse Validation,JSON Voorhees (C++),fail03,true
+1. Parse Validation,JSON Voorhees (C++),fail04,false
+1. Parse Validation,JSON Voorhees (C++),fail05,true
+1. Parse Validation,JSON Voorhees (C++),fail06,true
+1. Parse Validation,JSON Voorhees (C++),fail07,true
+1. Parse Validation,JSON Voorhees (C++),fail08,true
+1. Parse Validation,JSON Voorhees (C++),fail09,false
+1. Parse Validation,JSON Voorhees (C++),fail10,true
+1. Parse Validation,JSON Voorhees (C++),fail11,true
+1. Parse Validation,JSON Voorhees (C++),fail12,true
+1. Parse Validation,JSON Voorhees (C++),fail13,false
+1. Parse Validation,JSON Voorhees (C++),fail14,true
+1. Parse Validation,JSON Voorhees (C++),fail15,true
+1. Parse Validation,JSON Voorhees (C++),fail16,true
+1. Parse Validation,JSON Voorhees (C++),fail17,true
+1. Parse Validation,JSON Voorhees (C++),fail19,true
+1. Parse Validation,JSON Voorhees (C++),fail20,true
+1. Parse Validation,JSON Voorhees (C++),fail21,true
+1. Parse Validation,JSON Voorhees (C++),fail22,true
+1. Parse Validation,JSON Voorhees (C++),fail23,true
+1. Parse Validation,JSON Voorhees (C++),fail24,true
+1. Parse Validation,JSON Voorhees (C++),fail25,false
+1. Parse Validation,JSON Voorhees (C++),fail26,true
+1. Parse Validation,JSON Voorhees (C++),fail27,false
+1. Parse Validation,JSON Voorhees (C++),fail28,true
+1. Parse Validation,JSON Voorhees (C++),fail29,true
+1. Parse Validation,JSON Voorhees (C++),fail30,true
+1. Parse Validation,JSON Voorhees (C++),fail31,true
+1. Parse Validation,JSON Voorhees (C++),fail32,true
+1. Parse Validation,JSON Voorhees (C++),fail33,true
+1. Parse Validation,JSON Voorhees (C++),number_-9223372036854775808,true
+1. Parse Validation,JSON Voorhees (C++),string_2_escaped_invalid_codepoints,false
+1. Parse Validation,JSON Voorhees (C++),string_1_invalid_codepoint,true
+1. Parse Validation,JSON Voorhees (C++),object_same_key_unclear_values,false
+1. Parse Validation,JSON Voorhees (C++),object_key_nfc_nfd,true
+1. Parse Validation,JSON Voorhees (C++),string_3_escaped_invalid_codepoints,false
+1. Parse Validation,JSON Voorhees (C++),number_1.000000000000000005,true
+1. Parse Validation,JSON Voorhees (C++),string_with_escaped_NULL,true
+1. Parse Validation,JSON Voorhees (C++),number_1e6,true
+1. Parse Validation,JSON Voorhees (C++),string_3_invalid_codepoints,true
+1. Parse Validation,JSON Voorhees (C++),number_1.0,true
+1. Parse Validation,JSON Voorhees (C++),string_2_invalid_codepoints,true
+1. Parse Validation,JSON Voorhees (C++),number_9223372036854775807,true
+1. Parse Validation,JSON Voorhees (C++),number_1000000000000000,true
+1. Parse Validation,JSON Voorhees (C++),number_10000000000000000999,true
+1. Parse Validation,JSON Voorhees (C++),number_-9223372036854775809,true
+1. Parse Validation,JSON Voorhees (C++),object_same_key_different_values,false
+1. Parse Validation,JSON Voorhees (C++),object_key_nfd_nfc,true
+1. Parse Validation,JSON Voorhees (C++),object_same_key_same_value,false
+1. Parse Validation,JSON Voorhees (C++),number_9223372036854775808,true
+1. Parse Validation,JSON Voorhees (C++),number_1e-999,true
+1. Parse Validation,JSON Voorhees (C++),string_1_escaped_invalid_codepoint,false
+2. Parse Double,JSON Voorhees (C++),double01,true
+2. Parse Double,JSON Voorhees (C++),double02,true
+2. Parse Double,JSON Voorhees (C++),double03,true
+2. Parse Double,JSON Voorhees (C++),double04,true
+2. Parse Double,JSON Voorhees (C++),double05,true
+2. Parse Double,JSON Voorhees (C++),double06,true
+2. Parse Double,JSON Voorhees (C++),double07,true
+2. Parse Double,JSON Voorhees (C++),double08,true
+2. Parse Double,JSON Voorhees (C++),double09,true
+2. Parse Double,JSON Voorhees (C++),double10,true
+2. Parse Double,JSON Voorhees (C++),double11,true
+2. Parse Double,JSON Voorhees (C++),double12,true
+2. Parse Double,JSON Voorhees (C++),double13,true
+2. Parse Double,JSON Voorhees (C++),double14,true
+2. Parse Double,JSON Voorhees (C++),double15,true
+2. Parse Double,JSON Voorhees (C++),double16,true
+2. Parse Double,JSON Voorhees (C++),double17,true
+2. Parse Double,JSON Voorhees (C++),double18,true
+2. Parse Double,JSON Voorhees (C++),double19,true
+2. Parse Double,JSON Voorhees (C++),double20,true
+2. Parse Double,JSON Voorhees (C++),double21,true
+2. Parse Double,JSON Voorhees (C++),double22,true
+2. Parse Double,JSON Voorhees (C++),double23,true
+2. Parse Double,JSON Voorhees (C++),double24,true
+2. Parse Double,JSON Voorhees (C++),double25,true
+2. Parse Double,JSON Voorhees (C++),double26,true
+2. Parse Double,JSON Voorhees (C++),double27,false
+2. Parse Double,JSON Voorhees (C++),double28,false
+2. Parse Double,JSON Voorhees (C++),double29,true
+2. Parse Double,JSON Voorhees (C++),double30,true
+2. Parse Double,JSON Voorhees (C++),double31,true
+2. Parse Double,JSON Voorhees (C++),double32,true
+2. Parse Double,JSON Voorhees (C++),double33,true
+2. Parse Double,JSON Voorhees (C++),double34,true
+2. Parse Double,JSON Voorhees (C++),double35,true
+2. Parse Double,JSON Voorhees (C++),double36,true
+2. Parse Double,JSON Voorhees (C++),double37,true
+2. Parse Double,JSON Voorhees (C++),double38,true
+2. Parse Double,JSON Voorhees (C++),double39,true
+2. Parse Double,JSON Voorhees (C++),double40,true
+2. Parse Double,JSON Voorhees (C++),double41,true
+2. Parse Double,JSON Voorhees (C++),double42,true
+2. Parse Double,JSON Voorhees (C++),double43,true
+2. Parse Double,JSON Voorhees (C++),double44,true
+2. Parse Double,JSON Voorhees (C++),double45,true
+2. Parse Double,JSON Voorhees (C++),double46,true
+2. Parse Double,JSON Voorhees (C++),double47,true
+2. Parse Double,JSON Voorhees (C++),double48,true
+2. Parse Double,JSON Voorhees (C++),double49,true
+2. Parse Double,JSON Voorhees (C++),double50,true
+2. Parse Double,JSON Voorhees (C++),double51,true
+2. Parse Double,JSON Voorhees (C++),double52,true
+2. Parse Double,JSON Voorhees (C++),double53,true
+2. Parse Double,JSON Voorhees (C++),double54,true
+2. Parse Double,JSON Voorhees (C++),double55,false
+2. Parse Double,JSON Voorhees (C++),double56,false
+2. Parse Double,JSON Voorhees (C++),double57,false
+2. Parse Double,JSON Voorhees (C++),double58,true
+2. Parse Double,JSON Voorhees (C++),double59,true
+2. Parse Double,JSON Voorhees (C++),double60,false
+2. Parse Double,JSON Voorhees (C++),double61,false
+2. Parse Double,JSON Voorhees (C++),double62,false
+2. Parse Double,JSON Voorhees (C++),double63,true
+2. Parse Double,JSON Voorhees (C++),double64,true
+2. Parse Double,JSON Voorhees (C++),double65,false
+2. Parse Double,JSON Voorhees (C++),double66,true
+3. Parse String,JSON Voorhees (C++),string01,true
+3. Parse String,JSON Voorhees (C++),string02,true
+3. Parse String,JSON Voorhees (C++),string03,true
+3. Parse String,JSON Voorhees (C++),string04,true
+3. Parse String,JSON Voorhees (C++),string05,true
+3. Parse String,JSON Voorhees (C++),string06,true
+3. Parse String,JSON Voorhees (C++),string07,true
+3. Parse String,JSON Voorhees (C++),string08,true
+3. Parse String,JSON Voorhees (C++),string09,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip01,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip02,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip03,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip04,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip05,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip06,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip07,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip08,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip09,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip10,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip11,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip12,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip13,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip14,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip15,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip16,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip17,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip18,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip19,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip20,false
+4. Roundtrip,JSON Voorhees (C++),roundtrip21,false
+4. Roundtrip,JSON Voorhees (C++),roundtrip22,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip23,true
+4. Roundtrip,JSON Voorhees (C++),roundtrip24,false
+4. Roundtrip,JSON Voorhees (C++),roundtrip25,false
+4. Roundtrip,JSON Voorhees (C++),roundtrip26,false
+4. Roundtrip,JSON Voorhees (C++),roundtrip27,false
 1. Parse Validation,sajson (C++),pass01,true
 1. Parse Validation,sajson (C++),pass02,true
 1. Parse Validation,sajson (C++),pass03,true
@@ -1923,7 +2081,7 @@ Type,Library,Test,Result
 2. Parse Double,mikeando FastJson (C++),double24,true
 2. Parse Double,mikeando FastJson (C++),double25,true
 2. Parse Double,mikeando FastJson (C++),double26,true
-2. Parse Double,mikeando FastJson (C++),double27,false
+2. Parse Double,mikeando FastJson (C++),double27,true
 2. Parse Double,mikeando FastJson (C++),double28,false
 2. Parse Double,mikeando FastJson (C++),double29,false
 2. Parse Double,mikeando FastJson (C++),double30,true
