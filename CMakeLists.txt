@@ -72,6 +72,7 @@ include_directories (
     "thirdparty/ujson4c/3rdparty/"
     "thirdparty/centijson/src"
     "thirdparty/cpprestsdk/Release/include/"
+    "thirdparty/cpprestsdk/Release/src/"
 )
 
 file( GLOB HEADERS ${PROJECT_SOURCE_DIR}

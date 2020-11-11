@@ -1,8 +1,10 @@
 #include "../test.h"
 
-#if HAS_CPPREST
-
 #include "cpprest/json.h"
+#include "json/json.cpp"
+#include "json/json_parsing.cpp"
+#include "json/json_serialization.cpp"
+#include "utilities/asyncrt_utils.cpp"
 
 #include <strstream>
 #include <sstream>
@@ -117,7 +119,6 @@ public:
 #if TEST_CONFORMANCE
     virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
     {
-        //std::istrstream is(json);
         try {
             value root = value::parse({json, jsize});
             *d = root.at(0).as_double();
@@ -130,7 +131,6 @@ public:
 
     virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
     {
-        //std::istrstream is(json);
         try {
             value root = value::parse({json, jsize});
             s = to_utf8string(root.at(0).as_string());
@@ -145,4 +145,4 @@ public:
 
 REGISTER_TEST(CpprestsdkTest);
 
-#endif
+//#endif

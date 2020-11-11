@@ -136,3 +136,7 @@
 [submodule "thirdparty/boostjson"]
 	path = thirdparty/boostjson
 	url = https://github.com/boostorg/json
+
+[submodule "thirdparty/boostspirit"]
+	path = thirdparty/boostspirit
+	url = https://github.com/boostorg/spirit
