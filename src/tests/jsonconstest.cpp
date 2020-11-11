@@ -48,6 +48,7 @@ static void GenStat(Stat& stat, const json& v) {
     case json_type::double_value:
     case json_type::int64_value:
     case json_type::uint64_value:
+    case json_type::half_value:
         stat.numberCount++;
         break;
 
@@ -78,8 +79,8 @@ public:
 class JsonconsTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "jsoncons (C++)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "jsoncons (C++)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE
@@ -98,7 +99,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const JsonconsParseResult* pr = static_cast<const JsonconsParseResult*>(parseResult);
         JsonconsStringResult* sr = new JsonconsStringResult;
         sr->s = pr->root.to_string();
@@ -107,7 +109,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const JsonconsParseResult* pr = static_cast<const JsonconsParseResult*>(parseResult);
         JsonconsStringResult* sr = new JsonconsStringResult;
         //sr->s = pr->root.to_string(output_format());
@@ -119,7 +122,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const JsonconsParseResult* pr = static_cast<const JsonconsParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(*stat, pr->root);
@@ -128,9 +132,10 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json_, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json_, size_t jsize, double* d) const override
+    {
         try {
-            json root = json::parse(json_);
+            json root = json::parse(json_,json_+jsize);
             *d = root.at(0).as_double();
             return true;
         }
@@ -139,9 +144,10 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json_, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json_, size_t jsize, std::string& s) const override
+    {
         try {
-            json root = json::parse(json_);
+            json root = json::parse(json_,json_+jsize);
             s = root.at(0).as_string();
             return true;
         }

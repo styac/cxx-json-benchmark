@@ -89,8 +89,8 @@ public:
 class PocoTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "POCO (C++)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override{ return "POCO (C++)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE
@@ -110,7 +110,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const PocoParseResult* pr = static_cast<const PocoParseResult*>(parseResult);
         PocoStringResult* sr = new PocoStringResult;
         std::ostringstream os;
@@ -121,7 +122,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const PocoParseResult* pr = static_cast<const PocoParseResult*>(parseResult);
         PocoStringResult* sr = new PocoStringResult;
         std::ostringstream os;
@@ -132,7 +134,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const PocoParseResult* pr = static_cast<const PocoParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
 #if SLOWER_STAT
@@ -146,7 +149,8 @@ public:
 #endif
 
 #if TEST_SAXROUNDTRIP
-    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const override {
+    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const override
+    {
         std::ostringstream os;
         PrintHandler::Ptr handler = new PrintHandler(os, 0);
         Parser parser(handler);
@@ -265,7 +269,8 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    {
         try {
             Parser parser;
             Var root = parser.parse(json);
@@ -277,7 +282,8 @@ public:
         }
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    {
         try {
             Parser parser;
             Var root = parser.parse(json);

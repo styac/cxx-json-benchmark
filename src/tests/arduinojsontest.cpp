@@ -68,8 +68,8 @@ public:
 class ArduinojsonTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "Arduino Json (C++)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "Arduino Json (C++)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE
@@ -116,7 +116,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const ArduinojsonParseResult* pr = static_cast<const ArduinojsonParseResult*>(parseResult);
         ArduinojsonStringResult* sr = new ArduinojsonStringResult;
         serializeJson(pr->jsonBuffer, sr->s);
@@ -125,7 +126,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const ArduinojsonParseResult* pr = static_cast<const ArduinojsonParseResult*>(parseResult);
         ArduinojsonStringResult* sr = new ArduinojsonStringResult;
         serializeJsonPretty(pr->jsonBuffer, sr->s);
@@ -134,7 +136,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const ArduinojsonParseResult* pr = static_cast<const ArduinojsonParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(*stat, pr->root);
@@ -147,7 +150,7 @@ public:
         ArduinojsonParseResult pr;
 //        pr.buffer = strdup(json);
 //        DeserializationError error = deserializeJson(pr.jsonBuffer,pr.buffer);
-        DeserializationError error = deserializeJson(pr.jsonBuffer,json);
+        DeserializationError error = deserializeJson(pr.jsonBuffer,json,jsize);
         if (error) {
             return false;
         }
@@ -165,7 +168,7 @@ public:
         ArduinojsonParseResult pr;
 //        pr.buffer = strdup(json);
 //        DeserializationError error = deserializeJson(pr.jsonBuffer,pr.buffer);
-        DeserializationError error = deserializeJson(pr.jsonBuffer,json);
+        DeserializationError error = deserializeJson(pr.jsonBuffer,json,jsize);
         if (error) {
             return false;
         }

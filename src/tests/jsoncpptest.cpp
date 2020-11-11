@@ -64,12 +64,13 @@ public:
 class JsoncppTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "JsonCpp (C++)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "JsonCpp (C++)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 	
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
         (void)length;
         JsoncppParseResult* pr = new JsoncppParseResult;
         Json::CharReaderBuilder rbuilder;
@@ -86,7 +87,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const JsoncppParseResult* pr = static_cast<const JsoncppParseResult*>(parseResult);
         //FastWriter writer;
         Json::StreamWriterBuilder wbuilder;
@@ -100,7 +102,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const JsoncppParseResult* pr = static_cast<const JsoncppParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(*stat, pr->root);
@@ -109,10 +112,11 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    {
         Reader reader;
         Value root;
-        if (reader.parse(json, root) && 
+        if (reader.parse(json, json+jsize, root) &&
             root.isArray() &&
             root.size() == 1 &&
             root[0].isDouble())
@@ -124,10 +128,11 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    {
         Reader reader;
         Value root;
-        if (reader.parse(json, root) && 
+        if (reader.parse(json, json+jsize, root) &&
             root.isArray() &&
             root.size() == 1 &&
             root[0].isString())
