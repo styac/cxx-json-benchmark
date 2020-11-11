@@ -70,12 +70,13 @@ public:
 class JsonspiritTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "JSON Spirit (C++)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "JSON Spirit (C++)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
         JsonspiritParseResult* pr = new JsonspiritParseResult;
         if (!read_string(std::string(json, length), pr->root))
         {
@@ -87,7 +88,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const JsonspiritParseResult* pr = static_cast<const JsonspiritParseResult*>(parseResult);
         JsonspiritStringResult* sr = new JsonspiritStringResult;
         sr->s = write_string(pr->root);
@@ -96,7 +98,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const JsonspiritParseResult* pr = static_cast<const JsonspiritParseResult*>(parseResult);
         JsonspiritStringResult* sr = new JsonspiritStringResult;
         sr->s = write_string(pr->root, pretty_print);
@@ -105,7 +108,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const JsonspiritParseResult* pr = static_cast<const JsonspiritParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(*stat, pr->root);
@@ -114,9 +118,10 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    {
         Value root;
-        if (read_string(std::string(json), root)) {
+        if (read_string(std::string(json,jsize), root)) {
             try {
                 *d = root.get_array()[0].get_real();
                 return true;
@@ -127,9 +132,10 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    {
         Value root;
-        if (read_string(std::string(json), root)) {
+        if (read_string(std::string(json,jsize), root)) {
             try {
                 s = root.get_array()[0].get_str();
                 return true;

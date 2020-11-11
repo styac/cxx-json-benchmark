@@ -81,8 +81,8 @@ class SimdTest : public TestBase {
 #endif
 
 #if TEST_STRINGIFY
-  StringResultBase *Stringify(
-      const ParseResultBase *parseResult) const override {
+  StringResultBase *Stringify( const ParseResultBase *parseResult) const override
+  {
     auto sr = std::make_unique<SimdStringResult>();
 
     auto pr = static_cast<const SimdJsonParseResult *>(parseResult);
@@ -93,16 +93,16 @@ class SimdTest : public TestBase {
 
 #if TEST_PRETTIFY
   // Currently unsupported, simdjson v0.3
-  StringResultBase *Prettify(
-      const ParseResultBase *parseResult) const override {
+  StringResultBase *Prettify(const ParseResultBase *parseResult) const override
+  {
     (void)parseResult;
     return nullptr;
   }
 #endif
 
 #if TEST_STATISTICS
-  bool Statistics(const ParseResultBase *parseResult,
-                  Stat *stat) const override {
+  bool Statistics(const ParseResultBase *parseResult, Stat *stat) const override
+  {
     auto pr = static_cast<const SimdJsonParseResult *>(parseResult);
     memset(stat, 0, sizeof(Stat));
     GenStat(*stat, pr->root);
@@ -111,7 +111,8 @@ class SimdTest : public TestBase {
 #endif
 
 #if TEST_CONFORMANCE
-  bool virtual ParseDouble(const char *j, size_t jsize, double *d) const override {
+  bool virtual ParseDouble(const char *j, size_t jsize, double *d) const override
+  {
     simdjson::error_code error;
     simdjson::dom::parser parser;
     parser.parse(j, jsize).at(0).get<double>().tie(*d, error);
@@ -121,7 +122,8 @@ class SimdTest : public TestBase {
     return true;
   }
 
-  bool virtual ParseString(const char *j, size_t jsize, std::string &s) const override {
+  bool virtual ParseString(const char *j, size_t jsize, std::string &s) const override
+  {
     simdjson::error_code error;
     std::string_view answer;
     dom::parser parser;

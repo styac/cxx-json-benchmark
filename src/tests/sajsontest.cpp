@@ -70,14 +70,14 @@ public:
 class SajsonTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "sajson (C++)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "sajson (C++)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
-        (void)length;
-        SajsonParseResult* pr = new SajsonParseResult(parse(dynamic_allocation(), literal(json)));
+    virtual ParseResultBase* Parse(const char* json, size_t jsize) const override
+    {
+        SajsonParseResult* pr = new SajsonParseResult(parse(dynamic_allocation(), sajson::string(json,jsize)));
         if (!pr->d.is_valid()) {
             //std::cout << "Error (" << pr->d.get_error_line() << ":" << pr->d.get_error_column() << "): " << pr->d.get_error_message() << std::endl;
             delete pr;
@@ -88,7 +88,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const SajsonParseResult* pr = static_cast<const SajsonParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(*stat, pr->d.get_root());
@@ -98,7 +99,7 @@ public:
 
 #if TEST_CONFORMANCE
     virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
-        document doc = parse(dynamic_allocation(), literal(json));
+        sajson::document doc = sajson::parse(dynamic_allocation(), sajson::string(json,jsize));
         if (doc.is_valid() &&
             doc.get_root().get_type() == TYPE_ARRAY &&
             doc.get_root().get_length() == 1 &&
@@ -112,7 +113,7 @@ public:
     }
 
     virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
-        document doc = parse(dynamic_allocation(), literal(json));
+        sajson::document doc = sajson::parse(dynamic_allocation(), sajson::string(json,jsize));
         if (doc.is_valid() &&
             doc.get_root().get_type() == TYPE_ARRAY &&
             doc.get_root().get_length() == 1 &&

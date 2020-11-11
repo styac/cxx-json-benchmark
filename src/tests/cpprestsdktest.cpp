@@ -66,12 +66,13 @@ public:
 class CpprestsdkTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "C++ REST SDK (C++11)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "C++ REST SDK (C++11)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 	
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
         (void)length;
         CpprestsdkParseResult* pr = new CpprestsdkParseResult;
 		std::istrstream is (json);
@@ -92,7 +93,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const CpprestsdkParseResult* pr = static_cast<const CpprestsdkParseResult*>(parseResult);
 		CpprestsdkStringResult* sr = new CpprestsdkStringResult;
         std::ostringstream os;
@@ -103,7 +105,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const CpprestsdkParseResult* pr = static_cast<const CpprestsdkParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(*stat, pr->root);
@@ -112,10 +115,11 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
-        std::istrstream is(json);
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    {
+        //std::istrstream is(json);
         try {
-            value root = value::parse(is);
+            value root = value::parse({json, jsize});
             *d = root.at(0).as_double();
             return true;
         }
@@ -124,10 +128,11 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
-        std::istrstream is(json);
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    {
+        //std::istrstream is(json);
         try {
-            value root = value::parse(is);
+            value root = value::parse({json, jsize});
             s = to_utf8string(root.at(0).as_string());
             return true;
         }

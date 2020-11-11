@@ -147,21 +147,21 @@ namespace std {
 };
 
 
-inline void* ::std::MemoryStatMalloc(size_t size) {
-    return ::MemoryStatMalloc(size);
-}
+//inline void* ::std::MemoryStatMalloc(size_t size) {
+//    return ::MemoryStatMalloc(size);
+//}
 
-inline void* ::std::MemoryStatCalloc(size_t num, size_t size) {
-    return ::MemoryStatCalloc(num,size);
-}
+//inline void* ::std::MemoryStatCalloc(size_t num, size_t size) {
+//    return ::MemoryStatCalloc(num,size);
+//}
 
-inline void* ::std::MemoryStatRealloc(void* ptr, size_t size) {
-    return ::MemoryStatRealloc(ptr, size);
-}
+//inline void* ::std::MemoryStatRealloc(void* ptr, size_t size) {
+//    return ::MemoryStatRealloc(ptr, size);
+//}
 
-inline void ::std::MemoryStatFree(void* ptr) {
-    return ::MemoryStatFree(ptr);
-}
+//inline void ::std::MemoryStatFree(void* ptr) {
+//    return ::MemoryStatFree(ptr);
+//}
 
 
 

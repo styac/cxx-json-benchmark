@@ -115,7 +115,7 @@ public:
     virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
         try
         {
-            std::istringstream is(json);
+            std::istringstream is({json,jsize});
             UnknownElement root;
             Reader::Read(root, is);
             *d = (Number)root[0];
@@ -130,7 +130,7 @@ public:
         try
         {
             UnknownElement root;
-            std::istringstream is(json);
+            std::istringstream is({json,jsize});
             Reader::Read(root, is);
             s = (String&)root[0];
             return true;

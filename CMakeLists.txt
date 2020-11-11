@@ -70,6 +70,7 @@ include_directories (
     "thirdparty/yajl/src"
     "thirdparty/ujson4c/3rdparty/"
     "thirdparty/centijson/src"
+    "thirdparty/cpprestsdk/Release/include/"
 )
 
 file( GLOB HEADERS ${PROJECT_SOURCE_DIR}
@@ -117,7 +118,6 @@ set( SOURCES_TESTS
 #    src/tests/parsontest.cpp
 #    src/tests/pjsontest.cpp
 #    src/tests/qajson4ctest.cpp
-#    src/tests/sajsontest.cpp
 #    src/tests/taocppnlohmanntest.cpp   # too many changes
 #    src/tests/tunnuztest.cpp
 #    src/tests/ujsontest.cpp
@@ -125,6 +125,7 @@ set( SOURCES_TESTS
 #    src/tests/v8test.cpp
 #    src/tests/voorheestest.cpp
 #    src/tests/yajltest.cpp
+    src/tests/sajsontest.cpp
     src/tests/centijsontest.cpp
     src/tests/yyjsontest.cpp
     src/tests/sheredomjsonhtest.cpp
@@ -160,7 +161,7 @@ set( SOURCES_TESTS
     src/tests/simplejsontest.cpp
     src/tests/taocpptest.cpp
     src/tests/udpjsontest.cpp
-    src/tests/cajuntest.cpp
+#    src/tests/cajuntest.cpp # ok but very slow
 )
 
 file( GLOB_RECURSE SOURCES_3PRTY ${PROJECT_SOURCE_DIR}

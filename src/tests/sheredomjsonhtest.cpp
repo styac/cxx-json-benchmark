@@ -133,8 +133,8 @@ public:
 class SheredomTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "Sheredom json.h (C)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "Sheredom json.h (C)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 	
 #if TEST_PARSE
@@ -152,7 +152,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const SheredomParseResult* pr = static_cast<const SheredomParseResult*>(parseResult);
         SheredomStringResult* sr = new SheredomStringResult;
         sr->s = static_cast<char*>(sheredom_json_write_minified(pr->root, 0));
@@ -163,7 +164,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const SheredomParseResult* pr = static_cast<const SheredomParseResult*>(parseResult);
         SheredomStringResult* sr = new SheredomStringResult;
         sr->s = static_cast<char*>(sheredom_json_write_pretty(pr->root, "    ", "\n", 0));
@@ -174,7 +176,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const SheredomParseResult* pr = static_cast<const SheredomParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(stat, pr->root);
@@ -183,9 +186,10 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    {
         SheredomParseResult pr;
-        pr.root = sheredom_json_parse(json, strlen(json));
+        pr.root = sheredom_json_parse(json, jsize);
         if (pr.root && pr.root->type == json_type_array) {
             json_array_s* a = (json_array_s*)pr.root->payload;
             if (a->length == 1 && a->start->value->type == json_type_number) {
@@ -196,9 +200,10 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    {
         SheredomParseResult pr;
-        pr.root = sheredom_json_parse(json, strlen(json));
+        pr.root = sheredom_json_parse(json, jsize);
         if (pr.root && pr.root->type == json_type_array) {
             json_array_s* a = (json_array_s*)pr.root->payload;
             if (a->length == 1 && a->start->value->type == json_type_string) {

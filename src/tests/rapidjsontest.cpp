@@ -129,8 +129,8 @@ public:
 class TEST_CLASS : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return TEST_NAME; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return TEST_NAME; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE
@@ -151,7 +151,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const RapidjsonParseResult* pr = static_cast<const RapidjsonParseResult*>(parseResult);
         RapidjsonStringResult* sr = new RapidjsonStringResult;
         Writer<StringBuffer> writer(sr->sb);
@@ -161,7 +162,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const RapidjsonParseResult* pr = static_cast<const RapidjsonParseResult*>(parseResult);
         RapidjsonStringResult* sr = new RapidjsonStringResult;
         PrettyWriter<StringBuffer> writer(sr->sb);
@@ -171,7 +173,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const RapidjsonParseResult* pr = static_cast<const RapidjsonParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
 #if SLOWER_STAT
@@ -185,7 +188,8 @@ public:
 #endif
 
 #if TEST_SAXROUNDTRIP
-    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const override {
+    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const override
+    {
         (void)length;
         Reader reader;
         RapidjsonStringResult* sr = new RapidjsonStringResult;
@@ -207,7 +211,8 @@ public:
 #endif
 
 #if TEST_SAXSTATISTICS
-    virtual bool SaxStatistics(const char* json, size_t length, Stat* stat) const {
+    virtual bool SaxStatistics(const char* json, size_t length, Stat* stat) const override
+    {
         (void)length;
         memset(stat, 0, sizeof(Stat));
         Reader reader;
@@ -248,7 +253,7 @@ public:
         RapidjsonParseResult pr(json, strlen(json));
         doc.ParseInsitu<TEST_PARSE_FLAG>(pr.buffer);
 #else
-        doc.Parse<TEST_PARSE_FLAG>(json);
+        doc.Parse<TEST_PARSE_FLAG>(json,jsize);
 #endif
         if (!doc.HasParseError() && doc.IsArray() && doc.Size() == 1 && doc[0].IsNumber()) {
             *d = doc[0].GetDouble();
@@ -257,13 +262,14 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    {
         Document doc;
 #ifdef TEST_INSITU
         RapidjsonParseResult pr(json, strlen(json));
         doc.ParseInsitu<TEST_PARSE_FLAG>(pr.buffer);
 #else
-        doc.Parse<TEST_PARSE_FLAG>(json);
+        doc.Parse<TEST_PARSE_FLAG>(json,jsize);
 #endif
         if (!doc.HasParseError() && doc.IsArray() && doc.Size() == 1 && doc[0].IsString()) {
             s = std::string(doc[0].GetString(), doc[0].GetStringLength());
