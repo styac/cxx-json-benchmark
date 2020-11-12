@@ -85,12 +85,10 @@ file( GLOB SOURCES_MAIN ${PROJECT_SOURCE_DIR}
 )
 
 set( SOURCES_TESTS_C ${PROJECT_SOURCE_DIR}
-    src/cjsonlibs/cjson_all.c
 #    src/cjsonlibs/facil.io_all.c #??
 #    src/cjsonlibs/jansson_all.c
 #    src/cjsonlibs/jansson_renaming.h
 #    src/cjsonlibs/jsmn_all.c
-#    src/cjsonlibs/jsonc_all.c
 #    src/cjsonlibs/parson_all.c
 #    src/cjsonlibs/parson_renaming.h
 #    src/cjsonlibs/pjson_all.c
@@ -98,6 +96,8 @@ set( SOURCES_TESTS_C ${PROJECT_SOURCE_DIR}
 #    src/cjsonlibs/sheredom_jsonh_all.c
 #    src/cjsonlibs/sheredom_jsonh_renaming.h
 #    src/cjsonlibs/yajl_all.c # ?
+    src/cjsonlibs/jsonc_all.c
+    src/cjsonlibs/cjson_all.c
     src/cjsonlibs/centijson_all.c
     src/cjsonlibs/yyjson_all.c
     src/cjsonlibs/ccan_all.c
@@ -111,29 +111,16 @@ set( SOURCES_TESTS_C ${PROJECT_SOURCE_DIR}
 
 set( SOURCES_TESTS
 #    src/tests/boostjsontest.cpp # TODO new
-#    src/tests/qajson4ctest.cpp # TODO use https://github.com/DeHecht/qajson4c
 
 # https://github.com/pejman-hkh/json-parser
 # https://github.com/pejman-hkh/c-json-parser
-
-#    src/tests/janssontest.cpp # TODO active
-#    src/tests/facil.io.cpp #  TODO active - master failing - try branch 0.8
-#    src/tests/parsontest.cpp # TODO active
-#    src/tests/ULibtest.cpp # TODO active -- ./configure is needed
-     src/tests/cjsontest.cpp # TODO active
-
-#    src/tests/jsonctest.cpp # ?
-#    src/tests/jzontest.cpp # inactive - 5y
-#    src/tests/pjsontest.cpp # inactive - 4y
-#    src/tests/ujsontest.cpp # inactive - 7y
-#    src/tests/jvartest.cpp # inactive - 4y
-#    src/tests/tunnuztest.cpp # inactive - 5y
-#    src/tests/yajltest.cpp # inactive - 6y
 
 #    src/tests/follytest.cpp # installation
 #    src/tests/v8test.cpp  # installation
 #    src/tests/taocppnlohmanntest.cpp   # too many changes
 
+    src/tests/jsonctest.cpp
+    src/tests/cjsontest.cpp
     src/tests/voorheestest.cpp
     src/tests/sajsontest.cpp
     src/tests/centijsontest.cpp
@@ -171,7 +158,19 @@ set( SOURCES_TESTS
     src/tests/simplejsontest.cpp
     src/tests/taocpptest.cpp
     src/tests/udpjsontest.cpp
-#    src/tests/cajuntest.cpp # ok but very slow
+    src/tests/cajuntest.cpp # ok but very slow
+
+#    src/tests/janssontest.cpp # TODO active - config needed
+#    src/tests/facil.io.cpp #  TODO active - master failing - try branch 0.8
+#    src/tests/parsontest.cpp # TODO active - malloc,free
+#    src/tests/ULibtest.cpp # TODO active - ./configure is needed
+#    src/tests/qajson4ctest.cpp # ?
+#    src/tests/jzontest.cpp # inactive - 5y
+#    src/tests/pjsontest.cpp # inactive - 4y
+#    src/tests/ujsontest.cpp # inactive - 7y
+#    src/tests/jvartest.cpp # inactive - 4y
+#    src/tests/tunnuztest.cpp # inactive - 5y
+#    src/tests/yajltest.cpp # inactive - 6y
 )
 
 file( GLOB_RECURSE SOURCES_3PRTY ${PROJECT_SOURCE_DIR}

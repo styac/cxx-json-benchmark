@@ -1,4 +1,4 @@
-#include "../memorystat.h"
+#include "../memorystat_c.h"
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1800 // Before VC2013 do not support C99 variable declaration
 
@@ -15,6 +15,11 @@
 #include "json-c/linkhash.c"
 #include "json-c/printbuf.c"
 #include "json-c/random_seed.c"
+#include "json-c/json_pointer.c"
+#include "json-c/json_visit.c"
+#include "json-c/libjson.c"
+#include "json-c/strerror_override.c"
+
 
 #include "json-c/json_util.c"   // This file undef realloc, put to last
 

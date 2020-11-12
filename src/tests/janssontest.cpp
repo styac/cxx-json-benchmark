@@ -25,7 +25,8 @@ public:
     char* s;
 };
 
-static void GenStat(Stat* s, json_t* v) {
+static void GenStat(Stat* s, json_t* v)
+{
     switch (json_typeof(v)) {
     case JSON_OBJECT:
         {
@@ -76,8 +77,8 @@ public:
 	}
 
 #if TEST_INFO
-    virtual const char* GetName() const { return "Jansson (C)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "Jansson (C)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE
@@ -95,7 +96,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const JanssonParseResult* pr = static_cast<const JanssonParseResult*>(parseResult);
         JanssonStringResult* sr = new JanssonStringResult;
         sr->s = json_dumps(pr->root, JSON_COMPACT);
@@ -108,7 +110,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const JanssonParseResult* pr = static_cast<const JanssonParseResult*>(parseResult);
         JanssonStringResult* sr = new JanssonStringResult;
         sr->s = json_dumps(pr->root, JSON_INDENT(4));
@@ -121,7 +124,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const JanssonParseResult* pr = static_cast<const JanssonParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(stat, pr->root);
@@ -130,10 +134,11 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
+    {
         JanssonParseResult pr;
         json_error_t error;
-        pr.root = json_loads(json, 0, &error);
+        pr.root = json_loadb(json, length, 0, &error);
         if (pr.root && 
             json_is_array(pr.root) && 
             json_array_size(pr.root) == 1 &&
@@ -146,10 +151,11 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
+    {
         JanssonParseResult pr;
         json_error_t error;
-        pr.root = json_loads(json, JSON_ALLOW_NUL, &error);
+        pr.root = json_loadb(json, length, JSON_ALLOW_NUL, &error);
         if (pr.root && 
             json_is_array(pr.root) && 
             json_array_size(pr.root) == 1 &&
