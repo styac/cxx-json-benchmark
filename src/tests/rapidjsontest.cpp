@@ -247,13 +247,13 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
         Document doc;
 #ifdef TEST_INSITU
-        RapidjsonParseResult pr(json, jsize);
+        RapidjsonParseResult pr(json, length);
         doc.ParseInsitu<TEST_PARSE_FLAG>(pr.buffer);
 #else
-        doc.Parse<TEST_PARSE_FLAG>(json,jsize);
+        doc.Parse<TEST_PARSE_FLAG>(json,length);
 #endif
         if (!doc.HasParseError() && doc.IsArray() && doc.Size() == 1 && doc[0].IsNumber()) {
             *d = doc[0].GetDouble();
@@ -262,14 +262,14 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
     {
         Document doc;
 #ifdef TEST_INSITU
-        RapidjsonParseResult pr(json, jsize);
+        RapidjsonParseResult pr(json, length);
         doc.ParseInsitu<TEST_PARSE_FLAG>(pr.buffer);
 #else
-        doc.Parse<TEST_PARSE_FLAG>(json,jsize);
+        doc.Parse<TEST_PARSE_FLAG>(json,length);
 #endif
         if (!doc.HasParseError() && doc.IsArray() && doc.Size() == 1 && doc[0].IsString()) {
             s = std::string(doc[0].GetString(), doc[0].GetStringLength());

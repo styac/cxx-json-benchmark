@@ -75,9 +75,9 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t jsize) const override
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
     {
-        SajsonParseResult* pr = new SajsonParseResult(parse(dynamic_allocation(), sajson::string(json,jsize)));
+        SajsonParseResult* pr = new SajsonParseResult(parse(dynamic_allocation(), sajson::string(json,length)));
         if (!pr->d.is_valid()) {
             //std::cout << "Error (" << pr->d.get_error_line() << ":" << pr->d.get_error_column() << "): " << pr->d.get_error_message() << std::endl;
             delete pr;
@@ -98,8 +98,8 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
-        sajson::document doc = sajson::parse(dynamic_allocation(), sajson::string(json,jsize));
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
+        sajson::document doc = sajson::parse(dynamic_allocation(), sajson::string(json,length));
         if (doc.is_valid() &&
             doc.get_root().get_type() == TYPE_ARRAY &&
             doc.get_root().get_length() == 1 &&
@@ -112,8 +112,8 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
-        sajson::document doc = sajson::parse(dynamic_allocation(), sajson::string(json,jsize));
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
+        sajson::document doc = sajson::parse(dynamic_allocation(), sajson::string(json,length));
         if (doc.is_valid() &&
             doc.get_root().get_type() == TYPE_ARRAY &&
             doc.get_root().get_length() == 1 &&

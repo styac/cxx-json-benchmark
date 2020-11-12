@@ -112,11 +112,11 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
     {
         Reader reader;
         Value root;
-        if (reader.parse(json, json+jsize, root) &&
+        if (reader.parse(json, json+length, root) &&
             root.isArray() &&
             root.size() == 1 &&
             root[0].isDouble())
@@ -128,11 +128,11 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
     {
         Reader reader;
         Value root;
-        if (reader.parse(json, json+jsize, root) &&
+        if (reader.parse(json, json+length, root) &&
             root.isArray() &&
             root.size() == 1 &&
             root[0].isString())

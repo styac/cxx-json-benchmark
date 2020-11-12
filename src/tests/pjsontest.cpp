@@ -182,7 +182,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    bool ParseDouble(const char* json, size_t length, double* d) const override {
 		PJsonParser parser;
 		parser.feed(json);
 		return parser.array_with_one_elem<PJ_TOK_NUM>([d](pj_token &tok) {
@@ -190,7 +190,7 @@ public:
 		});
 	}
 
-    bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    bool ParseString(const char* json, size_t length, std::string& s) const override {
 		setlocale(LC_CTYPE, "en_US.utf8");
 		PJsonParser parser;
 		parser.feed(json);

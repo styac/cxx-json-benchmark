@@ -1,12 +1,15 @@
 #include "../test.h"
 
+// maybe fork and replace boost with c++17
+
 #if HAS_BOOST && __cplusplus >= 201402L // C++14
 
 #include "jeayeson/include/jeayeson/jeayeson.hpp"
 
 using namespace jeayeson;
 
-static void GenStat(Stat& stat, const value& v) {
+static void GenStat(Stat& stat, const value& v)
+{
     switch (v.get_type()) {
     case value::type::array:
         {
@@ -68,12 +71,13 @@ public:
 class JeayesonTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "JeayeSON (C++14)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "JeayeSON (C++14)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
         (void)length;
         JeayesonParseResult* pr = new JeayesonParseResult;
         // Determine object or array
@@ -81,10 +85,10 @@ public:
             for (size_t i = 0; i < length; i++) {
                 switch (json[i]) {
                     case '{':
-                        pr->root = json_map{json_data{json}};
+                        pr->root = json_map{json_data{{json,length}}};
                         return pr;
                     case '[':
-                        pr->root = json_array{json_data{json}};
+                        pr->root = json_array{json_data{{json,length}}};
                         return pr;
                     case ' ':
                     case '\t':
@@ -105,7 +109,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const JeayesonParseResult* pr = static_cast<const JeayesonParseResult*>(parseResult);
         JeayesonStringResult* sr = new JeayesonStringResult;
         std::ostringstream os;
@@ -116,7 +121,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const JeayesonParseResult* pr = static_cast<const JeayesonParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(*stat, pr->root);
@@ -125,9 +131,10 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
+    {
         try {
-            *d = json_array{json_data{json}}[0].as<json_float>();
+            *d = json_array{json_data{{json,length}}}[0].as<json_float>();
             return true;
         }
         catch (...) {
@@ -135,9 +142,10 @@ public:
         }
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
+    {
         try {
-            s = json_array{json_data{json}}[0].as<std::string>();
+            s = json_array{json_data{{json,length}}}[0].as<std::string>();
             return true;
         }
         catch (...) {

@@ -120,7 +120,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
         Qajson4cParseResult pr(json);
         if (QAJ4C_is_array(pr.root) &&
         	QAJ4C_array_size(pr.root) == 1 &&
@@ -134,7 +134,7 @@ public:
 		}
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
         Qajson4cParseResult pr(json);
         if (QAJ4C_is_array(pr.root) &&
 			QAJ4C_array_size(pr.root) == 1 &&

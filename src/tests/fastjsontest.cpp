@@ -155,11 +155,11 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
     {
         FastjsonParseResult pr;
         std::string error_message;
-        if (dom::parse_string({json,jsize}, &pr.token, &pr.chunk, 0, 0, &error_message) &&
+        if (dom::parse_string({json,length}, &pr.token, &pr.chunk, 0, 0, &error_message) &&
             pr.token.type == Token::ArrayToken && pr.token.array.ptr &&
             pr.token.array.ptr->tok.type == Token::ValueToken &&
             pr.token.array.ptr->tok.value.type_hint == ValueType::NumberHint)
@@ -171,11 +171,11 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
     {
         FastjsonParseResult pr;
         std::string error_message;
-        if (dom::parse_string({json,jsize}, &pr.token, &pr.chunk, 0, 0, &error_message) &&
+        if (dom::parse_string({json,length}, &pr.token, &pr.chunk, 0, 0, &error_message) &&
             pr.token.type == Token::ArrayToken && pr.token.array.ptr &&
             pr.token.array.ptr->tok.type == Token::ValueToken &&
             pr.token.array.ptr->tok.value.type_hint == ValueType::StringHint)

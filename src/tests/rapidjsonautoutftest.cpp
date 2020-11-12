@@ -221,9 +221,9 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
     {
-        MemoryStream ms(json, jsize);
+        MemoryStream ms(json, length);
         AutoUTFInputStream<unsigned, MemoryStream> is(ms);
         Document doc;
         if (doc.ParseStream<kParseDefaultFlags, AutoUTF<unsigned> >(is).HasParseError() || !doc.IsArray() || doc.Size() != 1 || !doc[0].IsNumber())
@@ -232,9 +232,9 @@ public:
         return true;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
     {
-        MemoryStream ms(json, jsize);
+        MemoryStream ms(json, length);
         AutoUTFInputStream<unsigned, MemoryStream> is(ms);
         Document doc;
         if (doc.ParseStream<kParseDefaultFlags, AutoUTF<unsigned> >(is).HasParseError() || !doc.IsArray() || doc.Size() != 1 || !doc[0].IsString())

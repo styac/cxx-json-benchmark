@@ -186,10 +186,10 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
     {
         SheredomParseResult pr;
-        pr.root = sheredom_json_parse(json, jsize);
+        pr.root = sheredom_json_parse(json, length);
         if (pr.root && pr.root->type == json_type_array) {
             json_array_s* a = (json_array_s*)pr.root->payload;
             if (a->length == 1 && a->start->value->type == json_type_number) {
@@ -200,10 +200,10 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
     {
         SheredomParseResult pr;
-        pr.root = sheredom_json_parse(json, jsize);
+        pr.root = sheredom_json_parse(json, length);
         if (pr.root && pr.root->type == json_type_array) {
             json_array_s* a = (json_array_s*)pr.root->payload;
             if (a->length == 1 && a->start->value->type == json_type_string) {

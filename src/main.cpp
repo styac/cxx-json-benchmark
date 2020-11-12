@@ -880,7 +880,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
             bool exception = false;
             try {
                  pr = test.Parse(json, length);
-            } catch(...) {
+            } catch (...) {
                 exception = true;
             }
 

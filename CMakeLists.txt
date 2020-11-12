@@ -85,7 +85,7 @@ file( GLOB SOURCES_MAIN ${PROJECT_SOURCE_DIR}
 )
 
 set( SOURCES_TESTS_C ${PROJECT_SOURCE_DIR}
-#    src/cjsonlibs/cjson_all.c
+    src/cjsonlibs/cjson_all.c
 #    src/cjsonlibs/facil.io_all.c #??
 #    src/cjsonlibs/jansson_all.c
 #    src/cjsonlibs/jansson_renaming.h
@@ -113,15 +113,14 @@ set( SOURCES_TESTS
 #    src/tests/boostjsontest.cpp # TODO new
 #    src/tests/qajson4ctest.cpp # TODO use https://github.com/DeHecht/qajson4c
 
-
 # https://github.com/pejman-hkh/json-parser
 # https://github.com/pejman-hkh/c-json-parser
 
 #    src/tests/janssontest.cpp # TODO active
 #    src/tests/facil.io.cpp #  TODO active - master failing - try branch 0.8
 #    src/tests/parsontest.cpp # TODO active
-#    src/tests/ULibtest.cpp # TODO active
-#    src/tests/cjsontest.cpp # TODO active
+#    src/tests/ULibtest.cpp # TODO active -- ./configure is needed
+     src/tests/cjsontest.cpp # TODO active
 
 #    src/tests/jsonctest.cpp # ?
 #    src/tests/jzontest.cpp # inactive - 5y

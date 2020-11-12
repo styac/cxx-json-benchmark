@@ -156,7 +156,7 @@ public:
     // E.g. json = "[1.0]" -> d = 1.0
 
     // const char* json should be std::string
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const
     {
         (void)json;
         (void)d;
@@ -164,7 +164,7 @@ public:
     }
 
     // const char* json should be std::string
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const
     {
         (void)json;
         (void)s;

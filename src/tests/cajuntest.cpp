@@ -112,10 +112,10 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
         try
         {
-            std::istringstream is({json,jsize});
+            std::istringstream is({json,length});
             UnknownElement root;
             Reader::Read(root, is);
             *d = (Number)root[0];
@@ -126,11 +126,11 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
         try
         {
             UnknownElement root;
-            std::istringstream is({json,jsize});
+            std::istringstream is({json,length});
             Reader::Read(root, is);
             s = (String&)root[0];
             return true;

@@ -125,10 +125,10 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char *json, size_t jsize, double *d) const override
+    virtual bool ParseDouble(const char *json, size_t length, double *d) const override
     {
         FIOBJ tmp = 0;
-        if (!fiobj_json2obj(&tmp, json, jsize) || tmp == 0)
+        if (!fiobj_json2obj(&tmp, json, length) || tmp == 0)
           return false;
         if (FIOBJ_TYPE_IS(tmp, FIOBJ_T_FLOAT)) {
           *d = fiobj_obj2float(tmp);
@@ -145,10 +145,10 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char *json, size_t jsize, std::string &s) const override
+    virtual bool ParseString(const char *json, size_t length, std::string &s) const override
     {
         FIOBJ tmp = 0;
-        fiobj_json2obj(&tmp, json, jsize);
+        fiobj_json2obj(&tmp, json, length);
         if (tmp == 0)
           return false;
 

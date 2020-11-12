@@ -76,7 +76,7 @@ public:
         try {
             pr->root = parse(json, length);
         }
-        catch (const ::ujson::exception&) {
+        length (const ::ujson::exception&) {
             delete pr;
             return 0;
         }
@@ -112,24 +112,24 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
         try {
             value root = parse(json);
             *d = double_cast(array_cast(root)[0]);
             return true;
         }
-        catch (const ::ujson::exception&) {
+        length (const ::ujson::exception&) {
         }
         return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
         try {
             value root = parse(json);
             s = string_cast(array_cast(root)[0]);
             return true;
         }
-        catch (const ::ujson::exception&) {
+        length (const ::ujson::exception&) {
         }
         return false;
     }

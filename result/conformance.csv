@@ -1,4 +1,257 @@
 Type,Library,Test,Result
+1. Parse Validation,cJSON (C),pass01,true
+1. Parse Validation,cJSON (C),pass02,true
+1. Parse Validation,cJSON (C),pass03,true
+1. Parse Validation,cJSON (C),fail02,true
+1. Parse Validation,cJSON (C),fail03,true
+1. Parse Validation,cJSON (C),fail04,true
+1. Parse Validation,cJSON (C),fail05,true
+1. Parse Validation,cJSON (C),fail06,true
+1. Parse Validation,cJSON (C),fail07,true
+1. Parse Validation,cJSON (C),fail08,true
+1. Parse Validation,cJSON (C),fail09,true
+1. Parse Validation,cJSON (C),fail10,true
+1. Parse Validation,cJSON (C),fail11,true
+1. Parse Validation,cJSON (C),fail12,true
+1. Parse Validation,cJSON (C),fail13,false
+1. Parse Validation,cJSON (C),fail14,true
+1. Parse Validation,cJSON (C),fail15,true
+1. Parse Validation,cJSON (C),fail16,true
+1. Parse Validation,cJSON (C),fail17,true
+1. Parse Validation,cJSON (C),fail19,true
+1. Parse Validation,cJSON (C),fail20,true
+1. Parse Validation,cJSON (C),fail21,true
+1. Parse Validation,cJSON (C),fail22,true
+1. Parse Validation,cJSON (C),fail23,true
+1. Parse Validation,cJSON (C),fail24,true
+1. Parse Validation,cJSON (C),fail25,false
+1. Parse Validation,cJSON (C),fail26,true
+1. Parse Validation,cJSON (C),fail27,false
+1. Parse Validation,cJSON (C),fail28,true
+1. Parse Validation,cJSON (C),fail29,true
+1. Parse Validation,cJSON (C),fail30,true
+1. Parse Validation,cJSON (C),fail31,true
+1. Parse Validation,cJSON (C),fail32,true
+1. Parse Validation,cJSON (C),fail33,true
+1. Parse Validation,cJSON (C),number_-9223372036854775808,true
+1. Parse Validation,cJSON (C),string_2_escaped_invalid_codepoints,false
+1. Parse Validation,cJSON (C),string_1_invalid_codepoint,true
+1. Parse Validation,cJSON (C),object_same_key_unclear_values,true
+1. Parse Validation,cJSON (C),object_key_nfc_nfd,true
+1. Parse Validation,cJSON (C),string_3_escaped_invalid_codepoints,false
+1. Parse Validation,cJSON (C),number_1.000000000000000005,true
+1. Parse Validation,cJSON (C),string_with_escaped_NULL,true
+1. Parse Validation,cJSON (C),number_1e6,true
+1. Parse Validation,cJSON (C),string_3_invalid_codepoints,true
+1. Parse Validation,cJSON (C),number_1.0,true
+1. Parse Validation,cJSON (C),string_2_invalid_codepoints,true
+1. Parse Validation,cJSON (C),number_9223372036854775807,true
+1. Parse Validation,cJSON (C),number_1000000000000000,true
+1. Parse Validation,cJSON (C),number_10000000000000000999,true
+1. Parse Validation,cJSON (C),number_-9223372036854775809,true
+1. Parse Validation,cJSON (C),object_same_key_different_values,true
+1. Parse Validation,cJSON (C),object_key_nfd_nfc,true
+1. Parse Validation,cJSON (C),object_same_key_same_value,true
+1. Parse Validation,cJSON (C),number_9223372036854775808,true
+1. Parse Validation,cJSON (C),number_1e-999,true
+1. Parse Validation,cJSON (C),string_1_escaped_invalid_codepoint,false
+1. Parse Validation,cJSON (C),y_string_with_del_character,true
+1. Parse Validation,cJSON (C),y_object_duplicated_key_and_value,true
+1. Parse Validation,cJSON (C),y_string_accepted_surrogate_pairs,true
+1. Parse Validation,cJSON (C),y_array_empty,true
+1. Parse Validation,cJSON (C),y_structure_true_in_array,true
+1. Parse Validation,cJSON (C),y_string_escaped_control_character,true
+1. Parse Validation,cJSON (C),y_string_two-byte-utf-8,true
+1. Parse Validation,cJSON (C),y_string_unicode_U+200B_ZERO_WIDTH_SPACE,true
+1. Parse Validation,cJSON (C),y_string_accepted_surrogate_pair,true
+1. Parse Validation,cJSON (C),y_number_real_capital_e_neg_exp,true
+1. Parse Validation,cJSON (C),y_structure_lonely_true,true
+1. Parse Validation,cJSON (C),y_number_real_fraction_exponent,true
+1. Parse Validation,cJSON (C),y_string_backslash_and_u_escaped_zero,true
+1. Parse Validation,cJSON (C),y_string_nonCharacterInUTF-8_U+10FFFF,true
+1. Parse Validation,cJSON (C),y_number,true
+1. Parse Validation,cJSON (C),y_number_real_capital_e_pos_exp,true
+1. Parse Validation,cJSON (C),y_array_false,true
+1. Parse Validation,cJSON (C),y_array_with_1_and_newline,true
+1. Parse Validation,cJSON (C),y_number_0e1,true
+1. Parse Validation,cJSON (C),y_string_reservedCharacterInUTF-8_U+1BFFF,true
+1. Parse Validation,cJSON (C),y_array_with_trailing_space,true
+1. Parse Validation,cJSON (C),y_string_comments,true
+1. Parse Validation,cJSON (C),y_string_three-byte-utf-8,true
+1. Parse Validation,cJSON (C),y_string_double_escape_n,true
+1. Parse Validation,cJSON (C),y_array_empty-string,true
+1. Parse Validation,cJSON (C),y_object_empty,true
+1. Parse Validation,cJSON (C),y_object_simple,true
+1. Parse Validation,cJSON (C),y_string_one-byte-utf-8,true
+1. Parse Validation,cJSON (C),y_number_real_capital_e,true
+1. Parse Validation,cJSON (C),y_object_long_strings,true
+1. Parse Validation,cJSON (C),y_string_utf8,true
+1. Parse Validation,cJSON (C),y_object_empty_key,true
+1. Parse Validation,cJSON (C),y_string_unicode_U+2064_invisible_plus,true
+1. Parse Validation,cJSON (C),y_structure_whitespace_array,true
+1. Parse Validation,cJSON (C),y_object_duplicated_key,true
+1. Parse Validation,cJSON (C),y_array_with_leading_space,true
+1. Parse Validation,cJSON (C),y_string_space,true
+1. Parse Validation,cJSON (C),y_object_escaped_null_in_key,true
+1. Parse Validation,cJSON (C),y_number_negative_one,true
+1. Parse Validation,cJSON (C),y_structure_lonely_false,true
+1. Parse Validation,cJSON (C),y_structure_trailing_newline,true
+1. Parse Validation,cJSON (C),y_number_minus_zero,true
+1. Parse Validation,cJSON (C),y_string_last_surrogates_1_and_2,true
+1. Parse Validation,cJSON (C),y_structure_lonely_string,true
+1. Parse Validation,cJSON (C),y_string_unicode,true
+1. Parse Validation,cJSON (C),y_string_unicodeEscapedBackslash,true
+1. Parse Validation,cJSON (C),y_number_real_exponent,true
+1. Parse Validation,cJSON (C),y_structure_lonely_negative_real,true
+1. Parse Validation,cJSON (C),y_string_null_escape,true
+1. Parse Validation,cJSON (C),y_number_int_with_exp,true
+1. Parse Validation,cJSON (C),y_number_negative_zero,true
+1. Parse Validation,cJSON (C),y_number_double_close_to_zero,false
+1. Parse Validation,cJSON (C),y_string_unicode_U+FDD0_nonchar,true
+1. Parse Validation,cJSON (C),y_array_arraysWithSpaces,true
+1. Parse Validation,cJSON (C),y_string_unicode_U+1FFFE_nonchar,true
+1. Parse Validation,cJSON (C),y_string_nbsp_uescaped,true
+1. Parse Validation,cJSON (C),y_array_heterogeneous,true
+1. Parse Validation,cJSON (C),y_number_0e+1,true
+1. Parse Validation,cJSON (C),y_string_simple_ascii,true
+1. Parse Validation,cJSON (C),y_object_basic,true
+1. Parse Validation,cJSON (C),y_array_ending_with_newline,true
+1. Parse Validation,cJSON (C),y_number_simple_int,true
+1. Parse Validation,cJSON (C),y_number_after_space,true
+1. Parse Validation,cJSON (C),y_string_pi,true
+1. Parse Validation,cJSON (C),y_string_u+2028_line_sep,true
+1. Parse Validation,cJSON (C),y_string_in_array,true
+1. Parse Validation,cJSON (C),y_object_extreme_numbers,true
+1. Parse Validation,cJSON (C),y_object_with_newlines,true
+1. Parse Validation,cJSON (C),y_string_double_escape_a,true
+1. Parse Validation,cJSON (C),y_string_unicode_U+FFFE_nonchar,true
+1. Parse Validation,cJSON (C),y_structure_lonely_int,true
+1. Parse Validation,cJSON (C),y_number_negative_int,true
+1. Parse Validation,cJSON (C),y_string_u+2029_par_sep,true
+1. Parse Validation,cJSON (C),y_string_escaped_noncharacter,true
+1. Parse Validation,cJSON (C),y_string_unescaped_char_delete,true
+1. Parse Validation,cJSON (C),y_string_unicode_escaped_double_quote,true
+1. Parse Validation,cJSON (C),y_object_string_unicode,true
+1. Parse Validation,cJSON (C),y_string_allowed_escapes,true
+1. Parse Validation,cJSON (C),y_array_null,true
+1. Parse Validation,cJSON (C),y_string_surrogates_U+1D11E_MUSICAL_SYMBOL_G_CLEF,true
+1. Parse Validation,cJSON (C),y_number_real_neg_exp,true
+1. Parse Validation,cJSON (C),y_string_uEscape,true
+1. Parse Validation,cJSON (C),y_structure_lonely_null,true
+1. Parse Validation,cJSON (C),y_string_backslash_doublequotes,true
+1. Parse Validation,cJSON (C),y_number_simple_real,true
+1. Parse Validation,cJSON (C),y_structure_string_empty,true
+1. Parse Validation,cJSON (C),y_string_unicode_U+10FFFE_nonchar,true
+1. Parse Validation,cJSON (C),y_string_nonCharacterInUTF-8_U+FFFF,true
+1. Parse Validation,cJSON (C),y_array_with_several_null,true
+1. Parse Validation,cJSON (C),y_string_uescaped_newline,true
+1. Parse Validation,cJSON (C),y_string_unicode_2,true
+1. Parse Validation,cJSON (C),y_string_in_array_with_leading_space,true
+1. Parse Validation,cJSON (C),y_string_1_2_3_bytes_UTF-8_sequences,true
+1. Parse Validation,cJSON (C),y_object,true
+1. Parse Validation,cJSON (C),y_number_real_pos_exponent,true
+2. Parse Double,cJSON (C),double01,true
+2. Parse Double,cJSON (C),double02,true
+2. Parse Double,cJSON (C),double03,true
+2. Parse Double,cJSON (C),double04,true
+2. Parse Double,cJSON (C),double05,true
+2. Parse Double,cJSON (C),double06,true
+2. Parse Double,cJSON (C),double07,true
+2. Parse Double,cJSON (C),double08,true
+2. Parse Double,cJSON (C),double09,true
+2. Parse Double,cJSON (C),double10,true
+2. Parse Double,cJSON (C),double11,true
+2. Parse Double,cJSON (C),double12,true
+2. Parse Double,cJSON (C),double13,true
+2. Parse Double,cJSON (C),double14,true
+2. Parse Double,cJSON (C),double15,true
+2. Parse Double,cJSON (C),double16,true
+2. Parse Double,cJSON (C),double17,true
+2. Parse Double,cJSON (C),double18,true
+2. Parse Double,cJSON (C),double19,true
+2. Parse Double,cJSON (C),double20,true
+2. Parse Double,cJSON (C),double21,true
+2. Parse Double,cJSON (C),double22,true
+2. Parse Double,cJSON (C),double23,true
+2. Parse Double,cJSON (C),double24,true
+2. Parse Double,cJSON (C),double25,true
+2. Parse Double,cJSON (C),double26,true
+2. Parse Double,cJSON (C),double27,true
+2. Parse Double,cJSON (C),double28,true
+2. Parse Double,cJSON (C),double29,true
+2. Parse Double,cJSON (C),double30,true
+2. Parse Double,cJSON (C),double31,true
+2. Parse Double,cJSON (C),double32,true
+2. Parse Double,cJSON (C),double33,true
+2. Parse Double,cJSON (C),double34,true
+2. Parse Double,cJSON (C),double35,true
+2. Parse Double,cJSON (C),double36,true
+2. Parse Double,cJSON (C),double37,true
+2. Parse Double,cJSON (C),double38,true
+2. Parse Double,cJSON (C),double39,true
+2. Parse Double,cJSON (C),double40,true
+2. Parse Double,cJSON (C),double41,true
+2. Parse Double,cJSON (C),double42,true
+2. Parse Double,cJSON (C),double43,true
+2. Parse Double,cJSON (C),double44,true
+2. Parse Double,cJSON (C),double45,true
+2. Parse Double,cJSON (C),double46,true
+2. Parse Double,cJSON (C),double47,true
+2. Parse Double,cJSON (C),double48,true
+2. Parse Double,cJSON (C),double49,true
+2. Parse Double,cJSON (C),double50,true
+2. Parse Double,cJSON (C),double51,true
+2. Parse Double,cJSON (C),double52,true
+2. Parse Double,cJSON (C),double53,true
+2. Parse Double,cJSON (C),double54,true
+2. Parse Double,cJSON (C),double55,true
+2. Parse Double,cJSON (C),double56,true
+2. Parse Double,cJSON (C),double57,true
+2. Parse Double,cJSON (C),double58,true
+2. Parse Double,cJSON (C),double59,true
+2. Parse Double,cJSON (C),double60,true
+2. Parse Double,cJSON (C),double61,true
+2. Parse Double,cJSON (C),double62,true
+2. Parse Double,cJSON (C),double63,true
+2. Parse Double,cJSON (C),double64,true
+2. Parse Double,cJSON (C),double65,false
+2. Parse Double,cJSON (C),double66,false
+3. Parse String,cJSON (C),string01,true
+3. Parse String,cJSON (C),string02,true
+3. Parse String,cJSON (C),string03,true
+3. Parse String,cJSON (C),string04,false
+3. Parse String,cJSON (C),string05,true
+3. Parse String,cJSON (C),string06,true
+3. Parse String,cJSON (C),string07,true
+3. Parse String,cJSON (C),string08,true
+3. Parse String,cJSON (C),string09,true
+4. Roundtrip,cJSON (C),roundtrip01,true
+4. Roundtrip,cJSON (C),roundtrip02,true
+4. Roundtrip,cJSON (C),roundtrip03,true
+4. Roundtrip,cJSON (C),roundtrip04,true
+4. Roundtrip,cJSON (C),roundtrip05,true
+4. Roundtrip,cJSON (C),roundtrip06,true
+4. Roundtrip,cJSON (C),roundtrip07,true
+4. Roundtrip,cJSON (C),roundtrip08,true
+4. Roundtrip,cJSON (C),roundtrip09,true
+4. Roundtrip,cJSON (C),roundtrip10,true
+4. Roundtrip,cJSON (C),roundtrip11,true
+4. Roundtrip,cJSON (C),roundtrip12,true
+4. Roundtrip,cJSON (C),roundtrip13,false
+4. Roundtrip,cJSON (C),roundtrip14,false
+4. Roundtrip,cJSON (C),roundtrip15,true
+4. Roundtrip,cJSON (C),roundtrip16,true
+4. Roundtrip,cJSON (C),roundtrip17,true
+4. Roundtrip,cJSON (C),roundtrip18,false
+4. Roundtrip,cJSON (C),roundtrip19,false
+4. Roundtrip,cJSON (C),roundtrip20,false
+4. Roundtrip,cJSON (C),roundtrip21,false
+4. Roundtrip,cJSON (C),roundtrip22,true
+4. Roundtrip,cJSON (C),roundtrip23,true
+4. Roundtrip,cJSON (C),roundtrip24,false
+4. Roundtrip,cJSON (C),roundtrip25,false
+4. Roundtrip,cJSON (C),roundtrip26,true
+4. Roundtrip,cJSON (C),roundtrip27,false
 1. Parse Validation,JSON Voorhees (C++),pass01,true
 1. Parse Validation,JSON Voorhees (C++),pass02,true
 1. Parse Validation,JSON Voorhees (C++),pass03,true

@@ -107,11 +107,11 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
         jsmn_parser parser;
         jsmn_init(&parser);
         jsmntok_t tokens[2];
-        int count = jsmn_parse(&parser, json, jsize, tokens, 2);
+        int count = jsmn_parse(&parser, json, length, tokens, 2);
         if (count == 2 && tokens[0].type == JSMN_ARRAY && tokens[0].size == 1 && tokens[1].type == JSMN_PRIMITIVE) {
             *d = atof(json + tokens[1].start);
             return true;
@@ -119,11 +119,11 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
         jsmn_parser parser;
         jsmn_init(&parser);
         jsmntok_t tokens[2];
-        int count = jsmn_parse(&parser, json, jsize, tokens, 2);
+        int count = jsmn_parse(&parser, json, length, tokens, 2);
         if (count == 2 && tokens[0].type == JSMN_ARRAY && tokens[0].size == 1 && tokens[1].type == JSMN_STRING) {
             s = std::string(json + tokens[1].start, json + tokens[1].end);
             return true;

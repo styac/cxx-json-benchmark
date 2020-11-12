@@ -113,10 +113,10 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
     {
         Value v;
-        if (v.parse({json,jsize}) && v.is<Array>() && v.get<Array>().size() == 1) {
+        if (v.parse({json,length}) && v.is<Array>() && v.get<Array>().size() == 1) {
             *d = (double)v.get<Array>().get<Number>(0);
             return true;
         }
@@ -124,10 +124,10 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
     {
         Value v;
-        if (v.parse({json,jsize}) && v.is<Array>() && v.get<Array>().size() == 1) {
+        if (v.parse({json,length}) && v.is<Array>() && v.get<Array>().size() == 1) {
             s = v.get<Array>().get<String>(0);
             return true;
         }

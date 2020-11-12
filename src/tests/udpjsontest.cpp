@@ -128,12 +128,12 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
         UdpjsonParseResult pr;
         json_settings settings = json_settings();
         settings.value_extra = json_builder_extra;  /* space for json-builder state */
         char error[128];
-        pr.root = json_parse_ex(&settings, json, jsize, error);
+        pr.root = json_parse_ex(&settings, json, length, error);
         if (pr.root &&
             pr.root->type == json_array &&
             pr.root->u.array.length == 1 &&
@@ -145,12 +145,12 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
         UdpjsonParseResult pr;
         json_settings settings = json_settings();
         settings.value_extra = json_builder_extra;  /* space for json-builder state */
         char error[128];
-        pr.root = json_parse_ex(&settings, json, jsize, error);
+        pr.root = json_parse_ex(&settings, json, length, error);
         if (pr.root &&
             pr.root->type == json_array &&
             pr.root->u.array.length == 1 &&

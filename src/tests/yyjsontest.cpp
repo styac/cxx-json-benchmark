@@ -127,11 +127,11 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
     {
         YYjsonParseResult pr;
         yyjson_read_flag flg=YYJSON_READ_STOP_WHEN_DONE;
-        pr.doc = yyjson_read(json,jsize,flg);
+        pr.doc = yyjson_read(json,length,flg);
         if (pr.doc==nullptr) {
             return false;
         }
@@ -145,11 +145,11 @@ public:
     }
 
     // const char* json should be std::string
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
         YYjsonParseResult pr;
         yyjson_read_flag flg=YYJSON_READ_STOP_WHEN_DONE;
         yyjson_read_err err;
-        pr.doc = yyjson_read_opts(const_cast<char*>(json),jsize,flg,nullptr, &err);
+        pr.doc = yyjson_read_opts(const_cast<char*>(json),length,flg,nullptr, &err);
         if (pr.doc==nullptr) {
             return false;
         }

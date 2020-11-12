@@ -117,10 +117,10 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
     {
         try {
-            value root = value::parse({json, jsize});
+            value root = value::parse({json, length});
             *d = root.at(0).as_double();
             return true;
         }
@@ -129,10 +129,10 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
     {
         try {
-            value root = value::parse({json, jsize});
+            value root = value::parse({json, length});
             s = to_utf8string(root.at(0).as_string());
             return true;
         }

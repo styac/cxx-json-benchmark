@@ -120,7 +120,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
         SimplejsonParseResult pr;
 
         char* backupLocale = std::setlocale(LC_ALL, 0);
@@ -142,7 +142,7 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
         SimplejsonParseResult pr;
 
         char* backupLocale = std::setlocale(LC_ALL, 0);

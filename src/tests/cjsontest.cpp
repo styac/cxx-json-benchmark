@@ -100,10 +100,10 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
     {
         CjsonParseResult pr;
-        pr.root = cJSON_ParseWithLength(json,jsize);
+        pr.root = cJSON_ParseWithLength(json,length);
         if ((pr.root != nullptr) && cJSON_IsArray(pr.root) && cJSON_IsNumber(pr.root->child)) {
             *d = pr.root->child->valuedouble;
             return true;
@@ -112,10 +112,10 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
     {
         CjsonParseResult pr;
-        pr.root = cJSON_ParseWithLength(json,jsize);
+        pr.root = cJSON_ParseWithLength(json,length);
         if ((pr.root != nullptr) && cJSON_IsArray(pr.root) && cJSON_IsString(pr.root->child)) {
             s = pr.root->child->valuestring;
             return true;

@@ -321,10 +321,10 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
     {
         CentijsonParseResult pr;
-        int err = json_dom_parse(json, jsize, &cfg, 0, &pr.root, NULL);
+        int err = json_dom_parse(json, length, &cfg, 0, &pr.root, NULL);
         if (err == 0 &&
             value_type(&pr.root) == VALUE_ARRAY &&
             value_array_size(&pr.root) == 1 &&
@@ -337,10 +337,10 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
     {
         CentijsonParseResult pr;
-        int err = json_dom_parse(json, jsize, &cfg, 0, &pr.root, NULL);
+        int err = json_dom_parse(json, length, &cfg, 0, &pr.root, NULL);
         if (err == 0 &&
             value_type(&pr.root) == VALUE_ARRAY &&
             value_array_size(&pr.root) == 1 &&

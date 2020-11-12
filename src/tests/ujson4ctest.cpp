@@ -96,9 +96,9 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
         Ujson4cParseResult pr;
-        pr.root = UJDecode(json, jsize, NULL, &pr.state);
+        pr.root = UJDecode(json, length, NULL, &pr.state);
 		if (pr.root && UJIsArray(pr.root)) {
 			void* iter = UJBeginArray(pr.root);
 			UJObject value;
@@ -110,10 +110,10 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
         Ujson4cParseResult pr;
         std::vector<char> v;
-        pr.root = UJDecode(json, jsize, NULL, &pr.state);
+        pr.root = UJDecode(json, length, NULL, &pr.state);
 		if (pr.root && UJIsArray(pr.root)) {
 			void* iter = UJBeginArray(pr.root);
 			UJObject value;
