@@ -708,71 +708,6 @@ static void BenchSaxStatistics(const TestBase&, const TestJsonList&, FILE*) {
 }
 #endif
 
-static void BenchCodeSize(const TestBase& test, const TestJsonList& testJsons, FILE *fp)
-{
-    //(void)testJsons;
-
-#if _MSC_VER
-    const char cSeparator = '\\';
-#else
-    const char cSeparator = '/';
-#endif
-
-    // Compute path of bin
-    char path[FILENAME_MAX];
-    strcpy(path, gProgramName);
-    char* lastSep = strrchr(path, cSeparator);
-    *lastSep = '\0';
-
-    // Compute filename suffix (e.g. "_release_x32_vs2010.exe"
-    const char* filename_suffix = strchr(lastSep + 1, '_');
-
-    // Compute test base name (e.g. "rapidjsontest")
-    char testFilename[FILENAME_MAX];
-    strcpy(testFilename, test.GetFilename());
-    *strrchr(testFilename, '.') = '\0';
-    const char* testBaseName = strrchr(testFilename, cSeparator) + 1;
-
-    // Assemble a full path
-    char fullpath[FILENAME_MAX];
-    sprintf(fullpath, "%s%cjsonstat%cjsonstat_%s%s", path, cSeparator, cSeparator, testBaseName, filename_suffix);
-
-    char * const argv[] = { fullpath, testJsons.front().m_fullpath, NULL };
-#ifdef _MSC_VER
-    int ret = _spawnv(_P_WAIT, fullpath, argv);
-#elif defined(__CYGWIN__)
-    int ret = spawnv(_P_WAIT, fullpath, argv);
-#else
-    pid_t pid;
-    int ret = posix_spawn(&pid, fullpath, NULL, NULL, argv, NULL);
-    if (ret == 0) {
-        int status;
-        waitpid(pid, &status, 0);
-    }
-#endif
-
-    if (ret != 0) {
-        printf("Execute '%s' failed (ret=%d)\n", fullpath, ret);
-        return;
-    }
-
-    // Get file size
-//    FILE *fp2 = fopen(fullpath, "rb");
-//    if (fp2) {
-//        fseek(fp2, 0, SEEK_END);
-//        unsigned fileSize = (unsigned)ftell(fp2);
-//        printf("jsonstat file size = %u\n", fileSize);
-//        fprintf(fp, "7. Code size,%s,jsonstat,0", test.GetName());
-//#if USE_MEMORYSTAT
-//        fprintf(fp, ",0,0,0");
-//#endif
-//        fprintf(fp, ",%u\n", fileSize);
-//        fclose(fp2);
-//    }
-//    else
-//        printf("File '%s' not found\n", fullpath);
-}
-
 static void BenchPerformance(const TestBase& test, const TestJsonList& testJsons, FILE *fp) {
     printf("Benchmarking Performance of %s\n", test.GetName());
 
@@ -782,8 +717,6 @@ static void BenchPerformance(const TestBase& test, const TestJsonList& testJsons
     BenchStatistics(test, testJsons, fp);
     BenchSaxRoundtrip(test, testJsons, fp);
     BenchSaxStatistics(test, testJsons, fp);
-    //BenchCodeSize(test, testJsons, fp);
-    
     printf("\n");
 }
 
@@ -915,6 +848,50 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
             delete pr;
             test.TearDown();
 
+            if (!result) {
+                if (md)
+                    fprintf(md, "* `%s` is valid but was mistakenly deemed invalid.\n~~~js\n%s\n~~~\n\n", file.data(), json);
+            }
+            else
+                parseValidationCorrect++;
+            parseValidationTotal++;
+
+            free(json);
+
+            MEMORYSTAT_CHECKMEMORYLEAK();
+        }
+    }
+
+    {
+        std::filesystem::path p(TEST_DATA_FOLDER "/parsing_extra/");
+        std::filesystem::directory_iterator end_it;
+        for (std::filesystem::directory_iterator it(p); it != end_it; ++it) {
+            if( ! is_regular_file(it->path())) {
+                continue;
+            }
+            MEMORYSTAT_SCOPE();
+            size_t length;
+            char* json = ReadJSON(it->path(), &length);
+            if (!json )
+                continue;
+
+            test.SetUp();
+            ParseResultBase* pr = nullptr;
+            bool exception = false;
+            try {
+                 pr = test.Parse(json, length);
+            } catch(...) {
+                exception = true;
+            }
+
+            bool result = pr != 0;
+            std::string file( it->path().filename().stem().string());
+            fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), file.data(), result ? "true" : "false");
+            delete pr;
+            test.TearDown();
+            if(exception) {
+                printf( " ******* exception occured Parse Validation,%s,%s\n", test.GetName(), file.data());
+            }
             if (!result) {
                 if (md)
                     fprintf(md, "* `%s` is valid but was mistakenly deemed invalid.\n~~~js\n%s\n~~~\n\n", file.data(), json);
@@ -1222,7 +1199,6 @@ static void BenchAllConformance() {
 
     fclose(fp);
 }
-
 #endif // TEST_CONFORMANCE
 
 int main(int argc, char* argv[]) {
@@ -1239,16 +1215,13 @@ int main(int argc, char* argv[]) {
         if (strcmp(argv[1], "--verify-only") == 0) {
             doVerify = true;
             doPerformance = doConformance = false;
-        }
-        else if (strcmp(argv[1], "--performance-only") == 0) {
+        } else if (strcmp(argv[1], "--performance-only") == 0) {
             doPerformance = true;
             doVerify = doConformance = false;
-        }
-        else if (strcmp(argv[1], "--conformance-only") == 0) {
+        } else if (strcmp(argv[1], "--conformance-only") == 0) {
             doConformance = true;
             doVerify = doPerformance = false;
-        }
-        else {
+        } else {
             fprintf(stderr, "Invalid option\n");
             exit(1);
         }
@@ -1257,7 +1230,6 @@ int main(int argc, char* argv[]) {
     gProgramName = argv[0];
 
     MEMORYSTAT_SCOPE();
-
     {
         // Read files
         TestJsonList testJsons;
@@ -1279,9 +1251,7 @@ int main(int argc, char* argv[]) {
 #endif
 
         printf("\n");
-
         FreeFiles(testJsons);
     }
-
     MEMORYSTAT_CHECKMEMORYLEAK();
 }

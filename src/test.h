@@ -75,10 +75,6 @@ public:
         TestManager::Instance().AddTest(this);
     }
 
-//    bool operator<(const TestBase& rhs) const {
-//        return strcmp(name_, rhs.name_) < 0;
-//    }
-
     // For each operation, call SetUp() before and TearDown() after.
     // It is mainly for libraries require huge initialize time (e.g. Creating Isolate in V8).
     virtual void SetUp() const {}
@@ -92,7 +88,8 @@ public:
 #if TEST_PARSE
 
     // const char* json should be std::string
-    virtual ParseResultBase* Parse(const char* json, size_t length) const {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const
+    {
         (void)json;
         (void)length;
         return 0;
@@ -100,21 +97,24 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const
+    {
         (void)parseResult;
         return 0;
     }
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const
+    {
         (void)parseResult;
         return 0;
     }
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const
+    {
         (void)parseResult;
         (void)stat;
         return false;
@@ -122,7 +122,8 @@ public:
 #endif
 
 #if TEST_SAXROUNDTRIP
-    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const {
+    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const
+    {
         (void)json;
         (void)length;
         return 0;
@@ -130,7 +131,8 @@ public:
 #endif
 
 #if TEST_SAXSTATISTICS
-    virtual bool SaxStatistics(const char* json, size_t length, Stat* stat) const {
+    virtual bool SaxStatistics(const char* json, size_t length, Stat* stat) const
+    {
         (void)json;
         (void)length;
         (void)stat;
@@ -139,7 +141,8 @@ public:
 #endif
 
 #if TEST_SAXSTATISTICSUTF16
-    virtual bool SaxStatisticsUTF16(const char* json, size_t length, Stat* stat) const {
+    virtual bool SaxStatisticsUTF16(const char* json, size_t length, Stat* stat) const
+    {
         (void)json;
         (void)length;
         (void)stat;
@@ -153,22 +156,22 @@ public:
     // E.g. json = "[1.0]" -> d = 1.0
 
     // const char* json should be std::string
-    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const {
+    virtual bool ParseDouble(const char* json, size_t jsize, double* d) const
+    {
         (void)json;
         (void)d;
         return false;
     }
 
     // const char* json should be std::string
-    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const {
+    virtual bool ParseString(const char* json, size_t jsize, std::string& s) const
+    {
         (void)json;
         (void)s;
         return false;
     }
 #endif
 
-protected:
-//    const char* name_;
 };
 
 #define REGISTER_TEST(cls) static cls gRegister##cls

@@ -132,7 +132,7 @@ set( SOURCES_TESTS
     src/tests/yyjsontest.cpp
     src/tests/sheredomjsonhtest.cpp
     src/tests/ujson4ctest.cpp
-    src/tests/vincenthzlibjsontest.cpp # conformance memory leak
+    src/tests/vincenthzlibjsontest.cpp
     src/tests/strduptest.cpp
     src/tests/ccantest.cpp
     src/tests/arduinojsontest.cpp
@@ -148,7 +148,7 @@ set( SOURCES_TESTS
     src/tests/jsonboxtest.cpp
     src/tests/jsonconstest.cpp
     src/tests/jsoncpptest.cpp
-    src/tests/jsonspirittest.cpp # ok but very long compile time
+    src/tests/jsonspirittest.cpp
     src/tests/jsonxxtest.cpp
     src/tests/jusontest.cpp
     src/tests/nlohmanntest.cpp

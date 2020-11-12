@@ -36,6 +36,11 @@ hardware:
 
 ![Conformance](result/conformance.png)
 
+
+### Info about JSON parsing_json
+
+http://seriot.ch/parsing_json.php
+
 ------------------------------------------------------------------------
 
 
