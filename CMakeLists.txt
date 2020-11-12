@@ -111,13 +111,10 @@ set( SOURCES_TESTS_C ${PROJECT_SOURCE_DIR}
 
 set( SOURCES_TESTS
 #    src/tests/boostjsontest.cpp # TODO new
+#    src/tests/facil.io.cpp # active - master failing - try branch 0.8 or wait for update
 
 # https://github.com/pejman-hkh/json-parser
 # https://github.com/pejman-hkh/c-json-parser
-
-#    src/tests/follytest.cpp # installation
-#    src/tests/v8test.cpp  # installation
-#    src/tests/taocppnlohmanntest.cpp   # too many changes
 
     src/tests/jsonctest.cpp
     src/tests/cjsontest.cpp
@@ -143,7 +140,7 @@ set( SOURCES_TESTS
     src/tests/jsonboxtest.cpp
     src/tests/jsonconstest.cpp
     src/tests/jsoncpptest.cpp
-    src/tests/jsonspirittest.cpp
+    src/tests/jsonspirittest.cpp # TODO use local boost spirit
     src/tests/jsonxxtest.cpp
     src/tests/jusontest.cpp
     src/tests/nlohmanntest.cpp
@@ -160,10 +157,9 @@ set( SOURCES_TESTS
     src/tests/udpjsontest.cpp
     src/tests/cajuntest.cpp # ok but very slow
 
-#    src/tests/janssontest.cpp # TODO active - config needed
-#    src/tests/facil.io.cpp #  TODO active - master failing - try branch 0.8
-#    src/tests/parsontest.cpp # TODO active - malloc,free
-#    src/tests/ULibtest.cpp # TODO active - ./configure is needed
+#    src/tests/janssontest.cpp # active - config needed
+#    src/tests/parsontest.cpp # active - malloc,free
+#    src/tests/ULibtest.cpp # active - ./configure is needed
 #    src/tests/qajson4ctest.cpp # ?
 #    src/tests/jzontest.cpp # inactive - 5y
 #    src/tests/pjsontest.cpp # inactive - 4y
@@ -171,6 +167,9 @@ set( SOURCES_TESTS
 #    src/tests/jvartest.cpp # inactive - 4y
 #    src/tests/tunnuztest.cpp # inactive - 5y
 #    src/tests/yajltest.cpp # inactive - 6y
+#    src/tests/follytest.cpp # installation
+#    src/tests/v8test.cpp  # installation
+#    src/tests/taocppnlohmanntest.cpp   # too many changes
 )
 
 file( GLOB_RECURSE SOURCES_3PRTY ${PROJECT_SOURCE_DIR}

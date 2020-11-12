@@ -7,17 +7,16 @@
 #include "ArduinoJson/src/ArduinoJson.h"
 
 using namespace ArduinoJson;
-// using namespace ArduinoJson::Internals;
 
-static void GenStat(Stat& stat, const JsonVariant& v) {
+static void GenStat(Stat& stat, const JsonVariant& v)
+{
     if (v.is<const JsonArray>()) {
         JsonArray a = v.to<JsonArray>();
         for (auto itr = a.begin(); itr != a.end(); ++itr)
             GenStat(stat, *itr);
         stat.arrayCount++;
         stat.elementCount += a.size();
-    }
-    else if (v.is<const JsonObject&>()) {
+    } else if (v.is<const JsonObject&>()) {
         JsonObject o = v.to<JsonObject>();
         for (auto itr = o.begin(); itr != o.end(); ++itr) {
             GenStat(stat, itr->value());
@@ -26,22 +25,19 @@ static void GenStat(Stat& stat, const JsonVariant& v) {
         stat.objectCount++;
         stat.memberCount += o.size();
         stat.stringCount += o.size();
-    }
-    else if (v.is<const char*>()) {
-//        if (v.to<String>)() {
-//            stat.stringCount++;
-//            stat.stringLength += strlen(v.asString());
-//        }
-//        else
-//            stat.nullCount++; // JSON null value is treat as string null pointer
-    }
-    else if (v.is<long>() || v.is<double>())
+    } else if (v.is<const char*>()) {
+            stat.stringCount++;
+            stat.stringLength += strlen(v.as<const char*> ());
+    } else if(v.isNull()) {
+        stat.nullCount++; // JSON null value is treat as string null pointer
+    } else if (v.is<long>() || v.is<double>()) {
         stat.numberCount++;
-    else if (v.is<bool>()) {
-        if ((bool)v)
+    } else if (v.is<bool>()) {
+        if ((bool)v) {
             stat.trueCount++;
-        else
+        } else {
             stat.falseCount++;
+        }
     }
 }
 
@@ -73,7 +69,8 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
         (void)length;
         ArduinojsonParseResult* pr = new ArduinojsonParseResult;
         pr->buffer = (char*)malloc(length);
@@ -146,16 +143,14 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
+    {
         ArduinojsonParseResult pr;
-//        pr.buffer = strdup(json);
-//        DeserializationError error = deserializeJson(pr.jsonBuffer,pr.buffer);
         DeserializationError error = deserializeJson(pr.jsonBuffer,json,length);
         if (error) {
             return false;
         }
         auto a = pr.jsonBuffer.as<JsonArray>();
-        //JsonArray& a = pr.jsonBuffer.parseArray(pr.buffer);
         if (a.size() == 1) {
             *d = a[0].as<double>();
             return true;
@@ -164,16 +159,14 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
+    {
         ArduinojsonParseResult pr;
-//        pr.buffer = strdup(json);
-//        DeserializationError error = deserializeJson(pr.jsonBuffer,pr.buffer);
         DeserializationError error = deserializeJson(pr.jsonBuffer,json,length);
         if (error) {
             return false;
         }
         auto a = pr.jsonBuffer.as<JsonArray>();
-        //JsonArray& a = pr.jsonBuffer.parseArray(pr.buffer);
         if (a.size() == 1) {
             s = a[0].as<std::string>();
             return true;

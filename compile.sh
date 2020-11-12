@@ -34,4 +34,5 @@ function build_clang
 }
 
 build_gcc
-# build_clang # must be fixed
+# build_clang # must be fixed std::logic_error::logic_error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)@@GLIBCXX_3.4.21
+

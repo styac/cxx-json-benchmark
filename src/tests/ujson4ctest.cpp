@@ -5,7 +5,8 @@
 
 extern "C" {
 
-static void GenStat(Stat* s, UJObject v) {
+static void GenStat(Stat* s, UJObject v)
+{
 	switch (UJGetType(v)) {
 	case UJT_Object:
 		{
@@ -46,11 +47,15 @@ static void GenStat(Stat* s, UJObject v) {
 	case UJT_Long: 
 	case UJT_LongLong:
 	case UJT_Double:
-		s->numberCount++;  break;
+        s->numberCount++;
+        break;
 
-	case UJT_True: s->trueCount++; break;
-	case UJT_False: s->falseCount++; break;
-	case UJT_Null: s->nullCount++; break;
+    case UJT_True: s->trueCount++;
+        break;
+    case UJT_False: s->falseCount++;
+        break;
+    case UJT_Null: s->nullCount++;
+        break;
     default:;
     }
 }
@@ -69,12 +74,13 @@ public:
 class Ujson4cTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "ujson4c (C)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "ujson4c (C)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE	
-    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
         (void)length;
         Ujson4cParseResult* pr = new Ujson4cParseResult;
 		pr->root = UJDecode(json, length, NULL, &pr->state);
@@ -87,7 +93,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const Ujson4cParseResult* pr = static_cast<const Ujson4cParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(stat, pr->root);
@@ -96,7 +103,8 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
+    {
         Ujson4cParseResult pr;
         pr.root = UJDecode(json, length, NULL, &pr.state);
 		if (pr.root && UJIsArray(pr.root)) {
@@ -110,7 +118,8 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
+    {
         Ujson4cParseResult pr;
         std::vector<char> v;
         pr.root = UJDecode(json, length, NULL, &pr.state);
