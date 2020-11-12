@@ -137,3 +137,6 @@
 [submodule "thirdparty/boostspirit"]
 	path = thirdparty/boostspirit
 	url = https://github.com/boostorg/spirit
+[submodule "thirdparty/qajson4c"]
+	path = thirdparty/qajson4c
+	url = https://github.com/DeHecht/qajson4c
