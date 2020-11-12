@@ -6,6 +6,10 @@ https://github.com/miloyip/nativejson-benchmark
 
 ## The results always reflect the latest states
 
+### Info about JSON parsing
+
+http://seriot.ch/parsing_json.php
+
 1. clone
 
 git clone --recursive https://github.com/styac/cxx-json-benchmark
@@ -36,10 +40,6 @@ hardware:
 
 ![Conformance](result/conformance.png)
 
-
-### Info about JSON parsing_json
-
-http://seriot.ch/parsing_json.php
 
 ------------------------------------------------------------------------
 

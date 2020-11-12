@@ -110,22 +110,31 @@ set( SOURCES_TESTS_C ${PROJECT_SOURCE_DIR}
 )
 
 set( SOURCES_TESTS
-#    src/tests/janssontest.cpp
-#    src/tests/cjsontest.cpp
-#    src/tests/facil.io.cpp # master failing
-#    src/tests/follytest.cpp
-#    src/tests/jsonctest.cpp
-#    src/tests/jvartest.cpp
-#    src/tests/jzontest.cpp
-#    src/tests/parsontest.cpp
-#    src/tests/pjsontest.cpp
-#    src/tests/qajson4ctest.cpp
+#    src/tests/boostjsontest.cpp # TODO new
+#    src/tests/qajson4ctest.cpp # TODO use https://github.com/DeHecht/qajson4c
+
+
+# https://github.com/pejman-hkh/json-parser
+# https://github.com/pejman-hkh/c-json-parser
+
+#    src/tests/janssontest.cpp # TODO active
+#    src/tests/facil.io.cpp #  TODO active - master failing - try branch 0.8
+#    src/tests/parsontest.cpp # TODO active
+#    src/tests/ULibtest.cpp # TODO active
+#    src/tests/cjsontest.cpp # TODO active
+
+#    src/tests/jsonctest.cpp # ?
+#    src/tests/jzontest.cpp # inactive - 5y
+#    src/tests/pjsontest.cpp # inactive - 4y
+#    src/tests/ujsontest.cpp # inactive - 7y
+#    src/tests/jvartest.cpp # inactive - 4y
+#    src/tests/tunnuztest.cpp # inactive - 5y
+#    src/tests/yajltest.cpp # inactive - 6y
+
+#    src/tests/follytest.cpp # installation
+#    src/tests/v8test.cpp  # installation
 #    src/tests/taocppnlohmanntest.cpp   # too many changes
-#    src/tests/tunnuztest.cpp
-#    src/tests/ujsontest.cpp
-#    src/tests/ULibtest.cpp
-#    src/tests/v8test.cpp
-#    src/tests/yajltest.cpp
+
     src/tests/voorheestest.cpp
     src/tests/sajsontest.cpp
     src/tests/centijsontest.cpp
