@@ -1,4 +1,257 @@
 Type,Library,Test,Result
+1. Parse Validation,boostjson (C++11),pass01,true
+1. Parse Validation,boostjson (C++11),pass02,true
+1. Parse Validation,boostjson (C++11),pass03,true
+1. Parse Validation,boostjson (C++11),fail02,true
+1. Parse Validation,boostjson (C++11),fail03,true
+1. Parse Validation,boostjson (C++11),fail04,true
+1. Parse Validation,boostjson (C++11),fail05,true
+1. Parse Validation,boostjson (C++11),fail06,true
+1. Parse Validation,boostjson (C++11),fail07,true
+1. Parse Validation,boostjson (C++11),fail08,true
+1. Parse Validation,boostjson (C++11),fail09,true
+1. Parse Validation,boostjson (C++11),fail10,true
+1. Parse Validation,boostjson (C++11),fail11,true
+1. Parse Validation,boostjson (C++11),fail12,true
+1. Parse Validation,boostjson (C++11),fail13,true
+1. Parse Validation,boostjson (C++11),fail14,true
+1. Parse Validation,boostjson (C++11),fail15,true
+1. Parse Validation,boostjson (C++11),fail16,true
+1. Parse Validation,boostjson (C++11),fail17,true
+1. Parse Validation,boostjson (C++11),fail19,true
+1. Parse Validation,boostjson (C++11),fail20,true
+1. Parse Validation,boostjson (C++11),fail21,true
+1. Parse Validation,boostjson (C++11),fail22,true
+1. Parse Validation,boostjson (C++11),fail23,true
+1. Parse Validation,boostjson (C++11),fail24,true
+1. Parse Validation,boostjson (C++11),fail25,true
+1. Parse Validation,boostjson (C++11),fail26,true
+1. Parse Validation,boostjson (C++11),fail27,true
+1. Parse Validation,boostjson (C++11),fail28,true
+1. Parse Validation,boostjson (C++11),fail29,true
+1. Parse Validation,boostjson (C++11),fail30,true
+1. Parse Validation,boostjson (C++11),fail31,true
+1. Parse Validation,boostjson (C++11),fail32,true
+1. Parse Validation,boostjson (C++11),fail33,true
+1. Parse Validation,boostjson (C++11),number_-9223372036854775808,true
+1. Parse Validation,boostjson (C++11),string_2_escaped_invalid_codepoints,false
+1. Parse Validation,boostjson (C++11),string_1_invalid_codepoint,false
+1. Parse Validation,boostjson (C++11),object_same_key_unclear_values,true
+1. Parse Validation,boostjson (C++11),object_key_nfc_nfd,true
+1. Parse Validation,boostjson (C++11),string_3_escaped_invalid_codepoints,false
+1. Parse Validation,boostjson (C++11),number_1.000000000000000005,true
+1. Parse Validation,boostjson (C++11),string_with_escaped_NULL,true
+1. Parse Validation,boostjson (C++11),number_1e6,true
+1. Parse Validation,boostjson (C++11),string_3_invalid_codepoints,false
+1. Parse Validation,boostjson (C++11),number_1.0,true
+1. Parse Validation,boostjson (C++11),string_2_invalid_codepoints,false
+1. Parse Validation,boostjson (C++11),number_9223372036854775807,true
+1. Parse Validation,boostjson (C++11),number_1000000000000000,true
+1. Parse Validation,boostjson (C++11),number_10000000000000000999,true
+1. Parse Validation,boostjson (C++11),number_-9223372036854775809,true
+1. Parse Validation,boostjson (C++11),object_same_key_different_values,true
+1. Parse Validation,boostjson (C++11),object_key_nfd_nfc,true
+1. Parse Validation,boostjson (C++11),object_same_key_same_value,true
+1. Parse Validation,boostjson (C++11),number_9223372036854775808,true
+1. Parse Validation,boostjson (C++11),number_1e-999,true
+1. Parse Validation,boostjson (C++11),string_1_escaped_invalid_codepoint,false
+1. Parse Validation,boostjson (C++11),y_string_with_del_character,true
+1. Parse Validation,boostjson (C++11),y_object_duplicated_key_and_value,true
+1. Parse Validation,boostjson (C++11),y_string_accepted_surrogate_pairs,true
+1. Parse Validation,boostjson (C++11),y_array_empty,true
+1. Parse Validation,boostjson (C++11),y_structure_true_in_array,true
+1. Parse Validation,boostjson (C++11),y_string_escaped_control_character,true
+1. Parse Validation,boostjson (C++11),y_string_two-byte-utf-8,true
+1. Parse Validation,boostjson (C++11),y_string_unicode_U+200B_ZERO_WIDTH_SPACE,true
+1. Parse Validation,boostjson (C++11),y_string_accepted_surrogate_pair,true
+1. Parse Validation,boostjson (C++11),y_number_real_capital_e_neg_exp,true
+1. Parse Validation,boostjson (C++11),y_structure_lonely_true,true
+1. Parse Validation,boostjson (C++11),y_number_real_fraction_exponent,true
+1. Parse Validation,boostjson (C++11),y_string_backslash_and_u_escaped_zero,true
+1. Parse Validation,boostjson (C++11),y_string_nonCharacterInUTF-8_U+10FFFF,true
+1. Parse Validation,boostjson (C++11),y_number,true
+1. Parse Validation,boostjson (C++11),y_number_real_capital_e_pos_exp,true
+1. Parse Validation,boostjson (C++11),y_array_false,true
+1. Parse Validation,boostjson (C++11),y_array_with_1_and_newline,true
+1. Parse Validation,boostjson (C++11),y_number_0e1,true
+1. Parse Validation,boostjson (C++11),y_string_reservedCharacterInUTF-8_U+1BFFF,true
+1. Parse Validation,boostjson (C++11),y_array_with_trailing_space,true
+1. Parse Validation,boostjson (C++11),y_string_comments,true
+1. Parse Validation,boostjson (C++11),y_string_three-byte-utf-8,true
+1. Parse Validation,boostjson (C++11),y_string_double_escape_n,true
+1. Parse Validation,boostjson (C++11),y_array_empty-string,true
+1. Parse Validation,boostjson (C++11),y_object_empty,true
+1. Parse Validation,boostjson (C++11),y_object_simple,true
+1. Parse Validation,boostjson (C++11),y_string_one-byte-utf-8,true
+1. Parse Validation,boostjson (C++11),y_number_real_capital_e,true
+1. Parse Validation,boostjson (C++11),y_object_long_strings,true
+1. Parse Validation,boostjson (C++11),y_string_utf8,true
+1. Parse Validation,boostjson (C++11),y_object_empty_key,true
+1. Parse Validation,boostjson (C++11),y_string_unicode_U+2064_invisible_plus,true
+1. Parse Validation,boostjson (C++11),y_structure_whitespace_array,true
+1. Parse Validation,boostjson (C++11),y_object_duplicated_key,true
+1. Parse Validation,boostjson (C++11),y_array_with_leading_space,true
+1. Parse Validation,boostjson (C++11),y_string_space,true
+1. Parse Validation,boostjson (C++11),y_object_escaped_null_in_key,true
+1. Parse Validation,boostjson (C++11),y_number_negative_one,true
+1. Parse Validation,boostjson (C++11),y_structure_lonely_false,true
+1. Parse Validation,boostjson (C++11),y_structure_trailing_newline,true
+1. Parse Validation,boostjson (C++11),y_number_minus_zero,true
+1. Parse Validation,boostjson (C++11),y_string_last_surrogates_1_and_2,true
+1. Parse Validation,boostjson (C++11),y_structure_lonely_string,true
+1. Parse Validation,boostjson (C++11),y_string_unicode,true
+1. Parse Validation,boostjson (C++11),y_string_unicodeEscapedBackslash,true
+1. Parse Validation,boostjson (C++11),y_number_real_exponent,true
+1. Parse Validation,boostjson (C++11),y_structure_lonely_negative_real,true
+1. Parse Validation,boostjson (C++11),y_string_null_escape,true
+1. Parse Validation,boostjson (C++11),y_number_int_with_exp,true
+1. Parse Validation,boostjson (C++11),y_number_negative_zero,true
+1. Parse Validation,boostjson (C++11),y_number_double_close_to_zero,true
+1. Parse Validation,boostjson (C++11),y_string_unicode_U+FDD0_nonchar,true
+1. Parse Validation,boostjson (C++11),y_array_arraysWithSpaces,true
+1. Parse Validation,boostjson (C++11),y_string_unicode_U+1FFFE_nonchar,true
+1. Parse Validation,boostjson (C++11),y_string_nbsp_uescaped,true
+1. Parse Validation,boostjson (C++11),y_array_heterogeneous,true
+1. Parse Validation,boostjson (C++11),y_number_0e+1,true
+1. Parse Validation,boostjson (C++11),y_string_simple_ascii,true
+1. Parse Validation,boostjson (C++11),y_object_basic,true
+1. Parse Validation,boostjson (C++11),y_array_ending_with_newline,true
+1. Parse Validation,boostjson (C++11),y_number_simple_int,true
+1. Parse Validation,boostjson (C++11),y_number_after_space,true
+1. Parse Validation,boostjson (C++11),y_string_pi,true
+1. Parse Validation,boostjson (C++11),y_string_u+2028_line_sep,true
+1. Parse Validation,boostjson (C++11),y_string_in_array,true
+1. Parse Validation,boostjson (C++11),y_object_extreme_numbers,true
+1. Parse Validation,boostjson (C++11),y_object_with_newlines,true
+1. Parse Validation,boostjson (C++11),y_string_double_escape_a,true
+1. Parse Validation,boostjson (C++11),y_string_unicode_U+FFFE_nonchar,true
+1. Parse Validation,boostjson (C++11),y_structure_lonely_int,true
+1. Parse Validation,boostjson (C++11),y_number_negative_int,true
+1. Parse Validation,boostjson (C++11),y_string_u+2029_par_sep,true
+1. Parse Validation,boostjson (C++11),y_string_escaped_noncharacter,true
+1. Parse Validation,boostjson (C++11),y_string_unescaped_char_delete,true
+1. Parse Validation,boostjson (C++11),y_string_unicode_escaped_double_quote,true
+1. Parse Validation,boostjson (C++11),y_object_string_unicode,true
+1. Parse Validation,boostjson (C++11),y_string_allowed_escapes,true
+1. Parse Validation,boostjson (C++11),y_array_null,true
+1. Parse Validation,boostjson (C++11),y_string_surrogates_U+1D11E_MUSICAL_SYMBOL_G_CLEF,true
+1. Parse Validation,boostjson (C++11),y_number_real_neg_exp,true
+1. Parse Validation,boostjson (C++11),y_string_uEscape,true
+1. Parse Validation,boostjson (C++11),y_structure_lonely_null,true
+1. Parse Validation,boostjson (C++11),y_string_backslash_doublequotes,true
+1. Parse Validation,boostjson (C++11),y_number_simple_real,true
+1. Parse Validation,boostjson (C++11),y_structure_string_empty,true
+1. Parse Validation,boostjson (C++11),y_string_unicode_U+10FFFE_nonchar,true
+1. Parse Validation,boostjson (C++11),y_string_nonCharacterInUTF-8_U+FFFF,true
+1. Parse Validation,boostjson (C++11),y_array_with_several_null,true
+1. Parse Validation,boostjson (C++11),y_string_uescaped_newline,true
+1. Parse Validation,boostjson (C++11),y_string_unicode_2,true
+1. Parse Validation,boostjson (C++11),y_string_in_array_with_leading_space,true
+1. Parse Validation,boostjson (C++11),y_string_1_2_3_bytes_UTF-8_sequences,true
+1. Parse Validation,boostjson (C++11),y_object,true
+1. Parse Validation,boostjson (C++11),y_number_real_pos_exponent,true
+2. Parse Double,boostjson (C++11),double01,true
+2. Parse Double,boostjson (C++11),double02,true
+2. Parse Double,boostjson (C++11),double03,true
+2. Parse Double,boostjson (C++11),double04,true
+2. Parse Double,boostjson (C++11),double05,true
+2. Parse Double,boostjson (C++11),double06,true
+2. Parse Double,boostjson (C++11),double07,true
+2. Parse Double,boostjson (C++11),double08,true
+2. Parse Double,boostjson (C++11),double09,true
+2. Parse Double,boostjson (C++11),double10,true
+2. Parse Double,boostjson (C++11),double11,true
+2. Parse Double,boostjson (C++11),double12,true
+2. Parse Double,boostjson (C++11),double13,true
+2. Parse Double,boostjson (C++11),double14,true
+2. Parse Double,boostjson (C++11),double15,true
+2. Parse Double,boostjson (C++11),double16,true
+2. Parse Double,boostjson (C++11),double17,true
+2. Parse Double,boostjson (C++11),double18,true
+2. Parse Double,boostjson (C++11),double19,false
+2. Parse Double,boostjson (C++11),double20,true
+2. Parse Double,boostjson (C++11),double21,false
+2. Parse Double,boostjson (C++11),double22,true
+2. Parse Double,boostjson (C++11),double23,true
+2. Parse Double,boostjson (C++11),double24,true
+2. Parse Double,boostjson (C++11),double25,true
+2. Parse Double,boostjson (C++11),double26,true
+2. Parse Double,boostjson (C++11),double27,true
+2. Parse Double,boostjson (C++11),double28,true
+2. Parse Double,boostjson (C++11),double29,false
+2. Parse Double,boostjson (C++11),double30,true
+2. Parse Double,boostjson (C++11),double31,true
+2. Parse Double,boostjson (C++11),double32,false
+2. Parse Double,boostjson (C++11),double33,true
+2. Parse Double,boostjson (C++11),double34,true
+2. Parse Double,boostjson (C++11),double35,true
+2. Parse Double,boostjson (C++11),double36,true
+2. Parse Double,boostjson (C++11),double37,false
+2. Parse Double,boostjson (C++11),double38,true
+2. Parse Double,boostjson (C++11),double39,true
+2. Parse Double,boostjson (C++11),double40,false
+2. Parse Double,boostjson (C++11),double41,true
+2. Parse Double,boostjson (C++11),double42,true
+2. Parse Double,boostjson (C++11),double43,true
+2. Parse Double,boostjson (C++11),double44,false
+2. Parse Double,boostjson (C++11),double45,true
+2. Parse Double,boostjson (C++11),double46,true
+2. Parse Double,boostjson (C++11),double47,true
+2. Parse Double,boostjson (C++11),double48,false
+2. Parse Double,boostjson (C++11),double49,true
+2. Parse Double,boostjson (C++11),double50,true
+2. Parse Double,boostjson (C++11),double51,true
+2. Parse Double,boostjson (C++11),double52,true
+2. Parse Double,boostjson (C++11),double53,true
+2. Parse Double,boostjson (C++11),double54,true
+2. Parse Double,boostjson (C++11),double55,false
+2. Parse Double,boostjson (C++11),double56,true
+2. Parse Double,boostjson (C++11),double57,true
+2. Parse Double,boostjson (C++11),double58,false
+2. Parse Double,boostjson (C++11),double59,true
+2. Parse Double,boostjson (C++11),double60,true
+2. Parse Double,boostjson (C++11),double61,true
+2. Parse Double,boostjson (C++11),double62,false
+2. Parse Double,boostjson (C++11),double63,true
+2. Parse Double,boostjson (C++11),double64,false
+2. Parse Double,boostjson (C++11),double65,true
+2. Parse Double,boostjson (C++11),double66,true
+3. Parse String,boostjson (C++11),string01,true
+3. Parse String,boostjson (C++11),string02,true
+3. Parse String,boostjson (C++11),string03,true
+3. Parse String,boostjson (C++11),string04,true
+3. Parse String,boostjson (C++11),string05,true
+3. Parse String,boostjson (C++11),string06,true
+3. Parse String,boostjson (C++11),string07,true
+3. Parse String,boostjson (C++11),string08,true
+3. Parse String,boostjson (C++11),string09,true
+4. Roundtrip,boostjson (C++11),roundtrip01,true
+4. Roundtrip,boostjson (C++11),roundtrip02,true
+4. Roundtrip,boostjson (C++11),roundtrip03,true
+4. Roundtrip,boostjson (C++11),roundtrip04,true
+4. Roundtrip,boostjson (C++11),roundtrip05,true
+4. Roundtrip,boostjson (C++11),roundtrip06,true
+4. Roundtrip,boostjson (C++11),roundtrip07,true
+4. Roundtrip,boostjson (C++11),roundtrip08,true
+4. Roundtrip,boostjson (C++11),roundtrip09,true
+4. Roundtrip,boostjson (C++11),roundtrip10,true
+4. Roundtrip,boostjson (C++11),roundtrip11,true
+4. Roundtrip,boostjson (C++11),roundtrip12,true
+4. Roundtrip,boostjson (C++11),roundtrip13,true
+4. Roundtrip,boostjson (C++11),roundtrip14,true
+4. Roundtrip,boostjson (C++11),roundtrip15,true
+4. Roundtrip,boostjson (C++11),roundtrip16,true
+4. Roundtrip,boostjson (C++11),roundtrip17,true
+4. Roundtrip,boostjson (C++11),roundtrip18,true
+4. Roundtrip,boostjson (C++11),roundtrip19,true
+4. Roundtrip,boostjson (C++11),roundtrip20,false
+4. Roundtrip,boostjson (C++11),roundtrip21,false
+4. Roundtrip,boostjson (C++11),roundtrip22,false
+4. Roundtrip,boostjson (C++11),roundtrip23,false
+4. Roundtrip,boostjson (C++11),roundtrip24,false
+4. Roundtrip,boostjson (C++11),roundtrip25,false
+4. Roundtrip,boostjson (C++11),roundtrip26,false
+4. Roundtrip,boostjson (C++11),roundtrip27,false
 1. Parse Validation,json-c (C),pass01,true
 1. Parse Validation,json-c (C),pass02,true
 1. Parse Validation,json-c (C),pass03,true

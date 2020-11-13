@@ -46,6 +46,7 @@ add_compile_definitions(JSONCONS_NO_DEPRECATED)
 include_directories (
     "src/tunnuz/",
     "thirdparty/",
+    "thirdparty/boostjson/include/",
     "thirdparty/fastjson/include/",
     "thirdparty/jsonbox/include/",
     "thirdparty/jsoncpp/incCMakeLists.txtlude/",
@@ -110,12 +111,7 @@ set( SOURCES_TESTS_C ${PROJECT_SOURCE_DIR}
 )
 
 set( SOURCES_TESTS
-#    src/tests/boostjsontest.cpp # TODO new
-#    src/tests/facil.io.cpp # active - master failing - try branch 0.8 or wait for update
-
-# https://github.com/pejman-hkh/json-parser
-# https://github.com/pejman-hkh/c-json-parser
-
+    src/tests/boostjsontest.cpp
     src/tests/jsonctest.cpp
     src/tests/cjsontest.cpp
     src/tests/voorheestest.cpp
@@ -157,6 +153,7 @@ set( SOURCES_TESTS
     src/tests/udpjsontest.cpp
     src/tests/cajuntest.cpp # ok but very slow
 
+#    src/tests/facil.io.cpp # active - master failing - try branch 0.8 or wait for update
 #    src/tests/janssontest.cpp # active - config needed
 #    src/tests/parsontest.cpp # active - malloc,free
 #    src/tests/ULibtest.cpp # active - ./configure is needed
@@ -170,6 +167,9 @@ set( SOURCES_TESTS
 #    src/tests/follytest.cpp # installation
 #    src/tests/v8test.cpp  # installation
 #    src/tests/taocppnlohmanntest.cpp   # too many changes
+
+# https://github.com/pejman-hkh/json-parser
+# https://github.com/pejman-hkh/c-json-parser
 )
 
 file( GLOB_RECURSE SOURCES_3PRTY ${PROJECT_SOURCE_DIR}

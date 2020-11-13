@@ -5,7 +5,8 @@
 
 using namespace nlohmann;
 
-static void GenStat(Stat& stat, const json& v) {
+static void GenStat(Stat& stat, const json& v)
+{
     switch (v.type()) {
     case json::value_t::array:
         for (auto& element : v)
@@ -45,6 +46,9 @@ static void GenStat(Stat& stat, const json& v) {
     case json::value_t::null:
         stat.nullCount++;
         break;
+
+    default:
+        break;
     }
 }
 
@@ -62,12 +66,13 @@ public:
 class NlohmannTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "Nlohmann (C++11)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "Nlohmann (C++11)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* j, size_t length) const {
+    virtual ParseResultBase* Parse(const char* j, size_t length) const override
+    {
         (void)length;
         NlohmannParseResult* pr = new NlohmannParseResult;
         try {
@@ -82,7 +87,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const NlohmannParseResult* pr = static_cast<const NlohmannParseResult*>(parseResult);
         NlohmannStringResult* sr = new NlohmannStringResult;
         sr->s = pr->root.dump();
@@ -91,7 +97,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const NlohmannParseResult* pr = static_cast<const NlohmannParseResult*>(parseResult);
         NlohmannStringResult* sr = new NlohmannStringResult;
         sr->s = pr->root.dump(4);
@@ -100,7 +107,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const NlohmannParseResult* pr = static_cast<const NlohmannParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(*stat, pr->root);
