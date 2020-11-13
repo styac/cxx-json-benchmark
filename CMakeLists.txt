@@ -9,8 +9,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -fPIE -march=native -O2 -Wall" )
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse4.2 -mavx -O3 -Wall" )
 
 set( CMAKE_BUILD_TYPE Release )
-add_compile_definitions(TEST_DATA_FOLDER="${PROJECT_SOURCE_DIR}/data")
-add_compile_definitions(RESULT_FOLDER="${PROJECT_SOURCE_DIR}/result")
+add_compile_definitions(TEST_DATA_FOLDER="${PROJECT_SOURCE_DIR}/data/")
+add_compile_definitions(RESULT_FOLDER="${PROJECT_SOURCE_DIR}/result/")
 
 find_package(Boost)
 if( Boost_FOUND )

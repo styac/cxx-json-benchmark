@@ -39,7 +39,7 @@ $(function() {
 
     var newCol = overallDt.getNumberOfColumns() - 1;
     overallDt.setColumnLabel(newCol, type + ' ' + overallDt.getColumnLabel(newCol))
-    var formatter1 = new google.visualization.NumberFormat({ fractionDigits: 0 });
+    var formatter1 = new google.visualization.NumberFormat({ fractionDigits: 2 });
     formatter1.format(overallDt, newCol);
 
     for (var row = 0; row < overallDt.getNumberOfRows(); row++) {
@@ -216,7 +216,7 @@ function drawTable(type, data, isSpeedup) {
   else
     data.addColumn('number', 'Ratio');
   //data.sort([{ column: 1, desc: true }]);
-  var formatter1 = new google.visualization.NumberFormat({ fractionDigits: 0 });
+  var formatter1 = new google.visualization.NumberFormat({ fractionDigits: 2 });
   formatter1.format(data, 1);
 
   var div = document.createElement("div");
@@ -277,7 +277,7 @@ function drawBarChart(type, data, chart, sortOptions) {
   if (sortOptions != null)
     data.sort(sortOptions); // sort after assigning colors
 
-  var formatter1 = new google.visualization.NumberFormat({ fractionDigits: 0 });
+  var formatter1 = new google.visualization.NumberFormat({ fractionDigits: 2 });
   formatter1.format(data, 3);
 
   if (chart == null) {
