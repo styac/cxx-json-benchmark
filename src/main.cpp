@@ -3,12 +3,12 @@
 #include <cstdlib>
 #include <cstdio>
 #include <cstring>
-#if defined(_MSC_VER) || defined(__CYGWIN__)
-#include <process.h>
-#else
-#include <spawn.h>
-#include <sys/wait.h>
-#endif
+//#if defined(_MSC_VER) || defined(__CYGWIN__)
+//#include <process.h>
+//#else
+//#include <spawn.h>
+//#include <sys/wait.h>
+//#endif
 #include "test.h"
 #include "timer.h"
 #include "resultfilename.h"
@@ -385,9 +385,9 @@ static void BenchParse(const TestBase& test, const TestJsonList& testJsons, FILE
             {
                 MEMORYSTAT_SCOPE();
 
-                timer.Start();
+                timer.start();
                 dom = test.Parse(itr->m_json, itr->length);
-                timer.Stop();
+                timer.stop();
 
                 BENCH_MEMORYSTAT_ITERATION(trial);
             }
@@ -400,7 +400,7 @@ static void BenchParse(const TestBase& test, const TestJsonList& testJsons, FILE
                 break;
             }
 
-            double duration = timer.GetElapsedMilliseconds();
+            double duration = timer.diff_time();
             minDuration = std::min(minDuration, duration);
             test.TearDown();
         }
@@ -443,9 +443,9 @@ static void BenchStringify(const TestBase& test, const TestJsonList& testJsons, 
             {
                 MEMORYSTAT_SCOPE();
 
-                timer.Start();
+                timer.start();
                 json = test.Stringify(dom);
-                timer.Stop();
+                timer.stop();
 
                 BENCH_MEMORYSTAT_ITERATION(trial);
             }
@@ -457,7 +457,7 @@ static void BenchStringify(const TestBase& test, const TestJsonList& testJsons, 
                 break;
             }
 
-            double duration = timer.GetElapsedMilliseconds();
+            double duration = timer.diff_time();
             minDuration = std::min(minDuration, duration);
         }
 
@@ -502,9 +502,9 @@ static void BenchPrettify(const TestBase& test, const TestJsonList& testJsons, F
             {
                 MEMORYSTAT_SCOPE();
 
-                timer.Start();
+                timer.start();
                 json = test.Prettify(dom);
-                timer.Stop();
+                timer.stop();
 
                 BENCH_MEMORYSTAT_ITERATION(trial);
             }
@@ -516,7 +516,7 @@ static void BenchPrettify(const TestBase& test, const TestJsonList& testJsons, F
                 break;
             }
 
-            double duration = timer.GetElapsedMilliseconds();
+            double duration = timer.diff_time();
             minDuration = std::min(minDuration, duration);
         }
 
@@ -560,10 +560,10 @@ static void BenchStatistics(const TestBase& test, const TestJsonList& testJsons,
             {
                 MEMORYSTAT_SCOPE();
 
-                timer.Start();
+                timer.start();
                 Stat stat;
                 supported = test.Statistics(dom, &stat);
-                timer.Stop();
+                timer.stop();
 
                 BENCH_MEMORYSTAT_ITERATION(trial);
             }
@@ -571,7 +571,7 @@ static void BenchStatistics(const TestBase& test, const TestJsonList& testJsons,
             if (!supported)
                 break;
 
-            double duration = timer.GetElapsedMilliseconds();
+            double duration = timer.diff_time();
             minDuration = std::min(minDuration, duration);
         }
 
@@ -615,9 +615,9 @@ static void BenchSaxRoundtrip(const TestBase& test, const TestJsonList& testJson
             {
                 MEMORYSTAT_SCOPE();
 
-                timer.Start();
+                timer.start();
                 json = test.SaxRoundtrip(itr->m_json, itr->length);
-                timer.Stop();
+                timer.stop();
 
                 BENCH_MEMORYSTAT_ITERATION(trial);
             }
@@ -630,7 +630,7 @@ static void BenchSaxRoundtrip(const TestBase& test, const TestJsonList& testJson
                 break;
             }
 
-            double duration = timer.GetElapsedMilliseconds();
+            double duration = timer.diff_time();
             minDuration = std::min(minDuration, duration);
             test.TearDown();
         }
@@ -671,10 +671,10 @@ static void BenchSaxStatistics(const TestBase& test, const TestJsonList& testJso
             {
                 MEMORYSTAT_SCOPE();
 
-                timer.Start();
+                timer.start();
                 Stat stat;
                 supported = test.SaxStatistics(itr->m_json, itr->length, &stat);
-                timer.Stop();
+                timer.stop();
 
                 BENCH_MEMORYSTAT_ITERATION(trial);
             }
@@ -684,7 +684,7 @@ static void BenchSaxStatistics(const TestBase& test, const TestJsonList& testJso
                 break;
             }
 
-            double duration = timer.GetElapsedMilliseconds();
+            double duration = timer.diff_time();
             minDuration = std::min(minDuration, duration);
             test.TearDown();
         }

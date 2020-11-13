@@ -1,63 +1,31 @@
 #pragma once
 
-#ifdef _WIN32
-
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
+#include <chrono>
 
 class Timer {
 public:
-	Timer() : start_(), end_() {
+    Timer()
+        : m_start()
+        , m_end()
+    {}
+
+    void start()
+    {
+        m_start = std::chrono::high_resolution_clock::now();
 	}
 
-	void Start() {
-		QueryPerformanceCounter(&start_);
-	}
+    void stop()
+    {
+        m_end = std::chrono::high_resolution_clock::now();
+    }
 
-	void Stop() {
-		QueryPerformanceCounter(&end_);
-	}
-
-	double GetElapsedMilliseconds() {
-		LARGE_INTEGER freq;
-		QueryPerformanceFrequency(&freq);
-		return (end_.QuadPart - start_.QuadPart) * 1000.0 / freq.QuadPart;
-	}
+    double diff_time() const
+    {
+        auto duration = std::chrono::duration<double, std::milli>( m_end - m_start );
+        return duration.count();
+    }
 
 private:
-	LARGE_INTEGER start_;
-	LARGE_INTEGER end_;
+  std::chrono::high_resolution_clock::time_point m_start;
+  std::chrono::high_resolution_clock::time_point m_end;
 };
-
-// Undefine Windows bad macros
-#undef min
-#undef max
-
-#else
-
-#include <sys/time.h>
-
-class Timer {
-public:
-	Timer() : start_(), end_() {
-	}
-
-	void Start() {
-		gettimeofday(&start_, NULL);
-	}
-
-	void Stop() {
-		gettimeofday(&end_, NULL);
-	}
-
-	double GetElapsedMilliseconds() {
-		return (end_.tv_sec - start_.tv_sec) * 1000.0
-			+ (end_.tv_usec - start_.tv_usec) / 1000.0;
-	}
-
-private:
-  struct timeval start_;
-  struct timeval end_;
-};
-
-#endif

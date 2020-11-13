@@ -144,7 +144,8 @@ public:
     }
 
     // const char* json should be std::string
-    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
+    {
         YYjsonParseResult pr;
         yyjson_read_flag flg=YYJSON_READ_STOP_WHEN_DONE;
         yyjson_read_err err;
