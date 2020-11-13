@@ -4,28 +4,27 @@
 #include <cassert>
 #include <iostream>
 
-static void GenStat(Stat* s, const yyjson_val* obj) {
+static void GenStat(Stat* s, const yyjson_val* obj)
+{
     switch (yyjson_get_type(const_cast<yyjson_val*>(obj))) {
     case YYJSON_TYPE_OBJ: {
-        size_t count = yyjson_obj_size(const_cast<yyjson_val*>(obj));
-        for (size_t i = 0; i < count; ++i) {
-            GenStat(s, yyjson_arr_get(const_cast<yyjson_val*>(obj),i));
-        }
         size_t idx, max;
         yyjson_val *key, *val;
         yyjson_obj_foreach(const_cast<yyjson_val*>(obj), idx, max, key, val) {
             GenStat(s, const_cast<yyjson_val*>(val));
         }
+        s->elementCount += yyjson_obj_size(const_cast<yyjson_val*>(obj));
         ++s->objectCount;
     }
     break;
 
     case YYJSON_TYPE_ARR: {
-        size_t count = yyjson_arr_size(const_cast<yyjson_val*>(obj));
-        for (size_t i = 0; i < count; ++i) {
-            GenStat(s, yyjson_arr_get(const_cast<yyjson_val*>(obj),i));
+        yyjson_val *val;
+        size_t idx, max;
+        yyjson_arr_foreach(const_cast<yyjson_val*>(obj), idx, max, val) {
+            GenStat(s, val);
         }
-        s->elementCount += count;
+        s->elementCount += yyjson_arr_size(const_cast<yyjson_val*>(obj));
         ++s->arrayCount;
     }
     break;
