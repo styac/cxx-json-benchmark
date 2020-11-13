@@ -76,8 +76,8 @@ public:
 class UdpjsonTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "udp json-parser (C)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "udp json-parser (C)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE	
@@ -97,7 +97,8 @@ public:
 
     // Very slow in the current version.
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const UdpjsonParseResult* pr = static_cast<const UdpjsonParseResult*>(parseResult);
         UdpjsonStringResult* sr = new UdpjsonStringResult;
         json_serialize_opts opts = { json_serialize_mode_packed, 0, 0 };
@@ -108,7 +109,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const UdpjsonParseResult* pr = static_cast<const UdpjsonParseResult*>(parseResult);
         UdpjsonStringResult* sr = new UdpjsonStringResult;
         json_serialize_opts opts = { json_serialize_mode_multiline, 0, 4 };
@@ -119,7 +121,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const UdpjsonParseResult* pr = static_cast<const UdpjsonParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(stat, pr->root);
@@ -128,7 +131,8 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
+    {
         UdpjsonParseResult pr;
         json_settings settings = json_settings();
         settings.value_extra = json_builder_extra;  /* space for json-builder state */
@@ -145,7 +149,8 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
+    {
         UdpjsonParseResult pr;
         json_settings settings = json_settings();
         settings.value_extra = json_builder_extra;  /* space for json-builder state */

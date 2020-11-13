@@ -59,7 +59,8 @@ public:
 #endif
 
 #if TEST_PARSE
-   virtual ParseResultBase* Parse(const char* json, size_t length) const override {
+   virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
       TAOCPPJSONParseResult* pr = new TAOCPPJSONParseResult;
       try {
          pr->root = tao::json::from_string(json, length);
@@ -73,7 +74,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-   virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override  {
+   virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
       const TAOCPPJSONParseResult* pr = static_cast<const TAOCPPJSONParseResult*>(parseResult);
       TAOCPPJSONStringResult* sr = new TAOCPPJSONStringResult;
       sr->s = to_string(pr->root);
@@ -82,7 +84,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-   virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override  {
+   virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
       const TAOCPPJSONParseResult* pr = static_cast<const TAOCPPJSONParseResult*>(parseResult);
       TAOCPPJSONStringResult* sr = new TAOCPPJSONStringResult;
       sr->s = to_string(pr->root, 4);
@@ -91,7 +94,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-   virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override  {
+   virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
       const TAOCPPJSONParseResult* pr = static_cast<const TAOCPPJSONParseResult*>(parseResult);
       memset(stat, 0, sizeof(Stat));
 // not tested
@@ -121,9 +125,10 @@ public:
 //#endif
 
 #if TEST_CONFORMANCE
-   virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
+   virtual bool ParseDouble(const char* json, size_t length, double* d) const override
+    {
       try {
-         auto root = tao::json::from_string( json );
+         auto root = tao::json::from_string( json, length );
          *d = root[0].get_double();
          return true;
       }
@@ -132,9 +137,10 @@ public:
       return false;
    }
 
-   virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
+   virtual bool ParseString(const char* json, size_t length, std::string& s) const override
+    {
       try {
-         auto root = tao::json::from_string( json );
+         auto root = tao::json::from_string( json, length );
          s = root[0].get_string();
          return true;
       }

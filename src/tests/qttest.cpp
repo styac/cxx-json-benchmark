@@ -143,7 +143,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const QtParseResult* pr = static_cast<const QtParseResult*>(parseResult);
         QtStringResult* sr = new QtStringResult;
         sr->s = pr->d.toJson(QJsonDocument::Compact);
@@ -152,7 +153,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const QtParseResult* pr = static_cast<const QtParseResult*>(parseResult);
         QtStringResult* sr = new QtStringResult;
         sr->s = pr->d.toJson(QJsonDocument::Indented);
@@ -161,7 +163,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const QtParseResult* pr = static_cast<const QtParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         if (pr->d.isObject())
@@ -173,14 +176,16 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
-        QJsonDocument v = QJsonDocument::fromJson(QByteArray(json));
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
+    {
+        QJsonDocument v = QJsonDocument::fromJson(QByteArray(json,length));
         *d = v.array()[0].toDouble();
         return true;
     }
 
-    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
-        QJsonDocument v = QJsonDocument::fromJson(QByteArray(json));
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
+    {
+        QJsonDocument v = QJsonDocument::fromJson(QByteArray(json,length));
         s = v.array()[0].toString().toStdString();
         return true;
     }

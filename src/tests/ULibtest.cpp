@@ -100,7 +100,7 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-	virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
 		{
 		ULibStringResult* sr = new ULibStringResult;
 
@@ -111,7 +111,7 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-	virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
 		{
 		ULibStringResult* sr = new ULibStringResult;
 
@@ -122,7 +122,7 @@ public:
 #endif
 
 #if TEST_STATISTICS
-	virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
 		{
 		(void) memset(stat, 0, sizeof(Stat));
 

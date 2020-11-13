@@ -5,6 +5,7 @@
 https://github.com/miloyip/nativejson-benchmark
 
 ## The results always reflect the latest states
+## 40+ libraries benchmarked !!!
 
 ### Info about JSON parsing
 

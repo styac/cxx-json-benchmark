@@ -87,7 +87,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const SimplejsonParseResult* pr = static_cast<const SimplejsonParseResult*>(parseResult);
         SimplejsonStringResult* sr = new SimplejsonStringResult;
         std::wstring s = JSON::Stringify(pr->root);
@@ -111,7 +112,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const SimplejsonParseResult* pr = static_cast<const SimplejsonParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(*stat, *pr->root);
@@ -120,7 +122,8 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
+    {
         SimplejsonParseResult pr;
 
         char* backupLocale = std::setlocale(LC_ALL, 0);
@@ -142,7 +145,8 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
+    {
         SimplejsonParseResult pr;
 
         char* backupLocale = std::setlocale(LC_ALL, 0);

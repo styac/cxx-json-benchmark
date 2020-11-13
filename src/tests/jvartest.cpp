@@ -114,7 +114,7 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
     {
         const JvarParseResult* p = (const JvarParseResult*)parseResult;
         JvarStringResult* sr = new JvarStringResult;
@@ -124,7 +124,7 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
     {
         const JvarParseResult* p = (const JvarParseResult*)parseResult;
         memset(stat, 0, sizeof(Stat));

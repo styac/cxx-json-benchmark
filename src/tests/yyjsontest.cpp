@@ -81,7 +81,8 @@ public:
 #endif
 	
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
         YYjsonParseResult* pr = new YYjsonParseResult;
         yyjson_read_flag flg=YYJSON_READ_NOFLAG;
         pr->doc = yyjson_read(json,length,flg);
@@ -93,7 +94,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const YYjsonParseResult* pr = static_cast<const YYjsonParseResult*>(parseResult);
         YYjsonStringResult* sr = new YYjsonStringResult;
         size_t len;
@@ -105,7 +107,8 @@ public:
 
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const YYjsonParseResult* pr = static_cast<const YYjsonParseResult*>(parseResult);
         YYjsonStringResult* sr = new YYjsonStringResult;
         size_t len;

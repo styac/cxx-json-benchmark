@@ -79,7 +79,8 @@ public:
 #endif
 	
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
         (void)length;
         CcanParseResult* pr = new CcanParseResult;
         pr->root = json_decode(json);
@@ -92,7 +93,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const CcanParseResult* pr = static_cast<const CcanParseResult*>(parseResult);
         CcanStringResult* sr = new CcanStringResult;
         sr->s = json_encode(pr->root);
@@ -101,7 +103,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const CcanParseResult* pr = static_cast<const CcanParseResult*>(parseResult);
         CcanStringResult* sr = new CcanStringResult;
         sr->s = json_stringify(pr->root, "    ");
@@ -110,7 +113,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const CcanParseResult* pr = static_cast<const CcanParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(stat, pr->root);
@@ -119,7 +123,8 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
+    {
         CcanParseResult pr;
         pr.root = json_decode(json);
         if (pr.root && pr.root->tag == JSON_ARRAY && pr.root->children.head->tag == JSON_NUMBER) {
@@ -130,7 +135,8 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
+    {
         CcanParseResult pr;
         pr.root = json_decode(json);
         if (pr.root && pr.root->tag == JSON_ARRAY && pr.root->children.head->tag == JSON_STRING) {

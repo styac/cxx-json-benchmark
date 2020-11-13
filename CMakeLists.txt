@@ -29,51 +29,51 @@ if( Poco_FOUND )
     add_compile_definitions(HAS_POCO)
 endif()
 
-add_compile_definitions( USE_MEMORYSTAT=1)
-add_compile_definitions( TEST_PARSE=1)
-add_compile_definitions( TEST_STRINGIFY=1)
-add_compile_definitions( TEST_PRETTIFY=1)
-add_compile_definitions( TEST_TEST_STATISTICS=1)
-add_compile_definitions( TEST_SAXROUNDTRIP=1)
-add_compile_definitions( TEST_SAXSTATISTICS=1)
-add_compile_definitions( TEST_SAXSTATISTICSUTF16=0)
-add_compile_definitions( TEST_CONFORMANCE=1)
-add_compile_definitions( TEST_INFO=1)
+add_compile_definitions(USE_MEMORYSTAT=1)
+add_compile_definitions(TEST_PARSE=1)
+add_compile_definitions(TEST_STRINGIFY=1)
+add_compile_definitions(TEST_PRETTIFY=1)
+add_compile_definitions(TEST_TEST_STATISTICS=1)
+add_compile_definitions(TEST_SAXROUNDTRIP=1)
+add_compile_definitions(TEST_SAXSTATISTICS=1)
+add_compile_definitions(TEST_SAXSTATISTICSUTF16=0)
+add_compile_definitions(TEST_CONFORMANCE=1)
+add_compile_definitions(TEST_INFO=1)
 
 # disable old stuff of jsoncons
 add_compile_definitions(JSONCONS_NO_DEPRECATED)
 
 include_directories (
-    "src/tunnuz/",
-    "thirdparty/",
-    "thirdparty/boostjson/include/",
-    "thirdparty/fastjson/include/",
-    "thirdparty/jsonbox/include/",
-    "thirdparty/jsoncpp/incCMakeLists.txtlude/",
-    "thirdparty/rapidjson/include/",
-    "thirdparty/udp-json-parser/",
-    "thirdparty/include/",
-    "thirdparty/json-voorhees/include",
-    "thirdparty/json-voorhees/src",
-    "thirdparty/jsoncons/src",
-    "thirdparty/jsoncons/include",
-    "thirdparty/jsoncpp/include",
-    "thirdparty/nlohmann/include",
-    "thirdparty/ArduinoJson/src",
-    "thirdparty/ArduinoJson/",
-    "thirdparty/include/jeayeson/include/dummy",
-    "thirdparty/jvar/include",
-    "thirdparty/pjson/inc",
-    "thirdparty/ULib/include",
-    "thirdparty/facil.io/lib/facil",
-    "thirdparty/facil.io/lib/facil/fiobj/fiobj",
-    "thirdparty/facil.io/lib/facil/fiobj"
-    "thirdparty/simdjson/singleheader",
-    "thirdparty/yajl/src"
-    "thirdparty/ujson4c/3rdparty/"
-    "thirdparty/centijson/src"
-    "thirdparty/cpprestsdk/Release/include/"
-    "thirdparty/cpprestsdk/Release/src/"
+    src/tunnuz
+    thirdparty
+    thirdparty/boostjson/include
+    thirdparty/fastjson/include
+    thirdparty/jsonbox/include
+    thirdparty/jsoncpp/include
+    thirdparty/rapidjson/include
+    thirdparty/udp-json-parser
+    thirdparty/include
+    thirdparty/json-voorhees/include
+    thirdparty/json-voorhees/src
+    thirdparty/jsoncons/src
+    thirdparty/jsoncons/include
+    thirdparty/jsoncpp/include
+    thirdparty/nlohmann/include
+    thirdparty/ArduinoJson/src
+    thirdparty/ArduinoJson/
+    thirdparty/include/jeayeson/include/dummy
+    thirdparty/jvar/include
+    thirdparty/pjson/inc
+    thirdparty/ULib/include
+    thirdparty/facil.io/lib/facil
+    thirdparty/facil.io/lib/facil/fiobj/fiobj
+    thirdparty/facil.io/lib/facil/fiobj
+    thirdparty/simdjson/singleheader
+    thirdparty/yajl/src
+    thirdparty/ujson4c/3rdparty
+    thirdparty/centijson/src
+    thirdparty/cpprestsdk/Release/include
+    thirdparty/cpprestsdk/Release/src
 )
 
 file( GLOB HEADERS ${PROJECT_SOURCE_DIR}

@@ -12,14 +12,16 @@ class StatVisitor : public ConstVisitor
 public:
     StatVisitor(Stat& stat) : stat(stat) {}
 
-    virtual void Visit(const Array& array) {
+    virtual void Visit(const Array& array)
+    {
         for (Array::const_iterator itr = array.Begin(); itr != array.End(); ++itr)
             itr->Accept(*this);
         stat.arrayCount++;
         stat.elementCount += array.Size();
     }
 
-    virtual void Visit(const Object& object) {
+    virtual void Visit(const Object& object)
+    {
         for (Object::const_iterator itr = object.Begin(); itr != object.End(); ++itr) {
             stat.stringLength += itr->name.size();
             itr->element.Accept(*this);
@@ -29,24 +31,28 @@ public:
         stat.stringCount += object.Size(); // Keys
     }
 
-    virtual void Visit(const Number& number) {
+    virtual void Visit(const Number& number)
+    {
         (void)number;
         stat.numberCount++;
     }
 
-    virtual void Visit(const String& string) {
+    virtual void Visit(const String& string)
+    {
         stat.stringCount++;
         stat.stringLength += static_cast<const std::string&>(string).size();
     }
 
-    virtual void Visit(const Boolean& boolean) {
+    virtual void Visit(const Boolean& boolean)
+    {
         if (boolean)
             stat.trueCount++;
         else
             stat.falseCount++;
     }
 
-    virtual void Visit(const Null& null) {
+    virtual void Visit(const Null& null)
+    {
         (void)null;
         stat.nullCount++;
     }
@@ -70,8 +76,8 @@ public:
 class CajunTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "CAJUN (C++)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "CAJUN (C++)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE
@@ -91,7 +97,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const CajunParseResult* pr = static_cast<const CajunParseResult*>(parseResult);
         CajunStringResult* sr = new CajunStringResult;
         std::stringstream os;
@@ -102,7 +109,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const CajunParseResult* pr = static_cast<const CajunParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         StatVisitor visitor(*stat);

@@ -180,12 +180,13 @@ public:
 class GasonTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "gason (C++11)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "gason (C++11)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 	
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
         (void)length;
         GasonParseResult* pr = new GasonParseResult;
         char* end = 0;
@@ -201,7 +202,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const GasonParseResult* pr = static_cast<const GasonParseResult*>(parseResult);
         std::ostringstream os;
         dumpValue(os, pr->value, 0);
@@ -212,7 +214,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const GasonParseResult* pr = static_cast<const GasonParseResult*>(parseResult);
         std::ostringstream os;
         dumpValue(os, pr->value, 4, "\n");
@@ -223,7 +226,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const GasonParseResult* pr = static_cast<const GasonParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(*stat, pr->value);
@@ -232,7 +236,8 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
+    {
         GasonParseResult pr;
         char* end = 0;
         pr.json = strdup(json);
@@ -248,7 +253,8 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
+    {
         GasonParseResult pr;
         char* end = 0;
         pr.json = strdup(json);

@@ -411,7 +411,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const VinenthzParseResult* pr = static_cast<const VinenthzParseResult*>(parseResult);
         VinenthzStringResult* sr = new VinenthzStringResult();
         json_printer printer;
@@ -424,7 +425,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const VinenthzParseResult* pr = static_cast<const VinenthzParseResult*>(parseResult);
         VinenthzStringResult* sr = new VinenthzStringResult();
         json_printer printer;
@@ -437,7 +439,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const VinenthzParseResult* pr = static_cast<const VinenthzParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(stat, pr->root);
@@ -446,7 +449,8 @@ public:
 #endif
 
 #if TEST_SAXROUNDTRIP
-    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const override {
+    virtual StringResultBase* SaxRoundtrip(const char* json, size_t length) const override
+    {
         VinenthzStringResult* sr = new VinenthzStringResult();
         json_printer printer;
         json_print_init(&printer, string_buffer_append, &sr->sb);
@@ -476,7 +480,8 @@ public:
 #endif
 
 #if TEST_SAXSTATISTICS
-    virtual bool SaxStatistics(const char* json, size_t length, Stat* stat) const {
+    virtual bool SaxStatistics(const char* json, size_t length, Stat* stat) const override
+    {
         json_config config;
         memset(&config, 0, sizeof(json_config));
         config.max_nesting = 0;
@@ -501,7 +506,8 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
+    {
         VinenthzParseResult* pr = static_cast<VinenthzParseResult*>(Parse(json, length));
         bool ret = false;
         if (pr && 
@@ -521,7 +527,8 @@ public:
         return ret;
     }
 
-    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
+    {
         VinenthzParseResult* pr = static_cast<VinenthzParseResult*>(Parse(json, length));
         bool ret = false;
         if (pr && 

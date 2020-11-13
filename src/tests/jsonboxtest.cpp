@@ -95,7 +95,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const JsonboxParseResult* pr = static_cast<const JsonboxParseResult*>(parseResult);
         JsonboxStringResult* sr = new JsonboxStringResult;
         std::ostringstream os;
@@ -106,7 +107,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const JsonboxParseResult* pr = static_cast<const JsonboxParseResult*>(parseResult);
         JsonboxStringResult* sr = new JsonboxStringResult;
         std::ostringstream os;
@@ -117,7 +119,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const JsonboxParseResult* pr = static_cast<const JsonboxParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(*stat, pr->root);
@@ -126,10 +129,11 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
+    {
         try {
             Value root;
-            root.loadFromString(json);
+            root.loadFromString({json,length});
             *d = root.getArray()[0].getDouble();
             return true;
         }
@@ -138,10 +142,11 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
+    {
         try {
             Value root;
-            root.loadFromString(json);
+            root.loadFromString({json,length});
             s = root.getArray()[0].getString();
             return true;
         }

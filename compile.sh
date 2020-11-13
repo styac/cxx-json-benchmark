@@ -1,38 +1,32 @@
 #!/bin/bash
 
+
+export c_compiler_name=$1
+export cc_compiler_name=$1
 thd=$(pwd)
 
-function build_gcc
-{
-    cd
-    local thd_build=${thd}_build_gcc
-    mkdir $thd_build
-    if [ -d $thd_build ]
-    then
-        cd $thd_build
-        echo "build with GCC in " $thd_build
-        cmake -D CMAKE_C_COMPILER=gcc -D CMAKE_CXX_COMPILER=g++ $thd
-        make
-    else
-        echo $thd_build " cannot be created"
-    fi
-}
+if [ "x${c_compiler_name}" = "x" ]
+then
+    c_compiler_name="gcc"
+    cc_compiler_name="g++"
+elif [ "${compiler_name}" = "gcc" ]
+then
+    cc_compiler_name="g++"
+fi
 
-function build_clang
-{
-    local thd_build=${thd}_build_clang
-    mkdir $thd_build
-    if [ -d $thd_build ]
-    then
-        cd $thd_build
-        echo "build with CLANG in " $thd_build
-        cmake  -D CMAKE_C_COMPILER=clang -D CMAKE_CXX_COMPILER=clang $thd
-        make
-    else
-        echo $thd_build " cannot be created"
-    fi
-}
+thd_build=${thd}_build_${c_compiler_name}
+mkdir ${thd_build}
 
-build_gcc
-# build_clang # must be fixed std::logic_error::logic_error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)@@GLIBCXX_3.4.21
+echo "C compiler: " c_compiler_name "C++ compiler: " ${cc_compiler_name} " build directory: " ${thd_build}
+
+if [ -d $thd_build ]
+then
+    cd $thd_build
+    echo "build with ${c_compiler_name} in " $thd_build
+    cmake -D CMAKE_C_COMPILER=${c_compiler_name} -D CMAKE_CXX_COMPILER=${cc_compiler_name} $thd
+    make
+else
+    echo $thd_build " cannot be created"
+fi
+
 

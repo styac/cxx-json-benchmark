@@ -9,7 +9,8 @@
 
 using namespace configuru;
 
-static void GenStat(Stat& stat, const Config& v) {
+static void GenStat(Stat& stat, const Config& v)
+{
     switch (v.type()) {
     case Config::Array:
         for (auto& element : v.as_array()) {
@@ -47,6 +48,8 @@ static void GenStat(Stat& stat, const Config& v) {
         break;
 
     case Config::Null:
+    case Config::Uninitialized:
+    case Config::BadLookupType:
         stat.nullCount++;
         break;
     }
@@ -67,12 +70,13 @@ public:
 class ConfiguruTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "Configuru (C++11)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "Configuru (C++11)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* j, size_t length) const {
+    virtual ParseResultBase* Parse(const char* j, size_t length) const override
+    {
         (void)length;
         ConfiguruParseResult* pr = new ConfiguruParseResult;
         try {
@@ -87,7 +91,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const ConfiguruParseResult* pr = static_cast<const ConfiguruParseResult*>(parseResult);
         ConfiguruStringResult* sr = new ConfiguruStringResult;
         auto format = configuru::JSON;
@@ -98,7 +103,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const ConfiguruParseResult* pr = static_cast<const ConfiguruParseResult*>(parseResult);
         ConfiguruStringResult* sr = new ConfiguruStringResult;
         auto format = configuru::JSON;
@@ -109,7 +115,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const ConfiguruParseResult* pr = static_cast<const ConfiguruParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(*stat, pr->root);
@@ -118,7 +125,8 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* j, size_t length, double* d) const override {
+    virtual bool ParseDouble(const char* j, size_t length, double* d) const override
+    {
         try {
             Config root = parse_string(j, JSON, "double_json");
             *d = (double)root[0];
@@ -129,7 +137,8 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* j, size_t length, std::string& s) const override {
+    virtual bool ParseString(const char* j, size_t length, std::string& s) const override
+    {
         try {
             Config root = parse_string(j, JSON, "string_json");
             s = (std::string)root[0];

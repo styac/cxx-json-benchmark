@@ -57,12 +57,13 @@ public:
 class PicojsonTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "PicoJSON (C++)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "PicoJSON (C++)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 	
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
         PicojsonParseResult* pr = new PicojsonParseResult;
         std::string err;
         parse(pr->v, json, json + length, &err);
@@ -75,7 +76,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const PicojsonParseResult* pr = static_cast<const PicojsonParseResult*>(parseResult);
         PicojsonStringResult* sr = new PicojsonStringResult;
         sr->s = pr->v.serialize();
@@ -84,7 +86,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const PicojsonParseResult* pr = static_cast<const PicojsonParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(*stat, pr->v);
@@ -93,10 +96,11 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
+    {
         value v;
         std::string err;
-        parse(v, json, json + strlen(json), &err);
+        parse(v, json, json + length, &err);
         if (err.empty() &&
             v.is<array>() &&
             v.get<array>().size() == 1 &&
@@ -109,10 +113,11 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
+    {
         value v;
         std::string err;
-        parse(v, json, json + strlen(json), &err);
+        parse(v, json, json + length, &err);
         if (err.empty() &&
             v.is<array>() &&
             v.get<array>().size() == 1 &&

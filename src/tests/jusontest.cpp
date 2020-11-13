@@ -117,7 +117,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const JusonParseResult* pr = static_cast<const JusonParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(stat, pr->doc.val);
@@ -126,7 +127,8 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
+    {
         JusonParseResult pr;
         juson_value_t* root = juson_parse(&pr.doc, json);
         if (root && root->t == JUSON_ARRAY && root->size &&
@@ -141,7 +143,8 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
+    {
         JusonParseResult pr;
         juson_value_t* root = juson_parse(&pr.doc, json);
         if (root && root->t == JUSON_ARRAY && root->size && root->adata[0]->t == JUSON_STRING) {

@@ -89,7 +89,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const JsoncParseResult* pr = static_cast<const JsoncParseResult*>(parseResult);
         JsoncStringResult* sr = new JsoncStringResult;
         sr->s = StrDup(json_object_to_json_string_ext(pr->root, JSON_C_TO_STRING_PLAIN));
@@ -98,7 +99,8 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override
+    {
         const JsoncParseResult* pr = static_cast<const JsoncParseResult*>(parseResult);
         JsoncStringResult* sr = new JsoncStringResult;
         sr->s = StrDup(json_object_to_json_string_ext(pr->root, JSON_C_TO_STRING_PRETTY));
@@ -107,7 +109,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const JsoncParseResult* pr = static_cast<const JsoncParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(stat, (json_object*)pr->root);
@@ -116,7 +119,8 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
+    {
         JsoncParseResult pr;
         pr.root = json_tokener_parse(json);
         if (pr.root && 
@@ -131,7 +135,8 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
+    {
         JsoncParseResult pr;
         pr.root = json_tokener_parse(json);
         if (pr.root && 

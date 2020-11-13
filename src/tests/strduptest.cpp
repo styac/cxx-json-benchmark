@@ -27,7 +27,8 @@ public:
 #endif
 	
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
         StrdupParseResult* pr = new StrdupParseResult;
         pr->r = (char*)malloc(length + 1);
         pr->length = length;
@@ -37,7 +38,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const StrdupParseResult* pr = static_cast<const StrdupParseResult*>(parseResult);
         StrdupStringResult* sr = new StrdupStringResult;
     	sr->s = (char*)malloc(pr->length + 1);

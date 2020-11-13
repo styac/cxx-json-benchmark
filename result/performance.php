@@ -99,7 +99,7 @@ $(function() {
 
       AddToOverall(timedt);
       sortCaseInsensitive(timedt, 0);
-      var timeTable = drawTable(type, timedt.clone(), true);
+      var timeTable = drawTable(type, timedt.clone(), false);
       var timeChart = drawBarChart(type, timedt.clone());
       google.visualization.events.addListener(timeTable, 'sort', createSortEvent(type, timedt, timeChart));
 
