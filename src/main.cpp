@@ -1061,7 +1061,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
 
     {
         int i = 1;
-        #define TEST_STRING(json, expect)\
+        #define TEST_STRING(tname,json, expect)\
         {\
             bool result = false;\
             size_t expectLength = sizeof(expect) - 1;\
@@ -1084,20 +1084,20 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
             /*printf("string%02d: %s\n", i, result ? "true" : "false");*/\
             /*if (!result)*/\
             /*    printf("JSON: %s\nExpect: %s (%u) \nActual: %s (%u)\n\n", json, expect, (unsigned)expectLength, actual.c_str(), (unsigned)actual.size());*/\
-            fprintf(fp, "3. Parse String,%s,string%02d,%s\n", test.GetName(), i, result ? "true" : "false");\
+            fprintf(fp, "3. Parse String,%s,%s,%s\n", test.GetName(), tname, result ? "true" : "false");\
             test.TearDown();\
             i++;\
         }
 
-        TEST_STRING("[\"\"]", "");
-        TEST_STRING("[\"Hello\"]", "Hello");
-        TEST_STRING("[\"Hello\\nWorld\"]", "Hello\nWorld");
-        TEST_STRING("[\"Hello\\u0000World\"]", "Hello\0World");
-        TEST_STRING("[\"\\\"\\\\/\\b\\f\\n\\r\\t\"]", "\"\\/\b\f\n\r\t");
-        TEST_STRING("[\"\\u0024\"]", "\x24");         // Dollar sign U+0024
-        TEST_STRING("[\"\\u00A2\"]", "\xC2\xA2");     // Cents sign U+00A2
-        TEST_STRING("[\"\\u20AC\"]", "\xE2\x82\xAC"); // Euro sign U+20AC
-        TEST_STRING("[\"\\uD834\\uDD1E\"]", "\xF0\x9D\x84\x9E");  // G clef sign U+1D11E
+        TEST_STRING("empty","[\"\"]", "");
+        TEST_STRING("ascii","[\"Hello\"]", "Hello");
+        TEST_STRING("newline","[\"Hello\\nWorld\"]", "Hello\nWorld");
+        TEST_STRING("utf16 zero","[\"Hello\\u0000World\"]", "Hello\0World");
+        TEST_STRING("whitesp","[\"\\\"\\\\/\\b\\f\\n\\r\\t\"]", "\"\\/\b\f\n\r\t");
+        TEST_STRING("utf16 dollar","[\"\\u0024\"]", "\x24");         // Dollar sign U+0024
+        TEST_STRING("utf16 cent","[\"\\u00A2\"]", "\xC2\xA2");     // Cents sign U+00A2
+        TEST_STRING("utf16 euro","[\"\\u20AC\"]", "\xE2\x82\xAC"); // Euro sign U+20AC
+        TEST_STRING("utf16 gclef","[\"\\uD834\\uDD1E\"]", "\xF0\x9D\x84\x9E");  // G clef sign U+1D11E
     }
 
     if (md)

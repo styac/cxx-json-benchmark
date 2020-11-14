@@ -3,7 +3,7 @@
 #include <string>
 #include <sstream>
 
-#define ARDUINOJSON_ENABLE_STD_STREAM 1
+//#define ARDUINOJSON_ENABLE_STD_STREAM 1
 #include "ArduinoJson/src/ArduinoJson.h"
 
 using namespace ArduinoJson;

@@ -12,6 +12,12 @@ set( CMAKE_BUILD_TYPE Release )
 add_compile_definitions(TEST_DATA_FOLDER="${PROJECT_SOURCE_DIR}/data/")
 add_compile_definitions(RESULT_FOLDER="${PROJECT_SOURCE_DIR}/result/")
 
+
+# feature macros to control some libraries
+# use strict JSON mode to make them more conformant
+
+add_compile_definitions(ARDUINOJSON_ENABLE_COMMENTS=0)
+
 find_package(Boost)
 if( Boost_FOUND )
     add_compile_definitions(HAS_BOOST)

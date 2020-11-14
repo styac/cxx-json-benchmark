@@ -1,42 +1,51 @@
 #include "../test.h"
-#include "facil.io/lib/facil/fiobj/fiobj.h"
+// #if defined(FIO_JSON) && !defined(H___FIO_JSON_H)
+#define FIO_JSON
+#define FIO_EXTERN_COMPLETE
+//#undef H___FIO_JSON_H
+#define FIO_CLI
+#define FIO_LOG
+#include "fio-stl.h"
+#define FIO_FIOBJ
+#include "fio-stl.h"
+
 
 #include <stdio.h>
 #include <stdlib.h>
 
 static int GenStat_task(FIOBJ obj, void *arg) {
     Stat *s = (Stat *)arg;
-    if (fiobj_hash_key_in_loop()) {
-    s->stringCount++;
-    s->stringLength += fiobj_obj2cstr(fiobj_hash_key_in_loop()).len;
-    }
+        if (fiobj_hash_key_in_loop()) {
+            s->stringCount++;
+            s->stringLength += fiobj_obj2cstr(fiobj_hash_key_in_loop()).len;
+        }
     switch (FIOBJ_TYPE(obj)) {
     case FIOBJ_T_NULL:
-    s->nullCount++;
+        s->nullCount++;
     break;
     case FIOBJ_T_STRING:
-    case FIOBJ_T_DATA:
-    case FIOBJ_T_UNKNOWN:
-    s->stringCount++;
-    s->stringLength += fiobj_obj2cstr(obj).len;
+    //case FIOBJ_T_DATA:
+    //case FIOBJ_T_UNKNOWN:
+        s->stringCount++;
+        s->stringLength += fiobj_obj2cstr(obj).len;
     break;
     case FIOBJ_T_FLOAT:
     case FIOBJ_T_NUMBER:
-    s->numberCount++;
+        s->numberCount++;
     break;
     case FIOBJ_T_ARRAY:
-    s->elementCount += fiobj_ary_count(obj);
-    s->arrayCount++;
+        s->elementCount += fiobj_ary_count(obj);
+        s->arrayCount++;
     break;
     case FIOBJ_T_HASH:
-    s->memberCount += fiobj_hash_count(obj);
-    s->objectCount++;
+        s->memberCount += fiobj_hash_count(obj);
+        s->objectCount++;
     break;
     case FIOBJ_T_TRUE:
-    s->trueCount++;
+        s->trueCount++;
     break;
     case FIOBJ_T_FALSE:
-    s->falseCount++;
+        s->falseCount++;
     break;
     }
     return 0;
@@ -148,6 +157,9 @@ public:
     virtual bool ParseString(const char *json, size_t length, std::string &s) const override
     {
         FIOBJ tmp = 0;
+        char *consumed;
+        FIOBJ obj1 = fiobj_json_parse2( const_cast<char *>(json), length, &consumed);
+
         fiobj_json2obj(&tmp, json, length);
         if (tmp == 0)
           return false;
