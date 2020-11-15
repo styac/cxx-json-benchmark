@@ -85,10 +85,12 @@ include_directories (
 file( GLOB HEADERS ${PROJECT_SOURCE_DIR}
     src/*.h
     src/cjsonlibs/*.h
+    src/fmt/*.h
 )
 
 file( GLOB SOURCES_MAIN ${PROJECT_SOURCE_DIR}
     src/*.cpp
+#    src/fmt/*.cc
 )
 
 set( SOURCES_TESTS_C ${PROJECT_SOURCE_DIR}
@@ -184,7 +186,7 @@ file( GLOB_RECURSE SOURCES_3PRTY ${PROJECT_SOURCE_DIR}
     thirdparty/*.h
 )
 
-add_executable( ${PROJECT_NAME}    
+add_executable( ${PROJECT_NAME}
     ${SOURCES_TESTS_C}
     ${SOURCES_TESTS}
     ${SOURCES_MAIN}

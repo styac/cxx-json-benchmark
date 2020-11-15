@@ -216,15 +216,15 @@ Type,Library,Test,Result
 2. Parse Double,boostjson (C++11),double64,false
 2. Parse Double,boostjson (C++11),double65,true
 2. Parse Double,boostjson (C++11),double66,true
-3. Parse String,boostjson (C++11),string01,true
-3. Parse String,boostjson (C++11),string02,true
-3. Parse String,boostjson (C++11),string03,true
-3. Parse String,boostjson (C++11),string04,true
-3. Parse String,boostjson (C++11),string05,true
-3. Parse String,boostjson (C++11),string06,true
-3. Parse String,boostjson (C++11),string07,true
-3. Parse String,boostjson (C++11),string08,true
-3. Parse String,boostjson (C++11),string09,true
+3. Parse String,boostjson (C++11),empty,true
+3. Parse String,boostjson (C++11),ascii,true
+3. Parse String,boostjson (C++11),newline,true
+3. Parse String,boostjson (C++11),utf16 zero,true
+3. Parse String,boostjson (C++11),whitesp,true
+3. Parse String,boostjson (C++11),utf16 dollar,true
+3. Parse String,boostjson (C++11),utf16 cent,true
+3. Parse String,boostjson (C++11),utf16 euro,true
+3. Parse String,boostjson (C++11),utf16 gclef,true
 4. Roundtrip,boostjson (C++11),roundtrip01,true
 4. Roundtrip,boostjson (C++11),roundtrip02,true
 4. Roundtrip,boostjson (C++11),roundtrip03,true
@@ -469,15 +469,15 @@ Type,Library,Test,Result
 2. Parse Double,json-c (C),double64,true
 2. Parse Double,json-c (C),double65,false
 2. Parse Double,json-c (C),double66,true
-3. Parse String,json-c (C),string01,true
-3. Parse String,json-c (C),string02,true
-3. Parse String,json-c (C),string03,true
-3. Parse String,json-c (C),string04,true
-3. Parse String,json-c (C),string05,true
-3. Parse String,json-c (C),string06,true
-3. Parse String,json-c (C),string07,true
-3. Parse String,json-c (C),string08,true
-3. Parse String,json-c (C),string09,true
+3. Parse String,json-c (C),empty,true
+3. Parse String,json-c (C),ascii,true
+3. Parse String,json-c (C),newline,true
+3. Parse String,json-c (C),utf16 zero,true
+3. Parse String,json-c (C),whitesp,true
+3. Parse String,json-c (C),utf16 dollar,true
+3. Parse String,json-c (C),utf16 cent,true
+3. Parse String,json-c (C),utf16 euro,true
+3. Parse String,json-c (C),utf16 gclef,true
 4. Roundtrip,json-c (C),roundtrip01,true
 4. Roundtrip,json-c (C),roundtrip02,true
 4. Roundtrip,json-c (C),roundtrip03,true
@@ -722,15 +722,15 @@ Type,Library,Test,Result
 2. Parse Double,cJSON (C),double64,true
 2. Parse Double,cJSON (C),double65,false
 2. Parse Double,cJSON (C),double66,false
-3. Parse String,cJSON (C),string01,true
-3. Parse String,cJSON (C),string02,true
-3. Parse String,cJSON (C),string03,true
-3. Parse String,cJSON (C),string04,false
-3. Parse String,cJSON (C),string05,true
-3. Parse String,cJSON (C),string06,true
-3. Parse String,cJSON (C),string07,true
-3. Parse String,cJSON (C),string08,true
-3. Parse String,cJSON (C),string09,true
+3. Parse String,cJSON (C),empty,true
+3. Parse String,cJSON (C),ascii,true
+3. Parse String,cJSON (C),newline,true
+3. Parse String,cJSON (C),utf16 zero,false
+3. Parse String,cJSON (C),whitesp,true
+3. Parse String,cJSON (C),utf16 dollar,true
+3. Parse String,cJSON (C),utf16 cent,true
+3. Parse String,cJSON (C),utf16 euro,true
+3. Parse String,cJSON (C),utf16 gclef,true
 4. Roundtrip,cJSON (C),roundtrip01,true
 4. Roundtrip,cJSON (C),roundtrip02,true
 4. Roundtrip,cJSON (C),roundtrip03,true
@@ -975,15 +975,15 @@ Type,Library,Test,Result
 2. Parse Double,JSON Voorhees (C++),double64,true
 2. Parse Double,JSON Voorhees (C++),double65,false
 2. Parse Double,JSON Voorhees (C++),double66,true
-3. Parse String,JSON Voorhees (C++),string01,true
-3. Parse String,JSON Voorhees (C++),string02,true
-3. Parse String,JSON Voorhees (C++),string03,true
-3. Parse String,JSON Voorhees (C++),string04,true
-3. Parse String,JSON Voorhees (C++),string05,true
-3. Parse String,JSON Voorhees (C++),string06,true
-3. Parse String,JSON Voorhees (C++),string07,true
-3. Parse String,JSON Voorhees (C++),string08,true
-3. Parse String,JSON Voorhees (C++),string09,true
+3. Parse String,JSON Voorhees (C++),empty,true
+3. Parse String,JSON Voorhees (C++),ascii,true
+3. Parse String,JSON Voorhees (C++),newline,true
+3. Parse String,JSON Voorhees (C++),utf16 zero,true
+3. Parse String,JSON Voorhees (C++),whitesp,true
+3. Parse String,JSON Voorhees (C++),utf16 dollar,true
+3. Parse String,JSON Voorhees (C++),utf16 cent,true
+3. Parse String,JSON Voorhees (C++),utf16 euro,true
+3. Parse String,JSON Voorhees (C++),utf16 gclef,true
 4. Roundtrip,JSON Voorhees (C++),roundtrip01,true
 4. Roundtrip,JSON Voorhees (C++),roundtrip02,true
 4. Roundtrip,JSON Voorhees (C++),roundtrip03,true
@@ -1228,15 +1228,15 @@ Type,Library,Test,Result
 2. Parse Double,sajson (C++),double64,false
 2. Parse Double,sajson (C++),double65,false
 2. Parse Double,sajson (C++),double66,false
-3. Parse String,sajson (C++),string01,true
-3. Parse String,sajson (C++),string02,true
-3. Parse String,sajson (C++),string03,true
-3. Parse String,sajson (C++),string04,true
-3. Parse String,sajson (C++),string05,true
-3. Parse String,sajson (C++),string06,true
-3. Parse String,sajson (C++),string07,true
-3. Parse String,sajson (C++),string08,true
-3. Parse String,sajson (C++),string09,true
+3. Parse String,sajson (C++),empty,true
+3. Parse String,sajson (C++),ascii,true
+3. Parse String,sajson (C++),newline,true
+3. Parse String,sajson (C++),utf16 zero,true
+3. Parse String,sajson (C++),whitesp,true
+3. Parse String,sajson (C++),utf16 dollar,true
+3. Parse String,sajson (C++),utf16 cent,true
+3. Parse String,sajson (C++),utf16 euro,true
+3. Parse String,sajson (C++),utf16 gclef,true
 1. Parse Validation,Centijson (C),pass01,true
 1. Parse Validation,Centijson (C),pass02,true
 1. Parse Validation,Centijson (C),pass03,true
@@ -1454,15 +1454,15 @@ Type,Library,Test,Result
 2. Parse Double,Centijson (C),double64,true
 2. Parse Double,Centijson (C),double65,true
 2. Parse Double,Centijson (C),double66,true
-3. Parse String,Centijson (C),string01,true
-3. Parse String,Centijson (C),string02,true
-3. Parse String,Centijson (C),string03,true
-3. Parse String,Centijson (C),string04,true
-3. Parse String,Centijson (C),string05,true
-3. Parse String,Centijson (C),string06,true
-3. Parse String,Centijson (C),string07,true
-3. Parse String,Centijson (C),string08,true
-3. Parse String,Centijson (C),string09,true
+3. Parse String,Centijson (C),empty,true
+3. Parse String,Centijson (C),ascii,true
+3. Parse String,Centijson (C),newline,true
+3. Parse String,Centijson (C),utf16 zero,true
+3. Parse String,Centijson (C),whitesp,true
+3. Parse String,Centijson (C),utf16 dollar,true
+3. Parse String,Centijson (C),utf16 cent,true
+3. Parse String,Centijson (C),utf16 euro,true
+3. Parse String,Centijson (C),utf16 gclef,true
 4. Roundtrip,Centijson (C),roundtrip01,true
 4. Roundtrip,Centijson (C),roundtrip02,true
 4. Roundtrip,Centijson (C),roundtrip03,true
@@ -1707,15 +1707,15 @@ Type,Library,Test,Result
 2. Parse Double,yyjson (C),double64,true
 2. Parse Double,yyjson (C),double65,true
 2. Parse Double,yyjson (C),double66,true
-3. Parse String,yyjson (C),string01,true
-3. Parse String,yyjson (C),string02,true
-3. Parse String,yyjson (C),string03,true
-3. Parse String,yyjson (C),string04,false
-3. Parse String,yyjson (C),string05,true
-3. Parse String,yyjson (C),string06,true
-3. Parse String,yyjson (C),string07,true
-3. Parse String,yyjson (C),string08,true
-3. Parse String,yyjson (C),string09,true
+3. Parse String,yyjson (C),empty,true
+3. Parse String,yyjson (C),ascii,true
+3. Parse String,yyjson (C),newline,true
+3. Parse String,yyjson (C),utf16 zero,false
+3. Parse String,yyjson (C),whitesp,true
+3. Parse String,yyjson (C),utf16 dollar,true
+3. Parse String,yyjson (C),utf16 cent,true
+3. Parse String,yyjson (C),utf16 euro,true
+3. Parse String,yyjson (C),utf16 gclef,true
 4. Roundtrip,yyjson (C),roundtrip01,true
 4. Roundtrip,yyjson (C),roundtrip02,true
 4. Roundtrip,yyjson (C),roundtrip03,true
@@ -1960,15 +1960,15 @@ Type,Library,Test,Result
 2. Parse Double,Sheredom json.h (C),double64,true
 2. Parse Double,Sheredom json.h (C),double65,true
 2. Parse Double,Sheredom json.h (C),double66,true
-3. Parse String,Sheredom json.h (C),string01,true
-3. Parse String,Sheredom json.h (C),string02,true
-3. Parse String,Sheredom json.h (C),string03,true
-3. Parse String,Sheredom json.h (C),string04,false
-3. Parse String,Sheredom json.h (C),string05,true
-3. Parse String,Sheredom json.h (C),string06,true
-3. Parse String,Sheredom json.h (C),string07,true
-3. Parse String,Sheredom json.h (C),string08,true
-3. Parse String,Sheredom json.h (C),string09,true
+3. Parse String,Sheredom json.h (C),empty,true
+3. Parse String,Sheredom json.h (C),ascii,true
+3. Parse String,Sheredom json.h (C),newline,true
+3. Parse String,Sheredom json.h (C),utf16 zero,false
+3. Parse String,Sheredom json.h (C),whitesp,true
+3. Parse String,Sheredom json.h (C),utf16 dollar,true
+3. Parse String,Sheredom json.h (C),utf16 cent,true
+3. Parse String,Sheredom json.h (C),utf16 euro,true
+3. Parse String,Sheredom json.h (C),utf16 gclef,true
 4. Roundtrip,Sheredom json.h (C),roundtrip01,true
 4. Roundtrip,Sheredom json.h (C),roundtrip02,true
 4. Roundtrip,Sheredom json.h (C),roundtrip03,true
@@ -2213,15 +2213,15 @@ Type,Library,Test,Result
 2. Parse Double,ujson4c (C),double64,false
 2. Parse Double,ujson4c (C),double65,false
 2. Parse Double,ujson4c (C),double66,false
-3. Parse String,ujson4c (C),string01,true
-3. Parse String,ujson4c (C),string02,true
-3. Parse String,ujson4c (C),string03,true
-3. Parse String,ujson4c (C),string04,false
-3. Parse String,ujson4c (C),string05,true
-3. Parse String,ujson4c (C),string06,true
-3. Parse String,ujson4c (C),string07,false
-3. Parse String,ujson4c (C),string08,false
-3. Parse String,ujson4c (C),string09,false
+3. Parse String,ujson4c (C),empty,true
+3. Parse String,ujson4c (C),ascii,true
+3. Parse String,ujson4c (C),newline,true
+3. Parse String,ujson4c (C),utf16 zero,false
+3. Parse String,ujson4c (C),whitesp,true
+3. Parse String,ujson4c (C),utf16 dollar,true
+3. Parse String,ujson4c (C),utf16 cent,false
+3. Parse String,ujson4c (C),utf16 euro,false
+3. Parse String,ujson4c (C),utf16 gclef,false
 1. Parse Validation,Vinenthz libjson (C),pass01,true
 1. Parse Validation,Vinenthz libjson (C),pass02,true
 1. Parse Validation,Vinenthz libjson (C),pass03,true
@@ -2439,15 +2439,15 @@ Type,Library,Test,Result
 2. Parse Double,Vinenthz libjson (C),double64,true
 2. Parse Double,Vinenthz libjson (C),double65,false
 2. Parse Double,Vinenthz libjson (C),double66,true
-3. Parse String,Vinenthz libjson (C),string01,true
-3. Parse String,Vinenthz libjson (C),string02,true
-3. Parse String,Vinenthz libjson (C),string03,true
-3. Parse String,Vinenthz libjson (C),string04,true
-3. Parse String,Vinenthz libjson (C),string05,true
-3. Parse String,Vinenthz libjson (C),string06,true
-3. Parse String,Vinenthz libjson (C),string07,true
-3. Parse String,Vinenthz libjson (C),string08,true
-3. Parse String,Vinenthz libjson (C),string09,true
+3. Parse String,Vinenthz libjson (C),empty,true
+3. Parse String,Vinenthz libjson (C),ascii,true
+3. Parse String,Vinenthz libjson (C),newline,true
+3. Parse String,Vinenthz libjson (C),utf16 zero,true
+3. Parse String,Vinenthz libjson (C),whitesp,true
+3. Parse String,Vinenthz libjson (C),utf16 dollar,true
+3. Parse String,Vinenthz libjson (C),utf16 cent,true
+3. Parse String,Vinenthz libjson (C),utf16 euro,true
+3. Parse String,Vinenthz libjson (C),utf16 gclef,true
 4. Roundtrip,Vinenthz libjson (C),roundtrip01,false
 4. Roundtrip,Vinenthz libjson (C),roundtrip02,true
 4. Roundtrip,Vinenthz libjson (C),roundtrip03,false
@@ -2692,15 +2692,15 @@ Type,Library,Test,Result
 2. Parse Double,ccan json (C),double64,true
 2. Parse Double,ccan json (C),double65,true
 2. Parse Double,ccan json (C),double66,true
-3. Parse String,ccan json (C),string01,true
-3. Parse String,ccan json (C),string02,true
-3. Parse String,ccan json (C),string03,true
-3. Parse String,ccan json (C),string04,false
-3. Parse String,ccan json (C),string05,true
-3. Parse String,ccan json (C),string06,true
-3. Parse String,ccan json (C),string07,true
-3. Parse String,ccan json (C),string08,true
-3. Parse String,ccan json (C),string09,true
+3. Parse String,ccan json (C),empty,true
+3. Parse String,ccan json (C),ascii,true
+3. Parse String,ccan json (C),newline,true
+3. Parse String,ccan json (C),utf16 zero,false
+3. Parse String,ccan json (C),whitesp,true
+3. Parse String,ccan json (C),utf16 dollar,true
+3. Parse String,ccan json (C),utf16 cent,true
+3. Parse String,ccan json (C),utf16 euro,true
+3. Parse String,ccan json (C),utf16 gclef,true
 4. Roundtrip,ccan json (C),roundtrip01,true
 4. Roundtrip,ccan json (C),roundtrip02,true
 4. Roundtrip,ccan json (C),roundtrip03,true
@@ -2945,15 +2945,15 @@ Type,Library,Test,Result
 2. Parse Double,Arduino Json (C++),double64,false
 2. Parse Double,Arduino Json (C++),double65,false
 2. Parse Double,Arduino Json (C++),double66,false
-3. Parse String,Arduino Json (C++),string01,true
-3. Parse String,Arduino Json (C++),string02,true
-3. Parse String,Arduino Json (C++),string03,true
-3. Parse String,Arduino Json (C++),string04,false
-3. Parse String,Arduino Json (C++),string05,true
-3. Parse String,Arduino Json (C++),string06,true
-3. Parse String,Arduino Json (C++),string07,true
-3. Parse String,Arduino Json (C++),string08,true
-3. Parse String,Arduino Json (C++),string09,true
+3. Parse String,Arduino Json (C++),empty,true
+3. Parse String,Arduino Json (C++),ascii,true
+3. Parse String,Arduino Json (C++),newline,true
+3. Parse String,Arduino Json (C++),utf16 zero,false
+3. Parse String,Arduino Json (C++),whitesp,true
+3. Parse String,Arduino Json (C++),utf16 dollar,true
+3. Parse String,Arduino Json (C++),utf16 cent,true
+3. Parse String,Arduino Json (C++),utf16 euro,true
+3. Parse String,Arduino Json (C++),utf16 gclef,true
 4. Roundtrip,Arduino Json (C++),roundtrip01,true
 4. Roundtrip,Arduino Json (C++),roundtrip02,true
 4. Roundtrip,Arduino Json (C++),roundtrip03,true
@@ -3198,15 +3198,15 @@ Type,Library,Test,Result
 2. Parse Double,nbsdx SimpleJSON (C++11),double64,false
 2. Parse Double,nbsdx SimpleJSON (C++11),double65,false
 2. Parse Double,nbsdx SimpleJSON (C++11),double66,false
-3. Parse String,nbsdx SimpleJSON (C++11),string01,true
-3. Parse String,nbsdx SimpleJSON (C++11),string02,true
-3. Parse String,nbsdx SimpleJSON (C++11),string03,false
-3. Parse String,nbsdx SimpleJSON (C++11),string04,false
-3. Parse String,nbsdx SimpleJSON (C++11),string05,false
-3. Parse String,nbsdx SimpleJSON (C++11),string06,false
-3. Parse String,nbsdx SimpleJSON (C++11),string07,false
-3. Parse String,nbsdx SimpleJSON (C++11),string08,false
-3. Parse String,nbsdx SimpleJSON (C++11),string09,false
+3. Parse String,nbsdx SimpleJSON (C++11),empty,true
+3. Parse String,nbsdx SimpleJSON (C++11),ascii,true
+3. Parse String,nbsdx SimpleJSON (C++11),newline,false
+3. Parse String,nbsdx SimpleJSON (C++11),utf16 zero,false
+3. Parse String,nbsdx SimpleJSON (C++11),whitesp,false
+3. Parse String,nbsdx SimpleJSON (C++11),utf16 dollar,false
+3. Parse String,nbsdx SimpleJSON (C++11),utf16 cent,false
+3. Parse String,nbsdx SimpleJSON (C++11),utf16 euro,false
+3. Parse String,nbsdx SimpleJSON (C++11),utf16 gclef,false
 4. Roundtrip,nbsdx SimpleJSON (C++11),roundtrip01,true
 4. Roundtrip,nbsdx SimpleJSON (C++11),roundtrip02,true
 4. Roundtrip,nbsdx SimpleJSON (C++11),roundtrip03,true
@@ -3451,15 +3451,15 @@ Type,Library,Test,Result
 2. Parse Double,Qt (C++),double64,true
 2. Parse Double,Qt (C++),double65,true
 2. Parse Double,Qt (C++),double66,true
-3. Parse String,Qt (C++),string01,true
-3. Parse String,Qt (C++),string02,true
-3. Parse String,Qt (C++),string03,true
-3. Parse String,Qt (C++),string04,true
-3. Parse String,Qt (C++),string05,true
-3. Parse String,Qt (C++),string06,true
-3. Parse String,Qt (C++),string07,true
-3. Parse String,Qt (C++),string08,true
-3. Parse String,Qt (C++),string09,true
+3. Parse String,Qt (C++),empty,true
+3. Parse String,Qt (C++),ascii,true
+3. Parse String,Qt (C++),newline,true
+3. Parse String,Qt (C++),utf16 zero,true
+3. Parse String,Qt (C++),whitesp,true
+3. Parse String,Qt (C++),utf16 dollar,true
+3. Parse String,Qt (C++),utf16 cent,true
+3. Parse String,Qt (C++),utf16 euro,true
+3. Parse String,Qt (C++),utf16 gclef,true
 4. Roundtrip,Qt (C++),roundtrip01,true
 4. Roundtrip,Qt (C++),roundtrip02,true
 4. Roundtrip,Qt (C++),roundtrip03,true
@@ -3704,15 +3704,15 @@ Type,Library,Test,Result
 2. Parse Double,Configuru (C++11),double64,true
 2. Parse Double,Configuru (C++11),double65,true
 2. Parse Double,Configuru (C++11),double66,true
-3. Parse String,Configuru (C++11),string01,true
-3. Parse String,Configuru (C++11),string02,true
-3. Parse String,Configuru (C++11),string03,true
-3. Parse String,Configuru (C++11),string04,true
-3. Parse String,Configuru (C++11),string05,true
-3. Parse String,Configuru (C++11),string06,true
-3. Parse String,Configuru (C++11),string07,true
-3. Parse String,Configuru (C++11),string08,true
-3. Parse String,Configuru (C++11),string09,true
+3. Parse String,Configuru (C++11),empty,true
+3. Parse String,Configuru (C++11),ascii,true
+3. Parse String,Configuru (C++11),newline,true
+3. Parse String,Configuru (C++11),utf16 zero,true
+3. Parse String,Configuru (C++11),whitesp,true
+3. Parse String,Configuru (C++11),utf16 dollar,true
+3. Parse String,Configuru (C++11),utf16 cent,true
+3. Parse String,Configuru (C++11),utf16 euro,true
+3. Parse String,Configuru (C++11),utf16 gclef,true
 4. Roundtrip,Configuru (C++11),roundtrip01,true
 4. Roundtrip,Configuru (C++11),roundtrip02,true
 4. Roundtrip,Configuru (C++11),roundtrip03,true
@@ -3957,15 +3957,15 @@ Type,Library,Test,Result
 2. Parse Double,C++ REST SDK (C++11),double64,true
 2. Parse Double,C++ REST SDK (C++11),double65,true
 2. Parse Double,C++ REST SDK (C++11),double66,true
-3. Parse String,C++ REST SDK (C++11),string01,true
-3. Parse String,C++ REST SDK (C++11),string02,true
-3. Parse String,C++ REST SDK (C++11),string03,true
-3. Parse String,C++ REST SDK (C++11),string04,true
-3. Parse String,C++ REST SDK (C++11),string05,true
-3. Parse String,C++ REST SDK (C++11),string06,true
-3. Parse String,C++ REST SDK (C++11),string07,true
-3. Parse String,C++ REST SDK (C++11),string08,true
-3. Parse String,C++ REST SDK (C++11),string09,true
+3. Parse String,C++ REST SDK (C++11),empty,true
+3. Parse String,C++ REST SDK (C++11),ascii,true
+3. Parse String,C++ REST SDK (C++11),newline,true
+3. Parse String,C++ REST SDK (C++11),utf16 zero,true
+3. Parse String,C++ REST SDK (C++11),whitesp,true
+3. Parse String,C++ REST SDK (C++11),utf16 dollar,true
+3. Parse String,C++ REST SDK (C++11),utf16 cent,true
+3. Parse String,C++ REST SDK (C++11),utf16 euro,true
+3. Parse String,C++ REST SDK (C++11),utf16 gclef,true
 4. Roundtrip,C++ REST SDK (C++11),roundtrip01,true
 4. Roundtrip,C++ REST SDK (C++11),roundtrip02,true
 4. Roundtrip,C++ REST SDK (C++11),roundtrip03,true
@@ -4210,15 +4210,15 @@ Type,Library,Test,Result
 2. Parse Double,dropbox json11 (C++11),double64,true
 2. Parse Double,dropbox json11 (C++11),double65,true
 2. Parse Double,dropbox json11 (C++11),double66,true
-3. Parse String,dropbox json11 (C++11),string01,true
-3. Parse String,dropbox json11 (C++11),string02,true
-3. Parse String,dropbox json11 (C++11),string03,true
-3. Parse String,dropbox json11 (C++11),string04,true
-3. Parse String,dropbox json11 (C++11),string05,true
-3. Parse String,dropbox json11 (C++11),string06,true
-3. Parse String,dropbox json11 (C++11),string07,true
-3. Parse String,dropbox json11 (C++11),string08,true
-3. Parse String,dropbox json11 (C++11),string09,true
+3. Parse String,dropbox json11 (C++11),empty,true
+3. Parse String,dropbox json11 (C++11),ascii,true
+3. Parse String,dropbox json11 (C++11),newline,true
+3. Parse String,dropbox json11 (C++11),utf16 zero,true
+3. Parse String,dropbox json11 (C++11),whitesp,true
+3. Parse String,dropbox json11 (C++11),utf16 dollar,true
+3. Parse String,dropbox json11 (C++11),utf16 cent,true
+3. Parse String,dropbox json11 (C++11),utf16 euro,true
+3. Parse String,dropbox json11 (C++11),utf16 gclef,true
 4. Roundtrip,dropbox json11 (C++11),roundtrip01,true
 4. Roundtrip,dropbox json11 (C++11),roundtrip02,true
 4. Roundtrip,dropbox json11 (C++11),roundtrip03,true
@@ -4463,15 +4463,15 @@ Type,Library,Test,Result
 2. Parse Double,mikeando FastJson (C++),double64,false
 2. Parse Double,mikeando FastJson (C++),double65,true
 2. Parse Double,mikeando FastJson (C++),double66,true
-3. Parse String,mikeando FastJson (C++),string01,true
-3. Parse String,mikeando FastJson (C++),string02,true
-3. Parse String,mikeando FastJson (C++),string03,true
-3. Parse String,mikeando FastJson (C++),string04,true
-3. Parse String,mikeando FastJson (C++),string05,true
-3. Parse String,mikeando FastJson (C++),string06,true
-3. Parse String,mikeando FastJson (C++),string07,true
-3. Parse String,mikeando FastJson (C++),string08,true
-3. Parse String,mikeando FastJson (C++),string09,false
+3. Parse String,mikeando FastJson (C++),empty,true
+3. Parse String,mikeando FastJson (C++),ascii,true
+3. Parse String,mikeando FastJson (C++),newline,true
+3. Parse String,mikeando FastJson (C++),utf16 zero,true
+3. Parse String,mikeando FastJson (C++),whitesp,true
+3. Parse String,mikeando FastJson (C++),utf16 dollar,true
+3. Parse String,mikeando FastJson (C++),utf16 cent,true
+3. Parse String,mikeando FastJson (C++),utf16 euro,true
+3. Parse String,mikeando FastJson (C++),utf16 gclef,false
 4. Roundtrip,mikeando FastJson (C++),roundtrip01,true
 4. Roundtrip,mikeando FastJson (C++),roundtrip02,true
 4. Roundtrip,mikeando FastJson (C++),roundtrip03,true
@@ -4716,15 +4716,15 @@ Type,Library,Test,Result
 2. Parse Double,gason (C++11),double64,false
 2. Parse Double,gason (C++11),double65,false
 2. Parse Double,gason (C++11),double66,false
-3. Parse String,gason (C++11),string01,true
-3. Parse String,gason (C++11),string02,true
-3. Parse String,gason (C++11),string03,true
-3. Parse String,gason (C++11),string04,false
-3. Parse String,gason (C++11),string05,true
-3. Parse String,gason (C++11),string06,true
-3. Parse String,gason (C++11),string07,true
-3. Parse String,gason (C++11),string08,true
-3. Parse String,gason (C++11),string09,false
+3. Parse String,gason (C++11),empty,true
+3. Parse String,gason (C++11),ascii,true
+3. Parse String,gason (C++11),newline,true
+3. Parse String,gason (C++11),utf16 zero,false
+3. Parse String,gason (C++11),whitesp,true
+3. Parse String,gason (C++11),utf16 dollar,true
+3. Parse String,gason (C++11),utf16 cent,true
+3. Parse String,gason (C++11),utf16 euro,true
+3. Parse String,gason (C++11),utf16 gclef,false
 4. Roundtrip,gason (C++11),roundtrip01,true
 4. Roundtrip,gason (C++11),roundtrip02,true
 4. Roundtrip,gason (C++11),roundtrip03,true
@@ -4969,15 +4969,15 @@ Type,Library,Test,Result
 2. Parse Double,JeayeSON (C++14),double64,false
 2. Parse Double,JeayeSON (C++14),double65,false
 2. Parse Double,JeayeSON (C++14),double66,false
-3. Parse String,JeayeSON (C++14),string01,true
-3. Parse String,JeayeSON (C++14),string02,true
-3. Parse String,JeayeSON (C++14),string03,true
-3. Parse String,JeayeSON (C++14),string04,true
-3. Parse String,JeayeSON (C++14),string05,true
-3. Parse String,JeayeSON (C++14),string06,true
-3. Parse String,JeayeSON (C++14),string07,true
-3. Parse String,JeayeSON (C++14),string08,true
-3. Parse String,JeayeSON (C++14),string09,true
+3. Parse String,JeayeSON (C++14),empty,true
+3. Parse String,JeayeSON (C++14),ascii,true
+3. Parse String,JeayeSON (C++14),newline,true
+3. Parse String,JeayeSON (C++14),utf16 zero,true
+3. Parse String,JeayeSON (C++14),whitesp,true
+3. Parse String,JeayeSON (C++14),utf16 dollar,true
+3. Parse String,JeayeSON (C++14),utf16 cent,true
+3. Parse String,JeayeSON (C++14),utf16 euro,true
+3. Parse String,JeayeSON (C++14),utf16 gclef,true
 4. Roundtrip,JeayeSON (C++14),roundtrip01,true
 4. Roundtrip,JeayeSON (C++14),roundtrip02,true
 4. Roundtrip,JeayeSON (C++14),roundtrip03,true
@@ -5222,15 +5222,15 @@ Type,Library,Test,Result
 2. Parse Double,jsmn (C),double64,true
 2. Parse Double,jsmn (C),double65,true
 2. Parse Double,jsmn (C),double66,true
-3. Parse String,jsmn (C),string01,true
-3. Parse String,jsmn (C),string02,true
-3. Parse String,jsmn (C),string03,false
-3. Parse String,jsmn (C),string04,false
-3. Parse String,jsmn (C),string05,false
-3. Parse String,jsmn (C),string06,false
-3. Parse String,jsmn (C),string07,false
-3. Parse String,jsmn (C),string08,false
-3. Parse String,jsmn (C),string09,false
+3. Parse String,jsmn (C),empty,true
+3. Parse String,jsmn (C),ascii,true
+3. Parse String,jsmn (C),newline,false
+3. Parse String,jsmn (C),utf16 zero,false
+3. Parse String,jsmn (C),whitesp,false
+3. Parse String,jsmn (C),utf16 dollar,false
+3. Parse String,jsmn (C),utf16 cent,false
+3. Parse String,jsmn (C),utf16 euro,false
+3. Parse String,jsmn (C),utf16 gclef,false
 1. Parse Validation,JsonBox (C++),pass01,true
 1. Parse Validation,JsonBox (C++),pass02,true
 1. Parse Validation,JsonBox (C++),pass03,true
@@ -5448,15 +5448,15 @@ Type,Library,Test,Result
 2. Parse Double,JsonBox (C++),double64,true
 2. Parse Double,JsonBox (C++),double65,false
 2. Parse Double,JsonBox (C++),double66,true
-3. Parse String,JsonBox (C++),string01,true
-3. Parse String,JsonBox (C++),string02,true
-3. Parse String,JsonBox (C++),string03,true
-3. Parse String,JsonBox (C++),string04,true
-3. Parse String,JsonBox (C++),string05,true
-3. Parse String,JsonBox (C++),string06,true
-3. Parse String,JsonBox (C++),string07,true
-3. Parse String,JsonBox (C++),string08,true
-3. Parse String,JsonBox (C++),string09,false
+3. Parse String,JsonBox (C++),empty,true
+3. Parse String,JsonBox (C++),ascii,true
+3. Parse String,JsonBox (C++),newline,true
+3. Parse String,JsonBox (C++),utf16 zero,true
+3. Parse String,JsonBox (C++),whitesp,true
+3. Parse String,JsonBox (C++),utf16 dollar,true
+3. Parse String,JsonBox (C++),utf16 cent,true
+3. Parse String,JsonBox (C++),utf16 euro,true
+3. Parse String,JsonBox (C++),utf16 gclef,false
 4. Roundtrip,JsonBox (C++),roundtrip01,true
 4. Roundtrip,JsonBox (C++),roundtrip02,true
 4. Roundtrip,JsonBox (C++),roundtrip03,true
@@ -5701,15 +5701,15 @@ Type,Library,Test,Result
 2. Parse Double,jsoncons (C++),double64,true
 2. Parse Double,jsoncons (C++),double65,true
 2. Parse Double,jsoncons (C++),double66,true
-3. Parse String,jsoncons (C++),string01,true
-3. Parse String,jsoncons (C++),string02,true
-3. Parse String,jsoncons (C++),string03,true
-3. Parse String,jsoncons (C++),string04,true
-3. Parse String,jsoncons (C++),string05,true
-3. Parse String,jsoncons (C++),string06,true
-3. Parse String,jsoncons (C++),string07,true
-3. Parse String,jsoncons (C++),string08,true
-3. Parse String,jsoncons (C++),string09,true
+3. Parse String,jsoncons (C++),empty,true
+3. Parse String,jsoncons (C++),ascii,true
+3. Parse String,jsoncons (C++),newline,true
+3. Parse String,jsoncons (C++),utf16 zero,true
+3. Parse String,jsoncons (C++),whitesp,true
+3. Parse String,jsoncons (C++),utf16 dollar,true
+3. Parse String,jsoncons (C++),utf16 cent,true
+3. Parse String,jsoncons (C++),utf16 euro,true
+3. Parse String,jsoncons (C++),utf16 gclef,true
 4. Roundtrip,jsoncons (C++),roundtrip01,true
 4. Roundtrip,jsoncons (C++),roundtrip02,true
 4. Roundtrip,jsoncons (C++),roundtrip03,true
@@ -5954,15 +5954,15 @@ Type,Library,Test,Result
 2. Parse Double,JsonCpp (C++),double64,true
 2. Parse Double,JsonCpp (C++),double65,true
 2. Parse Double,JsonCpp (C++),double66,true
-3. Parse String,JsonCpp (C++),string01,true
-3. Parse String,JsonCpp (C++),string02,true
-3. Parse String,JsonCpp (C++),string03,true
-3. Parse String,JsonCpp (C++),string04,true
-3. Parse String,JsonCpp (C++),string05,true
-3. Parse String,JsonCpp (C++),string06,true
-3. Parse String,JsonCpp (C++),string07,true
-3. Parse String,JsonCpp (C++),string08,true
-3. Parse String,JsonCpp (C++),string09,true
+3. Parse String,JsonCpp (C++),empty,true
+3. Parse String,JsonCpp (C++),ascii,true
+3. Parse String,JsonCpp (C++),newline,true
+3. Parse String,JsonCpp (C++),utf16 zero,true
+3. Parse String,JsonCpp (C++),whitesp,true
+3. Parse String,JsonCpp (C++),utf16 dollar,true
+3. Parse String,JsonCpp (C++),utf16 cent,true
+3. Parse String,JsonCpp (C++),utf16 euro,true
+3. Parse String,JsonCpp (C++),utf16 gclef,true
 4. Roundtrip,JsonCpp (C++),roundtrip01,true
 4. Roundtrip,JsonCpp (C++),roundtrip02,true
 4. Roundtrip,JsonCpp (C++),roundtrip03,true
@@ -6207,15 +6207,15 @@ Type,Library,Test,Result
 2. Parse Double,JSON Spirit (C++),double64,false
 2. Parse Double,JSON Spirit (C++),double65,false
 2. Parse Double,JSON Spirit (C++),double66,false
-3. Parse String,JSON Spirit (C++),string01,true
-3. Parse String,JSON Spirit (C++),string02,true
-3. Parse String,JSON Spirit (C++),string03,true
-3. Parse String,JSON Spirit (C++),string04,true
-3. Parse String,JSON Spirit (C++),string05,true
-3. Parse String,JSON Spirit (C++),string06,true
-3. Parse String,JSON Spirit (C++),string07,false
-3. Parse String,JSON Spirit (C++),string08,false
-3. Parse String,JSON Spirit (C++),string09,false
+3. Parse String,JSON Spirit (C++),empty,true
+3. Parse String,JSON Spirit (C++),ascii,true
+3. Parse String,JSON Spirit (C++),newline,true
+3. Parse String,JSON Spirit (C++),utf16 zero,true
+3. Parse String,JSON Spirit (C++),whitesp,true
+3. Parse String,JSON Spirit (C++),utf16 dollar,true
+3. Parse String,JSON Spirit (C++),utf16 cent,false
+3. Parse String,JSON Spirit (C++),utf16 euro,false
+3. Parse String,JSON Spirit (C++),utf16 gclef,false
 4. Roundtrip,JSON Spirit (C++),roundtrip01,true
 4. Roundtrip,JSON Spirit (C++),roundtrip02,true
 4. Roundtrip,JSON Spirit (C++),roundtrip03,true
@@ -6460,15 +6460,15 @@ Type,Library,Test,Result
 2. Parse Double,hjiang JSON++ (C++),double64,true
 2. Parse Double,hjiang JSON++ (C++),double65,true
 2. Parse Double,hjiang JSON++ (C++),double66,true
-3. Parse String,hjiang JSON++ (C++),string01,true
-3. Parse String,hjiang JSON++ (C++),string02,true
-3. Parse String,hjiang JSON++ (C++),string03,true
-3. Parse String,hjiang JSON++ (C++),string04,true
-3. Parse String,hjiang JSON++ (C++),string05,true
-3. Parse String,hjiang JSON++ (C++),string06,true
-3. Parse String,hjiang JSON++ (C++),string07,false
-3. Parse String,hjiang JSON++ (C++),string08,false
-3. Parse String,hjiang JSON++ (C++),string09,false
+3. Parse String,hjiang JSON++ (C++),empty,true
+3. Parse String,hjiang JSON++ (C++),ascii,true
+3. Parse String,hjiang JSON++ (C++),newline,true
+3. Parse String,hjiang JSON++ (C++),utf16 zero,true
+3. Parse String,hjiang JSON++ (C++),whitesp,true
+3. Parse String,hjiang JSON++ (C++),utf16 dollar,true
+3. Parse String,hjiang JSON++ (C++),utf16 cent,false
+3. Parse String,hjiang JSON++ (C++),utf16 euro,false
+3. Parse String,hjiang JSON++ (C++),utf16 gclef,false
 4. Roundtrip,hjiang JSON++ (C++),roundtrip01,false
 4. Roundtrip,hjiang JSON++ (C++),roundtrip02,false
 4. Roundtrip,hjiang JSON++ (C++),roundtrip03,false
@@ -6713,15 +6713,15 @@ Type,Library,Test,Result
 2. Parse Double,juson (C),double64,true
 2. Parse Double,juson (C),double65,false
 2. Parse Double,juson (C),double66,true
-3. Parse String,juson (C),string01,true
-3. Parse String,juson (C),string02,true
-3. Parse String,juson (C),string03,true
-3. Parse String,juson (C),string04,true
-3. Parse String,juson (C),string05,false
-3. Parse String,juson (C),string06,true
-3. Parse String,juson (C),string07,true
-3. Parse String,juson (C),string08,true
-3. Parse String,juson (C),string09,true
+3. Parse String,juson (C),empty,true
+3. Parse String,juson (C),ascii,true
+3. Parse String,juson (C),newline,true
+3. Parse String,juson (C),utf16 zero,true
+3. Parse String,juson (C),whitesp,false
+3. Parse String,juson (C),utf16 dollar,true
+3. Parse String,juson (C),utf16 cent,true
+3. Parse String,juson (C),utf16 euro,true
+3. Parse String,juson (C),utf16 gclef,true
 1. Parse Validation,Nlohmann (C++11),pass01,true
 1. Parse Validation,Nlohmann (C++11),pass02,true
 1. Parse Validation,Nlohmann (C++11),pass03,true
@@ -6939,15 +6939,15 @@ Type,Library,Test,Result
 2. Parse Double,Nlohmann (C++11),double64,true
 2. Parse Double,Nlohmann (C++11),double65,true
 2. Parse Double,Nlohmann (C++11),double66,true
-3. Parse String,Nlohmann (C++11),string01,true
-3. Parse String,Nlohmann (C++11),string02,true
-3. Parse String,Nlohmann (C++11),string03,true
-3. Parse String,Nlohmann (C++11),string04,true
-3. Parse String,Nlohmann (C++11),string05,true
-3. Parse String,Nlohmann (C++11),string06,true
-3. Parse String,Nlohmann (C++11),string07,true
-3. Parse String,Nlohmann (C++11),string08,true
-3. Parse String,Nlohmann (C++11),string09,true
+3. Parse String,Nlohmann (C++11),empty,true
+3. Parse String,Nlohmann (C++11),ascii,true
+3. Parse String,Nlohmann (C++11),newline,true
+3. Parse String,Nlohmann (C++11),utf16 zero,true
+3. Parse String,Nlohmann (C++11),whitesp,true
+3. Parse String,Nlohmann (C++11),utf16 dollar,true
+3. Parse String,Nlohmann (C++11),utf16 cent,true
+3. Parse String,Nlohmann (C++11),utf16 euro,true
+3. Parse String,Nlohmann (C++11),utf16 gclef,true
 4. Roundtrip,Nlohmann (C++11),roundtrip01,true
 4. Roundtrip,Nlohmann (C++11),roundtrip02,true
 4. Roundtrip,Nlohmann (C++11),roundtrip03,true
@@ -7192,15 +7192,15 @@ Type,Library,Test,Result
 2. Parse Double,PicoJSON (C++),double64,true
 2. Parse Double,PicoJSON (C++),double65,true
 2. Parse Double,PicoJSON (C++),double66,true
-3. Parse String,PicoJSON (C++),string01,true
-3. Parse String,PicoJSON (C++),string02,true
-3. Parse String,PicoJSON (C++),string03,true
-3. Parse String,PicoJSON (C++),string04,true
-3. Parse String,PicoJSON (C++),string05,true
-3. Parse String,PicoJSON (C++),string06,true
-3. Parse String,PicoJSON (C++),string07,true
-3. Parse String,PicoJSON (C++),string08,true
-3. Parse String,PicoJSON (C++),string09,true
+3. Parse String,PicoJSON (C++),empty,true
+3. Parse String,PicoJSON (C++),ascii,true
+3. Parse String,PicoJSON (C++),newline,true
+3. Parse String,PicoJSON (C++),utf16 zero,true
+3. Parse String,PicoJSON (C++),whitesp,true
+3. Parse String,PicoJSON (C++),utf16 dollar,true
+3. Parse String,PicoJSON (C++),utf16 cent,true
+3. Parse String,PicoJSON (C++),utf16 euro,true
+3. Parse String,PicoJSON (C++),utf16 gclef,true
 4. Roundtrip,PicoJSON (C++),roundtrip01,true
 4. Roundtrip,PicoJSON (C++),roundtrip02,true
 4. Roundtrip,PicoJSON (C++),roundtrip03,true
@@ -7445,15 +7445,15 @@ Type,Library,Test,Result
 2. Parse Double,POCO (C++),double64,true
 2. Parse Double,POCO (C++),double65,false
 2. Parse Double,POCO (C++),double66,true
-3. Parse String,POCO (C++),string01,true
-3. Parse String,POCO (C++),string02,true
-3. Parse String,POCO (C++),string03,true
-3. Parse String,POCO (C++),string04,false
-3. Parse String,POCO (C++),string05,true
-3. Parse String,POCO (C++),string06,true
-3. Parse String,POCO (C++),string07,true
-3. Parse String,POCO (C++),string08,true
-3. Parse String,POCO (C++),string09,true
+3. Parse String,POCO (C++),empty,true
+3. Parse String,POCO (C++),ascii,true
+3. Parse String,POCO (C++),newline,true
+3. Parse String,POCO (C++),utf16 zero,false
+3. Parse String,POCO (C++),whitesp,true
+3. Parse String,POCO (C++),utf16 dollar,true
+3. Parse String,POCO (C++),utf16 cent,true
+3. Parse String,POCO (C++),utf16 euro,true
+3. Parse String,POCO (C++),utf16 gclef,true
 4. Roundtrip,POCO (C++),roundtrip01,true
 4. Roundtrip,POCO (C++),roundtrip02,true
 4. Roundtrip,POCO (C++),roundtrip03,true
@@ -7698,15 +7698,15 @@ Type,Library,Test,Result
 2. Parse Double,RapidJSON AutoUTF (C++),double64,false
 2. Parse Double,RapidJSON AutoUTF (C++),double65,false
 2. Parse Double,RapidJSON AutoUTF (C++),double66,true
-3. Parse String,RapidJSON AutoUTF (C++),string01,true
-3. Parse String,RapidJSON AutoUTF (C++),string02,true
-3. Parse String,RapidJSON AutoUTF (C++),string03,true
-3. Parse String,RapidJSON AutoUTF (C++),string04,true
-3. Parse String,RapidJSON AutoUTF (C++),string05,true
-3. Parse String,RapidJSON AutoUTF (C++),string06,true
-3. Parse String,RapidJSON AutoUTF (C++),string07,true
-3. Parse String,RapidJSON AutoUTF (C++),string08,true
-3. Parse String,RapidJSON AutoUTF (C++),string09,true
+3. Parse String,RapidJSON AutoUTF (C++),empty,true
+3. Parse String,RapidJSON AutoUTF (C++),ascii,true
+3. Parse String,RapidJSON AutoUTF (C++),newline,true
+3. Parse String,RapidJSON AutoUTF (C++),utf16 zero,true
+3. Parse String,RapidJSON AutoUTF (C++),whitesp,true
+3. Parse String,RapidJSON AutoUTF (C++),utf16 dollar,true
+3. Parse String,RapidJSON AutoUTF (C++),utf16 cent,true
+3. Parse String,RapidJSON AutoUTF (C++),utf16 euro,true
+3. Parse String,RapidJSON AutoUTF (C++),utf16 gclef,true
 4. Roundtrip,RapidJSON AutoUTF (C++),roundtrip01,true
 4. Roundtrip,RapidJSON AutoUTF (C++),roundtrip02,true
 4. Roundtrip,RapidJSON AutoUTF (C++),roundtrip03,true
@@ -7951,15 +7951,15 @@ Type,Library,Test,Result
 2. Parse Double,RapidJSON FullPrec (C++),double64,true
 2. Parse Double,RapidJSON FullPrec (C++),double65,true
 2. Parse Double,RapidJSON FullPrec (C++),double66,true
-3. Parse String,RapidJSON FullPrec (C++),string01,true
-3. Parse String,RapidJSON FullPrec (C++),string02,true
-3. Parse String,RapidJSON FullPrec (C++),string03,true
-3. Parse String,RapidJSON FullPrec (C++),string04,true
-3. Parse String,RapidJSON FullPrec (C++),string05,true
-3. Parse String,RapidJSON FullPrec (C++),string06,true
-3. Parse String,RapidJSON FullPrec (C++),string07,true
-3. Parse String,RapidJSON FullPrec (C++),string08,true
-3. Parse String,RapidJSON FullPrec (C++),string09,true
+3. Parse String,RapidJSON FullPrec (C++),empty,true
+3. Parse String,RapidJSON FullPrec (C++),ascii,true
+3. Parse String,RapidJSON FullPrec (C++),newline,true
+3. Parse String,RapidJSON FullPrec (C++),utf16 zero,true
+3. Parse String,RapidJSON FullPrec (C++),whitesp,true
+3. Parse String,RapidJSON FullPrec (C++),utf16 dollar,true
+3. Parse String,RapidJSON FullPrec (C++),utf16 cent,true
+3. Parse String,RapidJSON FullPrec (C++),utf16 euro,true
+3. Parse String,RapidJSON FullPrec (C++),utf16 gclef,true
 4. Roundtrip,RapidJSON FullPrec (C++),roundtrip01,true
 4. Roundtrip,RapidJSON FullPrec (C++),roundtrip02,true
 4. Roundtrip,RapidJSON FullPrec (C++),roundtrip03,true
@@ -8204,15 +8204,15 @@ Type,Library,Test,Result
 2. Parse Double,RapidJSON Insitu (C++),double64,false
 2. Parse Double,RapidJSON Insitu (C++),double65,false
 2. Parse Double,RapidJSON Insitu (C++),double66,true
-3. Parse String,RapidJSON Insitu (C++),string01,true
-3. Parse String,RapidJSON Insitu (C++),string02,true
-3. Parse String,RapidJSON Insitu (C++),string03,true
-3. Parse String,RapidJSON Insitu (C++),string04,true
-3. Parse String,RapidJSON Insitu (C++),string05,true
-3. Parse String,RapidJSON Insitu (C++),string06,true
-3. Parse String,RapidJSON Insitu (C++),string07,true
-3. Parse String,RapidJSON Insitu (C++),string08,true
-3. Parse String,RapidJSON Insitu (C++),string09,true
+3. Parse String,RapidJSON Insitu (C++),empty,true
+3. Parse String,RapidJSON Insitu (C++),ascii,true
+3. Parse String,RapidJSON Insitu (C++),newline,true
+3. Parse String,RapidJSON Insitu (C++),utf16 zero,true
+3. Parse String,RapidJSON Insitu (C++),whitesp,true
+3. Parse String,RapidJSON Insitu (C++),utf16 dollar,true
+3. Parse String,RapidJSON Insitu (C++),utf16 cent,true
+3. Parse String,RapidJSON Insitu (C++),utf16 euro,true
+3. Parse String,RapidJSON Insitu (C++),utf16 gclef,true
 4. Roundtrip,RapidJSON Insitu (C++),roundtrip01,true
 4. Roundtrip,RapidJSON Insitu (C++),roundtrip02,true
 4. Roundtrip,RapidJSON Insitu (C++),roundtrip03,true
@@ -8457,15 +8457,15 @@ Type,Library,Test,Result
 2. Parse Double,RapidJSON Iterative (C++),double64,false
 2. Parse Double,RapidJSON Iterative (C++),double65,false
 2. Parse Double,RapidJSON Iterative (C++),double66,true
-3. Parse String,RapidJSON Iterative (C++),string01,true
-3. Parse String,RapidJSON Iterative (C++),string02,true
-3. Parse String,RapidJSON Iterative (C++),string03,true
-3. Parse String,RapidJSON Iterative (C++),string04,true
-3. Parse String,RapidJSON Iterative (C++),string05,true
-3. Parse String,RapidJSON Iterative (C++),string06,true
-3. Parse String,RapidJSON Iterative (C++),string07,true
-3. Parse String,RapidJSON Iterative (C++),string08,true
-3. Parse String,RapidJSON Iterative (C++),string09,true
+3. Parse String,RapidJSON Iterative (C++),empty,true
+3. Parse String,RapidJSON Iterative (C++),ascii,true
+3. Parse String,RapidJSON Iterative (C++),newline,true
+3. Parse String,RapidJSON Iterative (C++),utf16 zero,true
+3. Parse String,RapidJSON Iterative (C++),whitesp,true
+3. Parse String,RapidJSON Iterative (C++),utf16 dollar,true
+3. Parse String,RapidJSON Iterative (C++),utf16 cent,true
+3. Parse String,RapidJSON Iterative (C++),utf16 euro,true
+3. Parse String,RapidJSON Iterative (C++),utf16 gclef,true
 4. Roundtrip,RapidJSON Iterative (C++),roundtrip01,true
 4. Roundtrip,RapidJSON Iterative (C++),roundtrip02,true
 4. Roundtrip,RapidJSON Iterative (C++),roundtrip03,true
@@ -8710,15 +8710,15 @@ Type,Library,Test,Result
 2. Parse Double,RapidJSON (C++),double64,false
 2. Parse Double,RapidJSON (C++),double65,false
 2. Parse Double,RapidJSON (C++),double66,true
-3. Parse String,RapidJSON (C++),string01,true
-3. Parse String,RapidJSON (C++),string02,true
-3. Parse String,RapidJSON (C++),string03,true
-3. Parse String,RapidJSON (C++),string04,true
-3. Parse String,RapidJSON (C++),string05,true
-3. Parse String,RapidJSON (C++),string06,true
-3. Parse String,RapidJSON (C++),string07,true
-3. Parse String,RapidJSON (C++),string08,true
-3. Parse String,RapidJSON (C++),string09,true
+3. Parse String,RapidJSON (C++),empty,true
+3. Parse String,RapidJSON (C++),ascii,true
+3. Parse String,RapidJSON (C++),newline,true
+3. Parse String,RapidJSON (C++),utf16 zero,true
+3. Parse String,RapidJSON (C++),whitesp,true
+3. Parse String,RapidJSON (C++),utf16 dollar,true
+3. Parse String,RapidJSON (C++),utf16 cent,true
+3. Parse String,RapidJSON (C++),utf16 euro,true
+3. Parse String,RapidJSON (C++),utf16 gclef,true
 4. Roundtrip,RapidJSON (C++),roundtrip01,true
 4. Roundtrip,RapidJSON (C++),roundtrip02,true
 4. Roundtrip,RapidJSON (C++),roundtrip03,true
@@ -8963,15 +8963,15 @@ Type,Library,Test,Result
 2. Parse Double,simdjson,double64,true
 2. Parse Double,simdjson,double65,false
 2. Parse Double,simdjson,double66,true
-3. Parse String,simdjson,string01,true
-3. Parse String,simdjson,string02,true
-3. Parse String,simdjson,string03,true
-3. Parse String,simdjson,string04,true
-3. Parse String,simdjson,string05,true
-3. Parse String,simdjson,string06,true
-3. Parse String,simdjson,string07,true
-3. Parse String,simdjson,string08,true
-3. Parse String,simdjson,string09,true
+3. Parse String,simdjson,empty,true
+3. Parse String,simdjson,ascii,true
+3. Parse String,simdjson,newline,true
+3. Parse String,simdjson,utf16 zero,true
+3. Parse String,simdjson,whitesp,true
+3. Parse String,simdjson,utf16 dollar,true
+3. Parse String,simdjson,utf16 cent,true
+3. Parse String,simdjson,utf16 euro,true
+3. Parse String,simdjson,utf16 gclef,true
 4. Roundtrip,simdjson,roundtrip01,true
 4. Roundtrip,simdjson,roundtrip02,true
 4. Roundtrip,simdjson,roundtrip03,true
@@ -9216,15 +9216,15 @@ Type,Library,Test,Result
 2. Parse Double,SimpleJSON (C++),double64,false
 2. Parse Double,SimpleJSON (C++),double65,false
 2. Parse Double,SimpleJSON (C++),double66,false
-3. Parse String,SimpleJSON (C++),string01,true
-3. Parse String,SimpleJSON (C++),string02,true
-3. Parse String,SimpleJSON (C++),string03,true
-3. Parse String,SimpleJSON (C++),string04,false
-3. Parse String,SimpleJSON (C++),string05,true
-3. Parse String,SimpleJSON (C++),string06,true
-3. Parse String,SimpleJSON (C++),string07,true
-3. Parse String,SimpleJSON (C++),string08,false
-3. Parse String,SimpleJSON (C++),string09,false
+3. Parse String,SimpleJSON (C++),empty,true
+3. Parse String,SimpleJSON (C++),ascii,true
+3. Parse String,SimpleJSON (C++),newline,true
+3. Parse String,SimpleJSON (C++),utf16 zero,false
+3. Parse String,SimpleJSON (C++),whitesp,true
+3. Parse String,SimpleJSON (C++),utf16 dollar,true
+3. Parse String,SimpleJSON (C++),utf16 cent,true
+3. Parse String,SimpleJSON (C++),utf16 euro,false
+3. Parse String,SimpleJSON (C++),utf16 gclef,false
 4. Roundtrip,SimpleJSON (C++),roundtrip01,true
 4. Roundtrip,SimpleJSON (C++),roundtrip02,true
 4. Roundtrip,SimpleJSON (C++),roundtrip03,true
@@ -9469,15 +9469,15 @@ Type,Library,Test,Result
 2. Parse Double,taocpp json (C++11),double64,true
 2. Parse Double,taocpp json (C++11),double65,true
 2. Parse Double,taocpp json (C++11),double66,true
-3. Parse String,taocpp json (C++11),string01,true
-3. Parse String,taocpp json (C++11),string02,true
-3. Parse String,taocpp json (C++11),string03,true
-3. Parse String,taocpp json (C++11),string04,true
-3. Parse String,taocpp json (C++11),string05,true
-3. Parse String,taocpp json (C++11),string06,true
-3. Parse String,taocpp json (C++11),string07,true
-3. Parse String,taocpp json (C++11),string08,true
-3. Parse String,taocpp json (C++11),string09,true
+3. Parse String,taocpp json (C++11),empty,true
+3. Parse String,taocpp json (C++11),ascii,true
+3. Parse String,taocpp json (C++11),newline,true
+3. Parse String,taocpp json (C++11),utf16 zero,true
+3. Parse String,taocpp json (C++11),whitesp,true
+3. Parse String,taocpp json (C++11),utf16 dollar,true
+3. Parse String,taocpp json (C++11),utf16 cent,true
+3. Parse String,taocpp json (C++11),utf16 euro,true
+3. Parse String,taocpp json (C++11),utf16 gclef,true
 4. Roundtrip,taocpp json (C++11),roundtrip01,true
 4. Roundtrip,taocpp json (C++11),roundtrip02,true
 4. Roundtrip,taocpp json (C++11),roundtrip03,true
@@ -9722,15 +9722,15 @@ Type,Library,Test,Result
 2. Parse Double,CAJUN (C++),double64,true
 2. Parse Double,CAJUN (C++),double65,true
 2. Parse Double,CAJUN (C++),double66,true
-3. Parse String,CAJUN (C++),string01,true
-3. Parse String,CAJUN (C++),string02,true
-3. Parse String,CAJUN (C++),string03,true
-3. Parse String,CAJUN (C++),string04,true
-3. Parse String,CAJUN (C++),string05,true
-3. Parse String,CAJUN (C++),string06,true
-3. Parse String,CAJUN (C++),string07,true
-3. Parse String,CAJUN (C++),string08,true
-3. Parse String,CAJUN (C++),string09,false
+3. Parse String,CAJUN (C++),empty,true
+3. Parse String,CAJUN (C++),ascii,true
+3. Parse String,CAJUN (C++),newline,true
+3. Parse String,CAJUN (C++),utf16 zero,true
+3. Parse String,CAJUN (C++),whitesp,true
+3. Parse String,CAJUN (C++),utf16 dollar,true
+3. Parse String,CAJUN (C++),utf16 cent,true
+3. Parse String,CAJUN (C++),utf16 euro,true
+3. Parse String,CAJUN (C++),utf16 gclef,false
 4. Roundtrip,CAJUN (C++),roundtrip01,true
 4. Roundtrip,CAJUN (C++),roundtrip02,true
 4. Roundtrip,CAJUN (C++),roundtrip03,true

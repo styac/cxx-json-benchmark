@@ -1,4 +1,5 @@
 #include "../test.h"
+#include "../memorystat_c.h"
 
 #include <string>
 #include <sstream>

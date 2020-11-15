@@ -1,0 +1,109 @@
+# Conformance of mikeando FastJson (C++)
+
+## 1. Parse Validation
+
+* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail10.json` is invalid but was mistakenly deemed valid.
+~~~js
+{"Extra value after close": true} "misplaced quoted value"
+~~~
+
+* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail25.json` is invalid but was mistakenly deemed valid.
+~~~js
+["	tab	character	in	string	"]
+~~~
+
+* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail27.json` is invalid but was mistakenly deemed valid.
+~~~js
+["line
+break"]
+~~~
+
+* `string_2_escaped_invalid_codepoints` is valid but was mistakenly deemed invalid.
+~~~js
+["\uD800\uD800"]
+~~~
+
+* `string_3_escaped_invalid_codepoints` is valid but was mistakenly deemed invalid.
+~~~js
+["\uD800\uD800\uD800"]
+~~~
+
+* `string_1_escaped_invalid_codepoint` is valid but was mistakenly deemed invalid.
+~~~js
+["\uD800"]
+~~~
+
+
+Summary: 145 of 151 are correct.
+
+## 2. Parse Double
+
+* `[-9223372036854775809]`
+  * expect: `-9.2233720368547758e+18 (0x016C3E0000000000000)`
+  * actual: `-9.2233720368547758e+19 (0x016C414000000000000)`
+
+* `[0.9868011474609375]`
+  * expect: `0.9868011474609375 (0x0163FEF93E000000000)`
+  * actual: `0.98680114746093761 (0x0163FEF93E000000001)`
+
+* `[2.22507385850720113605740979670913197593481954635164565e-308]`
+  * expect: `2.2250738585072014e-308 (0x01610000000000000)`
+  * actual: `0 (0x0160)`
+
+* `[1.00000000000000011102230246251565404236316680908203125]`
+  * expect: `1 (0x0163FF0000000000000)`
+  * actual: `1.0000000000000002 (0x0163FF0000000000001)`
+
+* `[7205759403792793199999e-5]`
+  * expect: `72057594037927928 (0x016436FFFFFFFFFFFFF)`
+  * actual: `7.2057594037927935e-29 (0x0163A16D601AD376AB9)`
+
+* `[7205759403792793200001e-5]`
+  * expect: `72057594037927936 (0x0164370000000000000)`
+  * actual: `7.2057594037927928e-34 (0x016390DEE7A4AD4B81E)`
+
+* `[922337203685477529600001e-5]`
+  * expect: `9.2233720368547758e+18 (0x01643E0000000000000)`
+  * actual: `9.2233720368547748e-32 (0x016397DEE7A4AD4B81E)`
+
+* `[10141204801825835211973625643008]`
+  * expect: `1.0141204801825835e+31 (0x0164660000000000000)`
+  * actual: `1.0141204801825835e+32 (0x0164694000000000000)`
+
+* `[10141204801825834649023672221696]`
+  * expect: `1.0141204801825835e+31 (0x0164660000000000000)`
+  * actual: `1.0141204801825835e+32 (0x0164694000000000000)`
+
+* `[5708990770823839524233143877797980545530986496]`
+  * expect: `5.7089907708238395e+45 (0x0164970000000000000)`
+  * actual: `5.7089907708238395e+46 (0x01649A4000000000000)`
+
+* `[5708990770823839207320493820740630171355185152]`
+  * expect: `5.7089907708238395e+45 (0x0164970000000000000)`
+  * actual: `5.7089907708238395e+46 (0x01649A4000000000000)`
+
+* `[5708990770823839207320493820740630171355185151999e-3]`
+  * expect: `5.7089907708238389e+45 (0x016496FFFFFFFFFFFFF)`
+  * actual: `0 (0x0160)`
+
+* `[5708990770823839207320493820740630171355185152001e-3]`
+  * expect: `5.7089907708238395e+45 (0x0164970000000000000)`
+  * actual: `5708990770823839 (0x0164334484BFEEBC29F)`
+
+
+Summary: 53 of 66 are correct.
+
+## 3. Parse String
+
+* `["\uD834\uDD1E"]`
+  * expect: `"𝄞"` (length: 4)
+  * actual: `"񇠴"` (length: 4)
+
+
+Summary: 8 of 9 are correct.
+
+## 4. Roundtrip
+
+
+Summary: 27 of 27 are correct.
+

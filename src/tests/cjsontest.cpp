@@ -1,4 +1,7 @@
 #include "../test.h"
+
+#include "../memorystat_c.h"
+
 #include "cJSON/cJSON.h"
 
 static void GenStat(Stat* s, const cJSON* v) {
