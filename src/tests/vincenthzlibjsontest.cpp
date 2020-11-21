@@ -360,7 +360,7 @@ public:
 
 class VinenthzStringResult : public StringResultBase {
 public:
-    VinenthzStringResult() : sb() {}
+    VinenthzStringResult() : sb() { sb.buffer = nullptr; }
     ~VinenthzStringResult() { free(sb.buffer); }
 
     virtual const char* c_str() const { return sb.buffer; }
@@ -398,9 +398,9 @@ public:
         json_parser_dom_init(&dom, tree_create_structure, tree_create_data, tree_append);
         json_parser_init(&parser, &config, json_parser_dom_callback, &dom);
         uint32_t processed;
-        if (!json_parser_string(&parser, json, (uint32_t)length, &processed) && json_parser_is_done(&parser))
+        if (!json_parser_string(&parser, json, (uint32_t)length, &processed) && json_parser_is_done(&parser)) {
             pr->root = (json_val_t*)dom.root_structure;
-        else {
+        } else {
             delete pr;
             pr = 0;
         }

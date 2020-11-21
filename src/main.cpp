@@ -773,15 +773,13 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
             test.SetUp();
             ParseResultBase* pr = test.Parse(json.data(), json.size());
             bool result = pr != 0;
-            auto n = it->path().filename().stem().string().data();
-            fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), n, result ? "true" : "false");
-            // printf("pass%02d: %s\n", i, result ? "true" : "false");
             delete pr;
+            auto const& n = it->path().filename().stem().string();
+            fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), n.data(), result ? "true" : "false");
             test.TearDown();
-
             if (!result) {
                 if (md)
-                    fprintf(md, "* `%s` is valid but was mistakenly deemed invalid.\n~~~js\n%s\n~~~\n\n", n, json.data());
+                    fprintf(md, "* `%s` is valid but was mistakenly deemed invalid.\n~~~js\n%s\n~~~\n\n", n.data(), json.data());
             } else {
                 parseValidationCorrect++;
             }
@@ -803,11 +801,10 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
             test.SetUp();
             ParseResultBase* pr = test.Parse(json.data(), json.size());
             bool result = pr == 0;
+            delete pr;
             const auto& n = it->path().filename().stem().string().data();
             fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), n, result ? "true" : "false");
-            delete pr;
             test.TearDown();
-
             if (!result) {
                 if (md)
                     fprintf(md, "* `%s` is valid but was mistakenly deemed invalid.\n~~~js\n%s\n~~~\n\n", n, json.data());
@@ -820,7 +817,6 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
         MEMORYSTAT_CHECKMEMORYLEAK(test.GetName(),"check fail");
     }
 
-
     {
         std::filesystem::path p(TEST_DATA_FOLDER "transform_extra/");
         for (std::filesystem::directory_iterator it(p); it != end_it; ++it) {
@@ -831,21 +827,15 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
             auto json = ReadJSON(it->path());
             if (json.data() != nullptr ) {
                 test.SetUp();
-                ParseResultBase* pr = nullptr;
-                bool exception = false;
-                pr = test.Parse(json.data(), json.size());
-
+                ParseResultBase* pr = test.Parse(json.data(), json.size());
                 bool result = pr != 0;
-                std::string file( it->path().filename().stem().string());
-                fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), file.data(), result ? "true" : "false");
                 delete pr;
+                auto const& n = it->path().filename().stem().string();
+                fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), n.data(), result ? "true" : "false");
                 test.TearDown();
-                if(exception) {
-                    printf( " ******* exception occured Parse Validation,%s,%s\n", test.GetName(), file.data());
-                }
                 if (!result) {
                     if (md)
-                        fprintf(md, "* `%s` is valid but was mistakenly deemed invalid.\n~~~js\n%s\n~~~\n\n", file.data(), json.data());
+                        fprintf(md, "* `%s` is valid but was mistakenly deemed invalid.\n~~~js\n%s\n~~~\n\n", n.data(), json.data());
                 } else {
                     parseValidationCorrect++;
                 }
@@ -868,13 +858,13 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
                 test.SetUp();
                 ParseResultBase* pr = test.Parse(json.data(), json.size());
                 bool result = pr != 0;
-                auto const& file = it->path().filename().stem().string().data();
-                fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), file, result ? "true" : "false");
                 delete pr;
+                auto const& n = it->path().filename().stem().string();
+                fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), n.data(), result ? "true" : "false");
                 test.TearDown();
                 if (!result) {
                     if (md)
-                        fprintf(md, "* `%s` is valid but was mistakenly deemed invalid.\n~~~js\n%s\n~~~\n\n", file, json.data());
+                        fprintf(md, "* `%s` is valid but was mistakenly deemed invalid.\n~~~js\n%s\n~~~\n\n", n.data(), json.data());
                 } else {
                     parseValidationCorrect++;
                 }
@@ -1149,9 +1139,8 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
         json.freedata();
         if (terminate)
             break;
-        auto n = it->path().filename().stem().string().data();
-
-        fprintf(fp, "4. Roundtrip,%s,%s,%s\n", test.GetName(), n, result ? "true" : "false");
+        auto const& n = it->path().filename().stem().string();
+        fprintf(fp, "4. Roundtrip,%s,%s,%s\n", test.GetName(), n.data(), result ? "true" : "false");
         MEMORYSTAT_CHECKMEMORYLEAK(test.GetName(),"roundtrip");
     }
     if (md)

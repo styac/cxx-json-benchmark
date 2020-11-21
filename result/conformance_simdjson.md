@@ -90,7 +90,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
- f±
+p8R
 ~~~
 
 * Fail:
@@ -99,7 +99,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
- f±
+p8R
 ~~~
 
 * Fail:
@@ -108,7 +108,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
-°™à
+Ðß2
 ~~~
 
 * Fail:
@@ -117,7 +117,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
- f±
+p8R
 ~~~
 
 * Fail:
@@ -126,7 +126,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
-°™à
+Ðß2
 ~~~
 
 * Fail:
@@ -135,7 +135,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
- f±
+p8R
 ~~~
 
 * Fail:
@@ -153,7 +153,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
- f±
+p8R
 ~~~
 
 * Fail:
@@ -162,7 +162,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
-°™à
+Ðß2
 ~~~
 
 

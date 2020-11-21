@@ -1,4 +1,4 @@
-# Conformance of mikeando FastJson (C++)
+# Conformance of FastJson (C++)
 
 ## 1. Parse Validation
 

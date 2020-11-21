@@ -3993,259 +3993,259 @@ Type,Library,Test,Result
 4. Roundtrip,dropbox json11 (C++11),roundtrip09,false
 4. Roundtrip,dropbox json11 (C++11),roundtrip18,false
 4. Roundtrip,dropbox json11 (C++11),roundtrip27,false
-1. Parse Validation,mikeando FastJson (C++),pass03,true
-1. Parse Validation,mikeando FastJson (C++),pass01,true
-1. Parse Validation,mikeando FastJson (C++),pass02,true
-1. Parse Validation,mikeando FastJson (C++),fail21,true
-1. Parse Validation,mikeando FastJson (C++),fail09,true
-1. Parse Validation,mikeando FastJson (C++),fail16,true
-1. Parse Validation,mikeando FastJson (C++),fail30,true
-1. Parse Validation,mikeando FastJson (C++),fail28,true
-1. Parse Validation,mikeando FastJson (C++),fail24,true
-1. Parse Validation,mikeando FastJson (C++),fail08,true
-1. Parse Validation,mikeando FastJson (C++),fail12,true
-1. Parse Validation,mikeando FastJson (C++),fail13,true
-1. Parse Validation,mikeando FastJson (C++),fail33,true
-1. Parse Validation,mikeando FastJson (C++),fail03,true
-1. Parse Validation,mikeando FastJson (C++),fail27,false
-1. Parse Validation,mikeando FastJson (C++),fail29,true
-1. Parse Validation,mikeando FastJson (C++),fail07,true
-1. Parse Validation,mikeando FastJson (C++),fail26,true
-1. Parse Validation,mikeando FastJson (C++),fail06,true
-1. Parse Validation,mikeando FastJson (C++),fail31,true
-1. Parse Validation,mikeando FastJson (C++),fail19,true
-1. Parse Validation,mikeando FastJson (C++),fail05,true
-1. Parse Validation,mikeando FastJson (C++),fail32,true
-1. Parse Validation,mikeando FastJson (C++),fail23,true
-1. Parse Validation,mikeando FastJson (C++),fail22,true
-1. Parse Validation,mikeando FastJson (C++),fail25,false
-1. Parse Validation,mikeando FastJson (C++),fail11,true
-1. Parse Validation,mikeando FastJson (C++),fail04,true
-1. Parse Validation,mikeando FastJson (C++),fail02,true
-1. Parse Validation,mikeando FastJson (C++),fail10,false
-1. Parse Validation,mikeando FastJson (C++),fail17,true
-1. Parse Validation,mikeando FastJson (C++),fail14,true
-1. Parse Validation,mikeando FastJson (C++),fail20,true
-1. Parse Validation,mikeando FastJson (C++),fail15,true
-1. Parse Validation,mikeando FastJson (C++),number_-9223372036854775808,true
-1. Parse Validation,mikeando FastJson (C++),string_2_escaped_invalid_codepoints,false
-1. Parse Validation,mikeando FastJson (C++),string_1_invalid_codepoint,true
-1. Parse Validation,mikeando FastJson (C++),object_same_key_unclear_values,true
-1. Parse Validation,mikeando FastJson (C++),object_key_nfc_nfd,true
-1. Parse Validation,mikeando FastJson (C++),string_3_escaped_invalid_codepoints,false
-1. Parse Validation,mikeando FastJson (C++),number_1.000000000000000005,true
-1. Parse Validation,mikeando FastJson (C++),string_with_escaped_NULL,true
-1. Parse Validation,mikeando FastJson (C++),number_1e6,true
-1. Parse Validation,mikeando FastJson (C++),string_3_invalid_codepoints,true
-1. Parse Validation,mikeando FastJson (C++),number_1.0,true
-1. Parse Validation,mikeando FastJson (C++),string_2_invalid_codepoints,true
-1. Parse Validation,mikeando FastJson (C++),number_9223372036854775807,true
-1. Parse Validation,mikeando FastJson (C++),number_1000000000000000,true
-1. Parse Validation,mikeando FastJson (C++),number_10000000000000000999,true
-1. Parse Validation,mikeando FastJson (C++),number_-9223372036854775809,true
-1. Parse Validation,mikeando FastJson (C++),object_same_key_different_values,true
-1. Parse Validation,mikeando FastJson (C++),object_key_nfd_nfc,true
-1. Parse Validation,mikeando FastJson (C++),object_same_key_same_value,true
-1. Parse Validation,mikeando FastJson (C++),number_9223372036854775808,true
-1. Parse Validation,mikeando FastJson (C++),number_1e-999,true
-1. Parse Validation,mikeando FastJson (C++),string_1_escaped_invalid_codepoint,false
-1. Parse Validation,mikeando FastJson (C++),y_string_with_del_character,true
-1. Parse Validation,mikeando FastJson (C++),y_object_duplicated_key_and_value,true
-1. Parse Validation,mikeando FastJson (C++),y_string_accepted_surrogate_pairs,true
-1. Parse Validation,mikeando FastJson (C++),y_array_empty,true
-1. Parse Validation,mikeando FastJson (C++),y_structure_true_in_array,true
-1. Parse Validation,mikeando FastJson (C++),y_string_escaped_control_character,true
-1. Parse Validation,mikeando FastJson (C++),y_string_two-byte-utf-8,true
-1. Parse Validation,mikeando FastJson (C++),y_string_unicode_U+200B_ZERO_WIDTH_SPACE,true
-1. Parse Validation,mikeando FastJson (C++),y_string_accepted_surrogate_pair,true
-1. Parse Validation,mikeando FastJson (C++),y_number_real_capital_e_neg_exp,true
-1. Parse Validation,mikeando FastJson (C++),y_structure_lonely_true,true
-1. Parse Validation,mikeando FastJson (C++),y_number_real_fraction_exponent,true
-1. Parse Validation,mikeando FastJson (C++),y_string_backslash_and_u_escaped_zero,true
-1. Parse Validation,mikeando FastJson (C++),y_string_nonCharacterInUTF-8_U+10FFFF,true
-1. Parse Validation,mikeando FastJson (C++),y_number,true
-1. Parse Validation,mikeando FastJson (C++),y_number_real_capital_e_pos_exp,true
-1. Parse Validation,mikeando FastJson (C++),y_array_false,true
-1. Parse Validation,mikeando FastJson (C++),y_array_with_1_and_newline,true
-1. Parse Validation,mikeando FastJson (C++),y_number_0e1,true
-1. Parse Validation,mikeando FastJson (C++),y_string_reservedCharacterInUTF-8_U+1BFFF,true
-1. Parse Validation,mikeando FastJson (C++),y_array_with_trailing_space,true
-1. Parse Validation,mikeando FastJson (C++),y_string_comments,true
-1. Parse Validation,mikeando FastJson (C++),y_string_three-byte-utf-8,true
-1. Parse Validation,mikeando FastJson (C++),y_string_double_escape_n,true
-1. Parse Validation,mikeando FastJson (C++),y_array_empty-string,true
-1. Parse Validation,mikeando FastJson (C++),y_object_empty,true
-1. Parse Validation,mikeando FastJson (C++),y_object_simple,true
-1. Parse Validation,mikeando FastJson (C++),y_string_one-byte-utf-8,true
-1. Parse Validation,mikeando FastJson (C++),y_number_real_capital_e,true
-1. Parse Validation,mikeando FastJson (C++),y_object_long_strings,true
-1. Parse Validation,mikeando FastJson (C++),y_string_utf8,true
-1. Parse Validation,mikeando FastJson (C++),y_object_empty_key,true
-1. Parse Validation,mikeando FastJson (C++),y_string_unicode_U+2064_invisible_plus,true
-1. Parse Validation,mikeando FastJson (C++),y_structure_whitespace_array,true
-1. Parse Validation,mikeando FastJson (C++),y_object_duplicated_key,true
-1. Parse Validation,mikeando FastJson (C++),y_array_with_leading_space,true
-1. Parse Validation,mikeando FastJson (C++),y_string_space,true
-1. Parse Validation,mikeando FastJson (C++),y_object_escaped_null_in_key,true
-1. Parse Validation,mikeando FastJson (C++),y_number_negative_one,true
-1. Parse Validation,mikeando FastJson (C++),y_structure_lonely_false,true
-1. Parse Validation,mikeando FastJson (C++),y_structure_trailing_newline,true
-1. Parse Validation,mikeando FastJson (C++),y_number_minus_zero,true
-1. Parse Validation,mikeando FastJson (C++),y_string_last_surrogates_1_and_2,true
-1. Parse Validation,mikeando FastJson (C++),y_structure_lonely_string,true
-1. Parse Validation,mikeando FastJson (C++),y_string_unicode,true
-1. Parse Validation,mikeando FastJson (C++),y_string_unicodeEscapedBackslash,true
-1. Parse Validation,mikeando FastJson (C++),y_number_real_exponent,true
-1. Parse Validation,mikeando FastJson (C++),y_structure_lonely_negative_real,true
-1. Parse Validation,mikeando FastJson (C++),y_string_null_escape,true
-1. Parse Validation,mikeando FastJson (C++),y_number_int_with_exp,true
-1. Parse Validation,mikeando FastJson (C++),y_number_negative_zero,true
-1. Parse Validation,mikeando FastJson (C++),y_number_double_close_to_zero,true
-1. Parse Validation,mikeando FastJson (C++),y_string_unicode_U+FDD0_nonchar,true
-1. Parse Validation,mikeando FastJson (C++),y_array_arraysWithSpaces,true
-1. Parse Validation,mikeando FastJson (C++),y_string_unicode_U+1FFFE_nonchar,true
-1. Parse Validation,mikeando FastJson (C++),y_string_nbsp_uescaped,true
-1. Parse Validation,mikeando FastJson (C++),y_array_heterogeneous,true
-1. Parse Validation,mikeando FastJson (C++),y_number_0e+1,true
-1. Parse Validation,mikeando FastJson (C++),y_string_simple_ascii,true
-1. Parse Validation,mikeando FastJson (C++),y_object_basic,true
-1. Parse Validation,mikeando FastJson (C++),y_array_ending_with_newline,true
-1. Parse Validation,mikeando FastJson (C++),y_number_simple_int,true
-1. Parse Validation,mikeando FastJson (C++),y_number_after_space,true
-1. Parse Validation,mikeando FastJson (C++),y_string_pi,true
-1. Parse Validation,mikeando FastJson (C++),y_string_u+2028_line_sep,true
-1. Parse Validation,mikeando FastJson (C++),y_string_in_array,true
-1. Parse Validation,mikeando FastJson (C++),y_object_extreme_numbers,true
-1. Parse Validation,mikeando FastJson (C++),y_object_with_newlines,true
-1. Parse Validation,mikeando FastJson (C++),y_string_double_escape_a,true
-1. Parse Validation,mikeando FastJson (C++),y_string_unicode_U+FFFE_nonchar,true
-1. Parse Validation,mikeando FastJson (C++),y_structure_lonely_int,true
-1. Parse Validation,mikeando FastJson (C++),y_number_negative_int,true
-1. Parse Validation,mikeando FastJson (C++),y_string_u+2029_par_sep,true
-1. Parse Validation,mikeando FastJson (C++),y_string_escaped_noncharacter,true
-1. Parse Validation,mikeando FastJson (C++),y_string_unescaped_char_delete,true
-1. Parse Validation,mikeando FastJson (C++),y_string_unicode_escaped_double_quote,true
-1. Parse Validation,mikeando FastJson (C++),y_object_string_unicode,true
-1. Parse Validation,mikeando FastJson (C++),y_string_allowed_escapes,true
-1. Parse Validation,mikeando FastJson (C++),y_array_null,true
-1. Parse Validation,mikeando FastJson (C++),y_string_surrogates_U+1D11E_MUSICAL_SYMBOL_G_CLEF,true
-1. Parse Validation,mikeando FastJson (C++),y_number_real_neg_exp,true
-1. Parse Validation,mikeando FastJson (C++),y_string_uEscape,true
-1. Parse Validation,mikeando FastJson (C++),y_structure_lonely_null,true
-1. Parse Validation,mikeando FastJson (C++),y_string_backslash_doublequotes,true
-1. Parse Validation,mikeando FastJson (C++),y_number_simple_real,true
-1. Parse Validation,mikeando FastJson (C++),y_structure_string_empty,true
-1. Parse Validation,mikeando FastJson (C++),y_string_unicode_U+10FFFE_nonchar,true
-1. Parse Validation,mikeando FastJson (C++),y_string_nonCharacterInUTF-8_U+FFFF,true
-1. Parse Validation,mikeando FastJson (C++),y_array_with_several_null,true
-1. Parse Validation,mikeando FastJson (C++),y_string_uescaped_newline,true
-1. Parse Validation,mikeando FastJson (C++),y_string_unicode_2,true
-1. Parse Validation,mikeando FastJson (C++),y_string_in_array_with_leading_space,true
-1. Parse Validation,mikeando FastJson (C++),y_string_1_2_3_bytes_UTF-8_sequences,true
-1. Parse Validation,mikeando FastJson (C++),y_object,true
-1. Parse Validation,mikeando FastJson (C++),y_number_real_pos_exponent,true
-2. Parse Double,mikeando FastJson (C++),double01,true
-2. Parse Double,mikeando FastJson (C++),double02,true
-2. Parse Double,mikeando FastJson (C++),double03,true
-2. Parse Double,mikeando FastJson (C++),double04,true
-2. Parse Double,mikeando FastJson (C++),double05,true
-2. Parse Double,mikeando FastJson (C++),double06,true
-2. Parse Double,mikeando FastJson (C++),double07,true
-2. Parse Double,mikeando FastJson (C++),double08,true
-2. Parse Double,mikeando FastJson (C++),double09,true
-2. Parse Double,mikeando FastJson (C++),double10,true
-2. Parse Double,mikeando FastJson (C++),double11,true
-2. Parse Double,mikeando FastJson (C++),double12,true
-2. Parse Double,mikeando FastJson (C++),double13,true
-2. Parse Double,mikeando FastJson (C++),double14,true
-2. Parse Double,mikeando FastJson (C++),double15,true
-2. Parse Double,mikeando FastJson (C++),double16,true
-2. Parse Double,mikeando FastJson (C++),double17,true
-2. Parse Double,mikeando FastJson (C++),double18,true
-2. Parse Double,mikeando FastJson (C++),double19,true
-2. Parse Double,mikeando FastJson (C++),double20,true
-2. Parse Double,mikeando FastJson (C++),double21,true
-2. Parse Double,mikeando FastJson (C++),double22,true
-2. Parse Double,mikeando FastJson (C++),double23,true
-2. Parse Double,mikeando FastJson (C++),double24,true
-2. Parse Double,mikeando FastJson (C++),double25,true
-2. Parse Double,mikeando FastJson (C++),double26,true
-2. Parse Double,mikeando FastJson (C++),double27,true
-2. Parse Double,mikeando FastJson (C++),double28,false
-2. Parse Double,mikeando FastJson (C++),double29,false
-2. Parse Double,mikeando FastJson (C++),double30,true
-2. Parse Double,mikeando FastJson (C++),double31,true
-2. Parse Double,mikeando FastJson (C++),double32,true
-2. Parse Double,mikeando FastJson (C++),double33,true
-2. Parse Double,mikeando FastJson (C++),double34,true
-2. Parse Double,mikeando FastJson (C++),double35,true
-2. Parse Double,mikeando FastJson (C++),double36,true
-2. Parse Double,mikeando FastJson (C++),double37,true
-2. Parse Double,mikeando FastJson (C++),double38,false
-2. Parse Double,mikeando FastJson (C++),double39,true
-2. Parse Double,mikeando FastJson (C++),double40,true
-2. Parse Double,mikeando FastJson (C++),double41,true
-2. Parse Double,mikeando FastJson (C++),double42,false
-2. Parse Double,mikeando FastJson (C++),double43,true
-2. Parse Double,mikeando FastJson (C++),double44,true
-2. Parse Double,mikeando FastJson (C++),double45,true
-2. Parse Double,mikeando FastJson (C++),double46,true
-2. Parse Double,mikeando FastJson (C++),double47,true
-2. Parse Double,mikeando FastJson (C++),double48,false
-2. Parse Double,mikeando FastJson (C++),double49,false
-2. Parse Double,mikeando FastJson (C++),double50,true
-2. Parse Double,mikeando FastJson (C++),double51,true
-2. Parse Double,mikeando FastJson (C++),double52,true
-2. Parse Double,mikeando FastJson (C++),double53,true
-2. Parse Double,mikeando FastJson (C++),double54,false
-2. Parse Double,mikeando FastJson (C++),double55,true
-2. Parse Double,mikeando FastJson (C++),double56,false
-2. Parse Double,mikeando FastJson (C++),double57,false
-2. Parse Double,mikeando FastJson (C++),double58,false
-2. Parse Double,mikeando FastJson (C++),double59,false
-2. Parse Double,mikeando FastJson (C++),double60,true
-2. Parse Double,mikeando FastJson (C++),double61,false
-2. Parse Double,mikeando FastJson (C++),double62,false
-2. Parse Double,mikeando FastJson (C++),double63,false
-2. Parse Double,mikeando FastJson (C++),double64,false
-2. Parse Double,mikeando FastJson (C++),double65,true
-2. Parse Double,mikeando FastJson (C++),double66,true
-3. Parse String,mikeando FastJson (C++),empty,true
-3. Parse String,mikeando FastJson (C++),ascii,true
-3. Parse String,mikeando FastJson (C++),newline,true
-3. Parse String,mikeando FastJson (C++),utf16 zero,true
-3. Parse String,mikeando FastJson (C++),whitesp,true
-3. Parse String,mikeando FastJson (C++),utf16 dollar,true
-3. Parse String,mikeando FastJson (C++),utf16 cent,true
-3. Parse String,mikeando FastJson (C++),utf16 euro,true
-3. Parse String,mikeando FastJson (C++),utf16 gclef,false
-4. Roundtrip,mikeando FastJson (C++),roundtrip21,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip07,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip22,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip04,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip19,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip08,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip02,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip10,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip25,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip23,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip03,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip13,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip11,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip05,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip12,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip26,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip06,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip24,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip14,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip20,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip01,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip16,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip17,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip15,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip09,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip18,true
-4. Roundtrip,mikeando FastJson (C++),roundtrip27,true
+1. Parse Validation,FastJson (C++),pass03,true
+1. Parse Validation,FastJson (C++),pass01,true
+1. Parse Validation,FastJson (C++),pass02,true
+1. Parse Validation,FastJson (C++),fail21,true
+1. Parse Validation,FastJson (C++),fail09,true
+1. Parse Validation,FastJson (C++),fail16,true
+1. Parse Validation,FastJson (C++),fail30,true
+1. Parse Validation,FastJson (C++),fail28,true
+1. Parse Validation,FastJson (C++),fail24,true
+1. Parse Validation,FastJson (C++),fail08,true
+1. Parse Validation,FastJson (C++),fail12,true
+1. Parse Validation,FastJson (C++),fail13,true
+1. Parse Validation,FastJson (C++),fail33,true
+1. Parse Validation,FastJson (C++),fail03,true
+1. Parse Validation,FastJson (C++),fail27,false
+1. Parse Validation,FastJson (C++),fail29,true
+1. Parse Validation,FastJson (C++),fail07,true
+1. Parse Validation,FastJson (C++),fail26,true
+1. Parse Validation,FastJson (C++),fail06,true
+1. Parse Validation,FastJson (C++),fail31,true
+1. Parse Validation,FastJson (C++),fail19,true
+1. Parse Validation,FastJson (C++),fail05,true
+1. Parse Validation,FastJson (C++),fail32,true
+1. Parse Validation,FastJson (C++),fail23,true
+1. Parse Validation,FastJson (C++),fail22,true
+1. Parse Validation,FastJson (C++),fail25,false
+1. Parse Validation,FastJson (C++),fail11,true
+1. Parse Validation,FastJson (C++),fail04,true
+1. Parse Validation,FastJson (C++),fail02,true
+1. Parse Validation,FastJson (C++),fail10,false
+1. Parse Validation,FastJson (C++),fail17,true
+1. Parse Validation,FastJson (C++),fail14,true
+1. Parse Validation,FastJson (C++),fail20,true
+1. Parse Validation,FastJson (C++),fail15,true
+1. Parse Validation,FastJson (C++),number_-9223372036854775808,true
+1. Parse Validation,FastJson (C++),string_2_escaped_invalid_codepoints,false
+1. Parse Validation,FastJson (C++),string_1_invalid_codepoint,true
+1. Parse Validation,FastJson (C++),object_same_key_unclear_values,true
+1. Parse Validation,FastJson (C++),object_key_nfc_nfd,true
+1. Parse Validation,FastJson (C++),string_3_escaped_invalid_codepoints,false
+1. Parse Validation,FastJson (C++),number_1.000000000000000005,true
+1. Parse Validation,FastJson (C++),string_with_escaped_NULL,true
+1. Parse Validation,FastJson (C++),number_1e6,true
+1. Parse Validation,FastJson (C++),string_3_invalid_codepoints,true
+1. Parse Validation,FastJson (C++),number_1.0,true
+1. Parse Validation,FastJson (C++),string_2_invalid_codepoints,true
+1. Parse Validation,FastJson (C++),number_9223372036854775807,true
+1. Parse Validation,FastJson (C++),number_1000000000000000,true
+1. Parse Validation,FastJson (C++),number_10000000000000000999,true
+1. Parse Validation,FastJson (C++),number_-9223372036854775809,true
+1. Parse Validation,FastJson (C++),object_same_key_different_values,true
+1. Parse Validation,FastJson (C++),object_key_nfd_nfc,true
+1. Parse Validation,FastJson (C++),object_same_key_same_value,true
+1. Parse Validation,FastJson (C++),number_9223372036854775808,true
+1. Parse Validation,FastJson (C++),number_1e-999,true
+1. Parse Validation,FastJson (C++),string_1_escaped_invalid_codepoint,false
+1. Parse Validation,FastJson (C++),y_string_with_del_character,true
+1. Parse Validation,FastJson (C++),y_object_duplicated_key_and_value,true
+1. Parse Validation,FastJson (C++),y_string_accepted_surrogate_pairs,true
+1. Parse Validation,FastJson (C++),y_array_empty,true
+1. Parse Validation,FastJson (C++),y_structure_true_in_array,true
+1. Parse Validation,FastJson (C++),y_string_escaped_control_character,true
+1. Parse Validation,FastJson (C++),y_string_two-byte-utf-8,true
+1. Parse Validation,FastJson (C++),y_string_unicode_U+200B_ZERO_WIDTH_SPACE,true
+1. Parse Validation,FastJson (C++),y_string_accepted_surrogate_pair,true
+1. Parse Validation,FastJson (C++),y_number_real_capital_e_neg_exp,true
+1. Parse Validation,FastJson (C++),y_structure_lonely_true,true
+1. Parse Validation,FastJson (C++),y_number_real_fraction_exponent,true
+1. Parse Validation,FastJson (C++),y_string_backslash_and_u_escaped_zero,true
+1. Parse Validation,FastJson (C++),y_string_nonCharacterInUTF-8_U+10FFFF,true
+1. Parse Validation,FastJson (C++),y_number,true
+1. Parse Validation,FastJson (C++),y_number_real_capital_e_pos_exp,true
+1. Parse Validation,FastJson (C++),y_array_false,true
+1. Parse Validation,FastJson (C++),y_array_with_1_and_newline,true
+1. Parse Validation,FastJson (C++),y_number_0e1,true
+1. Parse Validation,FastJson (C++),y_string_reservedCharacterInUTF-8_U+1BFFF,true
+1. Parse Validation,FastJson (C++),y_array_with_trailing_space,true
+1. Parse Validation,FastJson (C++),y_string_comments,true
+1. Parse Validation,FastJson (C++),y_string_three-byte-utf-8,true
+1. Parse Validation,FastJson (C++),y_string_double_escape_n,true
+1. Parse Validation,FastJson (C++),y_array_empty-string,true
+1. Parse Validation,FastJson (C++),y_object_empty,true
+1. Parse Validation,FastJson (C++),y_object_simple,true
+1. Parse Validation,FastJson (C++),y_string_one-byte-utf-8,true
+1. Parse Validation,FastJson (C++),y_number_real_capital_e,true
+1. Parse Validation,FastJson (C++),y_object_long_strings,true
+1. Parse Validation,FastJson (C++),y_string_utf8,true
+1. Parse Validation,FastJson (C++),y_object_empty_key,true
+1. Parse Validation,FastJson (C++),y_string_unicode_U+2064_invisible_plus,true
+1. Parse Validation,FastJson (C++),y_structure_whitespace_array,true
+1. Parse Validation,FastJson (C++),y_object_duplicated_key,true
+1. Parse Validation,FastJson (C++),y_array_with_leading_space,true
+1. Parse Validation,FastJson (C++),y_string_space,true
+1. Parse Validation,FastJson (C++),y_object_escaped_null_in_key,true
+1. Parse Validation,FastJson (C++),y_number_negative_one,true
+1. Parse Validation,FastJson (C++),y_structure_lonely_false,true
+1. Parse Validation,FastJson (C++),y_structure_trailing_newline,true
+1. Parse Validation,FastJson (C++),y_number_minus_zero,true
+1. Parse Validation,FastJson (C++),y_string_last_surrogates_1_and_2,true
+1. Parse Validation,FastJson (C++),y_structure_lonely_string,true
+1. Parse Validation,FastJson (C++),y_string_unicode,true
+1. Parse Validation,FastJson (C++),y_string_unicodeEscapedBackslash,true
+1. Parse Validation,FastJson (C++),y_number_real_exponent,true
+1. Parse Validation,FastJson (C++),y_structure_lonely_negative_real,true
+1. Parse Validation,FastJson (C++),y_string_null_escape,true
+1. Parse Validation,FastJson (C++),y_number_int_with_exp,true
+1. Parse Validation,FastJson (C++),y_number_negative_zero,true
+1. Parse Validation,FastJson (C++),y_number_double_close_to_zero,true
+1. Parse Validation,FastJson (C++),y_string_unicode_U+FDD0_nonchar,true
+1. Parse Validation,FastJson (C++),y_array_arraysWithSpaces,true
+1. Parse Validation,FastJson (C++),y_string_unicode_U+1FFFE_nonchar,true
+1. Parse Validation,FastJson (C++),y_string_nbsp_uescaped,true
+1. Parse Validation,FastJson (C++),y_array_heterogeneous,true
+1. Parse Validation,FastJson (C++),y_number_0e+1,true
+1. Parse Validation,FastJson (C++),y_string_simple_ascii,true
+1. Parse Validation,FastJson (C++),y_object_basic,true
+1. Parse Validation,FastJson (C++),y_array_ending_with_newline,true
+1. Parse Validation,FastJson (C++),y_number_simple_int,true
+1. Parse Validation,FastJson (C++),y_number_after_space,true
+1. Parse Validation,FastJson (C++),y_string_pi,true
+1. Parse Validation,FastJson (C++),y_string_u+2028_line_sep,true
+1. Parse Validation,FastJson (C++),y_string_in_array,true
+1. Parse Validation,FastJson (C++),y_object_extreme_numbers,true
+1. Parse Validation,FastJson (C++),y_object_with_newlines,true
+1. Parse Validation,FastJson (C++),y_string_double_escape_a,true
+1. Parse Validation,FastJson (C++),y_string_unicode_U+FFFE_nonchar,true
+1. Parse Validation,FastJson (C++),y_structure_lonely_int,true
+1. Parse Validation,FastJson (C++),y_number_negative_int,true
+1. Parse Validation,FastJson (C++),y_string_u+2029_par_sep,true
+1. Parse Validation,FastJson (C++),y_string_escaped_noncharacter,true
+1. Parse Validation,FastJson (C++),y_string_unescaped_char_delete,true
+1. Parse Validation,FastJson (C++),y_string_unicode_escaped_double_quote,true
+1. Parse Validation,FastJson (C++),y_object_string_unicode,true
+1. Parse Validation,FastJson (C++),y_string_allowed_escapes,true
+1. Parse Validation,FastJson (C++),y_array_null,true
+1. Parse Validation,FastJson (C++),y_string_surrogates_U+1D11E_MUSICAL_SYMBOL_G_CLEF,true
+1. Parse Validation,FastJson (C++),y_number_real_neg_exp,true
+1. Parse Validation,FastJson (C++),y_string_uEscape,true
+1. Parse Validation,FastJson (C++),y_structure_lonely_null,true
+1. Parse Validation,FastJson (C++),y_string_backslash_doublequotes,true
+1. Parse Validation,FastJson (C++),y_number_simple_real,true
+1. Parse Validation,FastJson (C++),y_structure_string_empty,true
+1. Parse Validation,FastJson (C++),y_string_unicode_U+10FFFE_nonchar,true
+1. Parse Validation,FastJson (C++),y_string_nonCharacterInUTF-8_U+FFFF,true
+1. Parse Validation,FastJson (C++),y_array_with_several_null,true
+1. Parse Validation,FastJson (C++),y_string_uescaped_newline,true
+1. Parse Validation,FastJson (C++),y_string_unicode_2,true
+1. Parse Validation,FastJson (C++),y_string_in_array_with_leading_space,true
+1. Parse Validation,FastJson (C++),y_string_1_2_3_bytes_UTF-8_sequences,true
+1. Parse Validation,FastJson (C++),y_object,true
+1. Parse Validation,FastJson (C++),y_number_real_pos_exponent,true
+2. Parse Double,FastJson (C++),double01,true
+2. Parse Double,FastJson (C++),double02,true
+2. Parse Double,FastJson (C++),double03,true
+2. Parse Double,FastJson (C++),double04,true
+2. Parse Double,FastJson (C++),double05,true
+2. Parse Double,FastJson (C++),double06,true
+2. Parse Double,FastJson (C++),double07,true
+2. Parse Double,FastJson (C++),double08,true
+2. Parse Double,FastJson (C++),double09,true
+2. Parse Double,FastJson (C++),double10,true
+2. Parse Double,FastJson (C++),double11,true
+2. Parse Double,FastJson (C++),double12,true
+2. Parse Double,FastJson (C++),double13,true
+2. Parse Double,FastJson (C++),double14,true
+2. Parse Double,FastJson (C++),double15,true
+2. Parse Double,FastJson (C++),double16,true
+2. Parse Double,FastJson (C++),double17,true
+2. Parse Double,FastJson (C++),double18,true
+2. Parse Double,FastJson (C++),double19,true
+2. Parse Double,FastJson (C++),double20,true
+2. Parse Double,FastJson (C++),double21,true
+2. Parse Double,FastJson (C++),double22,true
+2. Parse Double,FastJson (C++),double23,true
+2. Parse Double,FastJson (C++),double24,true
+2. Parse Double,FastJson (C++),double25,true
+2. Parse Double,FastJson (C++),double26,true
+2. Parse Double,FastJson (C++),double27,true
+2. Parse Double,FastJson (C++),double28,false
+2. Parse Double,FastJson (C++),double29,false
+2. Parse Double,FastJson (C++),double30,true
+2. Parse Double,FastJson (C++),double31,true
+2. Parse Double,FastJson (C++),double32,true
+2. Parse Double,FastJson (C++),double33,true
+2. Parse Double,FastJson (C++),double34,true
+2. Parse Double,FastJson (C++),double35,true
+2. Parse Double,FastJson (C++),double36,true
+2. Parse Double,FastJson (C++),double37,true
+2. Parse Double,FastJson (C++),double38,false
+2. Parse Double,FastJson (C++),double39,true
+2. Parse Double,FastJson (C++),double40,true
+2. Parse Double,FastJson (C++),double41,true
+2. Parse Double,FastJson (C++),double42,false
+2. Parse Double,FastJson (C++),double43,true
+2. Parse Double,FastJson (C++),double44,true
+2. Parse Double,FastJson (C++),double45,true
+2. Parse Double,FastJson (C++),double46,true
+2. Parse Double,FastJson (C++),double47,true
+2. Parse Double,FastJson (C++),double48,false
+2. Parse Double,FastJson (C++),double49,false
+2. Parse Double,FastJson (C++),double50,true
+2. Parse Double,FastJson (C++),double51,true
+2. Parse Double,FastJson (C++),double52,true
+2. Parse Double,FastJson (C++),double53,true
+2. Parse Double,FastJson (C++),double54,false
+2. Parse Double,FastJson (C++),double55,true
+2. Parse Double,FastJson (C++),double56,false
+2. Parse Double,FastJson (C++),double57,false
+2. Parse Double,FastJson (C++),double58,false
+2. Parse Double,FastJson (C++),double59,false
+2. Parse Double,FastJson (C++),double60,true
+2. Parse Double,FastJson (C++),double61,false
+2. Parse Double,FastJson (C++),double62,false
+2. Parse Double,FastJson (C++),double63,false
+2. Parse Double,FastJson (C++),double64,false
+2. Parse Double,FastJson (C++),double65,true
+2. Parse Double,FastJson (C++),double66,true
+3. Parse String,FastJson (C++),empty,true
+3. Parse String,FastJson (C++),ascii,true
+3. Parse String,FastJson (C++),newline,true
+3. Parse String,FastJson (C++),utf16 zero,true
+3. Parse String,FastJson (C++),whitesp,true
+3. Parse String,FastJson (C++),utf16 dollar,true
+3. Parse String,FastJson (C++),utf16 cent,true
+3. Parse String,FastJson (C++),utf16 euro,true
+3. Parse String,FastJson (C++),utf16 gclef,false
+4. Roundtrip,FastJson (C++),roundtrip21,true
+4. Roundtrip,FastJson (C++),roundtrip07,true
+4. Roundtrip,FastJson (C++),roundtrip22,true
+4. Roundtrip,FastJson (C++),roundtrip04,true
+4. Roundtrip,FastJson (C++),roundtrip19,true
+4. Roundtrip,FastJson (C++),roundtrip08,true
+4. Roundtrip,FastJson (C++),roundtrip02,true
+4. Roundtrip,FastJson (C++),roundtrip10,true
+4. Roundtrip,FastJson (C++),roundtrip25,true
+4. Roundtrip,FastJson (C++),roundtrip23,true
+4. Roundtrip,FastJson (C++),roundtrip03,true
+4. Roundtrip,FastJson (C++),roundtrip13,true
+4. Roundtrip,FastJson (C++),roundtrip11,true
+4. Roundtrip,FastJson (C++),roundtrip05,true
+4. Roundtrip,FastJson (C++),roundtrip12,true
+4. Roundtrip,FastJson (C++),roundtrip26,true
+4. Roundtrip,FastJson (C++),roundtrip06,true
+4. Roundtrip,FastJson (C++),roundtrip24,true
+4. Roundtrip,FastJson (C++),roundtrip14,true
+4. Roundtrip,FastJson (C++),roundtrip20,true
+4. Roundtrip,FastJson (C++),roundtrip01,true
+4. Roundtrip,FastJson (C++),roundtrip16,true
+4. Roundtrip,FastJson (C++),roundtrip17,true
+4. Roundtrip,FastJson (C++),roundtrip15,true
+4. Roundtrip,FastJson (C++),roundtrip09,true
+4. Roundtrip,FastJson (C++),roundtrip18,true
+4. Roundtrip,FastJson (C++),roundtrip27,true
 1. Parse Validation,gason (C++11),pass03,true
 1. Parse Validation,gason (C++11),pass01,true
 1. Parse Validation,gason (C++11),pass02,true

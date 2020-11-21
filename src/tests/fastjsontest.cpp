@@ -7,6 +7,11 @@
 
 using namespace fastjson;
 
+static void fastjson_error_callback( void * /* ud */, fastjson::ErrorContext const & /* ec */)
+{
+
+}
+
 static void GenStat(Stat& stat, const Token& token) {
     switch (token.type) {
     case Token::ArrayToken:
@@ -113,7 +118,7 @@ public:
 class FastjsonTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const override { return "mikeando FastJson (C++)"; }
+    virtual const char* GetName() const override { return "FastJson (C++)"; }
     virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
@@ -122,7 +127,7 @@ public:
     {
         FastjsonParseResult* pr = new FastjsonParseResult;
         std::string error_message;
-        if (!dom::parse_string(json, &pr->token, &pr->chunk, 0, 0, &error_message)) {
+        if (!dom::parse_string({json,length}, &pr->token, &pr->chunk, 0, fastjson_error_callback, &error_message)) {
             delete pr;
             return 0;
         }
