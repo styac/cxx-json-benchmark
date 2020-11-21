@@ -11,6 +11,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -fPIE -march=native -O2 -Wall" )
 set( CMAKE_BUILD_TYPE Release )
 add_compile_definitions(TEST_DATA_FOLDER="${PROJECT_SOURCE_DIR}/data/")
 add_compile_definitions(RESULT_FOLDER="${PROJECT_SOURCE_DIR}/result/")
+add_compile_definitions(OBJ_FOLDER="${PROJECT_BINARY_DIR}/CMakeFiles/${PROJECT_NAME}.dir/")
+# object file: <testfile_source.cpp>.o
 
 
 # feature macros to control some libraries
@@ -39,7 +41,7 @@ add_compile_definitions(USE_MEMORYSTAT=1)
 add_compile_definitions(TEST_PARSE=1)
 add_compile_definitions(TEST_STRINGIFY=1)
 add_compile_definitions(TEST_PRETTIFY=1)
-add_compile_definitions(TEST_TEST_STATISTICS=1)
+add_compile_definitions(TEST_STATISTICS=1)
 add_compile_definitions(TEST_SAXROUNDTRIP=1)
 add_compile_definitions(TEST_SAXSTATISTICS=1)
 add_compile_definitions(TEST_SAXSTATISTICSUTF16=0)
@@ -50,7 +52,8 @@ add_compile_definitions(TEST_INFO=1)
 add_compile_definitions(JSONCONS_NO_DEPRECATED)
 
 include_directories (
-    src/tunnuz
+#    src/tunnuz
+    externals
     thirdparty
     thirdparty/boostjson/include
     thirdparty/fastjson/include
@@ -83,14 +86,14 @@ include_directories (
 )
 
 file( GLOB HEADERS ${PROJECT_SOURCE_DIR}
+    externals/fmt/*.h
     src/*.h
     src/cjsonlibs/*.h
-    src/fmt/*.h
 )
 
 file( GLOB SOURCES_MAIN ${PROJECT_SOURCE_DIR}
     src/*.cpp
-#    src/fmt/*.cc
+    externals/fmt/*.cc
 )
 
 set( SOURCES_TESTS_C ${PROJECT_SOURCE_DIR}
@@ -120,7 +123,6 @@ set( SOURCES_TESTS_C ${PROJECT_SOURCE_DIR}
 
 set( SOURCES_TESTS
     src/tests/boostjsontest.cpp
-    src/tests/jsonctest.cpp
     src/tests/cjsontest.cpp
     src/tests/voorheestest.cpp
     src/tests/sajsontest.cpp
@@ -140,7 +142,6 @@ set( SOURCES_TESTS
     src/tests/fastjsontest.cpp
     src/tests/gasontest.cpp
     src/tests/jeayesontest.cpp
-    src/tests/jsmntest.cpp
     src/tests/jsonboxtest.cpp
     src/tests/jsonconstest.cpp
     src/tests/jsoncpptest.cpp
@@ -159,8 +160,9 @@ set( SOURCES_TESTS
     src/tests/simplejsontest.cpp
     src/tests/taocpptest.cpp
     src/tests/udpjsontest.cpp
-    src/tests/cajuntest.cpp # ok but very slow
-
+#    src/tests/cajuntest.cpp # ok but very slow
+#    src/tests/jsmntest.cpp # memory leaks
+#    src/tests/jsonctest.cpp
 #    src/tests/facil.io.cpp # active - master failing - try branch 0.8 or wait for update
 #    src/tests/janssontest.cpp # active - config needed
 #    src/tests/parsontest.cpp # active - malloc,free

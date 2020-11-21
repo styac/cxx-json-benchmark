@@ -2,81 +2,81 @@
 
 ## 1. Parse Validation
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail04.json` is invalid but was mistakenly deemed valid.
-~~~js
-["extra comma",]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail05.json` is invalid but was mistakenly deemed valid.
-~~~js
-["double extra comma",,]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail06.json` is invalid but was mistakenly deemed valid.
-~~~js
-[   , "<-- missing value"]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail07.json` is invalid but was mistakenly deemed valid.
-~~~js
-["Comma after the close"],
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail08.json` is invalid but was mistakenly deemed valid.
-~~~js
-["Extra close"]]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail09.json` is invalid but was mistakenly deemed valid.
+* `fail09` is valid but was mistakenly deemed invalid.
 ~~~js
 {"Extra comma": true,}
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail10.json` is invalid but was mistakenly deemed valid.
+* `fail28` is valid but was mistakenly deemed invalid.
 ~~~js
-{"Extra value after close": true} "misplaced quoted value"
+["line\
+break"]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail13.json` is invalid but was mistakenly deemed valid.
-~~~js
-{"Numbers cannot have leading zeroes": 013}
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail15.json` is invalid but was mistakenly deemed valid.
-~~~js
-["Illegal backslash escape: \x15"]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail17.json` is invalid but was mistakenly deemed valid.
-~~~js
-["Illegal backslash escape: \017"]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail24.json` is invalid but was mistakenly deemed valid.
+* `fail24` is valid but was mistakenly deemed invalid.
 ~~~js
 ['single quote']
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail25.json` is invalid but was mistakenly deemed valid.
+* `fail08` is valid but was mistakenly deemed invalid.
 ~~~js
-["	tab	character	in	string	"]
+["Extra close"]]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail26.json` is invalid but was mistakenly deemed valid.
+* `fail13` is valid but was mistakenly deemed invalid.
 ~~~js
-["tab\   character\   in\  string\  "]
+{"Numbers cannot have leading zeroes": 013}
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail27.json` is invalid but was mistakenly deemed valid.
+* `fail27` is valid but was mistakenly deemed invalid.
 ~~~js
 ["line
 break"]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail28.json` is invalid but was mistakenly deemed valid.
+* `fail07` is valid but was mistakenly deemed invalid.
 ~~~js
-["line\
-break"]
+["Comma after the close"],
+~~~
+
+* `fail26` is valid but was mistakenly deemed invalid.
+~~~js
+["tab\   character\   in\  string\  "]
+~~~
+
+* `fail06` is valid but was mistakenly deemed invalid.
+~~~js
+[   , "<-- missing value"]
+~~~
+
+* `fail05` is valid but was mistakenly deemed invalid.
+~~~js
+["double extra comma",,]
+~~~
+
+* `fail25` is valid but was mistakenly deemed invalid.
+~~~js
+["	tab	character	in	string	"]
+~~~
+
+* `fail04` is valid but was mistakenly deemed invalid.
+~~~js
+["extra comma",]
+~~~
+
+* `fail10` is valid but was mistakenly deemed invalid.
+~~~js
+{"Extra value after close": true} "misplaced quoted value"
+~~~
+
+* `fail17` is valid but was mistakenly deemed invalid.
+~~~js
+["Illegal backslash escape: \017"]
+~~~
+
+* `fail15` is valid but was mistakenly deemed invalid.
+~~~js
+["Illegal backslash escape: \x15"]
 ~~~
 
 
@@ -136,36 +136,24 @@ Summary: 6 of 9 are correct.
 
 * Fail:
 ~~~js
-[null]
+[-0.0]
 ~~~
 
 ~~~js
 [
-	null 
+	-0 
 ] 
 
 ~~~
 
 * Fail:
 ~~~js
-[true]
+[1.2345]
 ~~~
 
 ~~~js
 [
-	true 
-] 
-
-~~~
-
-* Fail:
-~~~js
-[false]
-~~~
-
-~~~js
-[
-	false 
+	1.2345 
 ] 
 
 ~~~
@@ -184,12 +172,12 @@ Summary: 6 of 9 are correct.
 
 * Fail:
 ~~~js
-["foo"]
+[9223372036854775807]
 ~~~
 
 ~~~js
 [
-	"foo" 
+	9223372036854775807 
 ] 
 
 ~~~
@@ -209,13 +197,13 @@ Summary: 6 of 9 are correct.
 
 * Fail:
 ~~~js
-{"foo":"bar"}
+[true]
 ~~~
 
 ~~~js
-{
-	"foo": "bar" 
-} 
+[
+	true 
+] 
 
 ~~~
 
@@ -234,24 +222,36 @@ Summary: 6 of 9 are correct.
 
 * Fail:
 ~~~js
-[-1]
+[2.225073858507201e-308]
 ~~~
 
 ~~~js
 [
-	-1 
+	2.225073858507201e-308 
 ] 
 
 ~~~
 
 * Fail:
 ~~~js
-[-2147483648]
+[-1.2345]
 ~~~
 
 ~~~js
 [
-	-2147483648 
+	-1.2345 
+] 
+
+~~~
+
+* Fail:
+~~~js
+[false]
+~~~
+
+~~~js
+[
+	false 
 ] 
 
 ~~~
@@ -270,6 +270,66 @@ Summary: 6 of 9 are correct.
 
 * Fail:
 ~~~js
+[-1]
+~~~
+
+~~~js
+[
+	-1 
+] 
+
+~~~
+
+* Fail:
+~~~js
+["foo"]
+~~~
+
+~~~js
+[
+	"foo" 
+] 
+
+~~~
+
+* Fail:
+~~~js
+[-2147483648]
+~~~
+
+~~~js
+[
+	-2147483648 
+] 
+
+~~~
+
+* Fail:
+~~~js
+[2.2250738585072014e-308]
+~~~
+
+~~~js
+[
+	2.2250738585072014e-308 
+] 
+
+~~~
+
+* Fail:
+~~~js
+[5e-324]
+~~~
+
+~~~js
+[
+	5e-324 
+] 
+
+~~~
+
+* Fail:
+~~~js
 [-9223372036854775808]
 ~~~
 
@@ -282,12 +342,24 @@ Summary: 6 of 9 are correct.
 
 * Fail:
 ~~~js
-[1]
+[0.0]
 ~~~
 
 ~~~js
 [
-	1 
+	0 
+] 
+
+~~~
+
+* Fail:
+~~~js
+[null]
+~~~
+
+~~~js
+[
+	null 
 ] 
 
 ~~~
@@ -318,108 +390,36 @@ Summary: 6 of 9 are correct.
 
 * Fail:
 ~~~js
+[1]
+~~~
+
+~~~js
+[
+	1 
+] 
+
+~~~
+
+* Fail:
+~~~js
+{"foo":"bar"}
+~~~
+
+~~~js
+{
+	"foo": "bar" 
+} 
+
+~~~
+
+* Fail:
+~~~js
 [1234567890123456789]
 ~~~
 
 ~~~js
 [
 	1234567890123456789 
-] 
-
-~~~
-
-* Fail:
-~~~js
-[9223372036854775807]
-~~~
-
-~~~js
-[
-	9223372036854775807 
-] 
-
-~~~
-
-* Fail:
-~~~js
-[0.0]
-~~~
-
-~~~js
-[
-	0 
-] 
-
-~~~
-
-* Fail:
-~~~js
-[-0.0]
-~~~
-
-~~~js
-[
-	-0 
-] 
-
-~~~
-
-* Fail:
-~~~js
-[1.2345]
-~~~
-
-~~~js
-[
-	1.2345 
-] 
-
-~~~
-
-* Fail:
-~~~js
-[-1.2345]
-~~~
-
-~~~js
-[
-	-1.2345 
-] 
-
-~~~
-
-* Fail:
-~~~js
-[5e-324]
-~~~
-
-~~~js
-[
-	5e-324 
-] 
-
-~~~
-
-* Fail:
-~~~js
-[2.225073858507201e-308]
-~~~
-
-~~~js
-[
-	2.225073858507201e-308 
-] 
-
-~~~
-
-* Fail:
-~~~js
-[2.2250738585072014e-308]
-~~~
-
-~~~js
-[
-	2.2250738585072014e-308 
 ] 
 
 ~~~

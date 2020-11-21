@@ -2,20 +2,20 @@
 
 ## 1. Parse Validation
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail13.json` is invalid but was mistakenly deemed valid.
+* `fail13` is valid but was mistakenly deemed invalid.
 ~~~js
 {"Numbers cannot have leading zeroes": 013}
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail25.json` is invalid but was mistakenly deemed valid.
-~~~js
-["	tab	character	in	string	"]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail27.json` is invalid but was mistakenly deemed valid.
+* `fail27` is valid but was mistakenly deemed invalid.
 ~~~js
 ["line
 break"]
+~~~
+
+* `fail25` is valid but was mistakenly deemed invalid.
+~~~js
+["	tab	character	in	string	"]
 ~~~
 
 * `object_same_key_unclear_values` is valid but was mistakenly deemed invalid.
@@ -120,6 +120,15 @@ Summary: 9 of 9 are correct.
 
 * Fail:
 ~~~js
+[2.225073858507201e-308]
+~~~
+
+~~~js
+[2.2250738585072009e-308]
+~~~
+
+* Fail:
+~~~js
 [-1.2345]
 ~~~
 
@@ -134,15 +143,6 @@ Summary: 9 of 9 are correct.
 
 ~~~js
 [4.9406564584124654e-324]
-~~~
-
-* Fail:
-~~~js
-[2.225073858507201e-308]
-~~~
-
-~~~js
-[2.2250738585072009e-308]
 ~~~
 
 * Fail:

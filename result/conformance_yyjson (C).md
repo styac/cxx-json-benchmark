@@ -7,9 +7,24 @@
 ["\uD800\uD800"]
 ~~~
 
+* `string_1_invalid_codepoint` is valid but was mistakenly deemed invalid.
+~~~js
+["í €"]
+~~~
+
 * `string_3_escaped_invalid_codepoints` is valid but was mistakenly deemed invalid.
 ~~~js
 ["\uD800\uD800\uD800"]
+~~~
+
+* `string_3_invalid_codepoints` is valid but was mistakenly deemed invalid.
+~~~js
+["í €í €í €"]
+~~~
+
+* `string_2_invalid_codepoints` is valid but was mistakenly deemed invalid.
+~~~js
+["í €í €"]
 ~~~
 
 * `string_1_escaped_invalid_codepoint` is valid but was mistakenly deemed invalid.
@@ -18,7 +33,7 @@
 ~~~
 
 
-Summary: 148 of 151 are correct.
+Summary: 145 of 151 are correct.
 
 ## 2. Parse Double
 

@@ -2,56 +2,56 @@
 
 ## 1. Parse Validation
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail07.json` is invalid but was mistakenly deemed valid.
+* `fail28` is valid but was mistakenly deemed invalid.
 ~~~js
-["Comma after the close"],
+["line\
+break"]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail08.json` is invalid but was mistakenly deemed valid.
+* `fail08` is valid but was mistakenly deemed invalid.
 ~~~js
 ["Extra close"]]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail10.json` is invalid but was mistakenly deemed valid.
-~~~js
-{"Extra value after close": true} "misplaced quoted value"
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail13.json` is invalid but was mistakenly deemed valid.
+* `fail13` is valid but was mistakenly deemed invalid.
 ~~~js
 {"Numbers cannot have leading zeroes": 013}
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail15.json` is invalid but was mistakenly deemed valid.
-~~~js
-["Illegal backslash escape: \x15"]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail17.json` is invalid but was mistakenly deemed valid.
-~~~js
-["Illegal backslash escape: \017"]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail25.json` is invalid but was mistakenly deemed valid.
-~~~js
-["	tab	character	in	string	"]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail26.json` is invalid but was mistakenly deemed valid.
-~~~js
-["tab\   character\   in\  string\  "]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail27.json` is invalid but was mistakenly deemed valid.
+* `fail27` is valid but was mistakenly deemed invalid.
 ~~~js
 ["line
 break"]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail28.json` is invalid but was mistakenly deemed valid.
+* `fail07` is valid but was mistakenly deemed invalid.
 ~~~js
-["line\
-break"]
+["Comma after the close"],
+~~~
+
+* `fail26` is valid but was mistakenly deemed invalid.
+~~~js
+["tab\   character\   in\  string\  "]
+~~~
+
+* `fail25` is valid but was mistakenly deemed invalid.
+~~~js
+["	tab	character	in	string	"]
+~~~
+
+* `fail10` is valid but was mistakenly deemed invalid.
+~~~js
+{"Extra value after close": true} "misplaced quoted value"
+~~~
+
+* `fail17` is valid but was mistakenly deemed invalid.
+~~~js
+["Illegal backslash escape: \017"]
+~~~
+
+* `fail15` is valid but was mistakenly deemed invalid.
+~~~js
+["Illegal backslash escape: \x15"]
 ~~~
 
 * `number_-9223372036854775809` is valid but was mistakenly deemed invalid.
@@ -185,15 +185,6 @@ Summary: 6 of 9 are correct.
 
 * Fail:
 ~~~js
-[0.0]
-~~~
-
-~~~js
-[0]
-~~~
-
-* Fail:
-~~~js
 [-0.0]
 ~~~
 
@@ -208,6 +199,15 @@ Summary: 6 of 9 are correct.
 
 ~~~js
 [1.2344999999999999]
+~~~
+
+* Fail:
+~~~js
+[2.225073858507201e-308]
+~~~
+
+~~~js
+[2.2250738585072009e-308]
 ~~~
 
 * Fail:
@@ -230,11 +230,11 @@ Summary: 6 of 9 are correct.
 
 * Fail:
 ~~~js
-[2.225073858507201e-308]
+[0.0]
 ~~~
 
 ~~~js
-[2.2250738585072009e-308]
+[0]
 ~~~
 
 * Fail:

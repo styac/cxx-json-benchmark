@@ -2,30 +2,30 @@
 
 ## 1. Parse Validation
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail13.json` is invalid but was mistakenly deemed valid.
+* `fail28` is valid but was mistakenly deemed invalid.
+~~~js
+["line\
+break"]
+~~~
+
+* `fail13` is valid but was mistakenly deemed invalid.
 ~~~js
 {"Numbers cannot have leading zeroes": 013}
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail15.json` is invalid but was mistakenly deemed valid.
-~~~js
-["Illegal backslash escape: \x15"]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail17.json` is invalid but was mistakenly deemed valid.
-~~~js
-["Illegal backslash escape: \017"]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail26.json` is invalid but was mistakenly deemed valid.
+* `fail26` is valid but was mistakenly deemed invalid.
 ~~~js
 ["tab\   character\   in\  string\  "]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail28.json` is invalid but was mistakenly deemed valid.
+* `fail17` is valid but was mistakenly deemed invalid.
 ~~~js
-["line\
-break"]
+["Illegal backslash escape: \017"]
+~~~
+
+* `fail15` is valid but was mistakenly deemed invalid.
+~~~js
+["Illegal backslash escape: \x15"]
 ~~~
 
 * `string_2_escaped_invalid_codepoints` is valid but was mistakenly deemed invalid.
@@ -60,15 +60,6 @@ Summary: 9 of 9 are correct.
 
 * Fail:
 ~~~js
-[0.0]
-~~~
-
-~~~js
-[0]
-~~~
-
-* Fail:
-~~~js
 [-0.0]
 ~~~
 
@@ -83,6 +74,15 @@ Summary: 9 of 9 are correct.
 
 ~~~js
 [1.2344999999999999]
+~~~
+
+* Fail:
+~~~js
+[2.225073858507201e-308]
+~~~
+
+~~~js
+[2.2250738585072009e-308]
 ~~~
 
 * Fail:
@@ -105,11 +105,11 @@ Summary: 9 of 9 are correct.
 
 * Fail:
 ~~~js
-[2.225073858507201e-308]
+[0.0]
 ~~~
 
 ~~~js
-[2.2250738585072009e-308]
+[0]
 ~~~
 
 * Fail:

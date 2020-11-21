@@ -2,24 +2,24 @@
 
 ## 1. Parse Validation
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail07.json` is invalid but was mistakenly deemed valid.
-~~~js
-["Comma after the close"],
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail08.json` is invalid but was mistakenly deemed valid.
+* `fail08` is valid but was mistakenly deemed invalid.
 ~~~js
 ["Extra close"]]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail10.json` is invalid but was mistakenly deemed valid.
-~~~js
-{"Extra value after close": true} "misplaced quoted value"
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail13.json` is invalid but was mistakenly deemed valid.
+* `fail13` is valid but was mistakenly deemed invalid.
 ~~~js
 {"Numbers cannot have leading zeroes": 013}
+~~~
+
+* `fail07` is valid but was mistakenly deemed invalid.
+~~~js
+["Comma after the close"],
+~~~
+
+* `fail10` is valid but was mistakenly deemed invalid.
+~~~js
+{"Extra value after close": true} "misplaced quoted value"
 ~~~
 
 * `string_2_escaped_invalid_codepoints` is valid but was mistakenly deemed invalid.
@@ -54,51 +54,6 @@ Summary: 9 of 9 are correct.
 
 * Fail:
 ~~~js
-[-1234567890123456789]
-~~~
-
-~~~js
-[-1.2345678901234568e+18]
-~~~
-
-* Fail:
-~~~js
-[-9223372036854775808]
-~~~
-
-~~~js
-[-9.2233720368547758e+18]
-~~~
-
-* Fail:
-~~~js
-[1234567890123456789]
-~~~
-
-~~~js
-[1.2345678901234568e+18]
-~~~
-
-* Fail:
-~~~js
-[9223372036854775807]
-~~~
-
-~~~js
-[9.2233720368547758e+18]
-~~~
-
-* Fail:
-~~~js
-[0.0]
-~~~
-
-~~~js
-[0]
-~~~
-
-* Fail:
-~~~js
 [-0.0]
 ~~~
 
@@ -117,11 +72,38 @@ Summary: 9 of 9 are correct.
 
 * Fail:
 ~~~js
+[9223372036854775807]
+~~~
+
+~~~js
+[9.2233720368547758e+18]
+~~~
+
+* Fail:
+~~~js
+[2.225073858507201e-308]
+~~~
+
+~~~js
+[2.2250738585072009e-308]
+~~~
+
+* Fail:
+~~~js
 [-1.2345]
 ~~~
 
 ~~~js
 [-1.2344999999999999]
+~~~
+
+* Fail:
+~~~js
+[-1234567890123456789]
+~~~
+
+~~~js
+[-1.2345678901234568e+18]
 ~~~
 
 * Fail:
@@ -135,11 +117,29 @@ Summary: 9 of 9 are correct.
 
 * Fail:
 ~~~js
-[2.225073858507201e-308]
+[-9223372036854775808]
 ~~~
 
 ~~~js
-[2.2250738585072009e-308]
+[-9.2233720368547758e+18]
+~~~
+
+* Fail:
+~~~js
+[0.0]
+~~~
+
+~~~js
+[0]
+~~~
+
+* Fail:
+~~~js
+[1234567890123456789]
+~~~
+
+~~~js
+[1.2345678901234568e+18]
 ~~~
 
 * Fail:

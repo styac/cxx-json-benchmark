@@ -129,6 +129,15 @@ Summary: 8 of 9 are correct.
 
 * Fail:
 ~~~js
+[-0.0]
+~~~
+
+~~~js
+[0]
+~~~
+
+* Fail:
+~~~js
 [-1234567890123456789]
 ~~~
 
@@ -139,15 +148,6 @@ Summary: 8 of 9 are correct.
 * Fail:
 ~~~js
 [0.0]
-~~~
-
-~~~js
-[0]
-~~~
-
-* Fail:
-~~~js
-[-0.0]
 ~~~
 
 ~~~js

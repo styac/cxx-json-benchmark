@@ -2,49 +2,49 @@
 
 ## 1. Parse Validation
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail04.json` is invalid but was mistakenly deemed valid.
-~~~js
-["extra comma",]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail07.json` is invalid but was mistakenly deemed valid.
-~~~js
-["Comma after the close"],
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail08.json` is invalid but was mistakenly deemed valid.
-~~~js
-["Extra close"]]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail09.json` is invalid but was mistakenly deemed valid.
+* `fail09` is valid but was mistakenly deemed invalid.
 ~~~js
 {"Extra comma": true,}
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail10.json` is invalid but was mistakenly deemed valid.
+* `fail30` is valid but was mistakenly deemed invalid.
 ~~~js
-{"Extra value after close": true} "misplaced quoted value"
+[0e+]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail13.json` is invalid but was mistakenly deemed valid.
+* `fail08` is valid but was mistakenly deemed invalid.
+~~~js
+["Extra close"]]
+~~~
+
+* `fail13` is valid but was mistakenly deemed invalid.
 ~~~js
 {"Numbers cannot have leading zeroes": 013}
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail19.json` is invalid but was mistakenly deemed valid.
-~~~js
-{"Missing colon" null}
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail29.json` is invalid but was mistakenly deemed valid.
+* `fail29` is valid but was mistakenly deemed invalid.
 ~~~js
 [0e]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail30.json` is invalid but was mistakenly deemed valid.
+* `fail07` is valid but was mistakenly deemed invalid.
 ~~~js
-[0e+]
+["Comma after the close"],
+~~~
+
+* `fail19` is valid but was mistakenly deemed invalid.
+~~~js
+{"Missing colon" null}
+~~~
+
+* `fail04` is valid but was mistakenly deemed invalid.
+~~~js
+["extra comma",]
+~~~
+
+* `fail10` is valid but was mistakenly deemed invalid.
+~~~js
+{"Extra value after close": true} "misplaced quoted value"
 ~~~
 
 * `y_string_with_del_character` is valid but was mistakenly deemed invalid.
@@ -230,6 +230,24 @@ Summary: 7 of 9 are correct.
 
 * Fail:
 ~~~js
+[-0.0]
+~~~
+
+~~~js
+[-0.000000]
+~~~
+
+* Fail:
+~~~js
+[1.2345]
+~~~
+
+~~~js
+[1.234500]
+~~~
+
+* Fail:
+~~~js
 [0]
 ~~~
 
@@ -239,11 +257,47 @@ Summary: 7 of 9 are correct.
 
 * Fail:
 ~~~js
+[9223372036854775807]
+~~~
+
+~~~js
+[9223372036854777856.000000]
+~~~
+
+* Fail:
+~~~js
 [0,1]
 ~~~
 
 ~~~js
 [0.000000,1.000000]
+~~~
+
+* Fail:
+~~~js
+[2.225073858507201e-308]
+~~~
+
+~~~js
+[0.000000]
+~~~
+
+* Fail:
+~~~js
+[-1.2345]
+~~~
+
+~~~js
+[-1.234500]
+~~~
+
+* Fail:
+~~~js
+[-1234567890123456789]
+~~~
+
+~~~js
+[-1234567890123457024.000000]
 ~~~
 
 * Fail:
@@ -266,11 +320,20 @@ Summary: 7 of 9 are correct.
 
 * Fail:
 ~~~js
-[-1234567890123456789]
+[2.2250738585072014e-308]
 ~~~
 
 ~~~js
-[-1234567890123457024.000000]
+[0.000000]
+~~~
+
+* Fail:
+~~~js
+[5e-324]
+~~~
+
+~~~js
+[0.000000]
 ~~~
 
 * Fail:
@@ -284,11 +347,11 @@ Summary: 7 of 9 are correct.
 
 * Fail:
 ~~~js
-[1]
+[0.0]
 ~~~
 
 ~~~js
-[1.000000]
+[0.000000]
 ~~~
 
 * Fail:
@@ -311,83 +374,20 @@ Summary: 7 of 9 are correct.
 
 * Fail:
 ~~~js
+[1]
+~~~
+
+~~~js
+[1.000000]
+~~~
+
+* Fail:
+~~~js
 [1234567890123456789]
 ~~~
 
 ~~~js
 [1234567890123457024.000000]
-~~~
-
-* Fail:
-~~~js
-[9223372036854775807]
-~~~
-
-~~~js
-[9223372036854777856.000000]
-~~~
-
-* Fail:
-~~~js
-[0.0]
-~~~
-
-~~~js
-[0.000000]
-~~~
-
-* Fail:
-~~~js
-[-0.0]
-~~~
-
-~~~js
-[-0.000000]
-~~~
-
-* Fail:
-~~~js
-[1.2345]
-~~~
-
-~~~js
-[1.234500]
-~~~
-
-* Fail:
-~~~js
-[-1.2345]
-~~~
-
-~~~js
-[-1.234500]
-~~~
-
-* Fail:
-~~~js
-[5e-324]
-~~~
-
-~~~js
-[0.000000]
-~~~
-
-* Fail:
-~~~js
-[2.225073858507201e-308]
-~~~
-
-~~~js
-[0.000000]
-~~~
-
-* Fail:
-~~~js
-[2.2250738585072014e-308]
-~~~
-
-~~~js
-[0.000000]
 ~~~
 
 * Fail:

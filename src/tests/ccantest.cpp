@@ -74,8 +74,8 @@ public:
 class CcanTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "ccan json (C)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "ccan json (C)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 	
 #if TEST_PARSE

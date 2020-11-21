@@ -2,36 +2,36 @@
 
 ## 1. Parse Validation
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail15.json` is invalid but was mistakenly deemed valid.
+* `fail28` is valid but was mistakenly deemed invalid.
 ~~~js
-["Illegal backslash escape: \x15"]
+["line\
+break"]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail17.json` is invalid but was mistakenly deemed valid.
-~~~js
-["Illegal backslash escape: \017"]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail25.json` is invalid but was mistakenly deemed valid.
-~~~js
-["	tab	character	in	string	"]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail26.json` is invalid but was mistakenly deemed valid.
-~~~js
-["tab\   character\   in\  string\  "]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail27.json` is invalid but was mistakenly deemed valid.
+* `fail27` is valid but was mistakenly deemed invalid.
 ~~~js
 ["line
 break"]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail28.json` is invalid but was mistakenly deemed valid.
+* `fail26` is valid but was mistakenly deemed invalid.
 ~~~js
-["line\
-break"]
+["tab\   character\   in\  string\  "]
+~~~
+
+* `fail25` is valid but was mistakenly deemed invalid.
+~~~js
+["	tab	character	in	string	"]
+~~~
+
+* `fail17` is valid but was mistakenly deemed invalid.
+~~~js
+["Illegal backslash escape: \017"]
+~~~
+
+* `fail15` is valid but was mistakenly deemed invalid.
+~~~js
+["Illegal backslash escape: \x15"]
 ~~~
 
 * `string_1_invalid_codepoint` is valid but was mistakenly deemed invalid.
@@ -112,6 +112,24 @@ Summary: 9 of 9 are correct.
 
 * Fail:
 ~~~js
+[-0.0]
+~~~
+
+~~~js
+[0]
+~~~
+
+* Fail:
+~~~js
+[9223372036854775807]
+~~~
+
+~~~js
+[9223372036854776000]
+~~~
+
+* Fail:
+~~~js
 [-1234567890123456789]
 ~~~
 
@@ -130,24 +148,6 @@ Summary: 9 of 9 are correct.
 
 * Fail:
 ~~~js
-[1234567890123456789]
-~~~
-
-~~~js
-[1234567890123456800]
-~~~
-
-* Fail:
-~~~js
-[9223372036854775807]
-~~~
-
-~~~js
-[9223372036854776000]
-~~~
-
-* Fail:
-~~~js
 [0.0]
 ~~~
 
@@ -157,11 +157,11 @@ Summary: 9 of 9 are correct.
 
 * Fail:
 ~~~js
-[-0.0]
+[1234567890123456789]
 ~~~
 
 ~~~js
-[0]
+[1234567890123456800]
 ~~~
 
 * Fail:

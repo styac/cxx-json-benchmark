@@ -83,8 +83,8 @@ class Qajson4cTest : public TestBase {
 public:
     Qajson4cTest() = default;
 #if TEST_INFO
-    virtual const char* GetName() const { return "Qajson4c (C)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "Qajson4c (C)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE
@@ -100,7 +100,8 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override
+    {
         const Qajson4cParseResult* pr = static_cast<const Qajson4cParseResult*>(parseResult);
         Qajson4cStringResult* sr = new Qajson4cStringResult;
         size_t alloc_size = pr->len < 32 ? 32 : pr->len;
@@ -111,7 +112,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const Qajson4cParseResult* pr = static_cast<const Qajson4cParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(stat, pr->root);
@@ -120,7 +122,8 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
+    {
         Qajson4cParseResult pr(json);
         if (QAJ4C_is_array(pr.root) &&
         	QAJ4C_array_size(pr.root) == 1 &&
@@ -134,7 +137,8 @@ public:
 		}
     }
 
-    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
+    {
         Qajson4cParseResult pr(json);
         if (QAJ4C_is_array(pr.root) &&
 			QAJ4C_array_size(pr.root) == 1 &&

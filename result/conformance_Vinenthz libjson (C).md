@@ -116,42 +116,6 @@ Summary: 9 of 9 are correct.
 
 * Fail:
 ~~~js
-[null]
-~~~
-
-~~~js
-["null"]
-~~~
-
-* Fail:
-~~~js
-[false]
-~~~
-
-~~~js
-["false"]
-~~~
-
-* Fail:
-~~~js
-{"a":null,"foo":"bar"}
-~~~
-
-~~~js
-{"a":"null","foo":"bar"}
-~~~
-
-* Fail:
-~~~js
-[0.0]
-~~~
-
-~~~js
-[0]
-~~~
-
-* Fail:
-~~~js
 [-0.0]
 ~~~
 
@@ -170,11 +134,38 @@ Summary: 9 of 9 are correct.
 
 * Fail:
 ~~~js
+{"a":null,"foo":"bar"}
+~~~
+
+~~~js
+{"a":"null","foo":"bar"}
+~~~
+
+* Fail:
+~~~js
+[2.225073858507201e-308]
+~~~
+
+~~~js
+[2.2250738585072009e-308]
+~~~
+
+* Fail:
+~~~js
 [-1.2345]
 ~~~
 
 ~~~js
 [-1.2344999999999999]
+~~~
+
+* Fail:
+~~~js
+[false]
+~~~
+
+~~~js
+["false"]
 ~~~
 
 * Fail:
@@ -188,11 +179,20 @@ Summary: 9 of 9 are correct.
 
 * Fail:
 ~~~js
-[2.225073858507201e-308]
+[0.0]
 ~~~
 
 ~~~js
-[2.2250738585072009e-308]
+[0]
+~~~
+
+* Fail:
+~~~js
+[null]
+~~~
+
+~~~js
+["null"]
 ~~~
 
 * Fail:

@@ -87,7 +87,7 @@ public:
         yyjson_read_flag flg=YYJSON_READ_NOFLAG;
         pr->doc = yyjson_read(json,length,flg);
         if (pr->doc==nullptr) {
-            return 0;
+            return nullptr;
         }
     	return pr;
     }

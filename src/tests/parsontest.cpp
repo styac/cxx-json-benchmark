@@ -78,8 +78,8 @@ public:
         json_set_allocation_functions(malloc, free);
     }
 #if TEST_INFO
-    virtual const char* GetName() const { return "Parson (C)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "Parson (C)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE
@@ -96,7 +96,7 @@ public:
 #endif
 
 #if TEST_STRINGIFY
-    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Stringify(const ParseResultBase* parseResult) const override {
         const ParsonParseResult* pr = static_cast<const ParsonParseResult*>(parseResult);
         ParsonStringResult* sr = new ParsonStringResult;
         sr->s = json_serialize_to_string(pr->root);
@@ -105,7 +105,7 @@ public:
 #endif
 
 #if TEST_PRETTIFY
-    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const {
+    virtual StringResultBase* Prettify(const ParseResultBase* parseResult) const override {
         const ParsonParseResult* pr = static_cast<const ParsonParseResult*>(parseResult);
         ParsonStringResult* sr = new ParsonStringResult;
         sr->s = json_serialize_to_string(pr->root);
@@ -114,7 +114,7 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override {
         const ParsonParseResult* pr = static_cast<const ParsonParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(stat, (JSON_Value*)pr->root);

@@ -71,12 +71,13 @@ public:
 class JsoncTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const { return "json-c (C)"; }
-    virtual const char* GetFilename() const { return __FILE__; }
+    virtual const char* GetName() const override { return "json-c (C)"; }
+    virtual const char* GetFilename() const override { return __FILE__; }
 #endif
 	
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
         (void)length;
         JsoncParseResult* pr = new JsoncParseResult;
         pr->root = json_tokener_parse(json);

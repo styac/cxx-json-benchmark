@@ -2,30 +2,30 @@
 
 ## 1. Parse Validation
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail04.json` is invalid but was mistakenly deemed valid.
-~~~js
-["extra comma",]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail09.json` is invalid but was mistakenly deemed valid.
+* `fail09` is valid but was mistakenly deemed invalid.
 ~~~js
 {"Extra comma": true,}
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail13.json` is invalid but was mistakenly deemed valid.
+* `fail13` is valid but was mistakenly deemed invalid.
 ~~~js
 {"Numbers cannot have leading zeroes": 013}
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail25.json` is invalid but was mistakenly deemed valid.
+* `fail27` is valid but was mistakenly deemed invalid.
+~~~js
+["line
+break"]
+~~~
+
+* `fail25` is valid but was mistakenly deemed invalid.
 ~~~js
 ["	tab	character	in	string	"]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail27.json` is invalid but was mistakenly deemed valid.
+* `fail04` is valid but was mistakenly deemed invalid.
 ~~~js
-["line
-break"]
+["extra comma",]
 ~~~
 
 * `string_2_escaped_invalid_codepoints` is valid but was mistakenly deemed invalid.
@@ -122,29 +122,11 @@ Summary: 9 of 9 are correct.
 
 * Fail:
 ~~~js
-[0.0]
-~~~
-
-~~~js
-[0]
-~~~
-
-* Fail:
-~~~js
 [-0.0]
 ~~~
 
 ~~~js
 [-0]
-~~~
-
-* Fail:
-~~~js
-[5e-324]
-~~~
-
-~~~js
-[4.94066e-324]
 ~~~
 
 * Fail:
@@ -163,6 +145,24 @@ Summary: 9 of 9 are correct.
 
 ~~~js
 [2.22507e-308]
+~~~
+
+* Fail:
+~~~js
+[5e-324]
+~~~
+
+~~~js
+[4.94066e-324]
+~~~
+
+* Fail:
+~~~js
+[0.0]
+~~~
+
+~~~js
+[0]
 ~~~
 
 * Fail:

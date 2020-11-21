@@ -2,55 +2,55 @@
 
 ## 1. Parse Validation
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail03.json` is invalid but was mistakenly deemed valid.
+* `fail30` is valid but was mistakenly deemed invalid.
 ~~~js
-{unquoted_key: "keys must be quoted"}
+[0e+]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail07.json` is invalid but was mistakenly deemed valid.
-~~~js
-["Comma after the close"],
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail08.json` is invalid but was mistakenly deemed valid.
-~~~js
-["Extra close"]]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail10.json` is invalid but was mistakenly deemed valid.
-~~~js
-{"Extra value after close": true} "misplaced quoted value"
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail13.json` is invalid but was mistakenly deemed valid.
-~~~js
-{"Numbers cannot have leading zeroes": 013}
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail24.json` is invalid but was mistakenly deemed valid.
+* `fail24` is valid but was mistakenly deemed invalid.
 ~~~js
 ['single quote']
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail25.json` is invalid but was mistakenly deemed valid.
+* `fail08` is valid but was mistakenly deemed invalid.
 ~~~js
-["	tab	character	in	string	"]
+["Extra close"]]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail27.json` is invalid but was mistakenly deemed valid.
+* `fail13` is valid but was mistakenly deemed invalid.
+~~~js
+{"Numbers cannot have leading zeroes": 013}
+~~~
+
+* `fail03` is valid but was mistakenly deemed invalid.
+~~~js
+{unquoted_key: "keys must be quoted"}
+~~~
+
+* `fail27` is valid but was mistakenly deemed invalid.
 ~~~js
 ["line
 break"]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail29.json` is invalid but was mistakenly deemed valid.
+* `fail29` is valid but was mistakenly deemed invalid.
 ~~~js
 [0e]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail30.json` is invalid but was mistakenly deemed valid.
+* `fail07` is valid but was mistakenly deemed invalid.
 ~~~js
-[0e+]
+["Comma after the close"],
+~~~
+
+* `fail25` is valid but was mistakenly deemed invalid.
+~~~js
+["	tab	character	in	string	"]
+~~~
+
+* `fail10` is valid but was mistakenly deemed invalid.
+~~~js
+{"Extra value after close": true} "misplaced quoted value"
 ~~~
 
 * `y_structure_lonely_true` is valid but was mistakenly deemed invalid.
@@ -280,25 +280,7 @@ Summary: 8 of 9 are correct.
 
 * Fail:
 ~~~js
-[0.0]
-~~~
-
-~~~js
-[0]
-~~~
-
-* Fail:
-~~~js
 [-0.0]
-~~~
-
-~~~js
-[0]
-~~~
-
-* Fail:
-~~~js
-[5e-324]
 ~~~
 
 ~~~js
@@ -321,6 +303,24 @@ Summary: 8 of 9 are correct.
 
 ~~~js
 [2.225073859e-308]
+~~~
+
+* Fail:
+~~~js
+[5e-324]
+~~~
+
+~~~js
+[0]
+~~~
+
+* Fail:
+~~~js
+[0.0]
+~~~
+
+~~~js
+[0]
 ~~~
 
 * Fail:

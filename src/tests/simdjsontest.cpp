@@ -62,8 +62,8 @@ class SimdStringResult : public StringResultBase {
 class SimdTest : public TestBase {
  public:
 #if TEST_INFO
-  const char *GetName() const override { return "simdjson"; }
-  const char *GetFilename() const override { return __FILE__; }
+  virtual const char *GetName() const override { return "simdjson"; }
+  virtual const char *GetFilename() const override { return __FILE__; }
 #endif
 
 #if TEST_PARSE

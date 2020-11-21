@@ -2,7 +2,7 @@
 
 ## 1. Parse Validation
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail25.json` is invalid but was mistakenly deemed valid.
+* `fail25` is valid but was mistakenly deemed invalid.
 ~~~js
 ["	tab	character	in	string	"]
 ~~~
@@ -174,7 +174,7 @@ Summary: 32 of 66 are correct.
 
 * `["\u20AC"]`
   * expect: `"€"` (length: 3)
-  * actual: `"€"` (length: 4)
+  * actual: `"€"` (length: 4)
 
 * `["\uD834\uDD1E"]`
   * expect: `"𝄞"` (length: 4)
@@ -187,29 +187,11 @@ Summary: 6 of 9 are correct.
 
 * Fail:
 ~~~js
-[-1234567890123456789]
+[-0.0]
 ~~~
 
 ~~~js
-[-1.23456789012346e+18]
-~~~
-
-* Fail:
-~~~js
-[-9223372036854775808]
-~~~
-
-~~~js
-[-9.22337203685478e+18]
-~~~
-
-* Fail:
-~~~js
-[1234567890123456789]
-~~~
-
-~~~js
-[1.23456789012346e+18]
+[-0]
 ~~~
 
 * Fail:
@@ -223,20 +205,29 @@ Summary: 6 of 9 are correct.
 
 * Fail:
 ~~~js
-[0.0]
+[2.225073858507201e-308]
 ~~~
 
 ~~~js
-[0]
+[2.2250738585072e-308]
 ~~~
 
 * Fail:
 ~~~js
-[-0.0]
+[-1234567890123456789]
 ~~~
 
 ~~~js
-[-0]
+[-1.23456789012346e+18]
+~~~
+
+* Fail:
+~~~js
+[2.2250738585072014e-308]
+~~~
+
+~~~js
+[2.2250738585072e-308]
 ~~~
 
 * Fail:
@@ -250,20 +241,29 @@ Summary: 6 of 9 are correct.
 
 * Fail:
 ~~~js
-[2.225073858507201e-308]
+[-9223372036854775808]
 ~~~
 
 ~~~js
-[2.2250738585072e-308]
+[-9.22337203685478e+18]
 ~~~
 
 * Fail:
 ~~~js
-[2.2250738585072014e-308]
+[0.0]
 ~~~
 
 ~~~js
-[2.2250738585072e-308]
+[0]
+~~~
+
+* Fail:
+~~~js
+[1234567890123456789]
+~~~
+
+~~~js
+[1.23456789012346e+18]
 ~~~
 
 * Fail:

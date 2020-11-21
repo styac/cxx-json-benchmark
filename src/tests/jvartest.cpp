@@ -90,11 +90,11 @@ public:
 class JvarTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const
+    virtual const char* GetName() const override
     {
         return "JVar (C++)";
     }
-    virtual const char* GetFilename() const
+    virtual const char* GetFilename() const override
     {
         return __FILE__;
     }

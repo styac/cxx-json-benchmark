@@ -2,161 +2,161 @@
 
 ## 1. Parse Validation
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail02.json` is invalid but was mistakenly deemed valid.
-~~~js
-["Unclosed array"
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail03.json` is invalid but was mistakenly deemed valid.
-~~~js
-{unquoted_key: "keys must be quoted"}
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail04.json` is invalid but was mistakenly deemed valid.
-~~~js
-["extra comma",]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail05.json` is invalid but was mistakenly deemed valid.
-~~~js
-["double extra comma",,]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail06.json` is invalid but was mistakenly deemed valid.
-~~~js
-[   , "<-- missing value"]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail07.json` is invalid but was mistakenly deemed valid.
-~~~js
-["Comma after the close"],
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail08.json` is invalid but was mistakenly deemed valid.
-~~~js
-["Extra close"]]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail09.json` is invalid but was mistakenly deemed valid.
-~~~js
-{"Extra comma": true,}
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail10.json` is invalid but was mistakenly deemed valid.
-~~~js
-{"Extra value after close": true} "misplaced quoted value"
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail11.json` is invalid but was mistakenly deemed valid.
-~~~js
-{"Illegal expression": 1 + 2}
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail12.json` is invalid but was mistakenly deemed valid.
-~~~js
-{"Illegal invocation": alert()}
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail13.json` is invalid but was mistakenly deemed valid.
-~~~js
-{"Numbers cannot have leading zeroes": 013}
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail14.json` is invalid but was mistakenly deemed valid.
-~~~js
-{"Numbers cannot be hex": 0x14}
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail15.json` is invalid but was mistakenly deemed valid.
-~~~js
-["Illegal backslash escape: \x15"]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail16.json` is invalid but was mistakenly deemed valid.
-~~~js
-[\naked]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail17.json` is invalid but was mistakenly deemed valid.
-~~~js
-["Illegal backslash escape: \017"]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail19.json` is invalid but was mistakenly deemed valid.
-~~~js
-{"Missing colon" null}
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail20.json` is invalid but was mistakenly deemed valid.
-~~~js
-{"Double colon":: null}
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail21.json` is invalid but was mistakenly deemed valid.
+* `fail21` is valid but was mistakenly deemed invalid.
 ~~~js
 {"Comma instead of colon", null}
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail22.json` is invalid but was mistakenly deemed valid.
+* `fail09` is valid but was mistakenly deemed invalid.
 ~~~js
-["Colon instead of comma": false]
+{"Extra comma": true,}
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail23.json` is invalid but was mistakenly deemed valid.
+* `fail16` is valid but was mistakenly deemed invalid.
 ~~~js
-["Bad value", truth]
+[\naked]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail24.json` is invalid but was mistakenly deemed valid.
+* `fail30` is valid but was mistakenly deemed invalid.
 ~~~js
-['single quote']
+[0e+]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail25.json` is invalid but was mistakenly deemed valid.
-~~~js
-["	tab	character	in	string	"]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail26.json` is invalid but was mistakenly deemed valid.
-~~~js
-["tab\   character\   in\  string\  "]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail27.json` is invalid but was mistakenly deemed valid.
-~~~js
-["line
-break"]
-~~~
-
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail28.json` is invalid but was mistakenly deemed valid.
+* `fail28` is valid but was mistakenly deemed invalid.
 ~~~js
 ["line\
 break"]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail29.json` is invalid but was mistakenly deemed valid.
+* `fail24` is valid but was mistakenly deemed invalid.
+~~~js
+['single quote']
+~~~
+
+* `fail08` is valid but was mistakenly deemed invalid.
+~~~js
+["Extra close"]]
+~~~
+
+* `fail12` is valid but was mistakenly deemed invalid.
+~~~js
+{"Illegal invocation": alert()}
+~~~
+
+* `fail13` is valid but was mistakenly deemed invalid.
+~~~js
+{"Numbers cannot have leading zeroes": 013}
+~~~
+
+* `fail33` is valid but was mistakenly deemed invalid.
+~~~js
+["mismatch"}
+~~~
+
+* `fail03` is valid but was mistakenly deemed invalid.
+~~~js
+{unquoted_key: "keys must be quoted"}
+~~~
+
+* `fail27` is valid but was mistakenly deemed invalid.
+~~~js
+["line
+break"]
+~~~
+
+* `fail29` is valid but was mistakenly deemed invalid.
 ~~~js
 [0e]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail30.json` is invalid but was mistakenly deemed valid.
+* `fail07` is valid but was mistakenly deemed invalid.
 ~~~js
-[0e+]
+["Comma after the close"],
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail31.json` is invalid but was mistakenly deemed valid.
+* `fail26` is valid but was mistakenly deemed invalid.
+~~~js
+["tab\   character\   in\  string\  "]
+~~~
+
+* `fail06` is valid but was mistakenly deemed invalid.
+~~~js
+[   , "<-- missing value"]
+~~~
+
+* `fail31` is valid but was mistakenly deemed invalid.
 ~~~js
 [0e+-1]
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail32.json` is invalid but was mistakenly deemed valid.
+* `fail19` is valid but was mistakenly deemed invalid.
+~~~js
+{"Missing colon" null}
+~~~
+
+* `fail05` is valid but was mistakenly deemed invalid.
+~~~js
+["double extra comma",,]
+~~~
+
+* `fail32` is valid but was mistakenly deemed invalid.
 ~~~js
 {"Comma instead if closing brace": true,
 ~~~
 
-* `/home/collection/sw/Json/cxx-json-benchmark/data/jsonchecker/fail33.json` is invalid but was mistakenly deemed valid.
+* `fail23` is valid but was mistakenly deemed invalid.
 ~~~js
-["mismatch"}
+["Bad value", truth]
+~~~
+
+* `fail22` is valid but was mistakenly deemed invalid.
+~~~js
+["Colon instead of comma": false]
+~~~
+
+* `fail25` is valid but was mistakenly deemed invalid.
+~~~js
+["	tab	character	in	string	"]
+~~~
+
+* `fail11` is valid but was mistakenly deemed invalid.
+~~~js
+{"Illegal expression": 1 + 2}
+~~~
+
+* `fail04` is valid but was mistakenly deemed invalid.
+~~~js
+["extra comma",]
+~~~
+
+* `fail02` is valid but was mistakenly deemed invalid.
+~~~js
+["Unclosed array"
+~~~
+
+* `fail10` is valid but was mistakenly deemed invalid.
+~~~js
+{"Extra value after close": true} "misplaced quoted value"
+~~~
+
+* `fail17` is valid but was mistakenly deemed invalid.
+~~~js
+["Illegal backslash escape: \017"]
+~~~
+
+* `fail14` is valid but was mistakenly deemed invalid.
+~~~js
+{"Numbers cannot be hex": 0x14}
+~~~
+
+* `fail20` is valid but was mistakenly deemed invalid.
+~~~js
+{"Double colon":: null}
+~~~
+
+* `fail15` is valid but was mistakenly deemed invalid.
+~~~js
+["Illegal backslash escape: \x15"]
 ~~~
 
 * `y_structure_lonely_true` is valid but was mistakenly deemed invalid.
@@ -372,6 +372,33 @@ Summary: 9 of 9 are correct.
 
 * Fail:
 ~~~js
+[-0.0]
+~~~
+
+~~~js
+[-0]
+~~~
+
+* Fail:
+~~~js
+[9223372036854775807]
+~~~
+
+~~~js
+[-1]
+~~~
+
+* Fail:
+~~~js
+[2.225073858507201e-308]
+~~~
+
+~~~js
+[0]
+~~~
+
+* Fail:
+~~~js
 [-1234567890123456789]
 ~~~
 
@@ -381,7 +408,34 @@ Summary: 9 of 9 are correct.
 
 * Fail:
 ~~~js
+[2.2250738585072014e-308]
+~~~
+
+~~~js
+[0]
+~~~
+
+* Fail:
+~~~js
+[5e-324]
+~~~
+
+~~~js
+[0]
+~~~
+
+* Fail:
+~~~js
 [-9223372036854775808]
+~~~
+
+~~~js
+[0]
+~~~
+
+* Fail:
+~~~js
+[0.0]
 ~~~
 
 ~~~js
@@ -404,60 +458,6 @@ Summary: 9 of 9 are correct.
 
 ~~~js
 [2112454933]
-~~~
-
-* Fail:
-~~~js
-[9223372036854775807]
-~~~
-
-~~~js
-[-1]
-~~~
-
-* Fail:
-~~~js
-[0.0]
-~~~
-
-~~~js
-[0]
-~~~
-
-* Fail:
-~~~js
-[-0.0]
-~~~
-
-~~~js
-[-0]
-~~~
-
-* Fail:
-~~~js
-[5e-324]
-~~~
-
-~~~js
-[0]
-~~~
-
-* Fail:
-~~~js
-[2.225073858507201e-308]
-~~~
-
-~~~js
-[0]
-~~~
-
-* Fail:
-~~~js
-[2.2250738585072014e-308]
-~~~
-
-~~~js
-[0]
 ~~~
 
 * Fail:
