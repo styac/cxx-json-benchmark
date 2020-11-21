@@ -78,7 +78,7 @@ public:
     virtual ParseResultBase* Parse(const char* json, size_t length) const override
     {
         JsonspiritParseResult* pr = new JsonspiritParseResult;
-        if (!read_string(std::string(json, length), pr->root))
+        if (!read_string(std::string_view(json, length), pr->root))
         {
             delete pr;
             return 0;
@@ -121,7 +121,7 @@ public:
     virtual bool ParseDouble(const char* json, size_t length, double* d) const override
     {
         Value root;
-        if (read_string(std::string(json,length), root)) {
+        if (read_string(std::string_view(json,length), root)) {
             try {
                 *d = root.get_array()[0].get_real();
                 return true;
@@ -135,7 +135,7 @@ public:
     virtual bool ParseString(const char* json, size_t length, std::string& s) const override
     {
         Value root;
-        if (read_string(std::string(json,length), root)) {
+        if (read_string(std::string_view(json,length), root)) {
             try {
                 s = root.get_array()[0].get_str();
                 return true;

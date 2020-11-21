@@ -352,7 +352,7 @@ static int stat_callback(StatContext* c, int type, const char *data, uint32_t le
 
 class VinenthzParseResult : public ParseResultBase {
 public:
-    VinenthzParseResult() : root() {}
+    VinenthzParseResult() : root(nullptr) {}
     ~VinenthzParseResult() { if (root) tree_free(root); }
 
     json_val_t *root;

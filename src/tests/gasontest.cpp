@@ -240,7 +240,7 @@ public:
     {
         GasonParseResult pr;
         char* end = 0;
-        pr.json = strdup(json);
+        pr.json = strndup(json,length);
         if (jsonParse(pr.json, &end, &pr.value, pr.allocator) == JSON_OK &&
             pr.value.getTag() == JSON_ARRAY && 
             pr.value.toNode() &&
@@ -257,7 +257,7 @@ public:
     {
         GasonParseResult pr;
         char* end = 0;
-        pr.json = strdup(json);
+        pr.json = strndup(json,length);
         if (jsonParse(pr.json, &end, &pr.value, pr.allocator) == JSON_OK &&
             pr.value.getTag() == JSON_ARRAY && 
             pr.value.toNode() &&

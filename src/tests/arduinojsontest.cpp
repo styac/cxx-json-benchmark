@@ -72,7 +72,6 @@ public:
 #if TEST_PARSE
     virtual ParseResultBase* Parse(const char* json, size_t length) const override
     {
-        (void)length;
         ArduinojsonParseResult* pr = new ArduinojsonParseResult;
         pr->buffer = (char*)malloc(length);
         memcpy(pr->buffer, json, length);
@@ -83,7 +82,7 @@ public:
                     {
                         DeserializationError error = deserializeJson(pr->jsonBuffer,pr->buffer);
                         if (error) {
-                            free(pr);
+                            delete pr;
                             return 0;
                         }                        
                         pr->root = pr->jsonBuffer.as<JsonObject>();
@@ -93,7 +92,7 @@ public:
                     {
                         DeserializationError error = deserializeJson(pr->jsonBuffer,pr->buffer);
                         if (error) {
-                            free(pr);
+                            delete pr;
                             return 0;
                         }
                         pr->root = pr->jsonBuffer.as<JsonArray>();
@@ -108,7 +107,7 @@ public:
             // Unknown first non-whitespace character
             break;
         }
-        free(pr);
+        delete pr;
         return 0;
     }
 #endif

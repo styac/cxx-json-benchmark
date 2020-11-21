@@ -1,5 +1,7 @@
 #include "../test.h"
+#include "../memorystat_c.h"
 #include "yyjson/src/yyjson.h"
+#include "yyjson/src/yyjson.c"
 
 #include <cassert>
 #include <iostream>
@@ -87,6 +89,7 @@ public:
         yyjson_read_flag flg=YYJSON_READ_NOFLAG;
         pr->doc = yyjson_read(json,length,flg);
         if (pr->doc==nullptr) {
+            delete pr;
             return nullptr;
         }
     	return pr;
@@ -119,7 +122,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const  override {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const  override
+    {
         const YYjsonParseResult* pr = static_cast<const YYjsonParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         yyjson_val * root = yyjson_doc_get_root(pr->doc);
@@ -146,7 +150,6 @@ public:
         return true;
     }
 
-    // const char* json should be std::string
     virtual bool ParseString(const char* json, size_t length, std::string& s) const override
     {
         YYjsonParseResult pr;

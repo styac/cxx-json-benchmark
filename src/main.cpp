@@ -190,7 +190,7 @@ static void FreeFiles(TestJsonList& testJsons) {
 void CheckMemoryLeak(const char *test, const char *place) {
     const MemoryStat& stat = Memory::Instance().GetStat();
     if (stat.currentSize != 0) {
-        printf("\nWarning: potential memory leak (%d allocations for %d bytes) %s %s\n",
+        printf("\nWarning: potential memory leak (%d allocations for %d bytes): %s in %s\n",
             (int)stat.mallocCount + (int)stat.reallocCount - (int)stat.freeCount,
             (int)stat.currentSize,
             test,
@@ -803,9 +803,8 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
             test.SetUp();
             ParseResultBase* pr = test.Parse(json.data(), json.size());
             bool result = pr == 0;
-            auto n = it->path().filename().stem().string().data();
+            const auto& n = it->path().filename().stem().string().data();
             fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), n, result ? "true" : "false");
-            // printf("pass%02d: %s\n", i, result ? "true" : "false");
             delete pr;
             test.TearDown();
 
@@ -867,25 +866,15 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
             auto json = ReadJSON(it->path());
             if (json.data() != nullptr ) {
                 test.SetUp();
-                ParseResultBase* pr = nullptr;
-                bool exception = false;
-                try {
-                     pr = test.Parse(json.data(), json.size());
-                } catch (...) {
-                    exception = true;
-                }
-
+                ParseResultBase* pr = test.Parse(json.data(), json.size());
                 bool result = pr != 0;
-                std::string file( it->path().filename().stem().string());
-                fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), file.data(), result ? "true" : "false");
+                auto const& file = it->path().filename().stem().string().data();
+                fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), file, result ? "true" : "false");
                 delete pr;
                 test.TearDown();
-                if(exception) {
-                    printf( " ******* exception occured Parse Validation,%s,%s\n", test.GetName(), file.data());
-                }
                 if (!result) {
                     if (md)
-                        fprintf(md, "* `%s` is valid but was mistakenly deemed invalid.\n~~~js\n%s\n~~~\n\n", file.data(), json.data());
+                        fprintf(md, "* `%s` is valid but was mistakenly deemed invalid.\n~~~js\n%s\n~~~\n\n", file, json.data());
                 } else {
                     parseValidationCorrect++;
                 }

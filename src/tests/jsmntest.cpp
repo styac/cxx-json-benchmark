@@ -52,7 +52,7 @@ static void ParseNumbers(const char* json, const jsmntok_t* tokens, int count) {
 
 class JsmnParseResult : public ParseResultBase {
 public:
-    JsmnParseResult() : json(), tokens() {}
+    JsmnParseResult() : json(), tokens(), count(0) {}
     ~JsmnParseResult() { free(json); free(tokens); }
 
     char* json;
@@ -68,7 +68,8 @@ public:
 #endif
 	
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
         JsmnParseResult* pr = new JsmnParseResult;
         jsmn_parser parser;
         jsmn_init(&parser);
@@ -89,7 +90,7 @@ public:
         }
 
         // need a copy of JSON in order to determine the types
-        pr->json = strdup(json);
+        pr->json = strndup(json,length);
 
         // Since jsmn does not parse numbers, emulate here in order to compare with other parsers.
         ParseNumbers(json, pr->tokens, pr->count);
@@ -98,7 +99,8 @@ public:
 #endif
 
 #if TEST_STATISTICS
-    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override {
+    virtual bool Statistics(const ParseResultBase* parseResult, Stat* stat) const override
+    {
         const JsmnParseResult* pr = static_cast<const JsmnParseResult*>(parseResult);
         memset(stat, 0, sizeof(Stat));
         GenStat(stat, pr->json, pr->tokens, pr->count);
@@ -107,7 +109,8 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
+    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
+    {
         jsmn_parser parser;
         jsmn_init(&parser);
         jsmntok_t tokens[2];
@@ -119,7 +122,8 @@ public:
         return false;
     }
 
-    virtual bool ParseString(const char* json, size_t length, std::string& s) const override {
+    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
+    {
         jsmn_parser parser;
         jsmn_init(&parser);
         jsmntok_t tokens[2];
