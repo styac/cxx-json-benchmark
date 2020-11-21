@@ -15,9 +15,10 @@ http://seriot.ch/parsing_json.php
 
 git clone --recursive https://github.com/styac/cxx-json-benchmark
 
+./checkout_thirdparty.sh
 ./pull_thirdparty.sh
 
-2. out of source build (fasttrack)
+2. out of source build
 
 ./compile.sh
 
@@ -29,11 +30,16 @@ git clone --recursive https://github.com/styac/cxx-json-benchmark
 
 5. make
 
-platform:
+6. view
+
+conformance.html
+performance_*.html
+
+### test platform:
 - opensuse 15.2
 - gcc 9.3
 
-hardware:
+### test hardware:
 - AMD Bulldozer 8 core not too fast settings in BIOS
 
 
@@ -41,8 +47,6 @@ hardware:
 
 ![Conformance](result/conformance.png)
 
-
-------------------------------------------------------------------------
 
 
 
