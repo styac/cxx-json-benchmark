@@ -119,7 +119,8 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* jstr, size_t length, double* d) const override {
+    virtual bool ParseDouble(const char* jstr, size_t length, double* d) const override
+    {
         json::parser p;
         json::error_code ec;
         p.write(jstr,length,ec);

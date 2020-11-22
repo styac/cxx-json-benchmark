@@ -4,6 +4,7 @@
 #include <string>
 #include <sstream>
 
+#define ARDUINOJSON_ENABLE_COMMENTS 0
 //#define ARDUINOJSON_ENABLE_STD_STREAM 1
 #include "ArduinoJson/src/ArduinoJson.h"
 
@@ -76,7 +77,7 @@ public:
         pr->buffer = (char*)malloc(length);
         memcpy(pr->buffer, json, length);
         // Determine object or array
-        for (size_t i = 0; i < length; i++) {            
+        for (size_t i = 0; i < length; i++) {
             switch (json[i]) {
                 case '{':
                     {
@@ -84,7 +85,7 @@ public:
                         if (error) {
                             delete pr;
                             return 0;
-                        }                        
+                        }
                         pr->root = pr->jsonBuffer.as<JsonObject>();
                     }
                     return pr;

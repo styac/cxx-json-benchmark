@@ -4,7 +4,7 @@ class StrdupParseResult : public ParseResultBase {
 public:
     StrdupParseResult() : r(), length() {}
     ~StrdupParseResult() { free(r); }
-    
+
     char *r;
     size_t length;
 };
@@ -15,17 +15,17 @@ public:
     ~StrdupStringResult() { free(s); }
 
     virtual const char* c_str() const { return s; }
-    
+
     char *s;
 };
 
 class StrdupTest : public TestBase {
 public:
 #if TEST_INFO
-    virtual const char* GetName() const override{ return "strdup (C)"; }
+    virtual const char* GetName() const override{ return "strdup"; }
     virtual const char* GetFilename() const override { return __FILE__; }
 #endif
-	
+
 #if TEST_PARSE
     virtual ParseResultBase* Parse(const char* json, size_t length) const override
     {
@@ -33,7 +33,7 @@ public:
         pr->r = (char*)malloc(length + 1);
         pr->length = length;
         memcpy(pr->r, json, length + 1);
-    	return pr;
+        return pr;
     }
 #endif
 
@@ -42,7 +42,7 @@ public:
     {
         const StrdupParseResult* pr = static_cast<const StrdupParseResult*>(parseResult);
         StrdupStringResult* sr = new StrdupStringResult;
-    	sr->s = (char*)malloc(pr->length + 1);
+        sr->s = (char*)malloc(pr->length + 1);
         memcpy(sr->s, pr->r, pr->length + 1);
         return sr;
     }

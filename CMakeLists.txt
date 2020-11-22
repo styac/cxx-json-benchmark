@@ -9,16 +9,18 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -fPIE -march=native -O2 -Wall" )
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse4.2 -mavx -O3 -Wall" )
 
 set( CMAKE_BUILD_TYPE Release )
-add_compile_definitions(TEST_DATA_FOLDER="${PROJECT_SOURCE_DIR}/data/")
-add_compile_definitions(RESULT_FOLDER="${PROJECT_SOURCE_DIR}/result/")
-add_compile_definitions(OBJ_FOLDER="${PROJECT_BINARY_DIR}/CMakeFiles/${PROJECT_NAME}.dir/")
+add_compile_definitions(TEST_DATA_PATH="${PROJECT_SOURCE_DIR}/data/")
+add_compile_definitions(RESULT_PATH="${PROJECT_SOURCE_DIR}/result/")
+add_compile_definitions(REPORT_PATH="${PROJECT_SOURCE_DIR}/reports/")
+add_compile_definitions(OBJ_PATH="${PROJECT_BINARY_DIR}/CMakeFiles/${PROJECT_NAME}.dir/")
 # object file: <testfile_source.cpp>.o
 
 
 # feature macros to control some libraries
 # use strict JSON mode to make them more conformant
 
-add_compile_definitions(ARDUINOJSON_ENABLE_COMMENTS=0)
+# add_compile_definitions(ARDUINOJSON_ENABLE_COMMENTS=0)
+add_compile_definitions(JSMN_STRICT=1)
 
 find_package(Boost)
 if( Boost_FOUND )
@@ -160,8 +162,8 @@ set( SOURCES_TESTS
     src/tests/simplejsontest.cpp
     src/tests/taocpptest.cpp
     src/tests/udpjsontest.cpp
+#    src/tests/jsmntest.cpp # tokenizer
 #    src/tests/cajuntest.cpp # ok but very slow
-#    src/tests/jsmntest.cpp # memory leaks
 #    src/tests/jsonctest.cpp
 #    src/tests/facil.io.cpp # active - master failing - try branch 0.8 or wait for update
 #    src/tests/janssontest.cpp # active - config needed

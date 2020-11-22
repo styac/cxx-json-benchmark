@@ -13,7 +13,24 @@
 #include <filesystem>
 #include <fstream>
 
+#ifndef TEST_DATA_PATH
+#error "TEST_DATA_PATH not defined"
+#endif
+
+#ifndef RESULT_PATH
+#error "RESULT_PATH not defined"
+#endif
+
+#ifndef REPORT_PATH
+#error "REPORT_PATH not defined"
+#endif
+
+#ifndef OBJ_PATH
+#error "OBJ_PATH not defined"
+#endif
+
 constexpr unsigned cTrialCount = 10;
+
 
 struct str {
     str()
@@ -64,13 +81,13 @@ struct TestJson {
     TestJson()
         : m_filename()
         , m_json()
-        , stat()
+        , m_stat()
         , statUTF16()
     {}
 
     std::string m_filename;
     str m_json;
-    Stat stat;           // Reference statistics
+    Stat m_stat;           // Reference statistics
     Stat statUTF16;      // Reference statistics
 };
 
@@ -146,7 +163,7 @@ static bool ReadFiles(TestJsonList& testJsons) {
     }
 
     std::filesystem::directory_iterator end_it;
-    std::filesystem::path p(TEST_DATA_FOLDER );
+    std::filesystem::path p(TEST_DATA_PATH );
     for (std::filesystem::directory_iterator it(p); it != end_it; ++it) {
         if( ! is_regular_file(it->path()) || it->path().extension() != ".json" ) {
             continue;
@@ -161,7 +178,7 @@ static bool ReadFiles(TestJsonList& testJsons) {
 
             // Generate reference statistics
 #if TEST_SAXSTATISTICS
-            if (!referenceTest->SaxStatistics(t.m_json.data(), t.m_json.size(), &t.stat))
+            if (!referenceTest->SaxStatistics(t.m_json.data(), t.m_json.size(), &t.m_stat))
                 printf("Failed to generate reference statistics\n");
 #endif
 
@@ -170,7 +187,7 @@ static bool ReadFiles(TestJsonList& testJsons) {
                 printf("Failed to generate reference UTF16 statistics\n");
 #endif
             printf("Read '%s' (%u bytes)\n", t.m_filename.data(), (unsigned)t.m_json.size());
-            PrintStat(t.stat);
+            PrintStat(t.m_stat);
             printf("\n");
             testJsons.push_back(t);
         }
@@ -240,12 +257,12 @@ static void Verify(const TestBase& test, const TestJsonList& testJsons) {
 
         if (!json1) {
             // Some libraries may not support stringify, but still check statistics
-            if (memcmp(&stat1, &itr->stat, sizeof(Stat)) != 0 &&
+            if (memcmp(&stat1, &itr->m_stat, sizeof(Stat)) != 0 &&
                 memcmp(&stat1, &itr->statUTF16, sizeof(Stat)) != 0)
             {
                 printf("\nStatistics of '%s' is different from reference.\n\n", itr->m_filename.data());
                 printf("Reference\n---------\n");
-                PrintStat(itr->stat);
+                PrintStat(itr->m_stat);
                 printf("\nStat 1\n--------\n");
                 PrintStat(stat1);
                 printf("\n");
@@ -281,13 +298,13 @@ static void Verify(const TestBase& test, const TestJsonList& testJsons) {
 
         Stat* statProblem = 0;
         int statProblemWhich = 0;
-        if (memcmp(&stat1, &itr->stat,      sizeof(Stat)) != 0 &&
+        if (memcmp(&stat1, &itr->m_stat,      sizeof(Stat)) != 0 &&
             memcmp(&stat1, &itr->statUTF16, sizeof(Stat)) != 0)
         {
             statProblem = &stat1;
             statProblemWhich = 1;
         }
-        else if (memcmp(&stat2, &itr->stat,      sizeof(Stat)) != 0 &&
+        else if (memcmp(&stat2, &itr->m_stat,      sizeof(Stat)) != 0 &&
                  memcmp(&stat2, &itr->statUTF16, sizeof(Stat)) != 0)
         {
             statProblem = &stat2;
@@ -297,7 +314,7 @@ static void Verify(const TestBase& test, const TestJsonList& testJsons) {
         if (statProblem != 0) {
             printf("\nStatistics of '%s' is different from reference.\n\n", itr->m_filename.data());
             printf("Reference\n---------\n");
-            PrintStat(itr->stat);
+            PrintStat(itr->m_stat);
             printf("\nStat #%d\n--------\n", statProblemWhich);
             PrintStat(*statProblem);
             printf("\n");
@@ -327,12 +344,12 @@ static void Verify(const TestBase& test, const TestJsonList& testJsons) {
         MEMORYSTAT_SCOPE();
         Stat stat1;
         if (test.SaxStatistics(itr->m_json.data(), itr->m_json.size(), &stat1)) {
-            if (memcmp(&stat1, &itr->stat, sizeof(Stat)) != 0 &&
+            if (memcmp(&stat1, &itr->m_stat, sizeof(Stat)) != 0 &&
                 memcmp(&stat1, &itr->statUTF16, sizeof(Stat)) != 0)
             {
                 printf("\nSaxStatistics of '%s' is different from reference.\n\n", itr->m_filename.data());
                 printf("Reference\n---------\n");
-                PrintStat(itr->stat);
+                PrintStat(itr->m_stat);
                 printf("\nStat #%d\n--------\n", 1);
                 PrintStat(stat1);
                 printf("\n");
@@ -719,7 +736,7 @@ static void BenchPerformance(const TestBase& test, const TestJsonList& testJsons
 }
 
 static void BenchAllPerformance(const TestJsonList& testJsons) {
-    FILE *fp = fopen(RESULT_FOLDER "performance_" RESULT_FILENAME, "w");
+    FILE *fp = fopen(RESULT_PATH "performance_" RESULT_FILENAME, "w");
 
     fputs("Type,Library,Filename,Time (ms)", fp);
 #if USE_MEMORYSTAT
@@ -739,7 +756,7 @@ static void BenchAllPerformance(const TestJsonList& testJsons) {
 static void BenchConformance(const TestBase& test, FILE* fp) {
     std::filesystem::directory_iterator end_it;
     printf("Benchmarking Conformance of %s\n", test.GetName());
-    
+
     // Output markdown
     FILE* md;
     char testname[FILENAME_MAX];
@@ -747,7 +764,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
     makeValidFilename(testname);
 
     char mdFilename[FILENAME_MAX];
-    sprintf(mdFilename, RESULT_FOLDER "conformance_%s.md", testname);
+    sprintf(mdFilename, RESULT_PATH "conformance_%s.md", testname);
     md = fopen(mdFilename, "w");
     if (md)
         fprintf(md, "# Conformance of %s\n\n", test.GetName());
@@ -761,7 +778,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
 
     int parseValidationCorrect = 0, parseValidationTotal = 0;
 
-    std::filesystem::path p_pass(TEST_DATA_FOLDER "jsonchecker_pass/");
+    std::filesystem::path p_pass(TEST_DATA_PATH "jsonchecker_pass/");
     for (std::filesystem::directory_iterator it(p_pass); it != end_it; ++it) {
         if( ! is_regular_file(it->path()) || it->path().extension() != ".json" ) {
             continue;
@@ -790,7 +807,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
     }
 
     // Parse Validation, JsonChecker fail
-    std::filesystem::path p_fail(TEST_DATA_FOLDER "jsonchecker_fail/");
+    std::filesystem::path p_fail(TEST_DATA_PATH "jsonchecker_fail/");
     for (std::filesystem::directory_iterator it(p_fail); it != end_it; ++it) {
         if( ! is_regular_file(it->path()) || it->path().extension() != ".json" ) {
             continue;
@@ -802,12 +819,12 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
             ParseResultBase* pr = test.Parse(json.data(), json.size());
             bool result = pr == 0;
             delete pr;
-            const auto& n = it->path().filename().stem().string().data();
-            fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), n, result ? "true" : "false");
+            const auto& n = it->path().filename().stem().string();
+            fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), n.data(), result ? "true" : "false");
             test.TearDown();
             if (!result) {
                 if (md)
-                    fprintf(md, "* `%s` is valid but was mistakenly deemed invalid.\n~~~js\n%s\n~~~\n\n", n, json.data());
+                    fprintf(md, "* `%s` is valid but was mistakenly deemed invalid.\n~~~js\n%s\n~~~\n\n", n.data(), json.data());
             } else {
                 parseValidationCorrect++;
             }
@@ -817,63 +834,63 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
         MEMORYSTAT_CHECKMEMORYLEAK(test.GetName(),"check fail");
     }
 
-    {
-        std::filesystem::path p(TEST_DATA_FOLDER "transform_extra/");
-        for (std::filesystem::directory_iterator it(p); it != end_it; ++it) {
-            if( ! is_regular_file(it->path()) || it->path().extension() != ".json" ) {
-                continue;
-            }
-            MEMORYSTAT_SCOPE();
-            auto json = ReadJSON(it->path());
-            if (json.data() != nullptr ) {
-                test.SetUp();
-                ParseResultBase* pr = test.Parse(json.data(), json.size());
-                bool result = pr != 0;
-                delete pr;
-                auto const& n = it->path().filename().stem().string();
-                fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), n.data(), result ? "true" : "false");
-                test.TearDown();
-                if (!result) {
-                    if (md)
-                        fprintf(md, "* `%s` is valid but was mistakenly deemed invalid.\n~~~js\n%s\n~~~\n\n", n.data(), json.data());
-                } else {
-                    parseValidationCorrect++;
-                }
-                parseValidationTotal++;
-                json.freedata();
-            }
-            MEMORYSTAT_CHECKMEMORYLEAK(test.GetName(),"transform");
-        }
-    }
+//    {
+//        std::filesystem::path p(TEST_DATA_PATH "transform_extra/");
+//        for (std::filesystem::directory_iterator it(p); it != end_it; ++it) {
+//            if( ! is_regular_file(it->path()) || it->path().extension() != ".json" ) {
+//                continue;
+//            }
+//            MEMORYSTAT_SCOPE();
+//            auto json = ReadJSON(it->path());
+//            if (json.data() != nullptr ) {
+//                test.SetUp();
+//                ParseResultBase* pr = test.Parse(json.data(), json.size());
+//                bool result = pr != 0;
+//                delete pr;
+//                auto const& n = it->path().filename().stem().string();
+//                fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), n.data(), result ? "true" : "false");
+//                test.TearDown();
+//                if (!result) {
+//                    if (md)
+//                        fprintf(md, "* `%s` is valid but was mistakenly deemed invalid.\n~~~js\n%s\n~~~\n\n", n.data(), json.data());
+//                } else {
+//                    parseValidationCorrect++;
+//                }
+//                parseValidationTotal++;
+//                json.freedata();
+//            }
+//            MEMORYSTAT_CHECKMEMORYLEAK(test.GetName(),"transform");
+//        }
+//    }
 
-    {
-        std::filesystem::path p(TEST_DATA_FOLDER "parsing_extra/");
-        for (std::filesystem::directory_iterator it(p); it != end_it; ++it) {
-            if( ! is_regular_file(it->path()) || it->path().extension() != ".json" ) {
-                continue;
-            }
-            MEMORYSTAT_SCOPE();
-            auto json = ReadJSON(it->path());
-            if (json.data() != nullptr ) {
-                test.SetUp();
-                ParseResultBase* pr = test.Parse(json.data(), json.size());
-                bool result = pr != 0;
-                delete pr;
-                auto const& n = it->path().filename().stem().string();
-                fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), n.data(), result ? "true" : "false");
-                test.TearDown();
-                if (!result) {
-                    if (md)
-                        fprintf(md, "* `%s` is valid but was mistakenly deemed invalid.\n~~~js\n%s\n~~~\n\n", n.data(), json.data());
-                } else {
-                    parseValidationCorrect++;
-                }
-                parseValidationTotal++;
-                json.freedata();
-            }
-            MEMORYSTAT_CHECKMEMORYLEAK(test.GetName(),"parse extra");
-        }
-    }
+//    {
+//        std::filesystem::path p(TEST_DATA_PATH "parsing_extra/");
+//        for (std::filesystem::directory_iterator it(p); it != end_it; ++it) {
+//            if( ! is_regular_file(it->path()) || it->path().extension() != ".json" ) {
+//                continue;
+//            }
+//            MEMORYSTAT_SCOPE();
+//            auto json = ReadJSON(it->path());
+//            if (json.data() != nullptr ) {
+//                test.SetUp();
+//                ParseResultBase* pr = test.Parse(json.data(), json.size());
+//                bool result = pr != 0;
+//                delete pr;
+//                auto const& n = it->path().filename().stem().string();
+//                fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), n.data(), result ? "true" : "false");
+//                test.TearDown();
+//                if (!result) {
+//                    if (md)
+//                        fprintf(md, "* `%s` is valid but was mistakenly deemed invalid.\n~~~js\n%s\n~~~\n\n", n.data(), json.data());
+//                } else {
+//                    parseValidationCorrect++;
+//                }
+//                parseValidationTotal++;
+//                json.freedata();
+//            }
+//            MEMORYSTAT_CHECKMEMORYLEAK(test.GetName(),"parse extra");
+//        }
+//    }
 
     if (md)
         fprintf(md, "\nSummary: %d of %d are correct.\n\n", parseValidationCorrect, parseValidationTotal);
@@ -1019,7 +1036,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
             "5722898802581825451803257070188608721131280795122334262883686223215037756666225039825343359745688844"
             "2390026549819838548794829220689472168983109969836584681402285424333066033985088644580400103493397042"
             "7567186443383770486037861622771738545623065874679014086723327636718751234567890123456789012345678901"
-            "e-308]", 
+            "e-308]",
             2.2250738585072014e-308);
     }
 
@@ -1085,7 +1102,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
     if (md)
         fprintf(md, "## 4. Roundtrip\n\n");
 
-    std::filesystem::path p_rtrip(TEST_DATA_FOLDER "roundtrip/");
+    std::filesystem::path p_rtrip(TEST_DATA_PATH "roundtrip/");
     for (std::filesystem::directory_iterator it(p_rtrip); it != end_it; ++it) {
         if( ! is_regular_file(it->path()) || it->path().extension() != ".json" ) {
             continue;
@@ -1152,7 +1169,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
 }
 
 static void BenchAllConformance() {
-    FILE *fp = fopen(RESULT_FOLDER "conformance.csv", "w");
+    FILE *fp = fopen(RESULT_PATH "conformance.csv", "w");
     fputs("Type,Library,Test,Result\n", fp);
 
     TestList& tests = TestManager::Instance().GetTests();
@@ -1171,7 +1188,11 @@ int main(int argc, char* argv[]) {
     bool doVerify = true;
     bool doPerformance = true;
     bool doConformance = true;
+    bool doAborts = false;
+    bool valid_abort_name = false;
+    auto reports = ReportBase::get_instance();
 
+    const TestBase * test_abort=nullptr;
     if (argc == 2) {
         if (strcmp(argv[1], "--verify-only") == 0) {
             doVerify = true;
@@ -1186,6 +1207,14 @@ int main(int argc, char* argv[]) {
             fprintf(stderr, "Invalid option\n");
             exit(1);
         }
+    } else if(argc == 3) {
+        if (strcmp(argv[1], "--aborts") == 0 ) {
+            doConformance = false;
+            doVerify = false;
+            doPerformance = false;
+            doConformance = false;
+            doAborts = true;
+        }
     }
 
     MEMORYSTAT_SCOPE();
@@ -1197,6 +1226,27 @@ int main(int argc, char* argv[]) {
         // sort tests
         TestList& tests = TestManager::Instance().GetTests();
         std::sort(tests.begin(), tests.end());
+
+        {
+            sviewvec names;
+            for(auto const &t : tests) {
+                if( 0 != strcmp(t->GetName(), "strdup")) {
+                    names.push_back(t->GetName());
+                    if( doAborts && 0 == strcmp(t->GetName(), argv[2])) {
+                        test_abort = t;
+                    }
+                }
+            }
+            reports.print_test_names(names);
+        }
+
+        if( doAborts ) {
+            if( test_abort != nullptr ) {
+                // CheckAbort(test_abort)
+            } else {
+                // test not found
+            }
+        }
 
         if (doVerify)
             VerifyAll(testJsons);
