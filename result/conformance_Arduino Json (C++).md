@@ -2,6 +2,52 @@
 
 ## 1. Parse Validation
 
+* `y_structure_lonely_true` is valid but was mistakenly deemed invalid.
+~~~js
+true
+~~~
+
+* `y_string_space` is valid but was mistakenly deemed invalid.
+~~~js
+" "
+~~~
+
+* `y_structure_lonely_false` is valid but was mistakenly deemed invalid.
+~~~js
+false
+~~~
+
+* `y_structure_lonely_string` is valid but was mistakenly deemed invalid.
+~~~js
+"asd"
+~~~
+
+* `y_structure_lonely_negative_real` is valid but was mistakenly deemed invalid.
+~~~js
+-0.1
+~~~
+
+* `y_number_double_close_to_zero` is valid but was mistakenly deemed invalid.
+~~~js
+[-0.000000000000000000000000000000000000000000000000000000000000000000000000000001]
+
+~~~
+
+* `y_structure_lonely_int` is valid but was mistakenly deemed invalid.
+~~~js
+42
+~~~
+
+* `y_structure_lonely_null` is valid but was mistakenly deemed invalid.
+~~~js
+null
+~~~
+
+* `y_structure_string_empty` is valid but was mistakenly deemed invalid.
+~~~js
+""
+~~~
+
 * `fail30` is valid but was mistakenly deemed invalid.
 ~~~js
 [0e+]
@@ -53,54 +99,8 @@ break"]
 {"Extra value after close": true} "misplaced quoted value"
 ~~~
 
-* `y_structure_lonely_true` is valid but was mistakenly deemed invalid.
-~~~js
-true
-~~~
 
-* `y_string_space` is valid but was mistakenly deemed invalid.
-~~~js
-" "
-~~~
-
-* `y_structure_lonely_false` is valid but was mistakenly deemed invalid.
-~~~js
-false
-~~~
-
-* `y_structure_lonely_string` is valid but was mistakenly deemed invalid.
-~~~js
-"asd"
-~~~
-
-* `y_structure_lonely_negative_real` is valid but was mistakenly deemed invalid.
-~~~js
--0.1
-~~~
-
-* `y_number_double_close_to_zero` is valid but was mistakenly deemed invalid.
-~~~js
-[-0.000000000000000000000000000000000000000000000000000000000000000000000000000001]
-
-~~~
-
-* `y_structure_lonely_int` is valid but was mistakenly deemed invalid.
-~~~js
-42
-~~~
-
-* `y_structure_lonely_null` is valid but was mistakenly deemed invalid.
-~~~js
-null
-~~~
-
-* `y_structure_string_empty` is valid but was mistakenly deemed invalid.
-~~~js
-""
-~~~
-
-
-Summary: 132 of 151 are correct.
+Summary: 110 of 129 are correct.
 
 ## 2. Parse Double
 

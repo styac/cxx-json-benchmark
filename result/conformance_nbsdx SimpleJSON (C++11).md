@@ -2,6 +2,16 @@
 
 ## 1. Parse Validation
 
+* `y_number_real_capital_e_neg_exp` is valid but was mistakenly deemed invalid.
+~~~js
+[1E-2]
+~~~
+
+* `y_number_0e1` is valid but was mistakenly deemed invalid.
+~~~js
+[0e1]
+~~~
+
 * `pass01` is valid but was mistakenly deemed invalid.
 ~~~js
 [
@@ -62,6 +72,16 @@
 1e-1,
 1e00,2e+00,2e-00
 ,"rosebud"]
+~~~
+
+* `y_number_int_with_exp` is valid but was mistakenly deemed invalid.
+~~~js
+[20e1]
+~~~
+
+* `y_number_real_neg_exp` is valid but was mistakenly deemed invalid.
+~~~js
+[1e-2]
 ~~~
 
 * `fail21` is valid but was mistakenly deemed invalid.
@@ -216,52 +236,8 @@ break"]
 ["Illegal backslash escape: \x15"]
 ~~~
 
-* `number_1e6` is valid but was mistakenly deemed invalid.
-~~~js
-[1E6]
 
-~~~
-
-* `number_10000000000000000999` is valid but was mistakenly deemed invalid.
-~~~js
-[10000000000000000999]
-
-~~~
-
-* `number_-9223372036854775809` is valid but was mistakenly deemed invalid.
-~~~js
-[-9223372036854775809]
-
-~~~
-
-* `number_9223372036854775808` is valid but was mistakenly deemed invalid.
-~~~js
-[9223372036854775808]
-
-~~~
-
-* `y_number_real_capital_e_neg_exp` is valid but was mistakenly deemed invalid.
-~~~js
-[1E-2]
-~~~
-
-* `y_number_0e1` is valid but was mistakenly deemed invalid.
-~~~js
-[0e1]
-~~~
-
-* `y_number_int_with_exp` is valid but was mistakenly deemed invalid.
-~~~js
-[20e1]
-~~~
-
-* `y_number_real_neg_exp` is valid but was mistakenly deemed invalid.
-~~~js
-[1e-2]
-~~~
-
-
-Summary: 112 of 151 are correct.
+Summary: 94 of 129 are correct.
 
 ## 2. Parse Double
 

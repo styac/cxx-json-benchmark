@@ -2,59 +2,6 @@
 
 ## 1. Parse Validation
 
-* `fail28` is valid but was mistakenly deemed invalid.
-~~~js
-["line\
-break"]
-~~~
-
-* `fail27` is valid but was mistakenly deemed invalid.
-~~~js
-["line
-break"]
-~~~
-
-* `fail26` is valid but was mistakenly deemed invalid.
-~~~js
-["tab\   character\   in\  string\  "]
-~~~
-
-* `fail25` is valid but was mistakenly deemed invalid.
-~~~js
-["	tab	character	in	string	"]
-~~~
-
-* `fail17` is valid but was mistakenly deemed invalid.
-~~~js
-["Illegal backslash escape: \017"]
-~~~
-
-* `fail15` is valid but was mistakenly deemed invalid.
-~~~js
-["Illegal backslash escape: \x15"]
-~~~
-
-* `string_1_invalid_codepoint` is valid but was mistakenly deemed invalid.
-~~~js
-["í €"]
-~~~
-
-* `string_3_invalid_codepoints` is valid but was mistakenly deemed invalid.
-~~~js
-["í €í €í €"]
-~~~
-
-* `string_2_invalid_codepoints` is valid but was mistakenly deemed invalid.
-~~~js
-["í €í €"]
-~~~
-
-* `number_1e-999` is valid but was mistakenly deemed invalid.
-~~~js
-[1E-999]
-
-~~~
-
 * `y_structure_lonely_true` is valid but was mistakenly deemed invalid.
 ~~~js
 true
@@ -95,8 +42,40 @@ null
 ""
 ~~~
 
+* `fail28` is valid but was mistakenly deemed invalid.
+~~~js
+["line\
+break"]
+~~~
 
-Summary: 133 of 151 are correct.
+* `fail27` is valid but was mistakenly deemed invalid.
+~~~js
+["line
+break"]
+~~~
+
+* `fail26` is valid but was mistakenly deemed invalid.
+~~~js
+["tab\   character\   in\  string\  "]
+~~~
+
+* `fail25` is valid but was mistakenly deemed invalid.
+~~~js
+["	tab	character	in	string	"]
+~~~
+
+* `fail17` is valid but was mistakenly deemed invalid.
+~~~js
+["Illegal backslash escape: \017"]
+~~~
+
+* `fail15` is valid but was mistakenly deemed invalid.
+~~~js
+["Illegal backslash escape: \x15"]
+~~~
+
+
+Summary: 115 of 129 are correct.
 
 ## 2. Parse Double
 

@@ -54,14 +54,8 @@ break"]
 ["Illegal backslash escape: \x15"]
 ~~~
 
-* `number_-9223372036854775809` is valid but was mistakenly deemed invalid.
-~~~js
-[-9223372036854775809]
 
-~~~
-
-
-Summary: 140 of 151 are correct.
+Summary: 119 of 129 are correct.
 
 ## 2. Parse Double
 

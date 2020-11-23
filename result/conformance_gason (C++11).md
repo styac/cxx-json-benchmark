@@ -2,6 +2,16 @@
 
 ## 1. Parse Validation
 
+* `y_string_with_del_character` is valid but was mistakenly deemed invalid.
+~~~js
+["aa"]
+~~~
+
+* `y_string_unescaped_char_delete` is valid but was mistakenly deemed invalid.
+~~~js
+[""]
+~~~
+
 * `fail09` is valid but was mistakenly deemed invalid.
 ~~~js
 {"Extra comma": true,}
@@ -47,18 +57,8 @@
 {"Extra value after close": true} "misplaced quoted value"
 ~~~
 
-* `y_string_with_del_character` is valid but was mistakenly deemed invalid.
-~~~js
-["aa"]
-~~~
 
-* `y_string_unescaped_char_delete` is valid but was mistakenly deemed invalid.
-~~~js
-[""]
-~~~
-
-
-Summary: 140 of 151 are correct.
+Summary: 118 of 129 are correct.
 
 ## 2. Parse Double
 

@@ -2,6 +2,46 @@
 
 ## 1. Parse Validation
 
+* `y_structure_lonely_true` is valid but was mistakenly deemed invalid.
+~~~js
+true
+~~~
+
+* `y_string_space` is valid but was mistakenly deemed invalid.
+~~~js
+" "
+~~~
+
+* `y_structure_lonely_false` is valid but was mistakenly deemed invalid.
+~~~js
+false
+~~~
+
+* `y_structure_lonely_string` is valid but was mistakenly deemed invalid.
+~~~js
+"asd"
+~~~
+
+* `y_structure_lonely_negative_real` is valid but was mistakenly deemed invalid.
+~~~js
+-0.1
+~~~
+
+* `y_structure_lonely_int` is valid but was mistakenly deemed invalid.
+~~~js
+42
+~~~
+
+* `y_structure_lonely_null` is valid but was mistakenly deemed invalid.
+~~~js
+null
+~~~
+
+* `y_structure_string_empty` is valid but was mistakenly deemed invalid.
+~~~js
+""
+~~~
+
 * `fail21` is valid but was mistakenly deemed invalid.
 ~~~js
 {"Comma instead of colon", null}
@@ -159,48 +199,8 @@ break"]
 ["Illegal backslash escape: \x15"]
 ~~~
 
-* `y_structure_lonely_true` is valid but was mistakenly deemed invalid.
-~~~js
-true
-~~~
 
-* `y_string_space` is valid but was mistakenly deemed invalid.
-~~~js
-" "
-~~~
-
-* `y_structure_lonely_false` is valid but was mistakenly deemed invalid.
-~~~js
-false
-~~~
-
-* `y_structure_lonely_string` is valid but was mistakenly deemed invalid.
-~~~js
-"asd"
-~~~
-
-* `y_structure_lonely_negative_real` is valid but was mistakenly deemed invalid.
-~~~js
--0.1
-~~~
-
-* `y_structure_lonely_int` is valid but was mistakenly deemed invalid.
-~~~js
-42
-~~~
-
-* `y_structure_lonely_null` is valid but was mistakenly deemed invalid.
-~~~js
-null
-~~~
-
-* `y_structure_string_empty` is valid but was mistakenly deemed invalid.
-~~~js
-""
-~~~
-
-
-Summary: 112 of 151 are correct.
+Summary: 90 of 129 are correct.
 
 ## 2. Parse Double
 

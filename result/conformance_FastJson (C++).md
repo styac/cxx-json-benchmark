@@ -18,23 +18,8 @@ break"]
 {"Extra value after close": true} "misplaced quoted value"
 ~~~
 
-* `string_2_escaped_invalid_codepoints` is valid but was mistakenly deemed invalid.
-~~~js
-["\uD800\uD800"]
-~~~
 
-* `string_3_escaped_invalid_codepoints` is valid but was mistakenly deemed invalid.
-~~~js
-["\uD800\uD800\uD800"]
-~~~
-
-* `string_1_escaped_invalid_codepoint` is valid but was mistakenly deemed invalid.
-~~~js
-["\uD800"]
-~~~
-
-
-Summary: 145 of 151 are correct.
+Summary: 126 of 129 are correct.
 
 ## 2. Parse Double
 
@@ -74,14 +59,6 @@ Summary: 145 of 151 are correct.
   * expect: `1.0141204801825835e+31 (0x0164660000000000000)`
   * actual: `1.0141204801825835e+32 (0x0164694000000000000)`
 
-* `[1014120480182583464902367222169599999e-5]`
-  * expect: `1.0141204801825834e+31 (0x016465FFFFFFFFFFFFF)`
-  * actual: `1.0141204801825835e-15 (0x0163CD244CE242C5561)`
-
-* `[1014120480182583464902367222169600001e-5]`
-  * expect: `1.0141204801825835e+31 (0x0164660000000000000)`
-  * actual: `1.0141204801825835e-15 (0x0163CD244CE242C5561)`
-
 * `[5708990770823839524233143877797980545530986496]`
   * expect: `5.7089907708238395e+45 (0x0164970000000000000)`
   * actual: `5.7089907708238395e+46 (0x01649A4000000000000)`
@@ -99,7 +76,7 @@ Summary: 145 of 151 are correct.
   * actual: `5708990770823839 (0x0164334484BFEEBC29F)`
 
 
-Summary: 51 of 66 are correct.
+Summary: 53 of 66 are correct.
 
 ## 3. Parse String
 

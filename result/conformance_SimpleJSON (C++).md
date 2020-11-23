@@ -7,23 +7,8 @@
 ["	tab	character	in	string	"]
 ~~~
 
-* `string_1_invalid_codepoint` is valid but was mistakenly deemed invalid.
-~~~js
-["í €"]
-~~~
 
-* `string_3_invalid_codepoints` is valid but was mistakenly deemed invalid.
-~~~js
-["í €í €í €"]
-~~~
-
-* `string_2_invalid_codepoints` is valid but was mistakenly deemed invalid.
-~~~js
-["í €í €"]
-~~~
-
-
-Summary: 147 of 151 are correct.
+Summary: 128 of 129 are correct.
 
 ## 2. Parse Double
 
@@ -174,7 +159,7 @@ Summary: 32 of 66 are correct.
 
 * `["\u20AC"]`
   * expect: `"â‚¬"` (length: 3)
-  * actual: `"â‚¬"` (length: 4)
+  * actual: `"â‚¬"` (length: 4)
 
 * `["\uD834\uDD1E"]`
   * expect: `"ğ„"` (length: 4)

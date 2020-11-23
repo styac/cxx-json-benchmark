@@ -2,6 +2,16 @@
 
 ## 1. Parse Validation
 
+* `y_object_duplicated_key_and_value` is valid but was mistakenly deemed invalid.
+~~~js
+{"a":"b","a":"b"}
+~~~
+
+* `y_object_duplicated_key` is valid but was mistakenly deemed invalid.
+~~~js
+{"a":"b","a":"c"}
+~~~
+
 * `fail09` is valid but was mistakenly deemed invalid.
 ~~~js
 {"Extra comma": true,}
@@ -28,49 +38,8 @@ break"]
 ["extra comma",]
 ~~~
 
-* `string_2_escaped_invalid_codepoints` is valid but was mistakenly deemed invalid.
-~~~js
-["\uD800\uD800"]
-~~~
 
-* `object_same_key_unclear_values` is valid but was mistakenly deemed invalid.
-~~~js
-{"a":0, "a":-0}
-
-~~~
-
-* `string_3_escaped_invalid_codepoints` is valid but was mistakenly deemed invalid.
-~~~js
-["\uD800\uD800\uD800"]
-~~~
-
-* `object_same_key_different_values` is valid but was mistakenly deemed invalid.
-~~~js
-{"a":1,"a":2}
-~~~
-
-* `object_same_key_same_value` is valid but was mistakenly deemed invalid.
-~~~js
-{"a":1,"a":1}
-~~~
-
-* `string_1_escaped_invalid_codepoint` is valid but was mistakenly deemed invalid.
-~~~js
-["\uD800"]
-~~~
-
-* `y_object_duplicated_key_and_value` is valid but was mistakenly deemed invalid.
-~~~js
-{"a":"b","a":"b"}
-~~~
-
-* `y_object_duplicated_key` is valid but was mistakenly deemed invalid.
-~~~js
-{"a":"b","a":"c"}
-~~~
-
-
-Summary: 138 of 151 are correct.
+Summary: 122 of 129 are correct.
 
 ## 2. Parse Double
 

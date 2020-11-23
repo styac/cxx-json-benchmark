@@ -2,48 +2,6 @@
 
 ## 1. Parse Validation
 
-* `fail13` is valid but was mistakenly deemed invalid.
-~~~js
-{"Numbers cannot have leading zeroes": 013}
-~~~
-
-* `fail27` is valid but was mistakenly deemed invalid.
-~~~js
-["line
-break"]
-~~~
-
-* `fail25` is valid but was mistakenly deemed invalid.
-~~~js
-["	tab	character	in	string	"]
-~~~
-
-* `object_same_key_unclear_values` is valid but was mistakenly deemed invalid.
-~~~js
-{"a":0, "a":-0}
-
-~~~
-
-* `string_3_escaped_invalid_codepoints` is valid but was mistakenly deemed invalid.
-~~~js
-["\uD800\uD800\uD800"]
-~~~
-
-* `object_same_key_different_values` is valid but was mistakenly deemed invalid.
-~~~js
-{"a":1,"a":2}
-~~~
-
-* `object_same_key_same_value` is valid but was mistakenly deemed invalid.
-~~~js
-{"a":1,"a":1}
-~~~
-
-* `string_1_escaped_invalid_codepoint` is valid but was mistakenly deemed invalid.
-~~~js
-["\uD800"]
-~~~
-
 * `y_object_duplicated_key_and_value` is valid but was mistakenly deemed invalid.
 ~~~js
 {"a":"b","a":"b"}
@@ -94,8 +52,24 @@ null
 ""
 ~~~
 
+* `fail13` is valid but was mistakenly deemed invalid.
+~~~js
+{"Numbers cannot have leading zeroes": 013}
+~~~
 
-Summary: 133 of 151 are correct.
+* `fail27` is valid but was mistakenly deemed invalid.
+~~~js
+["line
+break"]
+~~~
+
+* `fail25` is valid but was mistakenly deemed invalid.
+~~~js
+["	tab	character	in	string	"]
+~~~
+
+
+Summary: 116 of 129 are correct.
 
 ## 2. Parse Double
 

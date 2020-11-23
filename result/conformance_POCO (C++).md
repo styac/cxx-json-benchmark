@@ -2,36 +2,6 @@
 
 ## 1. Parse Validation
 
-* `string_2_escaped_invalid_codepoints` is valid but was mistakenly deemed invalid.
-~~~js
-["\uD800\uD800"]
-~~~
-
-* `string_1_invalid_codepoint` is valid but was mistakenly deemed invalid.
-~~~js
-["í €"]
-~~~
-
-* `string_3_escaped_invalid_codepoints` is valid but was mistakenly deemed invalid.
-~~~js
-["\uD800\uD800\uD800"]
-~~~
-
-* `string_3_invalid_codepoints` is valid but was mistakenly deemed invalid.
-~~~js
-["í €í €í €"]
-~~~
-
-* `string_2_invalid_codepoints` is valid but was mistakenly deemed invalid.
-~~~js
-["í €í €"]
-~~~
-
-* `string_1_escaped_invalid_codepoint` is valid but was mistakenly deemed invalid.
-~~~js
-["\uD800"]
-~~~
-
 * `y_structure_lonely_true` is valid but was mistakenly deemed invalid.
 ~~~js
 true
@@ -73,7 +43,7 @@ null
 ~~~
 
 
-Summary: 137 of 151 are correct.
+Summary: 121 of 129 are correct.
 
 ## 2. Parse Double
 

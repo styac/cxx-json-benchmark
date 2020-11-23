@@ -3,7 +3,7 @@
 ## 1. Parse Validation
 
 
-Summary: 151 of 151 are correct.
+Summary: 129 of 129 are correct.
 
 ## 2. Parse Double
 
