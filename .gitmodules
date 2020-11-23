@@ -19,9 +19,6 @@
 [submodule "thirdparty/jansson"]
 	path = thirdparty/jansson
 	url = https://github.com/akheron/jansson.git
-[submodule "thirdparty/ujson4c"]
-	path = thirdparty/ujson4c
-	url = https://github.com/esnme/ujson4c.git
 [submodule "thirdparty/udp-json-parser"]
 	path = thirdparty/udp-json-parser
 	url = https://github.com/udp/json-parser.git
@@ -103,9 +100,6 @@
 [submodule "thirdparty/ccan"]
 	path = thirdparty/ccan
 	url = https://github.com/rustyrussell/ccan.git
-[submodule "thirdparty/ujson"]
-	path = thirdparty/ujson
-	url = https://bitbucket.org/awangk/ujson.git
 [submodule "thirdparty/cJSON"]
 	path = thirdparty/cJSON
 	url = https://github.com/DaveGamble/cJSON.git
