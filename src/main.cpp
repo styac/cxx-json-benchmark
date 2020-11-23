@@ -12,6 +12,7 @@
 
 #include <filesystem>
 #include <fstream>
+#include <iostream>
 
 #ifndef TEST_DATA_PATH
 #error "TEST_DATA_PATH not defined"
@@ -1184,12 +1185,53 @@ static void BenchAllConformance() {
 }
 #endif // TEST_CONFORMANCE
 
+
+bool CheckAbort( TestBase const * test_abort,  const char * fn )
+{
+    std::error_code ec;
+    std::filesystem::path ptest( TEST_DATA_PATH );
+    std::filesystem::path rep( REPORT_PATH );
+    ptest = ptest / "jsonchecker_aborts" / fn;
+    ptest += ".json";
+    rep = rep / "abort_test";
+    rep = rep / "test ";
+    rep += fn;
+    rep += "~";
+    rep += test_abort->GetName();
+    auto rep_parsed = rep.string() + ".parsed";
+    auto rep_failed = rep.string() + ".failed";
+    auto rep_aborted = rep.string() + ".aborted";
+    auto rep_file_not_found = rep.string() + ".file_not_found";
+    std::filesystem::remove(rep_parsed,ec);
+    std::filesystem::remove(rep_file_not_found,ec);
+    std::ofstream ofs(rep_aborted);
+    ofs << "x";
+    ofs.close();
+    std::cout << "Check abort " << test_abort->GetName() << " with file " << ptest;
+    auto json = ReadJSON(ptest);
+    if (json.data() == nullptr ) {
+        std::filesystem::rename(rep_aborted,rep_file_not_found,ec);
+        std::cout << " not found" << std::endl;
+        return false;
+    }
+
+    ParseResultBase * pr = test_abort->Parse(json.data(), json.size()); // may abort
+    if (pr==nullptr) {
+        std::filesystem::rename(rep_aborted,rep_failed,ec);
+        std::cout << " failed" << std::endl;
+        return true; // test was executed
+    }
+
+    std::filesystem::rename(rep_aborted,rep_parsed,ec);
+    std::cout <<  " parsed" << std::endl;
+    return true; // test was executed
+}
+
 int main(int argc, char* argv[]) {
     bool doVerify = true;
     bool doPerformance = true;
     bool doConformance = true;
     bool doAborts = false;
-    bool valid_abort_name = false;
     auto reports = ReportBase::get_instance();
 
     const TestBase * test_abort=nullptr;
@@ -1207,7 +1249,7 @@ int main(int argc, char* argv[]) {
             fprintf(stderr, "Invalid option\n");
             exit(1);
         }
-    } else if(argc == 3) {
+    } else if(argc > 3) { // --aborts <test_name> <file_name>.json // in data/jsonchecker_aborts/
         if (strcmp(argv[1], "--aborts") == 0 ) {
             doConformance = false;
             doVerify = false;
@@ -1219,14 +1261,9 @@ int main(int argc, char* argv[]) {
 
     MEMORYSTAT_SCOPE();
     {
-        // Read files
-        TestJsonList testJsons;
-        ReadFiles(testJsons);
-
         // sort tests
         TestList& tests = TestManager::Instance().GetTests();
         std::sort(tests.begin(), tests.end());
-
         {
             sviewvec names;
             for(auto const &t : tests) {
@@ -1242,11 +1279,17 @@ int main(int argc, char* argv[]) {
 
         if( doAborts ) {
             if( test_abort != nullptr ) {
-                // CheckAbort(test_abort)
+                CheckAbort(test_abort, argv[3]);
+                exit(0);
             } else {
                 // test not found
             }
         }
+
+        // Read files
+        TestJsonList testJsons;
+        ReadFiles(testJsons);
+
 
         if (doVerify)
             VerifyAll(testJsons);

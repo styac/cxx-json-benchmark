@@ -105,7 +105,6 @@ set( SOURCES_TESTS_C ${PROJECT_SOURCE_DIR}
 #    src/cjsonlibs/parson_all.c
 #    src/cjsonlibs/parson_renaming.h
 #    src/cjsonlibs/pjson_all.c
-#    src/cjsonlibs/qajson4c_all.c
 #    src/cjsonlibs/sheredom_jsonh_all.c
 #    src/cjsonlibs/sheredom_jsonh_renaming.h
 #    src/cjsonlibs/yajl_all.c # ?
@@ -121,6 +120,9 @@ set( SOURCES_TESTS_C ${PROJECT_SOURCE_DIR}
 )
 
 set( SOURCES_TESTS
+# add new modules
+# ujson/
+# ultrajson/
     src/tests/boostjsontest.cpp
     src/tests/cjsontest.cpp
     src/tests/voorheestest.cpp
@@ -143,7 +145,7 @@ set( SOURCES_TESTS
     src/tests/jsonboxtest.cpp
     src/tests/jsonconstest.cpp
     src/tests/jsoncpptest.cpp
-    src/tests/jsonspirittest.cpp # TODO use local boost spirit
+    src/tests/jsonspirittest.cpp        # use thirdparty/boostspirit
     src/tests/jsonxxtest.cpp
     src/tests/jusontest.cpp
     src/tests/nlohmanntest.cpp
@@ -174,9 +176,6 @@ set( SOURCES_TESTS
 #    src/tests/follytest.cpp # installation
 #    src/tests/v8test.cpp  # installation
 #    src/tests/taocppnlohmanntest.cpp   # too many changes
-
-# https://github.com/pejman-hkh/json-parser
-# https://github.com/pejman-hkh/c-json-parser
 )
 
 file( GLOB_RECURSE SOURCES_3PRTY ${PROJECT_SOURCE_DIR}

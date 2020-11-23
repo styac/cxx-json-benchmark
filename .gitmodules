@@ -140,3 +140,6 @@
 [submodule "thirdparty/ultrajson"]
 	path = thirdparty/ultrajson
 	url = https://github.com/ultrajson/ultrajson
+[submodule "thirdparty/json_spirit_v2"]
+	path = thirdparty/json_spirit_v2
+	url = https://github.com/cierelabs/json_spirit
