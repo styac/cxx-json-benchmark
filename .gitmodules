@@ -134,3 +134,9 @@
 [submodule "thirdparty/qajson4c"]
 	path = thirdparty/qajson4c
 	url = https://github.com/DeHecht/qajson4c
+[submodule "thirdparty/ujson"]
+	path = thirdparty/ujson
+	url = https://github.com/awangk/ujson
+[submodule "thirdparty/ultrajson"]
+	path = thirdparty/ultrajson
+	url = https://github.com/ultrajson/ultrajson

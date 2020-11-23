@@ -81,7 +81,6 @@ include_directories (
     thirdparty/facil.io/lib/facil/fiobj
     thirdparty/simdjson/singleheader
     thirdparty/yajl/src
-    thirdparty/ujson4c/3rdparty
     thirdparty/centijson/src
     thirdparty/cpprestsdk/Release/include
     thirdparty/cpprestsdk/Release/src
@@ -117,8 +116,6 @@ set( SOURCES_TESTS_C ${PROJECT_SOURCE_DIR}
     src/cjsonlibs/ccan_all.c
     src/cjsonlibs/juson_all.c
     src/cjsonlibs/udpjson_all.c
-    src/cjsonlibs/ujson4c_all.c
-    src/cjsonlibs/ultrajsondec_all.c
     src/cjsonlibs/vincenthz_libjson_all.c
     src/cjsonlibs/vincenthz_libjson_renaming.h
 )
@@ -131,7 +128,6 @@ set( SOURCES_TESTS
     src/tests/centijsontest.cpp
     src/tests/yyjsontest.cpp
     src/tests/sheredomjsonhtest.cpp
-    src/tests/ujson4ctest.cpp
     src/tests/vincenthzlibjsontest.cpp
     src/tests/strduptest.cpp
     src/tests/ccantest.cpp
@@ -172,7 +168,6 @@ set( SOURCES_TESTS
 #    src/tests/qajson4ctest.cpp # ?
 #    src/tests/jzontest.cpp # inactive - 5y
 #    src/tests/pjsontest.cpp # inactive - 4y
-#    src/tests/ujsontest.cpp # inactive - 7y
 #    src/tests/jvartest.cpp # inactive - 4y
 #    src/tests/tunnuztest.cpp # inactive - 5y
 #    src/tests/yajltest.cpp # inactive - 6y
