@@ -1227,37 +1227,63 @@ bool CheckAbort( TestBase const * test_abort,  const char * fn )
     return true; // test was executed
 }
 
+void info()
+{
+    std::cerr
+        << "\noptions: "
+        << "\n  --verify-only"
+        << "\n  --performance-only"
+        << "\n  --conformance-only"
+        << "\n  --aborts <test_name> <file_name_without_extension>\n"
+        << std::endl;
+}
+
 int main(int argc, char* argv[]) {
     bool doVerify = true;
     bool doPerformance = true;
     bool doConformance = true;
     bool doAborts = false;
+    bool printHelp = true;
     auto reports = ReportBase::get_instance();
 
     const TestBase * test_abort=nullptr;
     if (argc == 2) {
         if (strcmp(argv[1], "--verify-only") == 0) {
             doVerify = true;
+            printHelp = false;
             doPerformance = doConformance = false;
         } else if (strcmp(argv[1], "--performance-only") == 0) {
             doPerformance = true;
+            printHelp = false;
             doVerify = doConformance = false;
         } else if (strcmp(argv[1], "--conformance-only") == 0) {
             doConformance = true;
+            printHelp = false;
             doVerify = doPerformance = false;
         } else {
             fprintf(stderr, "Invalid option\n");
             exit(1);
         }
-    } else if(argc > 3) { // --aborts <test_name> <file_name>.json // in data/jsonchecker_aborts/
+    } else if(argc == 4) { // --aborts <test_name> <file_name>.json // in data/jsonchecker_aborts/
         if (strcmp(argv[1], "--aborts") == 0 ) {
             doConformance = false;
             doVerify = false;
             doPerformance = false;
             doConformance = false;
             doAborts = true;
+            printHelp = false;
+
         }
+        std::cout
+                << "'" << argv[2] << "'   '" << argv[3] << "'"
+                << std::endl;
+
     }
+
+    if(printHelp) {
+        info();
+    }
+    //exit(0);
 
     MEMORYSTAT_SCOPE();
     {
@@ -1282,7 +1308,8 @@ int main(int argc, char* argv[]) {
                 CheckAbort(test_abort, argv[3]);
                 exit(0);
             } else {
-                // test not found
+                info();
+                exit(-1);
             }
         }
 

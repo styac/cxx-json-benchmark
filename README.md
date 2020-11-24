@@ -8,7 +8,7 @@ https://github.com/miloyip/nativejson-benchmark
 
 ### 40+ libraries benchmarked !!!
 
-[active](reports/active_test_names.md)
+[active modules](reports/active_test_names.md)
 
 ### Info about JSON parsing
 
