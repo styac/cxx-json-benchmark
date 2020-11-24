@@ -143,3 +143,6 @@
 [submodule "thirdparty/json_spirit_v2"]
 	path = thirdparty/json_spirit_v2
 	url = https://github.com/cierelabs/json_spirit
+[submodule "thirdparty/ThorsSerializer"]
+	path = thirdparty/ThorsSerializer
+	url = https://github.com/Loki-Astari/ThorsSerializer
