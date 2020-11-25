@@ -19,14 +19,14 @@ static void GenStat(Stat& stat, const Value& v) {
     case objectValue:
         for (ValueConstIterator itr = v.begin(); itr != v.end(); ++itr) {
             GenStat(stat, *itr);
-            stat.stringLength += strlen(itr.memberName());
+            stat.stringLength += itr.name().size();
         }
         stat.objectCount++;
         stat.memberCount += v.size();
         stat.stringCount += v.size();   // member names
         break;
 
-    case stringValue: 
+    case stringValue:
         stat.stringCount++;
         stat.stringLength += v.asString().size();
         break;
@@ -67,7 +67,7 @@ public:
     virtual const char* GetName() const override { return "JsonCpp (C++)"; }
     virtual const char* GetFilename() const override { return __FILE__; }
 #endif
-	
+
 #if TEST_PARSE
     virtual ParseResultBase* Parse(const char* json, size_t length) const override
     {
@@ -82,7 +82,7 @@ public:
             delete pr;
             return 0;
         }
-    	return pr;
+        return pr;
     }
 #endif
 
@@ -114,9 +114,12 @@ public:
 #if TEST_CONFORMANCE
     virtual bool ParseDouble(const char* json, size_t length, double* d) const override
     {
-        Reader reader;
+        CharReaderBuilder builder;
+        JSONCPP_STRING err;
         Value root;
-        if (reader.parse(json, json+length, root) &&
+        const std::unique_ptr<Json::CharReader> reader(builder.newCharReader());
+
+        if (reader->parse(json, json+length, &root, &err) &&
             root.isArray() &&
             root.size() == 1 &&
             root[0].isDouble())
@@ -130,9 +133,11 @@ public:
 
     virtual bool ParseString(const char* json, size_t length, std::string& s) const override
     {
-        Reader reader;
+        CharReaderBuilder builder;
+        JSONCPP_STRING err;
         Value root;
-        if (reader.parse(json, json+length, root) &&
+        const std::unique_ptr<Json::CharReader> reader(builder.newCharReader());
+        if (reader->parse(json, json+length, &root, &err) &&
             root.isArray() &&
             root.size() == 1 &&
             root[0].isString())

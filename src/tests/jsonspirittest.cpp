@@ -47,7 +47,7 @@ static void GenStat(Stat& stat, const Value& v) {
         if (v.get_bool())
             stat.trueCount++;
         else
-            stat.falseCount++; break;
+            stat.falseCount++;
         break;
 
     case null_type:
@@ -83,7 +83,7 @@ public:
             delete pr;
             return 0;
         }
-    	return pr;
+        return pr;
     }
 #endif
 
@@ -125,8 +125,7 @@ public:
             try {
                 *d = root.get_array()[0].get_real();
                 return true;
-            }
-            catch (...) {
+            } catch (...) {
             }
         }
         return false;
@@ -139,8 +138,7 @@ public:
             try {
                 s = root.get_array()[0].get_str();
                 return true;
-            }
-            catch (...) {
+            } catch (...) {
             }
         }
         return false;

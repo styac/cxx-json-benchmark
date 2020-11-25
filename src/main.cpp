@@ -32,7 +32,6 @@
 
 constexpr unsigned cTrialCount = 10;
 
-
 struct str {
     str()
     : m_data(nullptr)
@@ -864,34 +863,6 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
 //        }
 //    }
 
-//    {
-//        std::filesystem::path p(TEST_DATA_PATH "parsing_extra/");
-//        for (std::filesystem::directory_iterator it(p); it != end_it; ++it) {
-//            if( ! is_regular_file(it->path()) || it->path().extension() != ".json" ) {
-//                continue;
-//            }
-//            MEMORYSTAT_SCOPE();
-//            auto json = ReadJSON(it->path());
-//            if (json.data() != nullptr ) {
-//                test.SetUp();
-//                ParseResultBase* pr = test.Parse(json.data(), json.size());
-//                bool result = pr != 0;
-//                delete pr;
-//                auto const& n = it->path().filename().stem().string();
-//                fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), n.data(), result ? "true" : "false");
-//                test.TearDown();
-//                if (!result) {
-//                    if (md)
-//                        fprintf(md, "* `%s` is valid but was mistakenly deemed invalid.\n~~~js\n%s\n~~~\n\n", n.data(), json.data());
-//                } else {
-//                    parseValidationCorrect++;
-//                }
-//                parseValidationTotal++;
-//                json.freedata();
-//            }
-//            MEMORYSTAT_CHECKMEMORYLEAK(test.GetName(),"parse extra");
-//        }
-//    }
 
     if (md)
         fprintf(md, "\nSummary: %d of %d are correct.\n\n", parseValidationCorrect, parseValidationTotal);
@@ -1110,55 +1081,49 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
         }
         MEMORYSTAT_SCOPE();
         auto json = ReadJSON(it->path());
-        if (json.data() == nullptr )
-            continue;
+        if (json.data() != nullptr ) {
+            test.SetUp();
+            ParseResultBase* pr = test.Parse(json.data(), json.size());
+            bool result = false;
+            bool terminate = false;
+            if (pr) {
+                StringResultBase* sr = test.Stringify(pr);
+                delete pr;
 
-        test.SetUp();
-        ParseResultBase* pr = test.Parse(json.data(), json.size());
-        bool result = false;
-        bool terminate = false;
-        if (pr) {
-            StringResultBase* sr = test.Stringify(pr);
-            delete pr;
-
-            if (sr) {
-                // Some libraries must produce newlines/tabs, skip them in comparison.
-                const char* s = sr->c_str();
-                result = true;
-                for (size_t j = 0; j < json.size(); ++j, ++s) {
-                    while (*s == '\n' || *s == '\t')
-                        ++s;
-                    if (json.data()[j] != *s) {
-                        result = false;
-                        break;
+                if (sr) {
+                    // Some libraries must produce newlines/tabs, skip them in comparison.
+                    const char* s = sr->c_str();
+                    result = true;
+                    for (size_t j = 0; j < json.size(); ++j, ++s) {
+                        while (*s == '\n' || *s == '\t')
+                            ++s;
+                        if (json.data()[j] != *s) {
+                            result = false;
+                            break;
+                        }
                     }
+                    // if (!result)
+                    //     printf("Expect: %s\nActual: %s\n\n", json, sr->c_str());
+                    if (!result) {
+                        if (md)
+                            fprintf(md, "* Fail:\n~~~js\n%s\n~~~\n\n~~~js\n%s\n~~~\n\n", json.data(), sr ? sr->c_str() : "N/A");\
+                    } else {
+                        parseValidationCorrect++;
+                    }
+                    parseValidationTotal++;
+                    delete sr;
+                } else {
+                    terminate = true; // This library does not support stringify, terminate this test
                 }
-
-                // printf("roundtrip%02d: %s\n", i, result ? "true" : "false");
-
-                // if (!result)
-                //     printf("Expect: %s\nActual: %s\n\n", json, sr->c_str());
-            if (!result) {
-                if (md)
-                    fprintf(md, "* Fail:\n~~~js\n%s\n~~~\n\n~~~js\n%s\n~~~\n\n", json.data(), sr ? sr->c_str() : "N/A");\
             }
-            else
-                parseValidationCorrect++;
-            parseValidationTotal++;
 
-                delete sr;
-            }
-            else
-                terminate = true; // This library does not support stringify, terminate this test
+            test.TearDown();
+            json.freedata();
+            if (terminate)
+                break;
+            auto const& n = it->path().filename().stem().string();
+            fprintf(fp, "4. Roundtrip,%s,%s,%s\n", test.GetName(), n.data(), result ? "true" : "false");
         }
-
-        test.TearDown();
-
-        json.freedata();
-        if (terminate)
-            break;
-        auto const& n = it->path().filename().stem().string();
-        fprintf(fp, "4. Roundtrip,%s,%s,%s\n", test.GetName(), n.data(), result ? "true" : "false");
         MEMORYSTAT_CHECKMEMORYLEAK(test.GetName(),"roundtrip");
     }
     if (md)
