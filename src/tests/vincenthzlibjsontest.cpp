@@ -168,19 +168,19 @@ typedef int (*json_print_function)(json_printer *, int, const char *, uint32_t);
 static void tree_print(json_printer* printer, json_print_function print_func, const json_val_t * v) {
     switch (v->type) {
     case JSON_OBJECT_BEGIN:
-        json_print_raw(printer, JSON_OBJECT_BEGIN, NULL, NULL);
+        json_print_raw(printer, JSON_OBJECT_BEGIN, nullptr, 0);
         for (int i = 0; i < v->length; i++) {
             json_print_raw(printer, JSON_KEY, v->u.object[i]->key, v->u.object[i]->key_length);
             tree_print(printer, print_func, v->u.object[i]->val);
         }
-        json_print_raw(printer, JSON_OBJECT_END, NULL, NULL);
+        json_print_raw(printer, JSON_OBJECT_END, nullptr, 0);
         break;
 
     case JSON_ARRAY_BEGIN:
-        json_print_raw(printer, JSON_ARRAY_BEGIN, NULL, NULL);
+        json_print_raw(printer, JSON_ARRAY_BEGIN, nullptr, 0);
         for (int i = 0; i < v->length; i++)
             tree_print(printer, print_func, v->u.array[i]);
-        json_print_raw(printer, JSON_ARRAY_END, NULL, NULL);
+        json_print_raw(printer, JSON_ARRAY_END, nullptr, 0);
         break;
 
     case JSON_STRING:
@@ -192,7 +192,7 @@ static void tree_print(json_printer* printer, json_print_function print_func, co
             char buffer[32];
             int length = sprintf(buffer, "%lld", v->u.int_val);
             json_print_raw(printer, JSON_INT, buffer, (uint32_t)length);
-        }        
+        }
         break;
 
     case JSON_FLOAT:
@@ -200,7 +200,7 @@ static void tree_print(json_printer* printer, json_print_function print_func, co
             char buffer[32];
             int length = sprintf(buffer, "%.17g", v->u.float_val);
             json_print_raw(printer, JSON_FLOAT, buffer, (uint32_t)length);
-        }        
+        }
         break;
 
     case JSON_TRUE:
@@ -510,7 +510,7 @@ public:
     {
         VinenthzParseResult* pr = static_cast<VinenthzParseResult*>(Parse(json, length));
         bool ret = false;
-        if (pr && 
+        if (pr &&
             pr->root->type == JSON_ARRAY_BEGIN &&
             pr->root->length == 1)
         {
@@ -531,13 +531,13 @@ public:
     {
         VinenthzParseResult* pr = static_cast<VinenthzParseResult*>(Parse(json, length));
         bool ret = false;
-        if (pr && 
+        if (pr &&
             pr->root->type == JSON_ARRAY_BEGIN &&
             pr->root->length == 1 &&
             pr->root->u.array[0]->type == JSON_STRING)
         {
             s = std::string(
-                pr->root->u.array[0]->u.str_val, 
+                pr->root->u.array[0]->u.str_val,
                 pr->root->u.array[0]->length);
             ret = true;
         }

@@ -1,7 +1,8 @@
 #include "../test.h"
-#include "../memorystat_c.h"
 
 extern "C" {
+#include "../memorystat_c.h"
+#include "ccan/ccan/json/json.c"
 #include "ccan/ccan/json/json.h"
 }
 
@@ -9,7 +10,7 @@ static void GenStat(Stat* s, const JsonNode* v) {
     switch (v->tag) {
     case JSON_OBJECT:
         {
-            JsonNode* child;
+            JsonNode* child = nullptr;
             json_foreach(child, v) {
                 GenStat(s, child);
                 s->stringCount++;
@@ -22,7 +23,7 @@ static void GenStat(Stat* s, const JsonNode* v) {
 
     case JSON_ARRAY:
         {
-            JsonNode* child;
+            JsonNode* child = nullptr;
             json_foreach(child, v) {
                 GenStat(s, child);
                 s->elementCount++;
@@ -37,7 +38,7 @@ static void GenStat(Stat* s, const JsonNode* v) {
         break;
 
     case JSON_NUMBER:
-        s->numberCount++; 
+        s->numberCount++;
         break;
 
     case JSON_BOOL:
@@ -77,7 +78,7 @@ public:
     virtual const char* GetName() const override { return "ccan json (C)"; }
     virtual const char* GetFilename() const override { return __FILE__; }
 #endif
-	
+
 #if TEST_PARSE
     virtual ParseResultBase* Parse(const char* json, size_t length) const override
     {
@@ -88,7 +89,7 @@ public:
             delete pr;
             return 0;
         }
-    	return pr;
+        return pr;
     }
 #endif
 
@@ -123,7 +124,7 @@ public:
 #endif
 
 #if TEST_CONFORMANCE
-    virtual bool ParseDouble(const char* json, size_t length, double* d) const override
+    virtual bool ParseDouble(const char* json, size_t /*length */, double* d) const override
     {
         CcanParseResult pr;
         pr.root = json_decode(json);
@@ -135,7 +136,7 @@ public:
             return false;
     }
 
-    virtual bool ParseString(const char* json, size_t length, std::string& s) const override
+    virtual bool ParseString(const char* json, size_t /* length */, std::string& s) const override
     {
         CcanParseResult pr;
         pr.root = json_decode(json);
