@@ -106,23 +106,23 @@ static void PrintStat(const Stat& stat) {
     printf("stringLength: %10u\n", (unsigned)stat.stringLength);
 }
 
-#if USE_MEMORYSTAT
-static void PrintMemoryStat() {
-    const MemoryStat& stat = Memory::Instance().GetStat();
-    printf(
-        "Memory stats:\n"
-        " mallocCount = %u\n"
-        "reallocCount = %u\n"
-        "   freeCount = %u\n"
-        " currentSize = %u\n"
-        "    peakSize = %u\n",
-        (unsigned)stat.mallocCount,
-        (unsigned)stat.reallocCount,
-        (unsigned)stat.freeCount,
-        (unsigned)stat.currentSize,
-        (unsigned)stat.peakSize);
-}
-#endif
+//#if USE_MEMORYSTAT
+//static void PrintMemoryStat() {
+//    const MemoryStat& stat = Memory::Instance().GetStat();
+//    printf(
+//        "Memory stats:\n"
+//        " mallocCount = %u\n"
+//        "reallocCount = %u\n"
+//        "   freeCount = %u\n"
+//        " currentSize = %u\n"
+//        "    peakSize = %u\n",
+//        (unsigned)stat.mallocCount,
+//        (unsigned)stat.reallocCount,
+//        (unsigned)stat.freeCount,
+//        (unsigned)stat.currentSize,
+//        (unsigned)stat.peakSize);
+//}
+//#endif
 
 
 static void makeValidFilename(char *filename) {
@@ -206,18 +206,22 @@ static void FreeFiles(TestJsonList& testJsons) {
 #if USE_MEMORYSTAT
 void CheckMemoryLeak(const char *test, const char *place) {
     const MemoryStat& stat = Memory::Instance().GetStat();
-    if (stat.currentSize != 0) {
-        printf("\nWarning: potential memory leak (%d allocations for %d bytes): %s in %s\n",
-            (int)stat.mallocCount + (int)stat.reallocCount - (int)stat.freeCount,
-            (int)stat.currentSize,
-            test,
-            place
-        );
+    ReportBase::get_instance().print_memory_leaks(stat, test, place );
 
-        PrintMemoryStat();
-        printf("\n");
-    }
+//    if (stat.currentSize != 0) {
+//        printf("\nWarning: potential memory leak (%d allocations for %d bytes): %s in %s\n",
+//            (int)stat.mallocCount + (int)stat.reallocCount - (int)stat.freeCount,
+//            (int)stat.currentSize,
+//            test,
+//            place
+//        );
+
+//        PrintMemoryStat();
+//        printf("\n");
+//    }
 }
+
+
 #define MEMORYSTAT_CHECKMEMORYLEAK(t,p) CheckMemoryLeak(t,p)
 #else
 #define MEMORYSTAT_CHECKMEMORYLEAK(t,p)
@@ -1209,7 +1213,7 @@ int main(int argc, char* argv[]) {
     bool doConformance = true;
     bool doAborts = false;
     bool printHelp = true;
-    auto reports = ReportBase::get_instance();
+    auto& reports = ReportBase::get_instance();
 
     const TestBase * test_abort=nullptr;
     if (argc == 2) {
@@ -1250,7 +1254,6 @@ int main(int argc, char* argv[]) {
     }
     //exit(0);
 
-    MEMORYSTAT_SCOPE();
     {
         // sort tests
         TestList& tests = TestManager::Instance().GetTests();
@@ -1282,7 +1285,6 @@ int main(int argc, char* argv[]) {
         TestJsonList testJsons;
         ReadFiles(testJsons);
 
-
         if (doVerify)
             VerifyAll(testJsons);
 
@@ -1297,5 +1299,4 @@ int main(int argc, char* argv[]) {
         printf("\n");
         FreeFiles(testJsons);
     }
-    MEMORYSTAT_CHECKMEMORYLEAK("xxx","end");
 }
