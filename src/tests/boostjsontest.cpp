@@ -12,15 +12,18 @@ static void GenStat(Stat& stat, const json::value& v)
 {
     switch (v.kind()) {
     case json::kind::array:
-        for (auto& element : v.as_array() )
+        for (auto& element : v.as_array() ) {
             GenStat(stat, element);
+        }
         stat.arrayCount++;
         stat.elementCount += v.as_array().size();
         break;
 
     case json::kind::object:
-        for (auto& element : v.as_object() )
+        for (auto& element : v.as_object() ) {
             GenStat(stat, element.value());
+            stat.stringLength += element.key().size();
+        }
         stat.objectCount++;
         stat.memberCount += v.as_object().size();
         break;
@@ -84,7 +87,7 @@ public:
             return 0;
         }
         pr->root = p.release();
-    	return pr;
+        return pr;
     }
 #endif
 

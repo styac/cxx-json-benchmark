@@ -10,19 +10,24 @@ static void GenStat(Stat* s, const yyjson_val* obj)
 {
     switch (yyjson_get_type(const_cast<yyjson_val*>(obj))) {
     case YYJSON_TYPE_OBJ: {
-        size_t idx, max;
-        yyjson_val *key, *val;
+        size_t idx=0;
+        size_t max=0;
+        yyjson_val *key=nullptr;
+        yyjson_val *val=nullptr;
         yyjson_obj_foreach(const_cast<yyjson_val*>(obj), idx, max, key, val) {
             GenStat(s, const_cast<yyjson_val*>(val));
+            s->stringLength += yyjson_arr_size(const_cast<yyjson_val*>(key));
         }
-        s->elementCount += yyjson_obj_size(const_cast<yyjson_val*>(obj));
+        s->memberCount += yyjson_obj_size(const_cast<yyjson_val*>(obj));
+        s->stringLength += yyjson_get_len(const_cast<yyjson_val*>(obj));
         ++s->objectCount;
     }
     break;
 
     case YYJSON_TYPE_ARR: {
-        yyjson_val *val;
-        size_t idx, max;
+        size_t idx=0;
+        size_t max=0;
+        yyjson_val *val=nullptr;
         yyjson_arr_foreach(const_cast<yyjson_val*>(obj), idx, max, val) {
             GenStat(s, val);
         }
@@ -37,7 +42,7 @@ static void GenStat(Stat* s, const yyjson_val* obj)
     break;
 
     case YYJSON_TYPE_NUM:
-        ++s->numberCount; 
+        ++s->numberCount;
     break;
 
     case YYJSON_TYPE_BOOL:
@@ -48,7 +53,7 @@ static void GenStat(Stat* s, const yyjson_val* obj)
     case YYJSON_TYPE_NONE:
         ++s->nullCount;
     break;
-    
+
     default:
         assert(false);
     }
@@ -81,7 +86,7 @@ public:
     virtual const char* GetName() const override { return "yyjson (C)"; }
     virtual const char* GetFilename() const override { return __FILE__; }
 #endif
-	
+
 #if TEST_PARSE
     virtual ParseResultBase* Parse(const char* json, size_t length) const override
     {
@@ -92,7 +97,7 @@ public:
             delete pr;
             return nullptr;
         }
-    	return pr;
+        return pr;
     }
 #endif
 

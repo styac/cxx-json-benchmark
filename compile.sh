@@ -9,7 +9,7 @@ if [ "x${c_compiler_name}" = "x" ]
 then
     c_compiler_name="gcc"
     cc_compiler_name="g++"
-elif [ "${compiler_name}" = "gcc" ]
+elif [ "${c_compiler_name}" = "gcc" ]
 then
     cc_compiler_name="g++"
 fi
@@ -17,7 +17,7 @@ fi
 thd_build=${thd}_build_${c_compiler_name}
 mkdir ${thd_build}
 
-echo "C compiler: " c_compiler_name "C++ compiler: " ${cc_compiler_name} " build directory: " ${thd_build}
+echo "C compiler: " ${c_compiler_name} "C++ compiler: " ${cc_compiler_name} " build directory: " ${thd_build}
 
 if [ -d $thd_build ]
 then

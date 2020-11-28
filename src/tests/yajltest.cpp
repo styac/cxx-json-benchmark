@@ -2,7 +2,7 @@
 
 extern "C" {
 #include "yajl/src/api/yajl_common.h"
-#undef YAJL_MAX_DEPTH 
+#undef YAJL_MAX_DEPTH
 #define YAJL_MAX_DEPTH 1024
 #include "yajl/src/api/yajl_gen.h"
 #include "yajl/src/api/yajl_parse.h"
@@ -13,7 +13,7 @@ yajl_gen_status GenVal(yajl_gen g, yajl_val v) {
     switch (v->type) {
     case yajl_t_string: return yajl_gen_string(g, (unsigned char*)v->u.string, strlen(v->u.string));
 
-    case yajl_t_number: 
+    case yajl_t_number:
         {
             char buffer[100];
             char *num = buffer;
@@ -33,7 +33,7 @@ yajl_gen_status GenVal(yajl_gen g, yajl_val v) {
         status = yajl_gen_map_open(g);
         if (status != yajl_gen_status_ok)
             return status;
-        
+
         for (size_t i = 0; i < v->u.object.len; i++) {
             status = yajl_gen_string(g, (unsigned char *)v->u.object.keys[i], strlen(v->u.object.keys[i]));
             if (status != yajl_gen_status_ok)
@@ -48,7 +48,7 @@ yajl_gen_status GenVal(yajl_gen g, yajl_val v) {
         status = yajl_gen_array_open(g);
         if (status != yajl_gen_status_ok)
             return status;
-        
+
         for (size_t i = 0; i < v->u.array.len; i++) {
             status = GenVal(g, v->u.array.values[i]);
             if (status != yajl_gen_status_ok)
@@ -67,9 +67,14 @@ yajl_gen_status GenVal(yajl_gen g, yajl_val v) {
 
 static void GenStat(Stat* s, yajl_val v) {
     switch (v->type) {
-    case yajl_t_string: s->stringCount++;  s->stringLength += strlen(v->u.string); break;
-    case yajl_t_number: s->numberCount++;  break;
-    case yajl_t_object: 
+    case yajl_t_string:
+        s->stringCount++;
+        s->stringLength += strlen(v->u.string);
+        break;
+    case yajl_t_number:
+        s->numberCount++;
+        break;
+    case yajl_t_object:
         for (size_t i = 0; i < v->u.object.len; i++) {
             s->stringCount++;
             s->stringLength += strlen(v->u.object.keys[i]);
@@ -86,9 +91,12 @@ static void GenStat(Stat* s, yajl_val v) {
         s->elementCount += v->u.array.len;
         break;
 
-    case yajl_t_true: s->trueCount++; break;
-    case yajl_t_false: s->falseCount++; break;
-    case yajl_t_null: s->nullCount++; break;
+    case yajl_t_true: s->trueCount++;
+        break;
+    case yajl_t_false: s->falseCount++;
+        break;
+    case yajl_t_null: s->nullCount++;
+        break;
     default:;
     }
 }
@@ -222,7 +230,7 @@ static int stat_string(void * ctx, const unsigned char * stringVal, size_t strin
 
 static int stat_map_key(void * ctx, const unsigned char * stringVal, size_t stringLen) {
     (void)stringVal;
-    StatContext* c = (StatContext*)ctx; 
+    StatContext* c = (StatContext*)ctx;
     Stat* stat = c->stat;
     stat->memberCount++;
     stat->stringCount++;
@@ -310,7 +318,7 @@ public:
             delete pr;
             return 0;
         }
-    	return pr;
+        return pr;
     }
 #endif
 
@@ -369,7 +377,7 @@ public:
         YajlStringResult* sr = new YajlStringResult;
         sr->g = yajl_gen_alloc(NULL);
         yajl_handle hand = yajl_alloc(&callbacks, NULL, (void *)sr->g);
-        if (yajl_parse(hand, (const unsigned char*)json, length) != yajl_status_ok || 
+        if (yajl_parse(hand, (const unsigned char*)json, length) != yajl_status_ok ||
             yajl_complete_parse(hand) != yajl_status_ok) {
             delete sr;
             sr = 0;
@@ -407,8 +415,8 @@ public:
     virtual bool ParseDouble(const char* json, size_t length, double* d) const override {
         YajlParseResult pr;
         pr.root = yajl_tree_parse(json, NULL, 0);
-        if (YAJL_IS_ARRAY(pr.root) && 
-            YAJL_GET_ARRAY(pr.root)->len == 1 && 
+        if (YAJL_IS_ARRAY(pr.root) &&
+            YAJL_GET_ARRAY(pr.root)->len == 1 &&
             YAJL_IS_DOUBLE(YAJL_GET_ARRAY(pr.root)->values[0]))
         {
             *d = YAJL_GET_DOUBLE(YAJL_GET_ARRAY(pr.root)->values[0]);
@@ -422,8 +430,8 @@ public:
     {
         YajlParseResult pr;
         pr.root = yajl_tree_parse(json, NULL, 0);
-        if (YAJL_IS_ARRAY(pr.root) && 
-            YAJL_GET_ARRAY(pr.root)->len == 1 && 
+        if (YAJL_IS_ARRAY(pr.root) &&
+            YAJL_GET_ARRAY(pr.root)->len == 1 &&
             YAJL_IS_STRING(YAJL_GET_ARRAY(pr.root)->values[0]))
         {
             s = YAJL_GET_STRING(YAJL_GET_ARRAY(pr.root)->values[0]);

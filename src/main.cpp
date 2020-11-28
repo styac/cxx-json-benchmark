@@ -82,13 +82,13 @@ struct TestJson {
         : m_filename()
         , m_json()
         , m_stat()
-        , statUTF16()
+        , m_statUTF16()
     {}
 
     std::string m_filename;
     str m_json;
     Stat m_stat;           // Reference statistics
-    Stat statUTF16;      // Reference statistics
+    Stat m_statUTF16;      // Reference statistics
 };
 
 typedef std::vector<TestJson> TestJsonList;
@@ -105,25 +105,6 @@ static void PrintStat(const Stat& stat) {
     printf("elementCount: %10u\n", (unsigned)stat.elementCount);
     printf("stringLength: %10u\n", (unsigned)stat.stringLength);
 }
-
-//#if USE_MEMORYSTAT
-//static void PrintMemoryStat() {
-//    const MemoryStat& stat = Memory::Instance().GetStat();
-//    printf(
-//        "Memory stats:\n"
-//        " mallocCount = %u\n"
-//        "reallocCount = %u\n"
-//        "   freeCount = %u\n"
-//        " currentSize = %u\n"
-//        "    peakSize = %u\n",
-//        (unsigned)stat.mallocCount,
-//        (unsigned)stat.reallocCount,
-//        (unsigned)stat.freeCount,
-//        (unsigned)stat.currentSize,
-//        (unsigned)stat.peakSize);
-//}
-//#endif
-
 
 static void makeValidFilename(char *filename) {
     while (*filename) {
@@ -183,12 +164,9 @@ static bool ReadFiles(TestJsonList& testJsons) {
 #endif
 
 #if TEST_SAXSTATISTICSUTF16
-            if (!referenceTest->SaxStatisticsUTF16(t.json, t.length, &t.statUTF16))
+            if (!referenceTest->SaxStatisticsUTF16(t.json, t.length, &t.m_statUTF16))
                 printf("Failed to generate reference UTF16 statistics\n");
 #endif
-            printf("Read '%s' (%u bytes)\n", t.m_filename.data(), (unsigned)t.m_json.size());
-            PrintStat(t.m_stat);
-            printf("\n");
             testJsons.push_back(t);
         }
     }
@@ -204,25 +182,7 @@ static void FreeFiles(TestJsonList& testJsons) {
 
 // Normally use this at the end of MEMORYSTAT_SCOPE()
 #if USE_MEMORYSTAT
-void CheckMemoryLeak(const char *test, const char *place) {
-    const MemoryStat& stat = Memory::Instance().GetStat();
-    ReportBase::get_instance().print_memory_leaks(stat, test, place );
-
-//    if (stat.currentSize != 0) {
-//        printf("\nWarning: potential memory leak (%d allocations for %d bytes): %s in %s\n",
-//            (int)stat.mallocCount + (int)stat.reallocCount - (int)stat.freeCount,
-//            (int)stat.currentSize,
-//            test,
-//            place
-//        );
-
-//        PrintMemoryStat();
-//        printf("\n");
-//    }
-}
-
-
-#define MEMORYSTAT_CHECKMEMORYLEAK(t,p) CheckMemoryLeak(t,p)
+#define MEMORYSTAT_CHECKMEMORYLEAK(t,p) ReportBase::get_instance().print_memory_leaks(t, p)
 #else
 #define MEMORYSTAT_CHECKMEMORYLEAK(t,p)
 #endif
@@ -262,15 +222,16 @@ static void Verify(const TestBase& test, const TestJsonList& testJsons) {
         if (!json1) {
             // Some libraries may not support stringify, but still check statistics
             if (memcmp(&stat1, &itr->m_stat, sizeof(Stat)) != 0 &&
-                memcmp(&stat1, &itr->statUTF16, sizeof(Stat)) != 0)
+                memcmp(&stat1, &itr->m_statUTF16, sizeof(Stat)) != 0)
             {
-                printf("\nStatistics of '%s' is different from reference.\n\n", itr->m_filename.data());
-                printf("Reference\n---------\n");
-                PrintStat(itr->m_stat);
-                printf("\nStat 1\n--------\n");
-                PrintStat(stat1);
-                printf("\n");
+//                printf("\nStatistics of '%s' is different from reference.\n\n", itr->m_filename.data());
+//                printf("Reference\n---------\n");
+//                PrintStat(itr->m_stat);
+//                printf("\nStat 1\n--------\n");
+//                PrintStat(stat1);
+//                printf("\n");
                 failed = true;
+                ReportBase::get_instance().print_statistics( "Stringify1-", test.GetName(), itr->m_filename, stat1, itr->m_stat);
             }
             test.TearDown();
             continue;
@@ -303,25 +264,26 @@ static void Verify(const TestBase& test, const TestJsonList& testJsons) {
         Stat* statProblem = 0;
         int statProblemWhich = 0;
         if (memcmp(&stat1, &itr->m_stat,      sizeof(Stat)) != 0 &&
-            memcmp(&stat1, &itr->statUTF16, sizeof(Stat)) != 0)
+            memcmp(&stat1, &itr->m_statUTF16, sizeof(Stat)) != 0)
         {
             statProblem = &stat1;
             statProblemWhich = 1;
         }
         else if (memcmp(&stat2, &itr->m_stat,      sizeof(Stat)) != 0 &&
-                 memcmp(&stat2, &itr->statUTF16, sizeof(Stat)) != 0)
+                 memcmp(&stat2, &itr->m_statUTF16, sizeof(Stat)) != 0)
         {
             statProblem = &stat2;
             statProblemWhich = 2;
         }
 
         if (statProblem != 0) {
-            printf("\nStatistics of '%s' is different from reference.\n\n", itr->m_filename.data());
-            printf("Reference\n---------\n");
-            PrintStat(itr->m_stat);
-            printf("\nStat #%d\n--------\n", statProblemWhich);
-            PrintStat(*statProblem);
-            printf("\n");
+//            printf("\nStatistics of '%s' is different from reference.\n\n", itr->m_filename.data());
+//            printf("Reference\n---------\n");
+//            PrintStat(itr->m_stat);
+//            printf("\nStat #%d\n--------\n", statProblemWhich);
+//            PrintStat(*statProblem);
+//            printf("\n");
+            ReportBase::get_instance().print_statistics( "Stringify2-", test.GetName(), itr->m_filename, *statProblem, itr->m_stat);
 
             // Write out json1 for diagnosis
             char filename[FILENAME_MAX];
@@ -349,14 +311,16 @@ static void Verify(const TestBase& test, const TestJsonList& testJsons) {
         Stat stat1;
         if (test.SaxStatistics(itr->m_json.data(), itr->m_json.size(), &stat1)) {
             if (memcmp(&stat1, &itr->m_stat, sizeof(Stat)) != 0 &&
-                memcmp(&stat1, &itr->statUTF16, sizeof(Stat)) != 0)
+                memcmp(&stat1, &itr->m_statUTF16, sizeof(Stat)) != 0)
             {
-                printf("\nSaxStatistics of '%s' is different from reference.\n\n", itr->m_filename.data());
-                printf("Reference\n---------\n");
-                PrintStat(itr->m_stat);
-                printf("\nStat #%d\n--------\n", 1);
-                PrintStat(stat1);
-                printf("\n");
+//                printf("\nSaxStatistics of '%s' is different from reference.\n\n", itr->m_filename.data());
+//                printf("Reference\n---------\n");
+//                PrintStat(itr->m_stat);
+//                printf("\nStat #%d\n--------\n", 1);
+//                PrintStat(stat1);
+//                printf("\n");
+                ReportBase::get_instance().print_statistics( "SAX-", test.GetName(), itr->m_filename, stat1, itr->m_stat);
+
             }
         }
     }
@@ -369,7 +333,6 @@ static void VerifyAll(const TestJsonList& testJsons) {
     TestList& tests = TestManager::Instance().GetTests();
     for (TestList::iterator itr = tests.begin(); itr != tests.end(); ++itr)
         Verify(**itr, testJsons);
-
     printf("\n");
 }
 
@@ -1243,16 +1206,11 @@ int main(int argc, char* argv[]) {
             printHelp = false;
 
         }
-        std::cout
-                << "'" << argv[2] << "'   '" << argv[3] << "'"
-                << std::endl;
-
     }
 
     if(printHelp) {
         info();
     }
-    //exit(0);
 
     {
         // sort tests

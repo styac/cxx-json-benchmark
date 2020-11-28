@@ -8,6 +8,9 @@
 #include <filesystem>
 #include <fstream>
 
+#include <fmt/format.h>
+#include <fmt/os.h>
+
 typedef std::vector<std::string_view> sviewvec;
 
 class ReportBase {
@@ -27,9 +30,9 @@ public:
 
     void print_test_names(sviewvec& test_vec);
 
-    void print_memory_leaks(const MemoryStat& stat, const char *test, const char *place);
+    void print_memory_leaks( const char *test, const char *place );
 
-    void print_conformance_statistics();
+    void print_statistics( std::string_view test_case, std::string_view test, const std::string &file, const Stat& stat, const Stat& stat_reference );
     void print_performance_statistics();
     void print_conformance_case();
 
@@ -41,4 +44,5 @@ private:
     explicit ReportBase( std::string_view dir );
     std::string     m_dir;
     std::ofstream   m_memleaks;
+    std::ofstream   m_statistics;
 };

@@ -9,7 +9,8 @@
 
 static void GenStat(Stat& stat, const QJsonValue& v);
 
-static void GenStat(Stat& stat, const QJsonObject& o) {
+static void GenStat(Stat& stat, const QJsonObject& o)
+{
     for (QJsonObject::const_iterator itr = o.begin(); itr != o.end(); ++itr) {
         GenStat(stat, itr.value());
         stat.stringLength += itr.key().size();
@@ -19,7 +20,8 @@ static void GenStat(Stat& stat, const QJsonObject& o) {
     stat.objectCount++;
 }
 
-static void GenStat(Stat& stat, const QJsonArray& a) {
+static void GenStat(Stat& stat, const QJsonArray& a)
+{
     for (QJsonArray::const_iterator itr = a.begin(); itr != a.end(); ++itr) {
         GenStat(stat, *itr);
         stat.elementCount++;
@@ -27,7 +29,8 @@ static void GenStat(Stat& stat, const QJsonArray& a) {
     stat.arrayCount++;
 }
 
-static void GenStat(Stat& stat, const QJsonValue& v) {
+static void GenStat(Stat& stat, const QJsonValue& v)
+{
     switch (v.type()) {
     case QJsonValue::Object:
         GenStat(stat, v.toObject());
@@ -62,53 +65,6 @@ static void GenStat(Stat& stat, const QJsonValue& v) {
     }
 }
 
-// static void GenStat(Stat& stat, const dynamic& v) {
-//     switch (v.type()) {
-//     case dynamic::ARRAY:
-//         {
-//             for (auto &i : v)
-//                 GenStat(stat, i);
-//             stat.arrayCount++;
-//             stat.elementCount += v.size();
-//         }
-//         break;
-
-//     case dynamic::OBJECT:
-//         {
-//             auto p = v.items();
-//             for (auto& i : p) {
-//                 GenStat(stat, i.second);
-//                 stat.stringLength += i.first.size();
-//             }
-//             stat.objectCount++;
-//             stat.memberCount += v.size();
-//             stat.stringCount += v.size();
-//         }
-//         break;
-
-//     case dynamic::STRING: 
-//         stat.stringCount++;
-//         stat.stringLength += v.size();
-//         break;
-
-//     case dynamic::INT64:
-//     case dynamic::DOUBLE:
-//         stat.numberCount++;
-//         break;
-
-//     case dynamic::BOOL:
-//         if (v.getBool())
-//             stat.trueCount++;
-//         else
-//             stat.falseCount++;
-//         break;
-
-//     case dynamic::NULLT:
-//         stat.nullCount++;
-//         break;
-//     }
-// }
-
 class QtParseResult : public ParseResultBase {
 public:
     QJsonDocument d;
@@ -129,7 +85,8 @@ public:
 #endif
 
 #if TEST_PARSE
-    virtual ParseResultBase* Parse(const char* json, size_t length) const override {
+    virtual ParseResultBase* Parse(const char* json, size_t length) const override
+    {
         QtParseResult* pr = new QtParseResult;
         QJsonParseError error;
         pr->d = QJsonDocument::fromJson(QByteArray(json, length), &error);
@@ -138,7 +95,7 @@ public:
             return 0;
         }
         else
-    	   return pr;
+           return pr;
     }
 #endif
 
