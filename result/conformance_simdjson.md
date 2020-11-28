@@ -59,7 +59,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
-@´d
+p`+
 ~~~
 
 * Fail:
@@ -68,7 +68,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
-@´d
+p`+
 ~~~
 
 * Fail:
@@ -77,7 +77,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
-€Þ¦
+à³+
 ~~~
 
 * Fail:
@@ -86,7 +86,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
-@´d
+p`+
 ~~~
 
 * Fail:
@@ -95,7 +95,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
-€Þ¦
+à³+
 ~~~
 
 * Fail:
@@ -104,7 +104,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
-@´d
+p`+
 ~~~
 
 * Fail:
@@ -122,7 +122,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
-@´d
+p`+
 ~~~
 
 * Fail:
@@ -131,7 +131,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
-€Þ¦
+à³+
 ~~~
 
 

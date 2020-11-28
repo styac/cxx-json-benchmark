@@ -1,7 +1,9 @@
 #include "../test.h"
 #include "../cjsonlibs/vincenthz_libjson_renaming.h"
+#include "../memorystat_c.h"
 #include "vincenthz-libjson/json.h"
 #include <stdio.h>
+
 
 #ifdef _MSC_VER
 #define strtoll _strtoi64

@@ -33,16 +33,17 @@ public:
     void print_memory_leaks( const char *test, const char *place );
 
     void print_statistics( std::string_view test_case, std::string_view test, const std::string &file, const Stat& stat, const Stat& stat_reference );
-    void print_performance_statistics();
-    void print_conformance_case();
 
-    void add_conformance_statistics();
-    void add_performance_statistics();
-    void add_conformance_case();
+    void add_performance_statistics(std::string_view test, std::string_view test_case, std::string_view filename, double duration,
+                                    uint64_t currentSize, uint64_t peakSize, uint64_t mallocCount );
+
+    void add_conformance_statistics(std::string_view test, std::string_view test_case, std::string_view filename, bool result);
+
 
 private:
     explicit ReportBase( std::string_view dir );
     std::string     m_dir;
     std::ofstream   m_memleaks;
-    std::ofstream   m_statistics;
+    std::ofstream   m_performance;
+    std::ofstream   m_conformance;
 };

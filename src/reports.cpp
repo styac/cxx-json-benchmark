@@ -1,19 +1,27 @@
 
 #include "reports.h"
+#include "resultfilename.h"
 
 ReportBase::ReportBase( std::string_view dir )
     : m_dir(dir)
     , m_memleaks()
-    , m_statistics()
+    , m_performance()
+    , m_conformance()
+
 {
     std::filesystem::path p(dir);
     m_memleaks.open( p / "memory_leaks.md" );
-    m_statistics.open( p / "statistics.md" );
+    m_performance.open( p / "performance_" RESULT_FILENAME );
+    m_performance << fmt::format("Type,Library,Filename,Time (ms),Memory (byte),MemoryPeak (byte),AllocCount,FileSize (byte)\n");
+    m_conformance.open( p / "conformance.csv" );
+    m_conformance << fmt::format("Type,Library,Test,Result\n");
 }
 
 ReportBase::~ReportBase()
 {
     m_memleaks.close();
+    m_performance.close();
+    m_conformance.close();
 }
 
 void ReportBase::print_test_names(sviewvec& test_vec)
@@ -34,20 +42,26 @@ void ReportBase::print_memory_leaks( const char *test, const char *place)
     const MemoryStat& stat = Memory::Instance().GetStat();
     if (stat.currentSize != 0) {
         int64_t alloc_count = (int64_t)stat.mallocCount + stat.reallocCount - stat.freeCount;
-        m_memleaks
-                << "\n## pofilenametential memory leak allocation count " << alloc_count
-                << " for " << stat.currentSize
-                << " in test " << test
-                << " / " << place
-                << "\n    mallocCount  " << stat.mallocCount
-                << "\n    reallocCount " << stat.reallocCount
-                << "\n    freeCount    " << stat.freeCount
-                << "\n    currentSize  " << stat.currentSize
-                << "\n    peakSize     " << stat.peakSize
-                << "\n";
+        m_memleaks <<
+            fmt::format("\n## potential memory leak - allocation count {} "
+                " for {} in test {} / place {}\n"
+                "    mallocCount  {}\n"
+                "    reallocCount {}\n"
+                "    freeCount    {}\n"
+                "    currentSize  {}\n"
+                "    peakSize     {}\n"
+                , alloc_count
+                , stat.currentSize
+                , test
+                , place
+                , stat.mallocCount
+                , stat.reallocCount
+                , stat.freeCount
+                , stat.currentSize
+                , stat.peakSize
+             );
     }
 }
-
 
 void ReportBase::print_statistics( std::string_view test_case, std::string_view test, const std::string &file, const Stat& stat, const Stat& stat_reference )
 {
@@ -72,4 +86,31 @@ void ReportBase::print_statistics( std::string_view test_case, std::string_view 
     logf.print( "memberCount  {:10}  ref: {:10}\n", stat.memberCount, stat_reference.memberCount );
     logf.print( "elementCount {:10}  ref: {:10}\n", stat.elementCount, stat_reference.elementCount );
     logf.print( "stringLength {:10}  ref: {:10}\n", stat.stringLength, stat_reference.stringLength );
+}
+
+void ReportBase::add_performance_statistics(std::string_view test, std::string_view test_case, std::string_view filename, double duration,
+                                uint64_t currentSize, uint64_t peakSize, uint64_t mallocCount )
+{
+    m_performance <<
+        fmt::format("{},{},{},{:f},{},{},{},0\n"
+            , test
+            , test_case
+            , filename
+            , duration
+            , currentSize
+            , peakSize
+            , mallocCount
+            // object size
+         );
+}
+
+void ReportBase::add_conformance_statistics(std::string_view test, std::string_view test_case, std::string_view filename, bool result)
+{
+    m_conformance <<
+        fmt::format("{},{},{},{}\n"
+            , test
+            , test_case
+            , filename
+            , result
+         );
 }

@@ -93,18 +93,18 @@ struct TestJson {
 
 typedef std::vector<TestJson> TestJsonList;
 
-static void PrintStat(const Stat& stat) {
-    printf("objectCount:  %10u\n", (unsigned)stat.objectCount);
-    printf("arrayCount:   %10u\n", (unsigned)stat.arrayCount);
-    printf("numberCount:  %10u\n", (unsigned)stat.numberCount);
-    printf("stringCount:  %10u\n", (unsigned)stat.stringCount);
-    printf("trueCount:    %10u\n", (unsigned)stat.trueCount);
-    printf("falseCount:   %10u\n", (unsigned)stat.falseCount);
-    printf("nullCount:    %10u\n", (unsigned)stat.nullCount);
-    printf("memberCount:  %10u\n", (unsigned)stat.memberCount);
-    printf("elementCount: %10u\n", (unsigned)stat.elementCount);
-    printf("stringLength: %10u\n", (unsigned)stat.stringLength);
-}
+//static void PrintStat(const Stat& stat) {
+//    printf("objectCount:  %10u\n", (unsigned)stat.objectCount);
+//    printf("arrayCount:   %10u\n", (unsigned)stat.arrayCount);
+//    printf("numberCount:  %10u\n", (unsigned)stat.numberCount);
+//    printf("stringCount:  %10u\n", (unsigned)stat.stringCount);
+//    printf("trueCount:    %10u\n", (unsigned)stat.trueCount);
+//    printf("falseCount:   %10u\n", (unsigned)stat.falseCount);
+//    printf("nullCount:    %10u\n", (unsigned)stat.nullCount);
+//    printf("memberCount:  %10u\n", (unsigned)stat.memberCount);
+//    printf("elementCount: %10u\n", (unsigned)stat.elementCount);
+//    printf("stringLength: %10u\n", (unsigned)stat.stringLength);
+//}
 
 static void makeValidFilename(char *filename) {
     while (*filename) {
@@ -394,10 +394,9 @@ static void BenchParse(const TestBase& test, const TestJsonList& testJsons, FILE
             double throughput = itr->m_json.size() / (1024.0 * 1024.0) / (minDuration * 0.001);
             printf("%6.3f ms  %3.3f MB/s\n", minDuration, throughput);
 
-            fprintf(fp, "1. Parse,%s,%s,%f", test.GetName(), itr->m_filename.data(), minDuration);
-            BENCH_MEMORYSTAT_OUTPUT(fp);
-            fprintf(fp, ",0");  // Code size
-            fputc('\n', fp);
+            ReportBase::get_instance().add_performance_statistics("1. Parse", test.GetName(), itr->m_filename, minDuration,
+                memoryStat.currentSize, memoryStat.peakSize, memoryStat.mallocCount + memoryStat.reallocCount);
+
         }
     }
     MEMORYSTAT_CHECKMEMORYLEAK(test.GetName(),"bench parse");
@@ -453,10 +452,9 @@ static void BenchStringify(const TestBase& test, const TestJsonList& testJsons, 
             double throughput = itr->m_json.size() / (1024.0 * 1024.0) / (minDuration * 0.001);
             printf("%6.3f ms  %3.3f MB/s\n", minDuration, throughput);
 
-            fprintf(fp, "2. Stringify,%s,%s,%f", test.GetName(), itr->m_filename.data(), minDuration);
-            BENCH_MEMORYSTAT_OUTPUT(fp);
-            fprintf(fp, ",0");  // Code size
-            fputc('\n', fp);
+            ReportBase::get_instance().add_performance_statistics("2. Stringify", test.GetName(), itr->m_filename, minDuration,
+                memoryStat.currentSize, memoryStat.peakSize, memoryStat.mallocCount + memoryStat.reallocCount);
+
         }
     }
     MEMORYSTAT_CHECKMEMORYLEAK(test.GetName(),"bench stringify");
@@ -515,6 +513,9 @@ static void BenchPrettify(const TestBase& test, const TestJsonList& testJsons, F
             BENCH_MEMORYSTAT_OUTPUT(fp);
             fprintf(fp, ",0");  // Code size
             fputc('\n', fp);
+            ReportBase::get_instance().add_performance_statistics("3. Prettify", test.GetName(), itr->m_filename, minDuration,
+                memoryStat.currentSize, memoryStat.peakSize, memoryStat.mallocCount + memoryStat.reallocCount);
+
         }
     }
     MEMORYSTAT_CHECKMEMORYLEAK(test.GetName(),"bench prettify");
@@ -566,10 +567,9 @@ static void BenchStatistics(const TestBase& test, const TestJsonList& testJsons,
             double throughput = itr->m_json.size() / (1024.0 * 1024.0) / (minDuration * 0.001);
             printf("%6.3f ms  %3.3f MB/s\n", minDuration, throughput);
 
-            fprintf(fp, "4. Statistics,%s,%s,%f", test.GetName(), itr->m_filename.data(), minDuration);
-            BENCH_MEMORYSTAT_OUTPUT(fp);
-            fprintf(fp, ",0");  // Code size
-            fputc('\n', fp);
+            ReportBase::get_instance().add_performance_statistics("4. Statistics", test.GetName(), itr->m_filename, minDuration,
+                memoryStat.currentSize, memoryStat.peakSize, memoryStat.mallocCount + memoryStat.reallocCount);
+
         }
     }
     MEMORYSTAT_CHECKMEMORYLEAK(test.GetName(),"bench stat");
@@ -623,10 +623,9 @@ static void BenchSaxRoundtrip(const TestBase& test, const TestJsonList& testJson
             double throughput = itr->m_json.size() / (1024.0 * 1024.0) / (minDuration * 0.001);
             printf("%6.3f ms  %3.3f MB/s\n", minDuration, throughput);
 
-            fprintf(fp, "5. Sax Round-trip,%s,%s,%f", test.GetName(), itr->m_filename.data(), minDuration);
-            BENCH_MEMORYSTAT_OUTPUT(fp);
-            fprintf(fp, ",0");  // Code size
-            fputc('\n', fp);
+            ReportBase::get_instance().add_performance_statistics("5. Sax Round-trip", test.GetName(), itr->m_filename, minDuration,
+                memoryStat.currentSize, memoryStat.peakSize, memoryStat.mallocCount + memoryStat.reallocCount);
+
         }
     }
     MEMORYSTAT_CHECKMEMORYLEAK(test.GetName(),"bench sax roundtrip");
@@ -677,10 +676,9 @@ static void BenchSaxStatistics(const TestBase& test, const TestJsonList& testJso
             double throughput = itr->m_json.size() / (1024.0 * 1024.0) / (minDuration * 0.001);
             printf("%6.3f ms  %3.3f MB/s\n", minDuration, throughput);
 
-            fprintf(fp, "6. SaxStatistics,%s,%s,%f", test.GetName(), itr->m_filename.data(), minDuration);
-            BENCH_MEMORYSTAT_OUTPUT(fp);
-            fprintf(fp, ",0");  // Code size
-            fputc('\n', fp);
+            ReportBase::get_instance().add_performance_statistics("6. SaxStatistics", test.GetName(), itr->m_filename, minDuration,
+                memoryStat.currentSize, memoryStat.peakSize, memoryStat.mallocCount + memoryStat.reallocCount);
+
         }
     }
     MEMORYSTAT_CHECKMEMORYLEAK(test.GetName(),"bench sax stat");
@@ -759,7 +757,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
             bool result = pr != 0;
             delete pr;
             auto const& n = it->path().filename().stem().string();
-            fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), n.data(), result ? "true" : "false");
+            ReportBase::get_instance().add_conformance_statistics("1. Parse Validation", test.GetName(), n, result);
             test.TearDown();
             if (!result) {
                 if (md)
@@ -787,7 +785,8 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
             bool result = pr == 0;
             delete pr;
             const auto& n = it->path().filename().stem().string();
-            fprintf(fp, "1. Parse Validation,%s,%s,%s\n", test.GetName(), n.data(), result ? "true" : "false");
+            ReportBase::get_instance().add_conformance_statistics("1. Parse Validation", test.GetName(), n, result);
+
             test.TearDown();
             if (!result) {
                 if (md)
@@ -845,8 +844,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
     // Parse Double
     {
         using rapidjson::internal::Double;
-        int i = 1;
-        #define TEST_DOUBLE(json, expect)\
+        #define TEST_DOUBLE(tname,json,expect)\
         {\
             bool result = false;\
             double actual = 0.0;\
@@ -861,98 +859,94 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
             else\
                 parseValidationCorrect++;\
             parseValidationTotal++;\
-            /*printf("double%02d: %s\n", i, result ? "true" : "false");*/\
-            /*if (!result)*/\
-            /*    printf("JSON: %s\nExpect: %17g\nActual: %17g\n\n", json, expect, actual);*/\
-            fprintf(fp, "2. Parse Double,%s,double%02d,%s\n", test.GetName(), i, result ? "true" : "false");\
+            ReportBase::get_instance().add_conformance_statistics("2. Parse Double", test.GetName(), tname, result);\
             test.TearDown();\
-            i++;\
         }
-        TEST_DOUBLE("[0.0]", 0.0);
-        TEST_DOUBLE("[-0.0]", -0.0);
-        TEST_DOUBLE("[1.0]", 1.0);
-        TEST_DOUBLE("[-1.0]", -1.0);
-        TEST_DOUBLE("[1.5]", 1.5);
-        TEST_DOUBLE("[-1.5]", -1.5);
-        TEST_DOUBLE("[3.1416]", 3.1416);
-        TEST_DOUBLE("[1E10]", 1E10);
-        TEST_DOUBLE("[1e10]", 1e10);
-        TEST_DOUBLE("[1E+10]", 1E+10);
-        TEST_DOUBLE("[1E-10]", 1E-10);
-        TEST_DOUBLE("[-1E10]", -1E10);
-        TEST_DOUBLE("[-1e10]", -1e10);
-        TEST_DOUBLE("[-1E+10]", -1E+10);
-        TEST_DOUBLE("[-1E-10]", -1E-10);
-        TEST_DOUBLE("[1.234E+10]", 1.234E+10);
-        TEST_DOUBLE("[1.234E-10]", 1.234E-10);
-        TEST_DOUBLE("[1.79769e+308]", 1.79769e+308);
-        TEST_DOUBLE("[2.22507e-308]", 2.22507e-308);
-        TEST_DOUBLE("[-1.79769e+308]", -1.79769e+308);
-        TEST_DOUBLE("[-2.22507e-308]", -2.22507e-308);
-        TEST_DOUBLE("[4.9406564584124654e-324]", 4.9406564584124654e-324); // minimum denormal
-        TEST_DOUBLE("[2.2250738585072009e-308]", 2.2250738585072009e-308); // Max subnormal double
-        TEST_DOUBLE("[2.2250738585072014e-308]", 2.2250738585072014e-308); // Min normal positive double
-        TEST_DOUBLE("[1.7976931348623157e+308]", 1.7976931348623157e+308); // Max double
-        TEST_DOUBLE("[1e-10000]", 0.0);                                   // must underflow
-        TEST_DOUBLE("[18446744073709551616]", 18446744073709551616.0);    // 2^64 (max of uint64_t + 1, force to use double)
-        TEST_DOUBLE("[-9223372036854775809]", -9223372036854775809.0);    // -2^63 - 1(min of int64_t + 1, force to use double)
-        TEST_DOUBLE("[0.9868011474609375]", 0.9868011474609375);          // https://github.com/miloyip/rapidjson/issues/120
-        TEST_DOUBLE("[123e34]", 123e34);                                  // Fast Path Cases In Disguise
-        TEST_DOUBLE("[45913141877270640000.0]", 45913141877270640000.0);
-        TEST_DOUBLE("[2.2250738585072011e-308]", 2.2250738585072011e-308); // http://www.exploringbinary.com/php-hangs-on-numeric-value-2-2250738585072011e-308/
+        TEST_DOUBLE("0.0","[0.0]", 0.0);
+        TEST_DOUBLE("-0.0","[-0.0]", -0.0);
+        TEST_DOUBLE("1.0","[1.0]", 1.0);
+        TEST_DOUBLE("-1.0","[-1.0]", -1.0);
+        TEST_DOUBLE("1.5","[1.5]", 1.5);
+        TEST_DOUBLE("-1.5","[-1.5]", -1.5);
+        TEST_DOUBLE("3.1416","[3.1416]", 3.1416);
+        TEST_DOUBLE("1E10","[1E10]", 1E10);
+        TEST_DOUBLE("1e10","[1e10]", 1e10);
+        TEST_DOUBLE("1E+10","[1E+10]", 1E+10);
+        TEST_DOUBLE("1E-10","[1E-10]", 1E-10);
+        TEST_DOUBLE("-1E10","[-1E10]", -1E10);
+        TEST_DOUBLE("-1e10","[-1e10]", -1e10);
+        TEST_DOUBLE("-1E+10]","[-1E+10]", -1E+10);
+        TEST_DOUBLE("-1E-10","[-1E-10]", -1E-10);
+        TEST_DOUBLE("1.234E+10","[1.234E+10]", 1.234E+10);
+        TEST_DOUBLE("1.234E-10","[1.234E-10]", 1.234E-10);
+        TEST_DOUBLE("1.79769e+308","[1.79769e+308]", 1.79769e+308);
+        TEST_DOUBLE("2.22507e-308","[2.22507e-308]", 2.22507e-308);
+        TEST_DOUBLE("-1.79769e+308","[-1.79769e+308]", -1.79769e+308);
+        TEST_DOUBLE("-2.22507e-308","[-2.22507e-308]", -2.22507e-308);
+        TEST_DOUBLE("min denormal","[4.9406564584124654e-324]", 4.9406564584124654e-324);   // minimum denormal
+        TEST_DOUBLE("max subnormal","[2.2250738585072009e-308]", 2.2250738585072009e-308);  // Max subnormal double
+        TEST_DOUBLE("min normal","[2.2250738585072014e-308]", 2.2250738585072014e-308);     // Min normal positive double
+        TEST_DOUBLE("max double","[1.7976931348623157e+308]", 1.7976931348623157e+308);     // Max double
+        TEST_DOUBLE("must underflow","[1e-10000]", 0.0);                                    // must underflow
+        TEST_DOUBLE("2^64","[18446744073709551616]", 18446744073709551616.0);               // 2^64 (max of uint64_t + 1, force to use double)
+        TEST_DOUBLE("-2^63-1","[-9223372036854775809]", -9223372036854775809.0);            // -2^63 - 1(min of int64_t + 1, force to use double)
+        TEST_DOUBLE("issues/120","[0.9868011474609375]", 0.9868011474609375);               // https://github.com/miloyip/rapidjson/issues/120
+        TEST_DOUBLE("123e34","[123e34]", 123e34);                                           // Fast Path Cases In Disguise
+        TEST_DOUBLE("45913141877270640000.0","[45913141877270640000.0]", 45913141877270640000.0);
+        TEST_DOUBLE("2.2250738585072011e-308","[2.2250738585072011e-308]", 2.2250738585072011e-308);               // http://www.exploringbinary.com/php-hangs-on-numeric-value-2-2250738585072011e-308/
         //TEST_DOUBLE("[1e-00011111111111]", 0.0);
         //TEST_DOUBLE("[-1e-00011111111111]", -0.0);
-        TEST_DOUBLE("[1e-214748363]", 0.0);
-        TEST_DOUBLE("[1e-214748364]", 0.0);
+        TEST_DOUBLE("1e-214748363","[1e-214748363]", 0.0);
+        TEST_DOUBLE("1e-214748364","[1e-214748364]", 0.0);
         //TEST_DOUBLE("[1e-21474836311]", 0.0);
-        TEST_DOUBLE("[0.017976931348623157e+310]", 1.7976931348623157e+308); // Max double in another form
+        TEST_DOUBLE("nax double/other","[0.017976931348623157e+310]", 1.7976931348623157e+308); // Max double in another form
 
         // Since
         // abs((2^-1022 - 2^-1074) - 2.2250738585072012e-308) = 3.109754131239141401123495768877590405345064751974375599... ¡Á 10^-324
         // abs((2^-1022) - 2.2250738585072012e-308) = 1.830902327173324040642192159804623318305533274168872044... ¡Á 10 ^ -324
         // So 2.2250738585072012e-308 should round to 2^-1022 = 2.2250738585072014e-308
-        TEST_DOUBLE("[2.2250738585072012e-308]", 2.2250738585072014e-308); // http://www.exploringbinary.com/java-hangs-when-converting-2-2250738585072012e-308/
+        TEST_DOUBLE("java-hang","[2.2250738585072012e-308]", 2.2250738585072014e-308);       // http://www.exploringbinary.com/java-hangs-when-converting-2-2250738585072012e-308/
 
         // More closer to normal/subnormal boundary
         // boundary = 2^-1022 - 2^-1075 = 2.225073858507201136057409796709131975934819546351645648... ¡Á 10^-308
-        TEST_DOUBLE("[2.22507385850720113605740979670913197593481954635164564e-308]", 2.2250738585072009e-308);
-        TEST_DOUBLE("[2.22507385850720113605740979670913197593481954635164565e-308]", 2.2250738585072014e-308);
+        TEST_DOUBLE("2...564e-308","[2.22507385850720113605740979670913197593481954635164564e-308]", 2.2250738585072009e-308);
+        TEST_DOUBLE("2...565e-308","[2.22507385850720113605740979670913197593481954635164565e-308]", 2.2250738585072014e-308);
 
         // 1.0 is in (1.0 - 2^-54, 1.0 + 2^-53)
         // 1.0 - 2^-54 = 0.999999999999999944488848768742172978818416595458984375
-        TEST_DOUBLE("[0.999999999999999944488848768742172978818416595458984375]", 1.0); // round to even
-        TEST_DOUBLE("[0.999999999999999944488848768742172978818416595458984374]", 0.99999999999999989); // previous double
-        TEST_DOUBLE("[0.999999999999999944488848768742172978818416595458984376]", 1.0); // next double
+        TEST_DOUBLE("0.99...84375","[0.999999999999999944488848768742172978818416595458984375]", 1.0); // round to even
+        TEST_DOUBLE("0.99...84374","[0.999999999999999944488848768742172978818416595458984374]", 0.99999999999999989); // previous double
+        TEST_DOUBLE("0.99...84376","[0.999999999999999944488848768742172978818416595458984376]", 1.0); // next double
         // 1.0 + 2^-53 = 1.00000000000000011102230246251565404236316680908203125
-        TEST_DOUBLE("[1.00000000000000011102230246251565404236316680908203125]", 1.0); // round to even
-        TEST_DOUBLE("[1.00000000000000011102230246251565404236316680908203124]", 1.0); // previous double
-        TEST_DOUBLE("[1.00000000000000011102230246251565404236316680908203126]", 1.00000000000000022); // next double
+        TEST_DOUBLE("1.00...03125","[1.00000000000000011102230246251565404236316680908203125]", 1.0); // round to even
+        TEST_DOUBLE("1.00...03124","[1.00000000000000011102230246251565404236316680908203124]", 1.0); // previous double
+        TEST_DOUBLE("1.00...03126","[1.00000000000000011102230246251565404236316680908203126]", 1.00000000000000022); // next double
 
         // Numbers from https://github.com/floitsch/double-conversion/blob/master/test/cctest/test-strtod.cc
 
-        TEST_DOUBLE("[72057594037927928.0]", 72057594037927928.0);
-        TEST_DOUBLE("[72057594037927936.0]", 72057594037927936.0);
-        TEST_DOUBLE("[72057594037927932.0]", 72057594037927936.0);
-        TEST_DOUBLE("[7205759403792793199999e-5]", 72057594037927928.0);
-        TEST_DOUBLE("[7205759403792793200001e-5]", 72057594037927936.0);
+        TEST_DOUBLE("720...28.0","[72057594037927928.0]", 72057594037927928.0);
+        TEST_DOUBLE("720...36.0","[72057594037927936.0]", 72057594037927936.0);
+        TEST_DOUBLE("720...32.0","[72057594037927932.0]", 72057594037927936.0);
+        TEST_DOUBLE("720...99e-5","[7205759403792793199999e-5]", 72057594037927928.0);
+        TEST_DOUBLE("720...01e-5","[7205759403792793200001e-5]", 72057594037927936.0);
 
-        TEST_DOUBLE("[9223372036854774784.0]", 9223372036854774784.0);
-        TEST_DOUBLE("[9223372036854775808.0]", 9223372036854775808.0);
-        TEST_DOUBLE("[9223372036854775296.0]", 9223372036854775808.0);
-        TEST_DOUBLE("[922337203685477529599999e-5]", 9223372036854774784.0);
-        TEST_DOUBLE("[922337203685477529600001e-5]", 9223372036854775808.0);
+        TEST_DOUBLE("922...84.0","[9223372036854774784.0]", 9223372036854774784.0);
+        TEST_DOUBLE("922...08.0","[9223372036854775808.0]", 9223372036854775808.0);
+        TEST_DOUBLE("922...96.0","[9223372036854775296.0]", 9223372036854775808.0);
+        TEST_DOUBLE("922...9e-5","[922337203685477529599999e-5]", 9223372036854774784.0);
+        TEST_DOUBLE("922...1e-5","[922337203685477529600001e-5]", 9223372036854775808.0);
 
-        TEST_DOUBLE("[10141204801825834086073718800384]", 10141204801825834086073718800384.0);
-        TEST_DOUBLE("[10141204801825835211973625643008]", 10141204801825835211973625643008.0);
-        TEST_DOUBLE("[10141204801825834649023672221696]", 10141204801825835211973625643008.0);
-        TEST_DOUBLE("[1014120480182583464902367222169599999e-5]", 10141204801825834086073718800384.0);
-        TEST_DOUBLE("[1014120480182583464902367222169600001e-5]", 10141204801825835211973625643008.0);
+        TEST_DOUBLE("101...384","[10141204801825834086073718800384]", 10141204801825834086073718800384.0);
+        TEST_DOUBLE("101...008","[10141204801825835211973625643008]", 10141204801825835211973625643008.0);
+        TEST_DOUBLE("101...696","[10141204801825834649023672221696]", 10141204801825835211973625643008.0);
+        TEST_DOUBLE("101...9e-5","[1014120480182583464902367222169599999e-5]", 10141204801825834086073718800384.0);
+        TEST_DOUBLE("101...1e-5","[1014120480182583464902367222169600001e-5]", 10141204801825835211973625643008.0);
 
-        TEST_DOUBLE("[5708990770823838890407843763683279797179383808]", 5708990770823838890407843763683279797179383808.0);
-        TEST_DOUBLE("[5708990770823839524233143877797980545530986496]", 5708990770823839524233143877797980545530986496.0);
-        TEST_DOUBLE("[5708990770823839207320493820740630171355185152]", 5708990770823839524233143877797980545530986496.0);
-        TEST_DOUBLE("[5708990770823839207320493820740630171355185151999e-3]", 5708990770823838890407843763683279797179383808.0);
-        TEST_DOUBLE("[5708990770823839207320493820740630171355185152001e-3]", 5708990770823839524233143877797980545530986496.0);
+        TEST_DOUBLE("570...808","[5708990770823838890407843763683279797179383808]", 5708990770823838890407843763683279797179383808.0);
+        TEST_DOUBLE("570...496","[5708990770823839524233143877797980545530986496]", 5708990770823839524233143877797980545530986496.0);
+        TEST_DOUBLE("570...152","[5708990770823839207320493820740630171355185152]", 5708990770823839524233143877797980545530986496.0);
+        TEST_DOUBLE("570...9e-3","[5708990770823839207320493820740630171355185151999e-3]", 5708990770823838890407843763683279797179383808.0);
+        TEST_DOUBLE("570...1e-3","[5708990770823839207320493820740630171355185152001e-3]", 5708990770823839524233143877797980545530986496.0);
 
         {
             char n1e308[312];   // '1' followed by 308 '0'
@@ -962,11 +956,11 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
                 n1e308[j] = '0';
             n1e308[310] = ']';
             n1e308[311] = '\0';
-            TEST_DOUBLE(n1e308, 1E308);
+            TEST_DOUBLE("n1e308",n1e308, 1E308);
         }
 
         // Cover trimming
-        TEST_DOUBLE(
+        TEST_DOUBLE("trimming",
             "[2.22507385850720113605740979670913197593481954635164564802342610972482222202107694551652952390813508"
             "7914149158913039621106870086438694594645527657207407820621743379988141063267329253552286881372149012"
             "9811224514518898490572223072852551331557550159143974763979834118019993239625482890171070818506906306"
@@ -1012,10 +1006,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
             else\
                 parseValidationCorrect++;\
             parseValidationTotal++;\
-            /*printf("string%02d: %s\n", i, result ? "true" : "false");*/\
-            /*if (!result)*/\
-            /*    printf("JSON: %s\nExpect: %s (%u) \nActual: %s (%u)\n\n", json, expect, (unsigned)expectLength, actual.c_str(), (unsigned)actual.size());*/\
-            fprintf(fp, "3. Parse String,%s,%s,%s\n", test.GetName(), tname, result ? "true" : "false");\
+            ReportBase::get_instance().add_conformance_statistics("3. Parse String", test.GetName(), tname, result);\
             test.TearDown();\
             i++;\
         }
@@ -1089,7 +1080,7 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
             if (terminate)
                 break;
             auto const& n = it->path().filename().stem().string();
-            fprintf(fp, "4. Roundtrip,%s,%s,%s\n", test.GetName(), n.data(), result ? "true" : "false");
+            ReportBase::get_instance().add_conformance_statistics("4. Roundtrip", test.GetName(), n, result);
         }
         MEMORYSTAT_CHECKMEMORYLEAK(test.GetName(),"roundtrip");
     }
@@ -1112,7 +1103,6 @@ static void BenchAllConformance() {
             continue;
         BenchConformance(**itr, fp);
     }
-
     fclose(fp);
 }
 #endif // TEST_CONFORMANCE

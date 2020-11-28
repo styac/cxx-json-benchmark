@@ -159,7 +159,7 @@ Summary: 32 of 66 are correct.
 
 * `["\u20AC"]`
   * expect: `"€"` (length: 3)
-  * actual: `"€"` (length: 4)
+  * actual: `"€"` (length: 4)
 
 * `["\uD834\uDD1E"]`
   * expect: `"𝄞"` (length: 4)
