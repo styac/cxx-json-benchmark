@@ -145,3 +145,6 @@
 [submodule "thirdparty/meojson"]
 	path = thirdparty/meojson
 	url = https://github.com/MistEO/meojson
+[submodule "thirdparty/hjson"]
+	path = thirdparty/hjson
+	url = https://github.com/hjson/hjson-cpp
