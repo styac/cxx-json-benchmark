@@ -93,19 +93,6 @@ struct TestJson {
 
 typedef std::vector<TestJson> TestJsonList;
 
-//static void PrintStat(const Stat& stat) {
-//    printf("objectCount:  %10u\n", (unsigned)stat.objectCount);
-//    printf("arrayCount:   %10u\n", (unsigned)stat.arrayCount);
-//    printf("numberCount:  %10u\n", (unsigned)stat.numberCount);
-//    printf("stringCount:  %10u\n", (unsigned)stat.stringCount);
-//    printf("trueCount:    %10u\n", (unsigned)stat.trueCount);
-//    printf("falseCount:   %10u\n", (unsigned)stat.falseCount);
-//    printf("nullCount:    %10u\n", (unsigned)stat.nullCount);
-//    printf("memberCount:  %10u\n", (unsigned)stat.memberCount);
-//    printf("elementCount: %10u\n", (unsigned)stat.elementCount);
-//    printf("stringLength: %10u\n", (unsigned)stat.stringLength);
-//}
-
 static void makeValidFilename(char *filename) {
     while (*filename) {
         switch (*filename) {
@@ -224,12 +211,6 @@ static void Verify(const TestBase& test, const TestJsonList& testJsons) {
             if (memcmp(&stat1, &itr->m_stat, sizeof(Stat)) != 0 &&
                 memcmp(&stat1, &itr->m_statUTF16, sizeof(Stat)) != 0)
             {
-//                printf("\nStatistics of '%s' is different from reference.\n\n", itr->m_filename.data());
-//                printf("Reference\n---------\n");
-//                PrintStat(itr->m_stat);
-//                printf("\nStat 1\n--------\n");
-//                PrintStat(stat1);
-//                printf("\n");
                 failed = true;
                 ReportBase::get_instance().print_statistics( "Stringify1-", test.GetName(), itr->m_filename, stat1, itr->m_stat);
             }
@@ -277,12 +258,6 @@ static void Verify(const TestBase& test, const TestJsonList& testJsons) {
         }
 
         if (statProblem != 0) {
-//            printf("\nStatistics of '%s' is different from reference.\n\n", itr->m_filename.data());
-//            printf("Reference\n---------\n");
-//            PrintStat(itr->m_stat);
-//            printf("\nStat #%d\n--------\n", statProblemWhich);
-//            PrintStat(*statProblem);
-//            printf("\n");
             ReportBase::get_instance().print_statistics( "Stringify2-", test.GetName(), itr->m_filename, *statProblem, itr->m_stat);
 
             // Write out json1 for diagnosis
@@ -313,14 +288,7 @@ static void Verify(const TestBase& test, const TestJsonList& testJsons) {
             if (memcmp(&stat1, &itr->m_stat, sizeof(Stat)) != 0 &&
                 memcmp(&stat1, &itr->m_statUTF16, sizeof(Stat)) != 0)
             {
-//                printf("\nSaxStatistics of '%s' is different from reference.\n\n", itr->m_filename.data());
-//                printf("Reference\n---------\n");
-//                PrintStat(itr->m_stat);
-//                printf("\nStat #%d\n--------\n", 1);
-//                PrintStat(stat1);
-//                printf("\n");
                 ReportBase::get_instance().print_statistics( "SAX-", test.GetName(), itr->m_filename, stat1, itr->m_stat);
-
             }
         }
     }
@@ -339,11 +307,6 @@ static void VerifyAll(const TestJsonList& testJsons) {
 #if USE_MEMORYSTAT
 #define BENCH_MEMORYSTAT_INIT()             MemoryStat memoryStat = MemoryStat()
 #define BENCH_MEMORYSTAT_ITERATION(trial)   if (trial == 0) memoryStat = Memory::Instance().GetStat()
-#ifdef _MSC_VER
-#define BENCH_MEMORYSTAT_OUTPUT(fp)         fprintf(fp, ",%Iu,%Iu,%Iu", memoryStat.currentSize, memoryStat.peakSize, memoryStat.mallocCount + memoryStat.reallocCount)
-#else
-#define BENCH_MEMORYSTAT_OUTPUT(fp)         fprintf(fp, ",%zu,%zu,%zu", memoryStat.currentSize, memoryStat.peakSize, memoryStat.mallocCount + memoryStat.reallocCount)
-#endif
 #else
 #define BENCH_MEMORYSTAT_INIT()
 #define BENCH_MEMORYSTAT_ITERATION(trial)
@@ -351,7 +314,7 @@ static void VerifyAll(const TestJsonList& testJsons) {
 #endif
 
 #if TEST_PARSE
-static void BenchParse(const TestBase& test, const TestJsonList& testJsons, FILE *fp) {
+static void BenchParse(const TestBase& test, const TestJsonList& testJsons ) {
     MEMORYSTAT_SCOPE();
     for (TestJsonList::const_iterator itr = testJsons.begin(); itr != testJsons.end(); ++itr) {
         printf("%15s %-20s ... ", "Parse", itr->m_filename.data());
@@ -407,7 +370,7 @@ static void BenchParse(const TestBase&, const TestJsonList&, FILE *) {
 #endif
 
 #if TEST_PARSE && TEST_STRINGIFY
-static void BenchStringify(const TestBase& test, const TestJsonList& testJsons, FILE *fp) {
+static void BenchStringify(const TestBase& test, const TestJsonList& testJsons) {
     MEMORYSTAT_SCOPE();
     for (TestJsonList::const_iterator itr = testJsons.begin(); itr != testJsons.end(); ++itr) {
         printf("%15s %-20s ... ", "Stringify", itr->m_filename.data());
@@ -424,16 +387,13 @@ static void BenchStringify(const TestBase& test, const TestJsonList& testJsons, 
             StringResultBase* json;
             {
                 MEMORYSTAT_SCOPE();
-
                 timer.start();
                 json = test.Stringify(dom);
                 timer.stop();
-
                 BENCH_MEMORYSTAT_ITERATION(trial);
             }
 
             delete json;
-
             if (!json) {
                 supported = false;
                 break;
@@ -465,7 +425,7 @@ static void BenchStringify(const TestBase&, const TestJsonList&, FILE *) {
 #endif
 
 #if TEST_PARSE && TEST_PRETTIFY
-static void BenchPrettify(const TestBase& test, const TestJsonList& testJsons, FILE *fp) {
+static void BenchPrettify(const TestBase& test, const TestJsonList& testJsons) {
     MEMORYSTAT_SCOPE();
     for (TestJsonList::const_iterator itr = testJsons.begin(); itr != testJsons.end(); ++itr) {
         printf("%15s %-20s ... ", "Prettify", itr->m_filename.data());
@@ -482,21 +442,17 @@ static void BenchPrettify(const TestBase& test, const TestJsonList& testJsons, F
             StringResultBase* json;
             {
                 MEMORYSTAT_SCOPE();
-
                 timer.start();
                 json = test.Prettify(dom);
                 timer.stop();
-
                 BENCH_MEMORYSTAT_ITERATION(trial);
             }
 
             delete json;
-
             if (!json) {
                 supported = false;
                 break;
             }
-
             double duration = timer.diff_time();
             minDuration = std::min(minDuration, duration);
         }
@@ -509,10 +465,6 @@ static void BenchPrettify(const TestBase& test, const TestJsonList& testJsons, F
         } else {
             double throughput = itr->m_json.size() / (1024.0 * 1024.0) / (minDuration * 0.001);
             printf("%6.3f ms  %3.3f MB/s\n", minDuration, throughput);
-            fprintf(fp, "3. Prettify,%s,%s,%f", test.GetName(), itr->m_filename.data(), minDuration);
-            BENCH_MEMORYSTAT_OUTPUT(fp);
-            fprintf(fp, ",0");  // Code size
-            fputc('\n', fp);
             ReportBase::get_instance().add_performance_statistics("3. Prettify", test.GetName(), itr->m_filename, minDuration,
                 memoryStat.currentSize, memoryStat.peakSize, memoryStat.mallocCount + memoryStat.reallocCount);
 
@@ -526,7 +478,7 @@ static void BenchPrettify(const TestBase&, const TestJsonList&, FILE *) {
 #endif
 
 #if TEST_PARSE && TEST_STATISTICS
-static void BenchStatistics(const TestBase& test, const TestJsonList& testJsons, FILE *fp) {
+static void BenchStatistics(const TestBase& test, const TestJsonList& testJsons) {
     MEMORYSTAT_SCOPE();
     for (TestJsonList::const_iterator itr = testJsons.begin(); itr != testJsons.end(); ++itr) {
         printf("%15s %-20s ... ", "Statistics", itr->m_filename.data());
@@ -542,12 +494,10 @@ static void BenchStatistics(const TestBase& test, const TestJsonList& testJsons,
             Timer timer;
             {
                 MEMORYSTAT_SCOPE();
-
                 timer.start();
                 Stat stat;
                 supported = test.Statistics(dom, &stat);
                 timer.stop();
-
                 BENCH_MEMORYSTAT_ITERATION(trial);
             }
 
@@ -566,10 +516,8 @@ static void BenchStatistics(const TestBase& test, const TestJsonList& testJsons,
         } else {
             double throughput = itr->m_json.size() / (1024.0 * 1024.0) / (minDuration * 0.001);
             printf("%6.3f ms  %3.3f MB/s\n", minDuration, throughput);
-
             ReportBase::get_instance().add_performance_statistics("4. Statistics", test.GetName(), itr->m_filename, minDuration,
                 memoryStat.currentSize, memoryStat.peakSize, memoryStat.mallocCount + memoryStat.reallocCount);
-
         }
     }
     MEMORYSTAT_CHECKMEMORYLEAK(test.GetName(),"bench stat");
@@ -580,7 +528,7 @@ static void BenchStatistics(const TestBase&, const TestJsonList&, FILE *) {
 #endif
 
 #if TEST_SAXROUNDTRIP
-static void BenchSaxRoundtrip(const TestBase& test, const TestJsonList& testJsons, FILE *fp) {
+static void BenchSaxRoundtrip(const TestBase& test, const TestJsonList& testJsons) {
     MEMORYSTAT_SCOPE();
     for (TestJsonList::const_iterator itr = testJsons.begin(); itr != testJsons.end(); ++itr) {
         printf("%15s %-20s ... ", "SaxRoundtrip", itr->m_filename.data());
@@ -596,16 +544,13 @@ static void BenchSaxRoundtrip(const TestBase& test, const TestJsonList& testJson
             StringResultBase* json;
             {
                 MEMORYSTAT_SCOPE();
-
                 timer.start();
                 json = test.SaxRoundtrip(itr->m_json.data(), itr->m_json.size());
                 timer.stop();
-
                 BENCH_MEMORYSTAT_ITERATION(trial);
             }
 
             delete json;
-
             if (!json) {
                 supported = false;
                 test.TearDown();
@@ -625,7 +570,6 @@ static void BenchSaxRoundtrip(const TestBase& test, const TestJsonList& testJson
 
             ReportBase::get_instance().add_performance_statistics("5. Sax Round-trip", test.GetName(), itr->m_filename, minDuration,
                 memoryStat.currentSize, memoryStat.peakSize, memoryStat.mallocCount + memoryStat.reallocCount);
-
         }
     }
     MEMORYSTAT_CHECKMEMORYLEAK(test.GetName(),"bench sax roundtrip");
@@ -636,7 +580,7 @@ static void BenchSaxRoundtrip(const TestBase&, const TestJsonList&, FILE*) {
 #endif
 
 #if TEST_SAXSTATISTICS
-static void BenchSaxStatistics(const TestBase& test, const TestJsonList& testJsons, FILE *fp) {
+static void BenchSaxStatistics(const TestBase& test, const TestJsonList& testJsons) {
     MEMORYSTAT_SCOPE();
     for (TestJsonList::const_iterator itr = testJsons.begin(); itr != testJsons.end(); ++itr) {
         printf("%15s %-20s ... ", "Sax Statistics", itr->m_filename.data());
@@ -651,12 +595,10 @@ static void BenchSaxStatistics(const TestBase& test, const TestJsonList& testJso
             Timer timer;
             {
                 MEMORYSTAT_SCOPE();
-
                 timer.start();
                 Stat stat;
                 supported = test.SaxStatistics(itr->m_json.data(), itr->m_json.size(), &stat);
                 timer.stop();
-
                 BENCH_MEMORYSTAT_ITERATION(trial);
             }
 
@@ -678,7 +620,6 @@ static void BenchSaxStatistics(const TestBase& test, const TestJsonList& testJso
 
             ReportBase::get_instance().add_performance_statistics("6. SaxStatistics", test.GetName(), itr->m_filename, minDuration,
                 memoryStat.currentSize, memoryStat.peakSize, memoryStat.mallocCount + memoryStat.reallocCount);
-
         }
     }
     MEMORYSTAT_CHECKMEMORYLEAK(test.GetName(),"bench sax stat");
@@ -688,37 +629,28 @@ static void BenchSaxStatistics(const TestBase&, const TestJsonList&, FILE*) {
 }
 #endif
 
-static void BenchPerformance(const TestBase& test, const TestJsonList& testJsons, FILE *fp) {
+static void BenchPerformance(const TestBase& test, const TestJsonList& testJsons) {
     printf("Benchmarking Performance of %s\n", test.GetName());
 
-    BenchParse(test, testJsons, fp);
-    BenchStringify(test, testJsons, fp);
-    BenchPrettify(test, testJsons, fp);
-    BenchStatistics(test, testJsons, fp);
-    BenchSaxRoundtrip(test, testJsons, fp);
-    BenchSaxStatistics(test, testJsons, fp);
+    BenchParse(test, testJsons);
+    BenchStringify(test, testJsons);
+    BenchPrettify(test, testJsons);
+    BenchStatistics(test, testJsons);
+    BenchSaxRoundtrip(test, testJsons);
+    BenchSaxStatistics(test, testJsons);
     printf("\n");
 }
 
 static void BenchAllPerformance(const TestJsonList& testJsons) {
-    FILE *fp = fopen(RESULT_PATH "performance_" RESULT_FILENAME, "w");
-
-    fputs("Type,Library,Filename,Time (ms)", fp);
-#if USE_MEMORYSTAT
-    fputs(",Memory (byte),MemoryPeak (byte),AllocCount", fp);
-#endif
-    fputs(",FileSize (byte)\n", fp);
-
     TestList& tests = TestManager::Instance().GetTests();
-    for (TestList::iterator itr = tests.begin(); itr != tests.end(); ++itr)
-        BenchPerformance(**itr, testJsons, fp);
-
-    fclose(fp);
+    for (TestList::iterator itr = tests.begin(); itr != tests.end(); ++itr) {
+        BenchPerformance(**itr, testJsons);
+    }
 }
 
 #if TEST_CONFORMANCE
 
-static void BenchConformance(const TestBase& test, FILE* fp) {
+static void BenchConformance(const TestBase& test) {
     std::filesystem::directory_iterator end_it;
     printf("Benchmarking Conformance of %s\n", test.GetName());
 
@@ -1060,8 +992,6 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
                             break;
                         }
                     }
-                    // if (!result)
-                    //     printf("Expect: %s\nActual: %s\n\n", json, sr->c_str());
                     if (!result) {
                         if (md)
                             fprintf(md, "* Fail:\n~~~js\n%s\n~~~\n\n~~~js\n%s\n~~~\n\n", json.data(), sr ? sr->c_str() : "N/A");\
@@ -1093,17 +1023,13 @@ static void BenchConformance(const TestBase& test, FILE* fp) {
 }
 
 static void BenchAllConformance() {
-    FILE *fp = fopen(RESULT_PATH "conformance.csv", "w");
-    fputs("Type,Library,Test,Result\n", fp);
-
     TestList& tests = TestManager::Instance().GetTests();
     for (TestList::iterator itr = tests.begin(); itr != tests.end(); ++itr) {
         if (strcmp((*itr)->GetName(), "strdup (C)") == 0
-            || strcmp((*itr)->GetName(), "pjson (C)") == 0)
+         || strcmp((*itr)->GetName(), "pjson (C)") == 0)
             continue;
-        BenchConformance(**itr, fp);
+        BenchConformance(**itr);
     }
-    fclose(fp);
 }
 #endif // TEST_CONFORMANCE
 

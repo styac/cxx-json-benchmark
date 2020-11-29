@@ -3854,8 +3854,8 @@ Type,Library,Test,Result
 2. Parse Double,FastJson (C++),101...384,true
 2. Parse Double,FastJson (C++),101...008,false
 2. Parse Double,FastJson (C++),101...696,false
-2. Parse Double,FastJson (C++),101...9e-5,true
-2. Parse Double,FastJson (C++),101...1e-5,true
+2. Parse Double,FastJson (C++),101...9e-5,false
+2. Parse Double,FastJson (C++),101...1e-5,false
 2. Parse Double,FastJson (C++),570...808,true
 2. Parse Double,FastJson (C++),570...496,false
 2. Parse Double,FastJson (C++),570...152,false
@@ -8001,7 +8001,7 @@ Type,Library,Test,Result
 3. Parse String,SimpleJSON (C++),whitesp,true
 3. Parse String,SimpleJSON (C++),utf16 dollar,true
 3. Parse String,SimpleJSON (C++),utf16 cent,true
-3. Parse String,SimpleJSON (C++),utf16 euro,false
+3. Parse String,SimpleJSON (C++),utf16 euro,true
 3. Parse String,SimpleJSON (C++),utf16 gclef,false
 4. Roundtrip,SimpleJSON (C++),roundtrip21,false
 4. Roundtrip,SimpleJSON (C++),roundtrip07,true

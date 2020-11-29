@@ -1,433 +1,433 @@
 Type,Library,Filename,Time (ms),Memory (byte),MemoryPeak (byte),AllocCount,FileSize (byte)
-1. Parse,boostjson (C++11),citm_catalog,3.793436,2242712,2255008,39021,0
-1. Parse,boostjson (C++11),canada,7.925477,4464632,4857856,56070,0
-1. Parse,boostjson (C++11),twitter,2.862267,1192736,1198888,17403,0
-2. Stringify,boostjson (C++11),citm_catalog,1.660720,1048624,1573040,31,0
-2. Stringify,boostjson (C++11),canada,10.610651,8388656,12583088,34,0
-2. Stringify,boostjson (C++11),twitter,0.917558,1048624,1573008,25,0
-4. Statistics,boostjson (C++11),citm_catalog,0.321173,0,0,0,0
-4. Statistics,boostjson (C++11),canada,0.827843,0,0,0,0
-4. Statistics,boostjson (C++11),twitter,0.144528,0,0,0,0
-1. Parse,cJSON (C),citm_catalog,7.444829,3366840,3366840,64383,0
-1. Parse,cJSON (C),canada,43.104097,12037312,12037312,167192,0
-1. Parse,cJSON (C),twitter,3.151519,1618192,1618192,32014,0
-2. Stringify,cJSON (C),citm_catalog,13.455862,526944,526944,9,0
-2. Stringify,cJSON (C),canada,149.585043,2102144,2102144,11,0
-2. Stringify,cJSON (C),twitter,3.970547,529712,529712,9,0
-3. Prettify,cJSON (C),citm_catalog,13.731172,1052048,1052048,10,0
-3. Prettify,cJSON (C),canada,149.164032,2109680,2109680,11,0
-3. Prettify,cJSON (C),twitter,4.138992,1058064,1058064,10,0
-4. Statistics,cJSON (C),citm_catalog,0.552333,0,0,0,0
-4. Statistics,cJSON (C),canada,2.819802,0,0,0,0
-4. Statistics,cJSON (C),twitter,0.466657,0,0,0,0
-1. Parse,JSON Voorhees (C++),citm_catalog,42.376235,10067024,19670488,291908,0
-1. Parse,JSON Voorhees (C++),canada,149.570965,38894576,77821320,678577,0
-1. Parse,JSON Voorhees (C++),twitter,17.497178,2475168,4948840,114643,0
-2. Stringify,JSON Voorhees (C++),citm_catalog,11.698178,501456,1025752,13,0
-2. Stringify,JSON Voorhees (C++),canada,70.186123,1043344,2091928,14,0
-2. Stringify,JSON Voorhees (C++),twitter,13.497839,568496,1617080,14,0
-3. Prettify,JSON Voorhees (C++),citm_catalog,35.832638,1728352,3825512,15,0
-3. Prettify,JSON Voorhees (C++),canada,187.186790,7064496,15453112,17,0
-3. Prettify,JSON Voorhees (C++),twitter,19.012322,868896,1917480,14,0
-4. Statistics,JSON Voorhees (C++),citm_catalog,1.353739,0,0,0,0
-4. Statistics,JSON Voorhees (C++),canada,5.694913,0,0,0,0
-4. Statistics,JSON Voorhees (C++),twitter,0.467937,0,0,0,0
-1. Parse,sajson (C++),citm_catalog,3.655081,2776024,3308304,13,0
-1. Parse,sajson (C++),canada,7.370963,6445592,8673616,19,0
-1. Parse,sajson (C++),twitter,1.098667,1156040,1422080,11,0
-4. Statistics,sajson (C++),citm_catalog,0.362437,0,0,0,0
-4. Statistics,sajson (C++),canada,1.226515,0,0,0,0
-4. Statistics,sajson (C++),twitter,0.158726,0,0,0,0
-1. Parse,Centijson (C),citm_catalog,17.365840,2328392,2328816,60310,0
-1. Parse,Centijson (C),canada,60.734586,4904688,4904992,170253,0
-1. Parse,Centijson (C),twitter,6.500830,1172872,1173888,28191,0
-2. Stringify,Centijson (C),citm_catalog,5.581556,713120,1069856,10956,0
-2. Stringify,Centijson (C),canada,69.804516,2300752,3451200,27,0
-2. Stringify,Centijson (C),twitter,3.987038,495056,743128,1283,0
-3. Prettify,Centijson (C),citm_catalog,6.991619,1668880,2503488,10958,0
-3. Prettify,Centijson (C),canada,75.352257,4756816,7135280,28,0
-3. Prettify,Centijson (C),twitter,4.480797,1124912,1688112,1286,0
-4. Statistics,Centijson (C),citm_catalog,1.847765,0,0,0,0
-4. Statistics,Centijson (C),canada,1.917048,0,0,0,0
-4. Statistics,Centijson (C),twitter,1.723768,0,0,0,0
-5. Sax Round-trip,Centijson (C),citm_catalog,14.182568,713120,1069872,30,0
-5. Sax Round-trip,Centijson (C),canada,16.944996,3117888,4676904,28,0
-5. Sax Round-trip,Centijson (C),twitter,5.096696,640304,961296,33,0
-6. SaxStatistics,Centijson (C),citm_catalog,11.567564,0,240,9,0
-6. SaxStatistics,Centijson (C),canada,12.067570,0,104,5,0
-6. SaxStatistics,Centijson (C),twitter,3.198723,0,864,12,0
-1. Parse,yyjson (C),citm_catalog,1.869899,3454568,3454568,3,0
-1. Parse,yyjson (C),canada,7.762256,8254024,8254024,3,0
-1. Parse,yyjson (C),twitter,0.684939,1263192,1263192,3,0
-2. Stringify,yyjson (C),citm_catalog,0.691236,1145744,1145744,2,0
-2. Stringify,yyjson (C),canada,8.204123,3009456,3009456,2,0
-2. Stringify,yyjson (C),twitter,0.549511,490752,490752,2,0
-3. Prettify,yyjson (C),citm_catalog,1.006346,2036800,2036800,2,0
-3. Prettify,yyjson (C),canada,10.174498,12037632,12037632,4,0
-3. Prettify,yyjson (C),twitter,0.663233,872384,872384,2,0
-4. Statistics,yyjson (C),citm_catalog,0.268697,0,0,0,0
-4. Statistics,yyjson (C),canada,0.943474,0,0,0,0
-4. Statistics,yyjson (C),twitter,0.137625,0,0,0,0
-1. Parse,Sheredom json.h (C),citm_catalog,10.764202,2803312,2803312,2,0
-1. Parse,Sheredom json.h (C),canada,19.446758,10163712,10163712,2,0
-1. Parse,Sheredom json.h (C),twitter,4.128093,1310352,1310352,2,0
-2. Stringify,Sheredom json.h (C),citm_catalog,11.748880,500336,500336,2,0
-2. Stringify,Sheredom json.h (C),canada,77.567937,2251056,2251056,2,0
-2. Stringify,Sheredom json.h (C),twitter,3.625899,466944,466944,2,0
-3. Prettify,Sheredom json.h (C),citm_catalog,13.097686,1753104,1753104,2,0
-3. Prettify,Sheredom json.h (C),canada,85.443732,8272208,8272208,2,0
-3. Prettify,Sheredom json.h (C),twitter,4.105976,780672,780672,2,0
-4. Statistics,Sheredom json.h (C),citm_catalog,0.276513,0,0,0,0
-4. Statistics,Sheredom json.h (C),canada,1.280725,0,0,0,0
-4. Statistics,Sheredom json.h (C),twitter,0.136914,0,0,0,0
-1. Parse,Vinenthz libjson (C),citm_catalog,21.260858,2598296,2627272,153901,0
-1. Parse,Vinenthz libjson (C),canada,56.983587,5842536,5871512,334389,0
-1. Parse,Vinenthz libjson (C),twitter,8.828361,1410328,1439304,72620,0
-2. Stringify,Vinenthz libjson (C),citm_catalog,5.222437,524336,524336,10,0
-2. Stringify,Vinenthz libjson (C),canada,69.082488,4194352,4194352,13,0
-2. Stringify,Vinenthz libjson (C),twitter,3.959368,524336,524336,10,0
-3. Prettify,Vinenthz libjson (C),citm_catalog,5.396446,524336,524336,10,0
-3. Prettify,Vinenthz libjson (C),canada,69.406010,4194352,4194352,13,0
-3. Prettify,Vinenthz libjson (C),twitter,4.066351,524336,524336,10,0
-4. Statistics,Vinenthz libjson (C),citm_catalog,0.485024,0,0,0,0
-4. Statistics,Vinenthz libjson (C),canada,1.015392,0,0,0,0
-4. Statistics,Vinenthz libjson (C),twitter,0.217789,0,0,0,0
-5. Sax Round-trip,Vinenthz libjson (C),citm_catalog,15.786631,524336,528704,12,0
-5. Sax Round-trip,Vinenthz libjson (C),canada,21.428076,4194352,4198720,15,0
-5. Sax Round-trip,Vinenthz libjson (C),twitter,7.687069,524336,528704,12,0
-6. SaxStatistics,Vinenthz libjson (C),citm_catalog,12.166665,0,4368,2,0
-6. SaxStatistics,Vinenthz libjson (C),canada,18.761978,0,4368,2,0
-6. SaxStatistics,Vinenthz libjson (C),twitter,4.720976,0,4368,2,0
-1. Parse,strdup,citm_catalog,0.219427,24,24,1,0
-1. Parse,strdup,canada,0.314235,24,24,1,0
-1. Parse,strdup,twitter,0.032918,24,24,1,0
-2. Stringify,strdup,citm_catalog,0.172980,24,24,1,0
-2. Stringify,strdup,canada,0.306868,24,24,1,0
-2. Stringify,strdup,twitter,0.037575,24,24,1,0
-1. Parse,ccan json (C),citm_catalog,7.524834,2824040,2824040,68345,0
-1. Parse,ccan json (C),canada,33.601915,9362512,9362512,167193,0
-1. Parse,ccan json (C),twitter,4.688594,1545488,1545488,43523,0
-2. Stringify,ccan json (C),citm_catalog,8.476906,524320,524320,17,0
-2. Stringify,ccan json (C),canada,66.745529,2097184,2097184,19,0
-2. Stringify,ccan json (C),twitter,3.383404,524320,524320,17,0
-3. Prettify,ccan json (C),citm_catalog,11.062737,2097200,2097200,19,0
-3. Prettify,ccan json (C),canada,80.560639,8388640,8388640,21,0
-3. Prettify,ccan json (C),twitter,4.034434,1048608,1048608,18,0
-4. Statistics,ccan json (C),citm_catalog,0.544100,0,0,0,0
-4. Statistics,ccan json (C),canada,2.390524,0,0,0,0
-4. Statistics,ccan json (C),twitter,0.232877,0,0,0,0
-1. Parse,Arduino Json (C++),citm_catalog,6.765669,8280920,8280920,3,0
-1. Parse,Arduino Json (C++),canada,14.087883,8804776,8804776,3,0
-1. Parse,Arduino Json (C++),twitter,4.767122,7185240,7185240,3,0
-2. Stringify,Arduino Json (C++),citm_catalog,3.697833,983088,1474616,17,0
-2. Stringify,Arduino Json (C++),canada,9.199664,1966128,2949176,18,0
-2. Stringify,Arduino Json (C++),twitter,4.508951,491568,737336,16,0
-3. Prettify,Arduino Json (C++),citm_catalog,6.696397,1966128,2949176,18,0
-3. Prettify,Arduino Json (C++),canada,25.511491,7864368,11796536,20,0
-3. Prettify,Arduino Json (C++),twitter,4.636110,983088,1474616,17,0
-4. Statistics,Arduino Json (C++),citm_catalog,0.000050,0,0,0,0
-4. Statistics,Arduino Json (C++),canada,0.000043,0,0,0,0
-4. Statistics,Arduino Json (C++),twitter,0.000050,0,0,0,0
-1. Parse,nbsdx SimpleJSON (C++11),citm_catalog,36.738957,10067264,21398088,321232,0
-1. Parse,nbsdx SimpleJSON (C++11),canada,154.575571,38892352,80050152,787463,0
-1. Parse,nbsdx SimpleJSON (C++11),twitter,18.110786,2475152,5579752,145310,0
-2. Stringify,nbsdx SimpleJSON (C++11),citm_catalog,14.680215,2055040,3082536,95521,0
-2. Stringify,nbsdx SimpleJSON (C++11),canada,76.201769,2811760,4217624,169650,0
-2. Stringify,nbsdx SimpleJSON (C++11),twitter,6.595152,1268240,1902344,32912,0
-3. Prettify,nbsdx SimpleJSON (C++11),citm_catalog,17.566318,2962256,4443368,159216,0
-3. Prettify,nbsdx SimpleJSON (C++11),canada,82.009902,2811888,4217824,336835,0
-3. Prettify,nbsdx SimpleJSON (C++11),twitter,7.833818,1524544,2286792,61650,0
-4. Statistics,nbsdx SimpleJSON (C++11),citm_catalog,0.961251,0,112,730,0
-4. Statistics,nbsdx SimpleJSON (C++11),canada,3.790219,0,40,1,0
-4. Statistics,nbsdx SimpleJSON (C++11),twitter,1.599390,0,736,5166,0
-1. Parse,Qt (C++),citm_catalog,9.902572,48,48,2,0
-1. Parse,Qt (C++),canada,33.392727,48,48,2,0
-1. Parse,Qt (C++),twitter,3.767515,48,48,2,0
-2. Stringify,Qt (C++),citm_catalog,12.794167,24,24,1,0
-2. Stringify,Qt (C++),canada,45.950431,24,24,1,0
-2. Stringify,Qt (C++),twitter,7.204251,24,24,1,0
-3. Prettify,Qt (C++),citm_catalog,14.768915,24,24,1,0
-3. Prettify,Qt (C++),canada,52.612589,24,24,1,0
-3. Prettify,Qt (C++),twitter,7.573574,24,24,1,0
-4. Statistics,Qt (C++),citm_catalog,2.843651,0,0,0,0
-4. Statistics,Qt (C++),canada,5.140659,0,0,0,0
-4. Statistics,Qt (C++),twitter,1.591067,0,0,0,0
-1. Parse,Configuru (C++11),citm_catalog,18.935452,4867136,4867216,56007,0
-1. Parse,Configuru (C++11),canada,45.291229,10438248,10450824,170258,0
-1. Parse,Configuru (C++11),twitter,8.566395,2333776,2333856,27879,0
-2. Stringify,Configuru (C++11),citm_catalog,6.096734,983088,1474824,10952,0
-2. Stringify,Configuru (C++11),canada,220.380633,3932208,5898368,23,0
-2. Stringify,Configuru (C++11),twitter,2.405006,491568,737888,1280,0
-3. Prettify,Configuru (C++11),citm_catalog,7.808251,983088,1474776,10952,0
-3. Prettify,Configuru (C++11),canada,223.634766,3932208,5898368,23,0
-3. Prettify,Configuru (C++11),twitter,3.581097,983088,1475168,1281,0
-4. Statistics,Configuru (C++11),citm_catalog,0.904686,0,0,0,0
-4. Statistics,Configuru (C++11),canada,2.138323,0,0,0,0
-4. Statistics,Configuru (C++11),twitter,0.378565,0,0,0,0
-1. Parse,C++ REST SDK (C++11),citm_catalog,16.148455,2709792,2709816,69966,0
-1. Parse,C++ REST SDK (C++11),canada,68.867594,6908976,6909040,392462,0
-1. Parse,C++ REST SDK (C++11),twitter,7.765990,1753744,1754048,28021,0
-2. Stringify,C++ REST SDK (C++11),citm_catalog,3.673833,500352,1484800,20,0
-2. Stringify,C++ REST SDK (C++11),canada,67.478530,2251072,10027072,33,0
-2. Stringify,C++ REST SDK (C++11),twitter,1.756883,466976,1352000,22,0
-4. Statistics,C++ REST SDK (C++11),citm_catalog,0.501361,0,0,0,0
-4. Statistics,C++ REST SDK (C++11),canada,1.362506,0,0,0,0
-4. Statistics,C++ REST SDK (C++11),twitter,0.221618,0,0,0,0
-1. Parse,dropbox json11 (C++11),citm_catalog,11.349442,4598200,6325408,70675,0
-1. Parse,dropbox json11 (C++11),canada,39.954442,11133056,13384120,281382,0
-1. Parse,dropbox json11 (C++11),twitter,6.804162,2126480,2758008,32396,0
-2. Stringify,dropbox json11 (C++11),citm_catalog,4.673236,983088,1474616,17,0
-2. Stringify,dropbox json11 (C++11),canada,67.295422,3932208,5898296,19,0
-2. Stringify,dropbox json11 (C++11),twitter,3.261246,983088,1474616,17,0
-4. Statistics,dropbox json11 (C++11),citm_catalog,0.807229,0,0,0,0
-4. Statistics,dropbox json11 (C++11),canada,3.558848,0,0,0,0
-4. Statistics,dropbox json11 (C++11),twitter,0.377140,0,0,0,0
-1. Parse,FastJson (C++),citm_catalog,9.037939,2687432,4415176,22,0
-1. Parse,FastJson (C++),canada,18.396372,8715384,10966984,22,0
-1. Parse,FastJson (C++),twitter,4.015415,1361560,1994216,24,0
-2. Stringify,FastJson (C++),citm_catalog,10.019853,501040,501040,2,0
-2. Stringify,FastJson (C++),canada,78.049627,2251072,2251072,2,0
-2. Stringify,FastJson (C++),twitter,3.014578,562464,562464,2,0
-4. Statistics,FastJson (C++),citm_catalog,0.249033,0,0,0,0
-4. Statistics,FastJson (C++),canada,0.955329,0,0,0,0
-4. Statistics,FastJson (C++),twitter,0.121389,0,0,0,0
-1. Parse,gason (C++11),citm_catalog,4.719986,2548048,2548048,202,0
-1. Parse,gason (C++11),canada,5.535945,4943344,4943344,658,0
-1. Parse,gason (C++11),twitter,1.642518,963992,963992,83,0
-2. Stringify,gason (C++11),citm_catalog,13.506995,601088,1649672,14,0
-2. Stringify,gason (C++11),canada,53.781086,1295040,3392200,15,0
-2. Stringify,gason (C++11),twitter,6.534126,481712,1006008,13,0
-3. Prettify,gason (C++11),citm_catalog,19.889881,1802128,3899288,15,0
-3. Prettify,gason (C++11),canada,82.663118,7316176,15704792,17,0
-3. Prettify,gason (C++11),twitter,7.937739,768752,1817336,14,0
-4. Statistics,gason (C++11),citm_catalog,0.345307,0,0,0,0
-4. Statistics,gason (C++11),canada,0.602153,0,0,0,0
-4. Statistics,gason (C++11),twitter,0.222011,0,0,0,0
-1. Parse,JeayeSON (C++14),citm_catalog,30.569058,3815584,13175400,224033,0
-1. Parse,JeayeSON (C++14),canada,77.481186,9809048,31678944,442970,0
-1. Parse,JeayeSON (C++14),twitter,17.579022,1958808,6509808,128624,0
-2. Stringify,JeayeSON (C++14),citm_catalog,5.168753,499600,1023896,1374,0
-2. Stringify,JeayeSON (C++14),canada,61.048656,1043296,2091880,15,0
-2. Stringify,JeayeSON (C++14),twitter,3.981355,465632,989928,6730,0
-4. Statistics,JeayeSON (C++14),citm_catalog,0.465594,0,0,0,0
-4. Statistics,JeayeSON (C++14),canada,1.855231,0,0,0,0
-4. Statistics,JeayeSON (C++14),twitter,0.273660,0,0,0,0
-1. Parse,JsonBox (C++),citm_catalog,87.708330,3781176,7235632,246869,0
-1. Parse,JsonBox (C++),canada,268.131401,7491936,12386056,974083,0
-1. Parse,JsonBox (C++),twitter,43.832280,1918952,3776160,84564,0
-2. Stringify,JsonBox (C++),citm_catalog,56.480973,499616,1023912,2733,0
-2. Stringify,JsonBox (C++),canada,233.493640,2251072,6445384,18,0
-2. Stringify,JsonBox (C++),twitter,38.925313,465392,989688,12823,0
-3. Prettify,JsonBox (C++),citm_catalog,44.426424,889472,1938056,2734,0
-3. Prettify,JsonBox (C++),canada,189.416076,3923792,8118104,18,0
-3. Prettify,JsonBox (C++),twitter,30.356834,575456,1624040,12824,0
-4. Statistics,JsonBox (C++),citm_catalog,0.707442,0,0,0,0
-4. Statistics,JsonBox (C++),canada,1.377883,0,0,0,0
-4. Statistics,JsonBox (C++),twitter,0.304932,0,0,0,0
-1. Parse,jsoncons (C++),citm_catalog,15.639178,2443672,2495064,46391,0
-1. Parse,jsoncons (C++),canada,51.640586,5367840,6138800,112113,0
-1. Parse,jsoncons (C++),twitter,8.572166,1161816,1213008,11724,0
-2. Stringify,jsoncons (C++),citm_catalog,3.905317,983088,1474856,22,0
-2. Stringify,jsoncons (C++),canada,21.041211,3932208,5898536,509,0
-2. Stringify,jsoncons (C++),twitter,3.566653,491568,737704,22,0
-3. Prettify,jsoncons (C++),citm_catalog,3.235001,500352,1024648,19,0
-3. Prettify,jsoncons (C++),canada,19.956940,2090560,4187720,506,0
-3. Prettify,jsoncons (C++),twitter,2.888401,466960,991256,20,0
-4. Statistics,jsoncons (C++),citm_catalog,0.725798,0,56,451,0
-4. Statistics,jsoncons (C++),canada,1.376618,0,24,1,0
-4. Statistics,jsoncons (C++),twitter,0.442456,0,472,2336,0
-1. Parse,JsonCpp (C++),citm_catalog,16.397428,4523696,4526320,60544,0
-1. Parse,JsonCpp (C++),canada,191.175822,17850560,17853304,552083,0
-1. Parse,JsonCpp (C++),twitter,10.843253,1353984,1356608,22495,0
-2. Stringify,JsonCpp (C++),citm_catalog,9.286930,501040,1026328,15559,0
-2. Stringify,JsonCpp (C++),canada,103.547291,2251072,6446376,111111,0
-2. Stringify,JsonCpp (C++),twitter,7.684694,562464,1612040,14297,0
-4. Statistics,JsonCpp (C++),citm_catalog,2.748798,0,56,1360,0
-4. Statistics,JsonCpp (C++),canada,10.488058,0,24,1,0
-4. Statistics,JsonCpp (C++),twitter,1.299378,0,472,6405,0
-1. Parse,JSON Spirit (C++),citm_catalog,42.774456,2975840,6014336,292596,0
-1. Parse,JSON Spirit (C++),canada,61.513334,9362720,9854360,435430,0
-1. Parse,JSON Spirit (C++),twitter,14.566718,1371056,2787376,80570,0
-2. Stringify,JSON Spirit (C++),citm_catalog,7.236020,502080,1026376,1725,0
-2. Stringify,JSON Spirit (C++),canada,87.204733,2251072,6445384,17,0
-2. Stringify,JSON Spirit (C++),twitter,8.395023,944000,1992584,11267,0
-3. Prettify,JSON Spirit (C++),citm_catalog,16.651443,2006864,4104024,1727,0
-3. Prettify,JSON Spirit (C++),canada,119.714815,8272224,16660840,18,0
-3. Prettify,JSON Spirit (C++),twitter,10.893746,1273152,3370312,11268,0
-4. Statistics,JSON Spirit (C++),citm_catalog,0.472960,0,0,0,0
-4. Statistics,JSON Spirit (C++),canada,1.428967,0,0,0,0
-4. Statistics,JSON Spirit (C++),twitter,0.166940,0,0,0,0
-1. Parse,hjiang JSON++ (C++),citm_catalog,44.027599,4808976,8263392,132013,0
-1. Parse,hjiang JSON++ (C++),canada,145.534952,10033200,14535328,504610,0
-1. Parse,hjiang JSON++ (C++),twitter,19.191789,2241216,3504272,57430,0
-2. Stringify,hjiang JSON++ (C++),citm_catalog,51.952130,946976,4836264,136557,0
-2. Stringify,hjiang JSON++ (C++),canada,265.592507,3979840,20113528,447434,0
-2. Stringify,hjiang JSON++ (C++),twitter,19.247401,575712,3351256,50774,0
-4. Statistics,hjiang JSON++ (C++),citm_catalog,0.730295,0,0,0,0
-4. Statistics,hjiang JSON++ (C++),canada,2.635443,0,0,0,0
-4. Statistics,hjiang JSON++ (C++),twitter,0.369153,0,0,0,0
-1. Parse,juson (C),citm_catalog,6.615257,3006424,3006448,6050,0
-1. Parse,juson (C),canada,35.011980,7361744,7361768,115044,0
-1. Parse,juson (C),twitter,2.161667,1363488,1363488,1104,0
-4. Statistics,juson (C),citm_catalog,0.422368,0,0,0,0
-4. Statistics,juson (C),canada,0.846961,0,0,0,0
-4. Statistics,juson (C),twitter,0.184753,0,0,0,0
-1. Parse,Nlohmann (C++11),citm_catalog,15.760950,3476664,3476968,56018,0
-1. Parse,Nlohmann (C++11),canada,52.455994,4896704,4896904,170267,0
-1. Parse,Nlohmann (C++11),twitter,8.489739,1797992,1799160,27316,0
-2. Stringify,Nlohmann (C++11),citm_catalog,3.525409,983088,1475176,19,0
-2. Stringify,Nlohmann (C++11),canada,14.622768,3932208,5898856,21,0
-2. Stringify,Nlohmann (C++11),twitter,2.844916,491568,737896,18,0
-3. Prettify,Nlohmann (C++11),citm_catalog,4.477208,1966128,2949736,20,0
-3. Prettify,Nlohmann (C++11),canada,19.621973,15728688,23593576,23,0
-3. Prettify,Nlohmann (C++11),twitter,3.227117,983088,1475176,19,0
-4. Statistics,Nlohmann (C++11),citm_catalog,0.686197,0,56,451,0
-4. Statistics,Nlohmann (C++11),canada,1.503494,0,40,1,0
-4. Statistics,Nlohmann (C++11),twitter,0.458972,0,472,2336,0
-1. Parse,PicoJSON (C++),citm_catalog,10.844830,3487736,3487736,57191,0
-1. Parse,PicoJSON (C++),canada,51.119434,4894288,4894328,279133,0
-1. Parse,PicoJSON (C++),twitter,6.210205,1860888,1860888,34552,0
-2. Stringify,PicoJSON (C++),citm_catalog,9.265039,983088,1474616,17,0
-2. Stringify,PicoJSON (C++),canada,83.374556,3932208,5898320,108897,0
-2. Stringify,PicoJSON (C++),twitter,4.262396,491568,737336,214,0
-4. Statistics,PicoJSON (C++),citm_catalog,0.577517,0,0,0,0
-4. Statistics,PicoJSON (C++),canada,0.967932,0,0,0,0
-4. Statistics,PicoJSON (C++),twitter,0.213937,0,0,0,0
-1. Parse,POCO (C++),citm_catalog,32.811955,12518120,14246552,293979,0
-1. Parse,POCO (C++),canada,132.052783,10500992,12753376,1304156,0
-1. Parse,POCO (C++),twitter,13.991229,2753192,3385976,96904,0
-2. Stringify,POCO (C++),citm_catalog,14.504141,500752,1025048,28151,0
-2. Stringify,POCO (C++),canada,43.101432,2090288,4187448,99310,0
-2. Stringify,POCO (C++),twitter,11.348884,472992,997288,24029,0
-3. Prettify,POCO (C++),citm_catalog,41.810977,2014224,4111384,28153,0
-3. Prettify,POCO (C++),canada,153.180767,8111424,16500040,99312,0
-3. Prettify,POCO (C++),twitter,16.614053,802896,1851480,24030,0
-4. Statistics,POCO (C++),citm_catalog,1.846403,0,56,451,0
-4. Statistics,POCO (C++),canada,6.156021,0,24,1,0
-4. Statistics,POCO (C++),twitter,0.874116,0,472,2336,0
-5. Sax Round-trip,POCO (C++),citm_catalog,23.804139,500752,2514032,1377,0
-5. Sax Round-trip,POCO (C++),canada,173.916517,1043344,3824344,326653,0
-5. Sax Round-trip,POCO (C++),twitter,14.767913,462176,1418352,6619,0
-6. SaxStatistics,POCO (C++),citm_catalog,12.120608,0,1728264,1366,0
-6. SaxStatistics,POCO (C++),canada,61.073154,0,2252136,326641,0
-6. SaxStatistics,POCO (C++),twitter,5.401629,0,633000,6608,0
-1. Parse,RapidJSON AutoUTF (C++),citm_catalog,7.486189,1114728,1122800,29,0
-1. Parse,RapidJSON AutoUTF (C++),canada,12.353210,2870912,3170152,61,0
-1. Parse,RapidJSON AutoUTF (C++),twitter,4.428011,786928,792728,25,0
-2. Stringify,RapidJSON AutoUTF (C++),citm_catalog,3.115861,567656,568200,24,0
-2. Stringify,RapidJSON AutoUTF (C++),canada,23.742387,2873400,2873944,28,0
-2. Stringify,RapidJSON AutoUTF (C++),twitter,2.641053,567656,568200,24,0
-3. Prettify,RapidJSON AutoUTF (C++),citm_catalog,9.108053,1915624,1916168,27,0
-3. Prettify,RapidJSON AutoUTF (C++),canada,51.256424,9697512,9698056,31,0
-3. Prettify,RapidJSON AutoUTF (C++),twitter,4.361655,851432,851976,25,0
-4. Statistics,RapidJSON AutoUTF (C++),citm_catalog,0.239994,0,0,0,0
-4. Statistics,RapidJSON AutoUTF (C++),canada,0.900210,0,0,0,0
-4. Statistics,RapidJSON AutoUTF (C++),twitter,0.135834,0,0,0,0
-5. Sax Round-trip,RapidJSON AutoUTF (C++),citm_catalog,9.879177,56,568488,26,0
-5. Sax Round-trip,RapidJSON AutoUTF (C++),canada,36.321928,56,2874232,30,0
-5. Sax Round-trip,RapidJSON AutoUTF (C++),twitter,6.670483,56,568808,28,0
-6. SaxStatistics,RapidJSON AutoUTF (C++),citm_catalog,7.172601,0,288,2,0
-6. SaxStatistics,RapidJSON AutoUTF (C++),canada,10.927259,0,288,2,0
-6. SaxStatistics,RapidJSON AutoUTF (C++),twitter,4.008356,0,608,4,0
-1. Parse,RapidJSON FullPrec (C++),citm_catalog,3.958058,1114728,1122800,29,0
-1. Parse,RapidJSON FullPrec (C++),canada,17.250641,2870912,3170152,61,0
-1. Parse,RapidJSON FullPrec (C++),twitter,1.829182,786928,792728,25,0
-2. Stringify,RapidJSON FullPrec (C++),citm_catalog,1.643321,567656,568200,24,0
-2. Stringify,RapidJSON FullPrec (C++),canada,14.643911,2873400,2873944,28,0
-2. Stringify,RapidJSON FullPrec (C++),twitter,1.155577,687928,688472,21,0
-3. Prettify,RapidJSON FullPrec (C++),citm_catalog,2.339679,1915624,1916168,27,0
-3. Prettify,RapidJSON FullPrec (C++),canada,17.240895,9697512,9698056,31,0
-3. Prettify,RapidJSON FullPrec (C++),twitter,1.381782,1090648,1091192,22,0
-4. Statistics,RapidJSON FullPrec (C++),citm_catalog,0.242625,0,0,0,0
-4. Statistics,RapidJSON FullPrec (C++),canada,0.913393,0,0,0,0
-4. Statistics,RapidJSON FullPrec (C++),twitter,0.134119,0,0,0,0
-5. Sax Round-trip,RapidJSON FullPrec (C++),citm_catalog,4.915715,567656,568488,26,0
-5. Sax Round-trip,RapidJSON FullPrec (C++),canada,32.357311,2873400,2874232,30,0
-5. Sax Round-trip,RapidJSON FullPrec (C++),twitter,2.566118,687928,689080,25,0
-6. SaxStatistics,RapidJSON FullPrec (C++),citm_catalog,3.490654,0,288,2,0
-6. SaxStatistics,RapidJSON FullPrec (C++),canada,16.216617,0,288,2,0
-6. SaxStatistics,RapidJSON FullPrec (C++),twitter,1.500549,0,608,4,0
-1. Parse,RapidJSON Insitu (C++),citm_catalog,3.253004,1049168,1056952,26,0
-1. Parse,RapidJSON Insitu (C++),canada,8.685390,2870912,3169864,59,0
-1. Parse,RapidJSON Insitu (C++),twitter,1.286363,459128,464320,16,0
-2. Stringify,RapidJSON Insitu (C++),citm_catalog,1.709119,567656,568200,24,0
-2. Stringify,RapidJSON Insitu (C++),canada,14.843774,2873400,2873944,28,0
-2. Stringify,RapidJSON Insitu (C++),twitter,1.279055,687928,688472,21,0
-3. Prettify,RapidJSON Insitu (C++),citm_catalog,2.435988,1915624,1916168,27,0
-3. Prettify,RapidJSON Insitu (C++),canada,16.846596,9697512,9698056,31,0
-3. Prettify,RapidJSON Insitu (C++),twitter,1.471429,1090648,1091192,22,0
-4. Statistics,RapidJSON Insitu (C++),citm_catalog,0.232370,0,0,0,0
-4. Statistics,RapidJSON Insitu (C++),canada,0.921106,0,0,0,0
-4. Statistics,RapidJSON Insitu (C++),twitter,0.110316,0,0,0,0
-5. Sax Round-trip,RapidJSON Insitu (C++),citm_catalog,4.330803,567656,568240,25,0
-5. Sax Round-trip,RapidJSON Insitu (C++),canada,20.573536,2873400,2873984,29,0
-5. Sax Round-trip,RapidJSON Insitu (C++),twitter,2.347488,687928,688512,22,0
-6. SaxStatistics,RapidJSON Insitu (C++),citm_catalog,3.142372,0,40,1,0
-6. SaxStatistics,RapidJSON Insitu (C++),canada,7.157456,0,40,1,0
-6. SaxStatistics,RapidJSON Insitu (C++),twitter,1.143666,0,40,1,0
-1. Parse,RapidJSON Iterative (C++),citm_catalog,4.528020,1114728,1122800,29,0
-1. Parse,RapidJSON Iterative (C++),canada,9.104717,2870912,3170152,61,0
-1. Parse,RapidJSON Iterative (C++),twitter,2.086314,786928,792728,25,0
-2. Stringify,RapidJSON Iterative (C++),citm_catalog,1.694805,567656,568200,24,0
-2. Stringify,RapidJSON Iterative (C++),canada,14.819148,2873400,2873944,28,0
-2. Stringify,RapidJSON Iterative (C++),twitter,1.173331,687928,688472,21,0
-3. Prettify,RapidJSON Iterative (C++),citm_catalog,2.388221,1915624,1916168,27,0
-3. Prettify,RapidJSON Iterative (C++),canada,17.337867,9697512,9698056,31,0
-3. Prettify,RapidJSON Iterative (C++),twitter,1.382936,1090648,1091192,22,0
-4. Statistics,RapidJSON Iterative (C++),citm_catalog,0.252588,0,0,0,0
-4. Statistics,RapidJSON Iterative (C++),canada,0.931456,0,0,0,0
-4. Statistics,RapidJSON Iterative (C++),twitter,0.119682,0,0,0,0
-5. Sax Round-trip,RapidJSON Iterative (C++),citm_catalog,5.390520,567656,568488,26,0
-5. Sax Round-trip,RapidJSON Iterative (C++),canada,21.871993,2873400,2874232,30,0
-5. Sax Round-trip,RapidJSON Iterative (C++),twitter,2.820350,687928,689080,25,0
-6. SaxStatistics,RapidJSON Iterative (C++),citm_catalog,4.023497,0,288,2,0
-6. SaxStatistics,RapidJSON Iterative (C++),canada,7.965749,0,288,2,0
-6. SaxStatistics,RapidJSON Iterative (C++),twitter,1.785764,0,608,4,0
-1. Parse,RapidJSON (C++),citm_catalog,3.554937,1114728,1122800,29,0
-1. Parse,RapidJSON (C++),canada,8.420074,2870912,3170152,61,0
-1. Parse,RapidJSON (C++),twitter,1.824840,786928,792728,25,0
-2. Stringify,RapidJSON (C++),citm_catalog,1.662705,567656,568200,24,0
-2. Stringify,RapidJSON (C++),canada,14.669261,2873400,2873944,28,0
-2. Stringify,RapidJSON (C++),twitter,1.156439,687928,688472,21,0
-3. Prettify,RapidJSON (C++),citm_catalog,2.342742,1915624,1916168,27,0
-3. Prettify,RapidJSON (C++),canada,17.274022,9697512,9698056,31,0
-3. Prettify,RapidJSON (C++),twitter,1.378260,1090648,1091192,22,0
-4. Statistics,RapidJSON (C++),citm_catalog,0.246737,0,0,0,0
-4. Statistics,RapidJSON (C++),canada,0.915167,0,0,0,0
-4. Statistics,RapidJSON (C++),twitter,0.122797,0,0,0,0
-5. Sax Round-trip,RapidJSON (C++),citm_catalog,4.335601,567656,568488,26,0
-5. Sax Round-trip,RapidJSON (C++),canada,21.218181,2873400,2874232,30,0
-5. Sax Round-trip,RapidJSON (C++),twitter,2.437413,687928,689080,25,0
-6. SaxStatistics,RapidJSON (C++),citm_catalog,2.980938,0,288,2,0
-6. SaxStatistics,RapidJSON (C++),canada,7.078098,0,288,2,0
-6. SaxStatistics,RapidJSON (C++),twitter,1.491688,0,608,4,0
-1. Parse,simdjson,citm_catalog,1.830184,23615008,25342248,9,0
-1. Parse,simdjson,canada,6.033618,30774176,33025272,9,0
-1. Parse,simdjson,twitter,0.668940,8640736,9272296,9,0
-2. Stringify,simdjson,citm_catalog,1.625910,524704,1499936,32,0
-2. Stringify,simdjson,canada,15.200647,2097568,6178256,36,0
-2. Stringify,simdjson,twitter,1.220651,524704,1485216,32,0
-4. Statistics,simdjson,citm_catalog,0.406621,0,0,0,0
-4. Statistics,simdjson,canada,1.300155,0,0,0,0
-4. Statistics,simdjson,twitter,0.186419,0,0,0,0
-1. Parse,SimpleJSON (C++),citm_catalog,23.276384,4945744,4947256,232251,0
-1. Parse,SimpleJSON (C++),canada,32.277093,7147120,7212312,393537,0
-1. Parse,SimpleJSON (C++),twitter,13.808809,2963888,2964848,132884,0
-2. Stringify,SimpleJSON (C++),citm_catalog,39.923328,24,5976072,130275,0
-2. Stringify,SimpleJSON (C++),canada,221.780248,24,18934648,360791,0
-2. Stringify,SimpleJSON (C++),twitter,15.372373,24,6825208,62090,0
-4. Statistics,SimpleJSON (C++),citm_catalog,0.826371,0,0,0,0
-4. Statistics,SimpleJSON (C++),canada,1.554590,0,0,0,0
-4. Statistics,SimpleJSON (C++),twitter,0.445620,0,0,0,0
-1. Parse,taocpp json (C++11),citm_catalog,9.310876,4075008,4075600,33888,0
-1. Parse,taocpp json (C++11),canada,27.783515,11295768,11383848,114209,0
-1. Parse,taocpp json (C++11),twitter,5.510715,2040024,2041192,20817,0
-2. Stringify,taocpp json (C++11),citm_catalog,3.675800,500368,1024664,13,0
-2. Stringify,taocpp json (C++11),canada,16.734943,2090288,4187448,15,0
-2. Stringify,taocpp json (C++11),twitter,2.532289,466960,991256,13,0
-3. Prettify,taocpp json (C++11),citm_catalog,5.567962,1727264,3824424,17,0
-3. Prettify,taocpp json (C++11),canada,23.835223,8111424,16500040,18,0
-3. Prettify,taocpp json (C++11),twitter,3.223372,767344,1815928,16,0
+1. Parse,boostjson (C++11),citm_catalog,3.831534,2242824,2255120,39021,0
+1. Parse,boostjson (C++11),canada,8.009789,4464472,4857696,56070,0
+1. Parse,boostjson (C++11),twitter,2.832288,1192704,1198856,17403,0
+2. Stringify,boostjson (C++11),citm_catalog,1.655599,1048624,1573040,31,0
+2. Stringify,boostjson (C++11),canada,10.624830,8388656,12583088,34,0
+2. Stringify,boostjson (C++11),twitter,0.942668,1048624,1573008,25,0
+4. Statistics,boostjson (C++11),citm_catalog,0.326854,0,0,0,0
+4. Statistics,boostjson (C++11),canada,0.828709,0,0,0,0
+4. Statistics,boostjson (C++11),twitter,0.145742,0,0,0,0
+1. Parse,cJSON (C),citm_catalog,7.853867,3366632,3366632,64383,0
+1. Parse,cJSON (C),canada,45.029261,12037280,12037280,167192,0
+1. Parse,cJSON (C),twitter,3.432824,1618192,1618192,32014,0
+2. Stringify,cJSON (C),citm_catalog,12.496728,526944,526944,9,0
+2. Stringify,cJSON (C),canada,148.556184,2102144,2102144,11,0
+2. Stringify,cJSON (C),twitter,3.614986,529712,529712,9,0
+3. Prettify,cJSON (C),citm_catalog,13.055918,1052048,1052048,10,0
+3. Prettify,cJSON (C),canada,149.681595,2109680,2109680,11,0
+3. Prettify,cJSON (C),twitter,4.015778,1058064,1058064,10,0
+4. Statistics,cJSON (C),citm_catalog,0.854247,0,0,0,0
+4. Statistics,cJSON (C),canada,3.178824,0,0,0,0
+4. Statistics,cJSON (C),twitter,0.514175,0,0,0,0
+1. Parse,JSON Voorhees (C++),citm_catalog,45.736899,10067440,19672376,291908,0
+1. Parse,JSON Voorhees (C++),canada,157.580137,38902016,77823192,678577,0
+1. Parse,JSON Voorhees (C++),twitter,18.090175,2475184,4948712,114643,0
+2. Stringify,JSON Voorhees (C++),citm_catalog,11.454094,501456,1025752,13,0
+2. Stringify,JSON Voorhees (C++),canada,65.293278,1043344,2091928,14,0
+2. Stringify,JSON Voorhees (C++),twitter,13.061696,568496,1617080,14,0
+3. Prettify,JSON Voorhees (C++),citm_catalog,34.379856,1728352,3825512,15,0
+3. Prettify,JSON Voorhees (C++),canada,183.286513,7064496,15453112,17,0
+3. Prettify,JSON Voorhees (C++),twitter,19.215090,868896,1917480,14,0
+4. Statistics,JSON Voorhees (C++),citm_catalog,1.365303,0,0,0,0
+4. Statistics,JSON Voorhees (C++),canada,6.834170,0,0,0,0
+4. Statistics,JSON Voorhees (C++),twitter,0.474590,0,0,0,0
+1. Parse,sajson (C++),citm_catalog,3.430270,2776024,3308304,13,0
+1. Parse,sajson (C++),canada,7.322520,6445592,8673616,19,0
+1. Parse,sajson (C++),twitter,1.108087,1156040,1422080,11,0
+4. Statistics,sajson (C++),citm_catalog,0.310211,0,0,0,0
+4. Statistics,sajson (C++),canada,1.207354,0,0,0,0
+4. Statistics,sajson (C++),twitter,0.157168,0,0,0,0
+1. Parse,Centijson (C),citm_catalog,18.333574,2328520,2328944,60310,0
+1. Parse,Centijson (C),canada,56.336333,4904608,4904912,170253,0
+1. Parse,Centijson (C),twitter,7.322685,1172984,1174000,28191,0
+2. Stringify,Centijson (C),citm_catalog,5.704478,713120,1069856,10956,0
+2. Stringify,Centijson (C),canada,71.866110,2300752,3451200,27,0
+2. Stringify,Centijson (C),twitter,4.140047,495056,743128,1283,0
+3. Prettify,Centijson (C),citm_catalog,7.783828,1668880,2503488,10958,0
+3. Prettify,Centijson (C),canada,76.457362,4756816,7135280,28,0
+3. Prettify,Centijson (C),twitter,4.519013,1124912,1688112,1286,0
+4. Statistics,Centijson (C),citm_catalog,1.800218,0,0,0,0
+4. Statistics,Centijson (C),canada,1.950636,0,0,0,0
+4. Statistics,Centijson (C),twitter,1.876761,0,0,0,0
+5. Sax Round-trip,Centijson (C),citm_catalog,13.813849,713120,1069872,30,0
+5. Sax Round-trip,Centijson (C),canada,16.759883,3117888,4676904,28,0
+5. Sax Round-trip,Centijson (C),twitter,4.951280,640304,961312,33,0
+6. SaxStatistics,Centijson (C),citm_catalog,11.315769,0,224,9,0
+6. SaxStatistics,Centijson (C),canada,12.140512,0,104,5,0
+6. SaxStatistics,Centijson (C),twitter,3.148648,0,880,12,0
+1. Parse,yyjson (C),citm_catalog,1.824675,3454568,3454568,3,0
+1. Parse,yyjson (C),canada,8.108339,8254024,8254024,3,0
+1. Parse,yyjson (C),twitter,0.685395,1263192,1263192,3,0
+2. Stringify,yyjson (C),citm_catalog,0.727084,1145744,1145744,2,0
+2. Stringify,yyjson (C),canada,8.201900,3009456,3009456,2,0
+2. Stringify,yyjson (C),twitter,0.537289,490752,490752,2,0
+3. Prettify,yyjson (C),citm_catalog,0.998743,2036800,2036800,2,0
+3. Prettify,yyjson (C),canada,9.821446,12037632,12037632,4,0
+3. Prettify,yyjson (C),twitter,0.671747,872384,872384,2,0
+4. Statistics,yyjson (C),citm_catalog,0.265886,0,0,0,0
+4. Statistics,yyjson (C),canada,0.942647,0,0,0,0
+4. Statistics,yyjson (C),twitter,0.141411,0,0,0,0
+1. Parse,Sheredom json.h (C),citm_catalog,10.617366,2803312,2803312,2,0
+1. Parse,Sheredom json.h (C),canada,19.177387,10163712,10163712,2,0
+1. Parse,Sheredom json.h (C),twitter,4.007454,1310352,1310352,2,0
+2. Stringify,Sheredom json.h (C),citm_catalog,12.026920,500336,500336,2,0
+2. Stringify,Sheredom json.h (C),canada,79.438272,2251056,2251056,2,0
+2. Stringify,Sheredom json.h (C),twitter,3.998181,466944,466944,2,0
+3. Prettify,Sheredom json.h (C),citm_catalog,13.701329,1753104,1753104,2,0
+3. Prettify,Sheredom json.h (C),canada,88.152614,8272208,8272208,2,0
+3. Prettify,Sheredom json.h (C),twitter,4.401748,780672,780672,2,0
+4. Statistics,Sheredom json.h (C),citm_catalog,0.254956,0,0,0,0
+4. Statistics,Sheredom json.h (C),canada,1.260500,0,0,0,0
+4. Statistics,Sheredom json.h (C),twitter,0.133881,0,0,0,0
+1. Parse,Vinenthz libjson (C),citm_catalog,22.392258,2597944,2626936,153901,0
+1. Parse,Vinenthz libjson (C),canada,65.578067,5842872,5871864,334389,0
+1. Parse,Vinenthz libjson (C),twitter,9.634643,1410232,1439224,72620,0
+2. Stringify,Vinenthz libjson (C),citm_catalog,5.672088,524336,524336,10,0
+2. Stringify,Vinenthz libjson (C),canada,69.866110,4194352,4194352,13,0
+2. Stringify,Vinenthz libjson (C),twitter,4.298681,524336,524336,10,0
+3. Prettify,Vinenthz libjson (C),citm_catalog,5.795120,524336,524336,10,0
+3. Prettify,Vinenthz libjson (C),canada,69.789890,4194352,4194352,13,0
+3. Prettify,Vinenthz libjson (C),twitter,4.109681,524336,524336,10,0
+4. Statistics,Vinenthz libjson (C),citm_catalog,0.482498,0,0,0,0
+4. Statistics,Vinenthz libjson (C),canada,1.018529,0,0,0,0
+4. Statistics,Vinenthz libjson (C),twitter,0.252161,0,0,0,0
+5. Sax Round-trip,Vinenthz libjson (C),citm_catalog,16.020980,524336,528704,12,0
+5. Sax Round-trip,Vinenthz libjson (C),canada,20.730940,4194352,4198720,15,0
+5. Sax Round-trip,Vinenthz libjson (C),twitter,8.070304,524336,528704,12,0
+6. SaxStatistics,Vinenthz libjson (C),citm_catalog,12.979845,0,4368,2,0
+6. SaxStatistics,Vinenthz libjson (C),canada,18.293025,0,4368,2,0
+6. SaxStatistics,Vinenthz libjson (C),twitter,4.969983,0,4368,2,0
+1. Parse,strdup,citm_catalog,0.199536,24,24,1,0
+1. Parse,strdup,canada,0.312034,24,24,1,0
+1. Parse,strdup,twitter,0.037859,24,24,1,0
+2. Stringify,strdup,citm_catalog,0.181856,24,24,1,0
+2. Stringify,strdup,canada,0.294217,24,24,1,0
+2. Stringify,strdup,twitter,0.040291,24,24,1,0
+1. Parse,ccan json (C),citm_catalog,7.944581,2824152,2824152,68345,0
+1. Parse,ccan json (C),canada,33.218567,9362464,9362464,167193,0
+1. Parse,ccan json (C),twitter,5.552074,1545504,1545504,43523,0
+2. Stringify,ccan json (C),citm_catalog,8.626653,524320,524320,17,0
+2. Stringify,ccan json (C),canada,67.802062,2097184,2097184,19,0
+2. Stringify,ccan json (C),twitter,3.453121,524320,524320,17,0
+3. Prettify,ccan json (C),citm_catalog,11.993109,2097200,2097200,19,0
+3. Prettify,ccan json (C),canada,81.871202,8388640,8388640,21,0
+3. Prettify,ccan json (C),twitter,4.214747,1048608,1048608,18,0
+4. Statistics,ccan json (C),citm_catalog,0.595043,0,0,0,0
+4. Statistics,ccan json (C),canada,2.181993,0,0,0,0
+4. Statistics,ccan json (C),twitter,0.256969,0,0,0,0
+1. Parse,Arduino Json (C++),citm_catalog,7.067293,8280920,8280920,3,0
+1. Parse,Arduino Json (C++),canada,14.384670,8804776,8804776,3,0
+1. Parse,Arduino Json (C++),twitter,5.101863,7185240,7185240,3,0
+2. Stringify,Arduino Json (C++),citm_catalog,4.107724,983088,1474616,17,0
+2. Stringify,Arduino Json (C++),canada,9.776416,1966128,2949176,18,0
+2. Stringify,Arduino Json (C++),twitter,4.468721,491568,737336,16,0
+3. Prettify,Arduino Json (C++),citm_catalog,7.506959,1966128,2949176,18,0
+3. Prettify,Arduino Json (C++),canada,26.860454,7864368,11796536,20,0
+3. Prettify,Arduino Json (C++),twitter,5.958848,983088,1474616,17,0
+4. Statistics,Arduino Json (C++),citm_catalog,0.000043,0,0,0,0
+4. Statistics,Arduino Json (C++),canada,0.000048,0,0,0,0
+4. Statistics,Arduino Json (C++),twitter,0.000042,0,0,0,0
+1. Parse,nbsdx SimpleJSON (C++11),citm_catalog,37.851915,10067216,21398072,321232,0
+1. Parse,nbsdx SimpleJSON (C++11),canada,161.168355,38892336,80050344,787463,0
+1. Parse,nbsdx SimpleJSON (C++11),twitter,18.342544,2475168,5579848,145310,0
+2. Stringify,nbsdx SimpleJSON (C++11),citm_catalog,15.897473,2055040,3082536,95521,0
+2. Stringify,nbsdx SimpleJSON (C++11),canada,79.387707,2811760,4217624,169650,0
+2. Stringify,nbsdx SimpleJSON (C++11),twitter,7.280065,1268240,1902344,32912,0
+3. Prettify,nbsdx SimpleJSON (C++11),citm_catalog,19.606038,2962256,4443368,159216,0
+3. Prettify,nbsdx SimpleJSON (C++11),canada,89.406888,2811888,4217824,336835,0
+3. Prettify,nbsdx SimpleJSON (C++11),twitter,8.413921,1524544,2286792,61650,0
+4. Statistics,nbsdx SimpleJSON (C++11),citm_catalog,1.041236,0,112,730,0
+4. Statistics,nbsdx SimpleJSON (C++11),canada,5.258639,0,40,1,0
+4. Statistics,nbsdx SimpleJSON (C++11),twitter,1.792486,0,736,5166,0
+1. Parse,Qt (C++),citm_catalog,9.961820,48,48,2,0
+1. Parse,Qt (C++),canada,34.780640,48,48,2,0
+1. Parse,Qt (C++),twitter,3.856875,48,48,2,0
+2. Stringify,Qt (C++),citm_catalog,12.622201,24,24,1,0
+2. Stringify,Qt (C++),canada,45.215598,24,24,1,0
+2. Stringify,Qt (C++),twitter,7.702286,24,24,1,0
+3. Prettify,Qt (C++),citm_catalog,15.045352,24,24,1,0
+3. Prettify,Qt (C++),canada,53.933999,24,24,1,0
+3. Prettify,Qt (C++),twitter,8.212882,24,24,1,0
+4. Statistics,Qt (C++),citm_catalog,3.393214,0,0,0,0
+4. Statistics,Qt (C++),canada,5.680746,0,0,0,0
+4. Statistics,Qt (C++),twitter,1.890473,0,0,0,0
+1. Parse,Configuru (C++11),citm_catalog,20.024020,4867232,4867312,56007,0
+1. Parse,Configuru (C++11),canada,48.370580,10438408,10450984,170258,0
+1. Parse,Configuru (C++11),twitter,8.439711,2333792,2333872,27879,0
+2. Stringify,Configuru (C++11),citm_catalog,5.800487,983088,1474824,10952,0
+2. Stringify,Configuru (C++11),canada,220.079686,3932208,5898368,23,0
+2. Stringify,Configuru (C++11),twitter,2.379380,491568,737888,1280,0
+3. Prettify,Configuru (C++11),citm_catalog,7.783507,983088,1474776,10952,0
+3. Prettify,Configuru (C++11),canada,224.826162,3932208,5898368,23,0
+3. Prettify,Configuru (C++11),twitter,3.642628,983088,1475168,1281,0
+4. Statistics,Configuru (C++11),citm_catalog,0.889087,0,0,0,0
+4. Statistics,Configuru (C++11),canada,2.325868,0,0,0,0
+4. Statistics,Configuru (C++11),twitter,0.406638,0,0,0,0
+1. Parse,C++ REST SDK (C++11),citm_catalog,18.162026,2709840,2709864,69966,0
+1. Parse,C++ REST SDK (C++11),canada,79.779269,6908928,6908992,392462,0
+1. Parse,C++ REST SDK (C++11),twitter,8.296185,1753888,1754192,28021,0
+2. Stringify,C++ REST SDK (C++11),citm_catalog,3.473121,500352,1484800,20,0
+2. Stringify,C++ REST SDK (C++11),canada,71.194257,2251072,10027072,33,0
+2. Stringify,C++ REST SDK (C++11),twitter,1.708036,466976,1352000,22,0
+4. Statistics,C++ REST SDK (C++11),citm_catalog,0.554323,0,0,0,0
+4. Statistics,C++ REST SDK (C++11),canada,1.525160,0,0,0,0
+4. Statistics,C++ REST SDK (C++11),twitter,0.245792,0,0,0,0
+1. Parse,dropbox json11 (C++11),citm_catalog,11.808533,4598312,6325520,70675,0
+1. Parse,dropbox json11 (C++11),canada,42.461936,11133152,13384216,281382,0
+1. Parse,dropbox json11 (C++11),twitter,7.340185,2126608,2758136,32396,0
+2. Stringify,dropbox json11 (C++11),citm_catalog,4.920140,983088,1474616,17,0
+2. Stringify,dropbox json11 (C++11),canada,69.375144,3932208,5898296,19,0
+2. Stringify,dropbox json11 (C++11),twitter,3.264349,983088,1474616,17,0
+4. Statistics,dropbox json11 (C++11),citm_catalog,0.840435,0,0,0,0
+4. Statistics,dropbox json11 (C++11),canada,3.537931,0,0,0,0
+4. Statistics,dropbox json11 (C++11),twitter,0.432059,0,0,0,0
+1. Parse,FastJson (C++),citm_catalog,8.975738,2687432,4415176,22,0
+1. Parse,FastJson (C++),canada,19.185428,8715384,10966984,22,0
+1. Parse,FastJson (C++),twitter,3.910444,1361560,1994216,24,0
+2. Stringify,FastJson (C++),citm_catalog,9.873844,501040,501040,2,0
+2. Stringify,FastJson (C++),canada,78.132794,2251072,2251072,2,0
+2. Stringify,FastJson (C++),twitter,3.113353,562464,562464,2,0
+4. Statistics,FastJson (C++),citm_catalog,0.266978,0,0,0,0
+4. Statistics,FastJson (C++),canada,0.886743,0,0,0,0
+4. Statistics,FastJson (C++),twitter,0.114109,0,0,0,0
+1. Parse,gason (C++11),citm_catalog,4.550868,2548048,2548048,202,0
+1. Parse,gason (C++11),canada,5.679522,4943328,4943328,658,0
+1. Parse,gason (C++11),twitter,1.620110,963992,963992,83,0
+2. Stringify,gason (C++11),citm_catalog,13.755619,601088,1649672,14,0
+2. Stringify,gason (C++11),canada,53.633607,1295040,3392200,15,0
+2. Stringify,gason (C++11),twitter,6.870102,481712,1006008,13,0
+3. Prettify,gason (C++11),citm_catalog,20.271069,1802128,3899288,15,0
+3. Prettify,gason (C++11),canada,85.447019,7316176,15704792,17,0
+3. Prettify,gason (C++11),twitter,8.079729,768752,1817336,14,0
+4. Statistics,gason (C++11),citm_catalog,0.339427,0,0,0,0
+4. Statistics,gason (C++11),canada,0.579661,0,0,0,0
+4. Statistics,gason (C++11),twitter,0.234872,0,0,0,0
+1. Parse,JeayeSON (C++14),citm_catalog,33.107855,3815568,13175304,224033,0
+1. Parse,JeayeSON (C++14),canada,81.455612,9809048,31679024,442970,0
+1. Parse,JeayeSON (C++14),twitter,18.339132,1958824,6509488,128624,0
+2. Stringify,JeayeSON (C++14),citm_catalog,5.457663,499600,1023896,1374,0
+2. Stringify,JeayeSON (C++14),canada,64.746086,1043296,2091880,15,0
+2. Stringify,JeayeSON (C++14),twitter,4.220654,465632,989928,6730,0
+4. Statistics,JeayeSON (C++14),citm_catalog,0.521527,0,0,0,0
+4. Statistics,JeayeSON (C++14),canada,2.037318,0,0,0,0
+4. Statistics,JeayeSON (C++14),twitter,0.305152,0,0,0,0
+1. Parse,JsonBox (C++),citm_catalog,94.373452,3782120,7236576,246869,0
+1. Parse,JsonBox (C++),canada,309.250514,7491792,12385912,974083,0
+1. Parse,JsonBox (C++),twitter,50.507802,1918376,3776096,84564,0
+2. Stringify,JsonBox (C++),citm_catalog,62.279274,499616,1023912,2733,0
+2. Stringify,JsonBox (C++),canada,235.524042,2251072,6445384,18,0
+2. Stringify,JsonBox (C++),twitter,42.394136,465392,989688,12823,0
+3. Prettify,JsonBox (C++),citm_catalog,45.578358,889472,1938056,2734,0
+3. Prettify,JsonBox (C++),canada,183.947589,3923792,8118104,18,0
+3. Prettify,JsonBox (C++),twitter,30.530120,575456,1624040,12824,0
+4. Statistics,JsonBox (C++),citm_catalog,0.732474,0,0,0,0
+4. Statistics,JsonBox (C++),canada,1.443423,0,0,0,0
+4. Statistics,JsonBox (C++),twitter,0.309186,0,0,0,0
+1. Parse,jsoncons (C++),citm_catalog,17.764608,2443480,2494888,46391,0
+1. Parse,jsoncons (C++),canada,55.180738,5367680,6138656,112113,0
+1. Parse,jsoncons (C++),twitter,10.240353,1161800,1212992,11724,0
+2. Stringify,jsoncons (C++),citm_catalog,4.459633,983088,1474856,22,0
+2. Stringify,jsoncons (C++),canada,21.644578,3932208,5898536,509,0
+2. Stringify,jsoncons (C++),twitter,3.911567,491568,737704,22,0
+3. Prettify,jsoncons (C++),citm_catalog,3.675279,500352,1024648,19,0
+3. Prettify,jsoncons (C++),canada,21.190515,2090560,4187720,506,0
+3. Prettify,jsoncons (C++),twitter,2.893321,466960,991256,20,0
+4. Statistics,jsoncons (C++),citm_catalog,0.830036,0,56,451,0
+4. Statistics,jsoncons (C++),canada,1.368980,0,24,1,0
+4. Statistics,jsoncons (C++),twitter,0.497455,0,472,2336,0
+1. Parse,JsonCpp (C++),citm_catalog,16.649276,4525616,4528240,60544,0
+1. Parse,JsonCpp (C++),canada,189.382371,17850496,17853240,552083,0
+1. Parse,JsonCpp (C++),twitter,10.413410,1353984,1356608,22495,0
+2. Stringify,JsonCpp (C++),citm_catalog,9.258920,501040,1026328,15559,0
+2. Stringify,JsonCpp (C++),canada,106.235951,2251072,6446376,111111,0
+2. Stringify,JsonCpp (C++),twitter,9.146890,562464,1612040,14297,0
+4. Statistics,JsonCpp (C++),citm_catalog,5.046559,0,56,1360,0
+4. Statistics,JsonCpp (C++),canada,11.613353,0,24,1,0
+4. Statistics,JsonCpp (C++),twitter,1.711381,0,472,6405,0
+1. Parse,JSON Spirit (C++),citm_catalog,47.136509,2975888,6013792,292596,0
+1. Parse,JSON Spirit (C++),canada,64.051348,9362448,9854072,435430,0
+1. Parse,JSON Spirit (C++),twitter,14.811585,1371024,2787456,80570,0
+2. Stringify,JSON Spirit (C++),citm_catalog,7.114211,502080,1026376,1725,0
+2. Stringify,JSON Spirit (C++),canada,87.684384,2251072,6445384,17,0
+2. Stringify,JSON Spirit (C++),twitter,8.462485,944000,1992584,11267,0
+3. Prettify,JSON Spirit (C++),citm_catalog,16.321279,2006864,4104024,1727,0
+3. Prettify,JSON Spirit (C++),canada,124.074044,8272224,16660840,18,0
+3. Prettify,JSON Spirit (C++),twitter,11.203655,1273152,3370312,11268,0
+4. Statistics,JSON Spirit (C++),citm_catalog,0.453446,0,0,0,0
+4. Statistics,JSON Spirit (C++),canada,1.709651,0,0,0,0
+4. Statistics,JSON Spirit (C++),twitter,0.176960,0,0,0,0
+1. Parse,hjiang JSON++ (C++),citm_catalog,47.096300,4809008,8263424,132013,0
+1. Parse,hjiang JSON++ (C++),canada,157.791186,10033136,14535264,504610,0
+1. Parse,hjiang JSON++ (C++),twitter,20.446019,2241168,3504224,57430,0
+2. Stringify,hjiang JSON++ (C++),citm_catalog,56.517615,946976,4836264,136557,0
+2. Stringify,hjiang JSON++ (C++),canada,277.646199,3979840,20113528,447434,0
+2. Stringify,hjiang JSON++ (C++),twitter,20.772469,575712,3351256,50774,0
+4. Statistics,hjiang JSON++ (C++),citm_catalog,0.786849,0,0,0,0
+4. Statistics,hjiang JSON++ (C++),canada,2.612821,0,0,0,0
+4. Statistics,hjiang JSON++ (C++),twitter,0.353217,0,0,0,0
+1. Parse,juson (C),citm_catalog,7.336213,3006120,3006144,6050,0
+1. Parse,juson (C),canada,39.509199,7361424,7361448,115044,0
+1. Parse,juson (C),twitter,2.461101,1363328,1363328,1104,0
+4. Statistics,juson (C),citm_catalog,0.431112,0,0,0,0
+4. Statistics,juson (C),canada,0.883607,0,0,0,0
+4. Statistics,juson (C),twitter,0.184593,0,0,0,0
+1. Parse,Nlohmann (C++11),citm_catalog,16.706270,3476456,3476760,56018,0
+1. Parse,Nlohmann (C++11),canada,60.236394,4896752,4896952,170267,0
+1. Parse,Nlohmann (C++11),twitter,9.156329,1798216,1799384,27316,0
+2. Stringify,Nlohmann (C++11),citm_catalog,3.982077,983088,1475176,19,0
+2. Stringify,Nlohmann (C++11),canada,17.344006,3932208,5898856,21,0
+2. Stringify,Nlohmann (C++11),twitter,3.299497,491568,737896,18,0
+3. Prettify,Nlohmann (C++11),citm_catalog,4.828372,1966128,2949736,20,0
+3. Prettify,Nlohmann (C++11),canada,21.939147,15728688,23593576,23,0
+3. Prettify,Nlohmann (C++11),twitter,3.803164,983088,1475176,19,0
+4. Statistics,Nlohmann (C++11),citm_catalog,0.657038,0,56,451,0
+4. Statistics,Nlohmann (C++11),canada,1.641303,0,40,1,0
+4. Statistics,Nlohmann (C++11),twitter,0.663838,0,472,2336,0
+1. Parse,PicoJSON (C++),citm_catalog,11.762308,3487448,3487448,57191,0
+1. Parse,PicoJSON (C++),canada,53.100464,4894144,4894184,279133,0
+1. Parse,PicoJSON (C++),twitter,6.620319,1860984,1860984,34552,0
+2. Stringify,PicoJSON (C++),citm_catalog,10.119186,983088,1474616,17,0
+2. Stringify,PicoJSON (C++),canada,90.114497,3932208,5898320,108897,0
+2. Stringify,PicoJSON (C++),twitter,4.885980,491568,737336,214,0
+4. Statistics,PicoJSON (C++),citm_catalog,0.638830,0,0,0,0
+4. Statistics,PicoJSON (C++),canada,1.003088,0,0,0,0
+4. Statistics,PicoJSON (C++),twitter,0.246774,0,0,0,0
+1. Parse,POCO (C++),citm_catalog,35.850084,12518088,14246520,293979,0
+1. Parse,POCO (C++),canada,132.544504,10500944,12753328,1304156,0
+1. Parse,POCO (C++),twitter,15.413738,2753192,3385976,96904,0
+2. Stringify,POCO (C++),citm_catalog,16.619138,500752,1025048,28151,0
+2. Stringify,POCO (C++),canada,49.219646,2090288,4187448,99310,0
+2. Stringify,POCO (C++),twitter,13.221599,472992,997288,24029,0
+3. Prettify,POCO (C++),citm_catalog,42.879533,2014224,4111384,28153,0
+3. Prettify,POCO (C++),canada,166.429405,8111424,16500040,99312,0
+3. Prettify,POCO (C++),twitter,17.151290,802896,1851480,24030,0
+4. Statistics,POCO (C++),citm_catalog,1.828472,0,56,451,0
+4. Statistics,POCO (C++),canada,6.080076,0,24,1,0
+4. Statistics,POCO (C++),twitter,0.965925,0,472,2336,0
+5. Sax Round-trip,POCO (C++),citm_catalog,23.646152,500752,2514032,1377,0
+5. Sax Round-trip,POCO (C++),canada,161.685364,1043344,3824344,326653,0
+5. Sax Round-trip,POCO (C++),twitter,14.887666,462176,1418352,6619,0
+6. SaxStatistics,POCO (C++),citm_catalog,13.217155,0,1728264,1366,0
+6. SaxStatistics,POCO (C++),canada,62.916078,0,2252136,326641,0
+6. SaxStatistics,POCO (C++),twitter,5.813404,0,633000,6608,0
+1. Parse,RapidJSON AutoUTF (C++),citm_catalog,8.136970,1114728,1122800,29,0
+1. Parse,RapidJSON AutoUTF (C++),canada,12.605098,2870912,3170152,61,0
+1. Parse,RapidJSON AutoUTF (C++),twitter,5.076352,786928,792728,25,0
+2. Stringify,RapidJSON AutoUTF (C++),citm_catalog,4.302773,567656,568200,24,0
+2. Stringify,RapidJSON AutoUTF (C++),canada,26.414189,2873400,2873944,28,0
+2. Stringify,RapidJSON AutoUTF (C++),twitter,3.221487,567656,568200,24,0
+3. Prettify,RapidJSON AutoUTF (C++),citm_catalog,10.573470,1915624,1916168,27,0
+3. Prettify,RapidJSON AutoUTF (C++),canada,58.399995,9697512,9698056,31,0
+3. Prettify,RapidJSON AutoUTF (C++),twitter,4.616904,851432,851976,25,0
+4. Statistics,RapidJSON AutoUTF (C++),citm_catalog,0.265383,0,0,0,0
+4. Statistics,RapidJSON AutoUTF (C++),canada,0.898685,0,0,0,0
+4. Statistics,RapidJSON AutoUTF (C++),twitter,0.145096,0,0,0,0
+5. Sax Round-trip,RapidJSON AutoUTF (C++),citm_catalog,10.961445,56,568488,26,0
+5. Sax Round-trip,RapidJSON AutoUTF (C++),canada,38.017277,56,2874232,30,0
+5. Sax Round-trip,RapidJSON AutoUTF (C++),twitter,6.802155,56,568808,28,0
+6. SaxStatistics,RapidJSON AutoUTF (C++),citm_catalog,7.528951,0,288,2,0
+6. SaxStatistics,RapidJSON AutoUTF (C++),canada,11.232022,0,288,2,0
+6. SaxStatistics,RapidJSON AutoUTF (C++),twitter,4.181881,0,608,4,0
+1. Parse,RapidJSON FullPrec (C++),citm_catalog,4.327783,1114728,1122800,29,0
+1. Parse,RapidJSON FullPrec (C++),canada,19.081398,2870912,3170152,61,0
+1. Parse,RapidJSON FullPrec (C++),twitter,2.013912,786928,792728,25,0
+2. Stringify,RapidJSON FullPrec (C++),citm_catalog,1.749945,567656,568200,24,0
+2. Stringify,RapidJSON FullPrec (C++),canada,15.988712,2873400,2873944,28,0
+2. Stringify,RapidJSON FullPrec (C++),twitter,1.335316,687928,688472,21,0
+3. Prettify,RapidJSON FullPrec (C++),citm_catalog,2.515018,1915624,1916168,27,0
+3. Prettify,RapidJSON FullPrec (C++),canada,19.043199,9697512,9698056,31,0
+3. Prettify,RapidJSON FullPrec (C++),twitter,1.733238,1090648,1091192,22,0
+4. Statistics,RapidJSON FullPrec (C++),citm_catalog,0.298227,0,0,0,0
+4. Statistics,RapidJSON FullPrec (C++),canada,1.096830,0,0,0,0
+4. Statistics,RapidJSON FullPrec (C++),twitter,0.155309,0,0,0,0
+5. Sax Round-trip,RapidJSON FullPrec (C++),citm_catalog,5.084402,567656,568488,26,0
+5. Sax Round-trip,RapidJSON FullPrec (C++),canada,33.963614,2873400,2874232,30,0
+5. Sax Round-trip,RapidJSON FullPrec (C++),twitter,2.587826,687928,689080,25,0
+6. SaxStatistics,RapidJSON FullPrec (C++),citm_catalog,3.545839,0,288,2,0
+6. SaxStatistics,RapidJSON FullPrec (C++),canada,17.067539,0,288,2,0
+6. SaxStatistics,RapidJSON FullPrec (C++),twitter,1.703889,0,608,4,0
+1. Parse,RapidJSON Insitu (C++),citm_catalog,3.524878,1049168,1056952,26,0
+1. Parse,RapidJSON Insitu (C++),canada,8.803045,2870912,3169864,59,0
+1. Parse,RapidJSON Insitu (C++),twitter,1.288713,459128,464320,16,0
+2. Stringify,RapidJSON Insitu (C++),citm_catalog,1.680503,567656,568200,24,0
+2. Stringify,RapidJSON Insitu (C++),canada,15.789465,2873400,2873944,28,0
+2. Stringify,RapidJSON Insitu (C++),twitter,1.371739,687928,688472,21,0
+3. Prettify,RapidJSON Insitu (C++),citm_catalog,2.480220,1915624,1916168,27,0
+3. Prettify,RapidJSON Insitu (C++),canada,17.006086,9697512,9698056,31,0
+3. Prettify,RapidJSON Insitu (C++),twitter,1.573351,1090648,1091192,22,0
+4. Statistics,RapidJSON Insitu (C++),citm_catalog,0.237095,0,0,0,0
+4. Statistics,RapidJSON Insitu (C++),canada,0.911929,0,0,0,0
+4. Statistics,RapidJSON Insitu (C++),twitter,0.122054,0,0,0,0
+5. Sax Round-trip,RapidJSON Insitu (C++),citm_catalog,4.426307,567656,568240,25,0
+5. Sax Round-trip,RapidJSON Insitu (C++),canada,22.510189,2873400,2873984,29,0
+5. Sax Round-trip,RapidJSON Insitu (C++),twitter,2.529435,687928,688512,22,0
+6. SaxStatistics,RapidJSON Insitu (C++),citm_catalog,3.349278,0,40,1,0
+6. SaxStatistics,RapidJSON Insitu (C++),canada,7.678652,0,40,1,0
+6. SaxStatistics,RapidJSON Insitu (C++),twitter,1.183675,0,40,1,0
+1. Parse,RapidJSON Iterative (C++),citm_catalog,4.703065,1114728,1122800,29,0
+1. Parse,RapidJSON Iterative (C++),canada,10.175454,2870912,3170152,61,0
+1. Parse,RapidJSON Iterative (C++),twitter,2.346021,786928,792728,25,0
+2. Stringify,RapidJSON Iterative (C++),citm_catalog,1.633924,567656,568200,24,0
+2. Stringify,RapidJSON Iterative (C++),canada,14.364983,2873400,2873944,28,0
+2. Stringify,RapidJSON Iterative (C++),twitter,1.218464,687928,688472,21,0
+3. Prettify,RapidJSON Iterative (C++),citm_catalog,2.418554,1915624,1916168,27,0
+3. Prettify,RapidJSON Iterative (C++),canada,18.335439,9697512,9698056,31,0
+3. Prettify,RapidJSON Iterative (C++),twitter,1.517332,1090648,1091192,22,0
+4. Statistics,RapidJSON Iterative (C++),citm_catalog,0.297835,0,0,0,0
+4. Statistics,RapidJSON Iterative (C++),canada,0.979537,0,0,0,0
+4. Statistics,RapidJSON Iterative (C++),twitter,0.131737,0,0,0,0
+5. Sax Round-trip,RapidJSON Iterative (C++),citm_catalog,5.495337,567656,568488,26,0
+5. Sax Round-trip,RapidJSON Iterative (C++),canada,23.032561,2873400,2874232,30,0
+5. Sax Round-trip,RapidJSON Iterative (C++),twitter,3.018253,687928,689080,25,0
+6. SaxStatistics,RapidJSON Iterative (C++),citm_catalog,3.911141,0,288,2,0
+6. SaxStatistics,RapidJSON Iterative (C++),canada,8.200222,0,288,2,0
+6. SaxStatistics,RapidJSON Iterative (C++),twitter,1.723019,0,608,4,0
+1. Parse,RapidJSON (C++),citm_catalog,3.733437,1114728,1122800,29,0
+1. Parse,RapidJSON (C++),canada,9.040144,2870912,3170152,61,0
+1. Parse,RapidJSON (C++),twitter,1.983120,786928,792728,25,0
+2. Stringify,RapidJSON (C++),citm_catalog,1.660040,567656,568200,24,0
+2. Stringify,RapidJSON (C++),canada,17.713801,2873400,2873944,28,0
+2. Stringify,RapidJSON (C++),twitter,1.378599,687928,688472,21,0
+3. Prettify,RapidJSON (C++),citm_catalog,3.248860,1915624,1916168,27,0
+3. Prettify,RapidJSON (C++),canada,19.098442,9697512,9698056,31,0
+3. Prettify,RapidJSON (C++),twitter,1.559979,1090648,1091192,22,0
+4. Statistics,RapidJSON (C++),citm_catalog,0.261717,0,0,0,0
+4. Statistics,RapidJSON (C++),canada,0.912807,0,0,0,0
+4. Statistics,RapidJSON (C++),twitter,0.122148,0,0,0,0
+5. Sax Round-trip,RapidJSON (C++),citm_catalog,4.451923,567656,568488,26,0
+5. Sax Round-trip,RapidJSON (C++),canada,21.618037,2873400,2874232,30,0
+5. Sax Round-trip,RapidJSON (C++),twitter,2.884030,687928,689080,25,0
+6. SaxStatistics,RapidJSON (C++),citm_catalog,3.318802,0,288,2,0
+6. SaxStatistics,RapidJSON (C++),canada,7.775048,0,288,2,0
+6. SaxStatistics,RapidJSON (C++),twitter,1.705072,0,608,4,0
+1. Parse,simdjson,citm_catalog,2.154956,23615008,25342248,9,0
+1. Parse,simdjson,canada,7.240654,30774176,33025272,9,0
+1. Parse,simdjson,twitter,0.775406,8640736,9272296,9,0
+2. Stringify,simdjson,citm_catalog,2.007136,524704,1499936,32,0
+2. Stringify,simdjson,canada,14.865747,2097568,6178256,36,0
+2. Stringify,simdjson,twitter,1.206432,524704,1485216,32,0
+4. Statistics,simdjson,citm_catalog,0.387991,0,0,0,0
+4. Statistics,simdjson,canada,1.330528,0,0,0,0
+4. Statistics,simdjson,twitter,0.169568,0,0,0,0
+1. Parse,SimpleJSON (C++),citm_catalog,23.650105,4945648,4947160,232251,0
+1. Parse,SimpleJSON (C++),canada,34.164206,7146784,7211992,393537,0
+1. Parse,SimpleJSON (C++),twitter,15.322146,2963952,2964912,132884,0
+2. Stringify,SimpleJSON (C++),citm_catalog,43.409168,24,5976072,130275,0
+2. Stringify,SimpleJSON (C++),canada,244.510900,24,18934648,360791,0
+2. Stringify,SimpleJSON (C++),twitter,16.313573,24,6825208,62090,0
+4. Statistics,SimpleJSON (C++),citm_catalog,0.880402,0,0,0,0
+4. Statistics,SimpleJSON (C++),canada,1.752420,0,0,0,0
+4. Statistics,SimpleJSON (C++),twitter,0.451949,0,0,0,0
+1. Parse,taocpp json (C++11),citm_catalog,10.131430,4074288,4074880,33888,0
+1. Parse,taocpp json (C++11),canada,27.034368,11295736,11383816,114209,0
+1. Parse,taocpp json (C++11),twitter,5.412462,2040008,2041176,20817,0
+2. Stringify,taocpp json (C++11),citm_catalog,3.683141,500368,1024664,13,0
+2. Stringify,taocpp json (C++11),canada,16.754500,2090288,4187448,15,0
+2. Stringify,taocpp json (C++11),twitter,2.529089,466960,991256,13,0
+3. Prettify,taocpp json (C++11),citm_catalog,5.797766,1727264,3824424,17,0
+3. Prettify,taocpp json (C++11),canada,24.290175,8111424,16500040,18,0
+3. Prettify,taocpp json (C++11),twitter,3.284273,767344,1815928,16,0
 4. Statistics,taocpp json (C++11),citm_catalog,0.000039,0,0,0,0
-4. Statistics,taocpp json (C++11),canada,0.000045,0,0,0,0
+4. Statistics,taocpp json (C++11),canada,0.000039,0,0,0,0
 4. Statistics,taocpp json (C++11),twitter,0.000045,0,0,0,0

@@ -76,16 +76,16 @@ void ReportBase::print_statistics( std::string_view test_case, std::string_view 
 
     auto logf = fmt::output_file(p.string());
     logf.print("# Statistics count is different from reference\n\n");
-    logf.print( "objectCount  {:10}  ref: {:10}\n", stat.objectCount, stat_reference.objectCount );
-    logf.print( "arrayCount   {:10}  ref: {:10}\n", stat.arrayCount, stat_reference.arrayCount );
-    logf.print( "numberCount  {:10}  ref: {:10}\n", stat.numberCount, stat_reference.numberCount );
-    logf.print( "stringCount  {:10}  ref: {:10}\n", stat.stringCount, stat_reference.stringCount );
-    logf.print( "trueCount    {:10}  ref: {:10}\n", stat.trueCount, stat_reference.trueCount );
-    logf.print( "falseCount   {:10}  ref: {:10}\n", stat.falseCount, stat_reference.falseCount );
-    logf.print( "nullCount    {:10}  ref: {:10}\n", stat.nullCount, stat_reference.nullCount );
-    logf.print( "memberCount  {:10}  ref: {:10}\n", stat.memberCount, stat_reference.memberCount );
-    logf.print( "elementCount {:10}  ref: {:10}\n", stat.elementCount, stat_reference.elementCount );
-    logf.print( "stringLength {:10}  ref: {:10}\n", stat.stringLength, stat_reference.stringLength );
+    logf.print( " objectCount  {:10}  ref: {:10}\n", stat.objectCount, stat_reference.objectCount );
+    logf.print( " arrayCount   {:10}  ref: {:10}\n", stat.arrayCount, stat_reference.arrayCount );
+    logf.print( " numberCount  {:10}  ref: {:10}\n", stat.numberCount, stat_reference.numberCount );
+    logf.print( " stringCount  {:10}  ref: {:10}\n", stat.stringCount, stat_reference.stringCount );
+    logf.print( " trueCount    {:10}  ref: {:10}\n", stat.trueCount, stat_reference.trueCount );
+    logf.print( " falseCount   {:10}  ref: {:10}\n", stat.falseCount, stat_reference.falseCount );
+    logf.print( " nullCount    {:10}  ref: {:10}\n", stat.nullCount, stat_reference.nullCount );
+    logf.print( " memberCount  {:10}  ref: {:10}\n", stat.memberCount, stat_reference.memberCount );
+    logf.print( " elementCount {:10}  ref: {:10}\n", stat.elementCount, stat_reference.elementCount );
+    logf.print( " stringLength {:10}  ref: {:10}\n", stat.stringLength, stat_reference.stringLength );
 }
 
 void ReportBase::add_performance_statistics(std::string_view test, std::string_view test_case, std::string_view filename, double duration,

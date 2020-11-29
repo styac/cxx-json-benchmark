@@ -34,6 +34,8 @@ public:
 
     void print_statistics( std::string_view test_case, std::string_view test, const std::string &file, const Stat& stat, const Stat& stat_reference );
 
+    void print_performance( std::string_view test_case, std::string_view test, const std::string &file, const Stat& stat, const Stat& stat_reference );
+
     void add_performance_statistics(std::string_view test, std::string_view test_case, std::string_view filename, double duration,
                                     uint64_t currentSize, uint64_t peakSize, uint64_t mallocCount );
 
