@@ -4,14 +4,14 @@
     reallocCount 0
     freeCount    141384
     currentSize  120
-    peakSize     7055944
+    peakSize     7055848
 
 ## potential memory leak - allocation count 4  for 112 in test JSON Spirit (C++) / place verify
     mallocCount  588663
     reallocCount 0
     freeCount    588659
     currentSize  112
-    peakSize     6516096
+    peakSize     6516400
 
 ## potential memory leak - allocation count 1  for 24 in test Vinenthz libjson (C) / place check pass
     mallocCount  8
@@ -34,12 +34,12 @@
     currentSize  48
     peakSize     29024
 
-## potential memory leak - allocation count 5  for 152 in test Vinenthz libjson (C) / place check fail
+## potential memory leak - allocation count 5  for 136 in test Vinenthz libjson (C) / place check fail
     mallocCount  12
     reallocCount 0
     freeCount    7
-    currentSize  152
-    peakSize     29152
+    currentSize  136
+    peakSize     29136
 
 ## potential memory leak - allocation count 1  for 24 in test Vinenthz libjson (C) / place check fail
     mallocCount  7
@@ -118,12 +118,12 @@
     currentSize  24
     peakSize     29000
 
-## potential memory leak - allocation count 4  for 112 in test Vinenthz libjson (C) / place check fail
+## potential memory leak - allocation count 4  for 128 in test Vinenthz libjson (C) / place check fail
     mallocCount  10
     reallocCount 0
     freeCount    6
-    currentSize  112
-    peakSize     29088
+    currentSize  128
+    peakSize     29104
 
 ## potential memory leak - allocation count 1  for 24 in test Vinenthz libjson (C) / place check fail
     mallocCount  7
@@ -146,12 +146,12 @@
     currentSize  24
     peakSize     29000
 
-## potential memory leak - allocation count 2  for 48 in test Vinenthz libjson (C) / place check fail
+## potential memory leak - allocation count 2  for 64 in test Vinenthz libjson (C) / place check fail
     mallocCount  8
     reallocCount 0
     freeCount    6
-    currentSize  48
-    peakSize     29024
+    currentSize  64
+    peakSize     29040
 
 ## potential memory leak - allocation count 4  for 112 in test Vinenthz libjson (C) / place check fail
     mallocCount  10
@@ -167,12 +167,12 @@
     currentSize  152
     peakSize     29168
 
-## potential memory leak - allocation count 4  for 96 in test Vinenthz libjson (C) / place check fail
+## potential memory leak - allocation count 4  for 112 in test Vinenthz libjson (C) / place check fail
     mallocCount  10
     reallocCount 0
     freeCount    6
-    currentSize  96
-    peakSize     29072
+    currentSize  112
+    peakSize     29088
 
 ## potential memory leak - allocation count 4  for 96 in test Vinenthz libjson (C) / place check fail
     mallocCount  10
@@ -230,12 +230,12 @@
     currentSize  48
     peakSize     29024
 
-## potential memory leak - allocation count 2  for 64 in test Vinenthz libjson (C) / place check fail
+## potential memory leak - allocation count 2  for 48 in test Vinenthz libjson (C) / place check fail
     mallocCount  8
     reallocCount 0
     freeCount    6
-    currentSize  64
-    peakSize     29040
+    currentSize  48
+    peakSize     29024
 
 ## potential memory leak - allocation count 1  for 24 in test Vinenthz libjson (C) / place check fail
     mallocCount  7

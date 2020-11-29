@@ -14,32 +14,6 @@ https://github.com/miloyip/nativejson-benchmark
 
 http://seriot.ch/parsing_json.php
 
-1. clone
-
-git clone --recursive https://github.com/styac/cxx-json-benchmark
-
-./checkout_thirdparty.sh
-
-./pull_thirdparty.sh
-
-2. out of source build
-
-./compile.sh
-
-3. cd ../cxx-json-benchmark_build
-
-./json-benchmark
-
-4. cd ../cxx-json-benchmark/result
-
-5. make
-
-6. view
-
-conformance.html
-
-performance_*.html
-
 #### test platform:
 
 - opensuse 15.2
