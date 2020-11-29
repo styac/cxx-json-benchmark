@@ -142,3 +142,6 @@
 [submodule "thirdparty/ThorsSerializer"]
 	path = thirdparty/ThorsSerializer
 	url = https://github.com/Loki-Astari/ThorsSerializer
+[submodule "thirdparty/meojson"]
+	path = thirdparty/meojson
+	url = https://github.com/MistEO/meojson
