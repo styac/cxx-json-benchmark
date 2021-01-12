@@ -59,7 +59,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
-ö¢
+@/ü
 ~~~
 
 * Fail:
@@ -68,7 +68,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
-ö¢
+@/ü
 ~~~
 
 * Fail:
@@ -77,7 +77,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
-∞Çá
+êä≈
 ~~~
 
 * Fail:
@@ -86,7 +86,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
-ö¢
+@/ü
 ~~~
 
 * Fail:
@@ -95,7 +95,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
-∞Çá
+êä≈
 ~~~
 
 * Fail:
@@ -104,7 +104,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
-ö¢
+@/ü
 ~~~
 
 * Fail:
@@ -122,7 +122,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
-ö¢
+@/ü
 ~~~
 
 * Fail:
@@ -131,7 +131,7 @@ Summary: 9 of 9 are correct.
 ~~~
 
 ~~~js
-∞Çá
+êä≈
 ~~~
 
 

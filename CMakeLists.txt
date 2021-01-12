@@ -84,6 +84,12 @@ include_directories (
     thirdparty/centijson/src
     thirdparty/cpprestsdk/Release/include
     thirdparty/cpprestsdk/Release/src
+
+    # activate PEGTL -> TODO put to pull script
+    # cd thirdparty/taocppjson
+    # git submodule init
+    # git submodule update
+    thirdparty/taocppjson/external/PEGTL/include
 )
 
 file( GLOB HEADERS ${PROJECT_SOURCE_DIR}
